@@ -1,0 +1,9 @@
+@import './sidebar.scss';
+@import './nav.scss';
+
+.m-editor {
+  @mixin nav {
+  }
+  @mixin sidebar {
+  }
+}
