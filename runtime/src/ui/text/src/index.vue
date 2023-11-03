@@ -1,5 +1,5 @@
 <template>
-  <p>{{ config.text }}123</p>
+  <p>{{ config.text }}</p>
 </template>
 
 <script lang="ts" setup>
@@ -17,9 +17,7 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-onMounted(() => {
-  console.log('mounted')
-})
+onMounted(() => {})
 useApp({
   config: props.config,
   methods: {}

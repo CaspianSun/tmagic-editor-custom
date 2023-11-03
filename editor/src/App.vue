@@ -17,54 +17,40 @@
         <DeviceGroup ref="deviceGroup" v-model="stageRect"></DeviceGroup>
       </template>
     </m-editor>
+    <TMagicDialog v-model="previewVisible" destroy-on-close class="pre-viewer" title="预览" :width="stageRect && stageRect.width">
+      <iframe
+        v-if="previewVisible"
+        ref="iframe"
+        width="100%"
+        style="border: none"
+        :height="stageRect && stageRect.height"
+        :src="previewUrl"
+      ></iframe>
+    </TMagicDialog>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, toRaw } from 'vue'
+import { computed, nextTick, ref, toRaw } from 'vue'
 import { asyncLoadJs } from '@tmagic/utils'
 import { propsService } from '@tmagic/editor'
-import { tMagicMessage } from '@tmagic/design'
+import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
 import type { MenuBarData, TMagicEditor } from '@tmagic/editor'
-import { Document, Coin } from '@element-plus/icons-vue'
+import { Document, Coin, Connection } from '@element-plus/icons-vue'
 import DeviceGroup from './components/DeviceGroup.vue'
 import serialize from 'serialize-javascript'
+import dsl from '@/configs/dsl'
+import { uaMap } from './const'
+import type { Ref } from 'vue'
 
 const { VITE_ENTRY_PATH } = import.meta.env
 
-const value = ref({
-  type: 'app',
-  id: 1,
-  items: [
-    {
-      type: 'page',
-      id: 2,
-      name: 'index',
-      title: '',
-      layout: 'absolute',
-      style: {
-        position: 'relative',
-        left: 0,
-        top: 0,
-        right: '',
-        bottom: '',
-        width: '100%',
-        height: '1728',
-        backgroundImage: '',
-        backgroundColor: 'rgba(248, 218, 218, 1)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 100%',
-        color: '',
-        fontSize: '',
-        fontWeight: ''
-      },
-      items: []
-    }
-  ]
-})
-const editor = ref<InstanceType<typeof TMagicEditor>>()
+const value = ref(dsl)
 const defaultSelected = ref(value.value.items[0].id)
+const previewVisible = ref(false)
+const editor = ref<InstanceType<typeof TMagicEditor>>()
 const deviceGroup = ref<InstanceType<typeof DeviceGroup>>()
+const iframe = ref<HTMLIFrameElement>() as Ref<HTMLIFrameElement>
 const propsValues = ref<Record<string, any>>({})
 const propsConfigs = ref<Record<string, any>>({})
 const eventMethodList = ref<Record<string, any>>({})
@@ -86,7 +72,8 @@ const stageRect = ref({
   height: 817
 })
 
-const runtimeUrl = 'http://localhost:8078/'
+const runtimeUrl = '/code/runtime/'
+const previewUrl = computed(() => `/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get('page')?.id}`)
 
 asyncLoadJs(`./${VITE_ENTRY_PATH}/config/index.umd.js`).then(() => {
   propsConfigs.value = (globalThis as any).magicPresetConfigs
@@ -113,6 +100,33 @@ const menu: MenuBarData = {
   ],
   center: ['delete', 'undo', 'redo', 'guides', 'rule', 'zoom'],
   right: [
+    {
+      type: 'button',
+      text: '预览',
+      icon: Connection,
+      handler: async (services) => {
+        if (services?.editorService.get('modifiedNodeIds').size > 0) {
+          try {
+            await tMagicMessageBox.confirm('有修改未保存，是否先保存再预览', '提示', {
+              confirmButtonText: '保存并预览',
+              cancelButtonText: '预览',
+              type: 'warning'
+            })
+            save()
+            tMagicMessage.success('保存成功')
+          } catch (e) {
+            console.error(e)
+          }
+        }
+        previewVisible.value = true
+        await nextTick(() => {})
+        if (!iframe.value?.contentWindow || !deviceGroup.value?.viewerDevice) return
+        Object.defineProperty(iframe.value.contentWindow.navigator, 'userAgent', {
+          value: uaMap[deviceGroup.value.viewerDevice],
+          writable: true
+        })
+      }
+    },
     {
       type: 'button',
       text: '保存',

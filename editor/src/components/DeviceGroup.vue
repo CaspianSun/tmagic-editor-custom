@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, defineProps } from 'vue'
+import { nextTick, ref } from 'vue'
 
 import Core from '@tmagic/core'
 import { TMagicRadioButton, TMagicRadioGroup } from '@tmagic/design'

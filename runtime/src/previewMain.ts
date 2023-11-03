@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
-import EditPage from './editor/index.vue'
-
+import PreviewPage from './preview/index.vue'
 import { DataSourceManager } from '@tmagic/data-source'
 import './style/index.scss'
 
@@ -9,7 +8,7 @@ Promise.all([
   import('../.tmagic/plugin-entry'),
   import('../.tmagic/datasource-entry')
 ]).then(([components, plugins, datasources]) => {
-  const magicApp = createApp(EditPage)
+  const magicApp = createApp(PreviewPage)
 
   Object.entries(components.default).forEach(([type, component]: [string, any]) => {
     magicApp.component(`${type}`, component)

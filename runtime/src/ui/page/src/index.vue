@@ -1,9 +1,7 @@
 <template>
   <div
     :id="`${config.id || ''}`"
-    :class="`magic-ui-page magic-ui-container magic-layout-${config.layout}${
-      config.className ? ` ${config.className}` : ''
-    }`"
+    :class="`layout-${config.layout}${config.className ? ` ${config.className}` : ''}`"
     :style="style"
   >
     <slot></slot>
@@ -12,34 +10,34 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject } from 'vue';
+import { computed, inject } from 'vue'
 
-import Core from '@tmagic/core';
-import type { MPage } from '@tmagic/schema';
+import Core from '@tmagic/core'
+import type { MPage } from '@tmagic/schema'
 
-import MComponent from '../../Component.vue';
-import useApp from '../../useApp';
+import MComponent from '../../Component.vue'
+import useApp from '../../useApp'
 
 const props = withDefaults(
   defineProps<{
-    config: MPage;
-    model?: any;
+    config: MPage
+    model?: any
   }>(),
   {
-    model: () => ({}),
-  },
-);
+    model: () => ({})
+  }
+)
 
-const app: Core | undefined = inject('app');
+const app: Core | undefined = inject('app')
 
-const style = computed(() => app?.transformStyle(props.config.style || {}));
+const style = computed(() => app?.transformStyle(props.config.style || {}))
 
 const refresh = () => {
-  window.location.reload();
-};
+  window.location.reload()
+}
 
 useApp({
   config: props.config,
-  methods: { refresh },
-});
+  methods: { refresh }
+})
 </script>

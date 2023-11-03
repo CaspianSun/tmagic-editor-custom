@@ -1,13 +1,7 @@
 <script lang="ts" setup>
-import { defineProps, defineOptions, ref } from 'vue'
-import {
-  ElButton,
-  ElCollapse,
-  ElCollapseItem,
-  ElDrawer,
-  ElInputNumber,
-  ElScrollbar
-} from 'element-plus'
+import { ref } from 'vue'
+import { ElButton, ElCol, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
+import { CaretRight, Delete } from '@element-plus/icons-vue'
 import { computed } from 'vue'
 import type { FieldProps } from '@tmagic/form'
 import animateCssData from './animateCssData'
@@ -18,7 +12,16 @@ defineOptions({
 })
 const emit = defineEmits(['change'])
 const props = defineProps<FieldProps<any>>()
-const animationList = computed({
+const animationList = computed<
+  {
+    label: string
+    value: string
+    duration: number
+    delay: number
+    loopCount: number
+    loop: boolean
+  }[]
+>({
   get: () => props.model[props.name],
   set: (e) => {
     onChangeHandler(e)
@@ -31,8 +34,8 @@ const onChangeHandler = (e: any) => {
 const runAnimate = (index: number) => {
   console.log(index)
 }
-const handleDeleteAnimate = () => {
-  console.log('删除动画')
+const handleDeleteAnimate = (index: number) => {
+  animationList.value.splice(index, 1)
 }
 
 const activeName = ref('进入')
@@ -45,19 +48,13 @@ const handleAdd = (status = true) => {
   reSelectAnimateIndex.value = undefined
 }
 
-const handleChooseAnimate = (item: any) => {
-  console.log(item)
+const handleChooseAnimate = (item: { label: string; value: string }) => {
   showAnimatePanel.value = false
-  if (isArray(animationList)) {
-    animationList.value.push({
-      ...item
-    })
+  const obj = { ...item, duration: 1, delay: 0, loopCount: 1, loop: false }
+  if (isArray(animationList.value)) {
+    animationList.value.push(obj)
   } else {
-    animationList.value = [
-      {
-        ...item
-      }
-    ]
+    animationList.value = [obj]
   }
 }
 
@@ -73,64 +70,52 @@ const handleShowChooseAnimatePanel = (index: number) => {
       <ElButton size="small" type="primary" @click="handleAdd()">添加动画</ElButton>
       <ElButton size="small" type="default">预览动画</ElButton>
     </div>
-    <div class="el-animate-list-wrapper paddingT20" v-show="animationList.length">
+    <div class="el-animate-list-wrapper" v-show="animationList.length">
       <ElCollapse accordion>
         <ElCollapseItem v-for="(item, index) in animationList" :key="index">
           <template #title>
-            <span class="el-animate-title-name">动画 {{ index }}</span>
-            <div class="el-animate-title-type-wrapper">
-              <span
-                class="el-animate-title-type"
-                @click.stop.prevent="handleShowChooseAnimatePanel(index)"
-                >{{ item.type }} <i class="el-icon-caret-right size-mini"></i>
-              </span>
+            <div class="flex-1 flex items-center justify-between">
+              <div class="flex items-center">
+                <span class="inline-block vertical-middle text-14px font-bold w-55px"> 动画 {{ index }} </span>
+                <div
+                  class="h-24px max-w-140px c-#333 truncate bg-#fafafa rd-100px pa-4px-16px mx-10px-20px hover:c-white hover:bg-[var(--el-color-primary)] flex-center"
+                  @click.stop.prevent="handleShowChooseAnimatePanel(index)"
+                >
+                  {{ item.label }}
+                  <ElIcon><CaretRight></CaretRight></ElIcon>
+                </div>
+              </div>
+              <div class="mr-20px items-center">
+                <span class="el-animate-title-btn flex-center" @click.stop.prevent="runAnimate(index)">
+                  <ElIcon><CaretRight></CaretRight></ElIcon>
+                </span>
+                <span class="el-animate-title-btn flex-center" @click.stop.prevent="handleDeleteAnimate(index)">
+                  <ElIcon><Delete></Delete></ElIcon>
+                </span>
+              </div>
             </div>
-            <span class="el-animate-title-btn" @click.stop.prevent="runAnimate(index)">
-              <i class="el-icon-caret-right"> </i>
-            </span>
-            <span class="el-animate-title-btn" @click.stop.prevent="handleDeleteAnimate">
-              <i class="el-icon-delete"> </i>
-            </span>
           </template>
-          <div class="el-animate-item">
+
+          <div class="flex flex-col">
             <div class="attr-item-edit-wrapper">
-              <p class="attr-item-title">动画时长：</p>
-              <div class="col-2 attr-item-edit-input">
-                <ElInputNumber
-                  size="small"
-                  v-model="item.duration"
-                  controls-position="right"
-                  :min="0"
-                  :step="0.1"
-                />
+              <span class="attr-item-title">动画时长：</span>
+              <div>
+                <ElInputNumber size="small" v-model="item.duration" controls-position="right" :min="0" :step="0.1" />
               </div>
             </div>
             <div class="attr-item-edit-wrapper">
-              <p class="attr-item-title">动画延迟：</p>
-              <div class="col-2 attr-item-edit-input">
-                <ElInputNumber
-                  size="small"
-                  v-model="item.delay"
-                  controls-position="right"
-                  :min="0"
-                  :step="0.1"
-                />
+              <span class="attr-item-title">动画延迟：</span>
+              <div>
+                <ElInputNumber size="small" v-model="item.delay" controls-position="right" :min="0" :step="0.1" />
               </div>
             </div>
             <div class="attr-item-edit-wrapper">
-              <p class="attr-item-title">循环次数：</p>
-              <div class="col-2 attr-item-edit-input">
-                <ElInputNumber
-                  size="small"
-                  v-model="item.interationCount"
-                  controls-position="right"
-                />
-                <div class="attr-item-edit-input-des">次数</div>
+              <span class="attr-item-title">循环次数：</span>
+              <div>
+                <ElInputNumber size="small" controls-position="right" v-model="item.loopCount" />
               </div>
-              <div class="col-2 attr-item-edit-input">
-                <ElCheckbox v-model="item.infinite" label="infinite" border size="small">
-                  循环播放
-                </ElCheckbox>
+              <div class="ml-10px">
+                <ElCheckbox v-model="item.loop" label="infinite" border size="small"> 循环播放 </ElCheckbox>
               </div>
             </div>
           </div>
@@ -139,12 +124,7 @@ const handleShowChooseAnimatePanel = (index: number) => {
     </div>
     <ElDrawer v-model="showAnimatePanel">
       <ElTabs v-model="activeName">
-        <ElTabPane
-          v-for="item in animateCssData"
-          :key="item.label"
-          :label="item.label"
-          :name="item.label"
-        >
+        <ElTabPane v-for="item in animateCssData" :key="item.label" :label="item.label" :name="item.label">
           <ElScrollbar class="h-full">
             <div
               class="w-25% inline-block c-#76838f mb-20px"
@@ -171,108 +151,35 @@ const handleShowChooseAnimatePanel = (index: number) => {
 
 <style lang="scss" scoped>
 .attr-item-edit-wrapper {
-  padding-left: 4px;
+  padding-left: 15px;
   display: flex;
-  width: 100%;
-  text-align: center;
   padding-bottom: 10px;
+  align-items: center;
   .attr-item-title {
-    text-align: left;
-    min-width: 60px;
     font-size: 12px;
     line-height: 28px;
   }
-  .attr-item-edit-input {
-    &.col-2 {
-      width: 90px;
-      margin-left: 10px;
-    }
-    &.col-1 {
-      width: 250px;
-    }
-    &.col-3 {
-      width: 60px;
-      margin-left: 10px;
-    }
-    &.col-4 {
-      width: 50px;
-      margin-left: 10px;
-    }
-    .attr-item-edit-input-des {
-      text-align: center;
-      line-height: 1;
-      margin-top: 2px;
-      font-size: 12px;
-      color: #ccc;
-    }
-  }
 }
 
-.el-animate-list-wrapper {
-  .el-animate-title-name {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 14px;
-    font-weight: bold;
-    width: 55px;
-  }
-  .el-animate-title-type-wrapper {
-    display: inline-block;
-    width: 164px;
-  }
-  .el-animate-title-type {
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 140px;
-    height: 24px;
-    line-height: 1px;
-    color: #333;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background: #fafafa;
-    border-radius: 60px;
-    padding: 4px 16px;
-    border: none;
-    cursor: pointer;
-    margin: 0 20px 0 10px;
-    &:hover {
-      color: white;
-      background: var(--el-color-primary);
-    }
-  }
-  .el-animate-title-btn {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    line-height: 24px;
-    font-size: 14px;
-    color: #666;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    border-radius: 4px;
-    background: rgba(37, 165, 137, 0.08);
-    margin-left: 6px;
-    &:hover {
-      color: white;
-      background: var(--el-color-primary);
-    }
+.el-animate-title-btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #25a58914;
+  margin-left: 6px;
+  &:hover {
+    color: white;
+    background: var(--el-color-primary);
   }
 }
 </style>
 
 <style lang="scss">
-.components-attr-edit {
-  .el-tabs {
-    height: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-  }
-}
-
 .el-drawer__header {
   margin-bottom: -20px;
+}
+.el-input__wrapper {
+  border-radius: var(--el-input-border-radius, var(--el-border-radius-base)) !important;
 }
 </style>

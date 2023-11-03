@@ -3,14 +3,25 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, nextTick, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, provide, reactive, ref, watch } from 'vue'
 
 import Core from '@tmagic/core'
 import type { Id, MApp, MNode } from '@tmagic/schema'
 import type { RemoveData, UpdateData } from '@tmagic/stage'
 import { getNodePath, replaceChildNode } from '@tmagic/utils'
 
-const app = inject<Core | undefined>('app')
+const app = new Core({
+  ua: window.navigator.userAgent,
+  platform: 'editor'
+})
+if (app.env.isWeb) {
+  app.setDesignWidth(window.document.documentElement.getBoundingClientRect().width)
+}
+provide('app', app)
+onMounted(() => {
+  window.appInstance = app
+})
+
 const root = ref<MApp>()
 const curPageId = ref<Id>()
 const selectedId = ref<Id>()
@@ -55,7 +66,6 @@ window.magic?.onRuntimeReady({
   },
 
   add({ config, parentId }: UpdateData) {
-    console.log('add', config, parentId)
     if (!root.value) throw new Error('error')
     if (!selectedId.value) throw new Error('error')
     if (!parentId) throw new Error('error')

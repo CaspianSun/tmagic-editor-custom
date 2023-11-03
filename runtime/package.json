@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "entry": "tmagic entry",
+    "build": "vite build",
     "build:libs": "tmagic entry && npm run build:config && npm run build:value && npm run build:event && npm run build:ds:libs",
     "build:ds:libs": "npm run build:ds:config && npm run build:ds:value && npm run build:ds:event",
     "build:config": "vite build --config entry.vite.config.ts --mode config",

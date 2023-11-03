@@ -22,12 +22,24 @@ export default defineConfig({
     vueJsx(),
     UnoCSS()
   ],
-  base: '/',
-  publicDir: 'public',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  base: '/code/',
+  server: {
+    host: '0.0.0.0',
+    port: 8098,
+    strictPort: true,
+    proxy: {
+      '^/code/runtime': {
+        target: 'http://127.0.0.1:8078',
+        changeOrigin: true,
+        prependPath: false
+      }
+    }
+  },
+
   optimizeDeps: { esbuildOptions: { define: { global: 'globalThis' } } }
 })

@@ -11,14 +11,6 @@ export default defineConfig({
       }
     ],
     [
-      /^white$/,
-      () => ({
-        opacity: '1',
-        animation: 'none'
-      })
-    ],
-    [/^fixed$/, () => ({})],
-    [
       /^ma-(.+)-(.+)$/,
       ([, a, b]) => ({
         margin: `${a} ${b}`
@@ -45,9 +37,17 @@ export default defineConfig({
       })
     ],
     [
-      /^w-calc-(.+)-(.+)$/,
+      /^mx-(.+)-(.+)$/,
       ([, a, b]) => ({
-        width: `calc(${a} - ${b})`
+        'margin-left': `${a}`,
+        'margin-right': `${b}`
+      })
+    ],
+    [
+      /^my-(.+)-(.+)$/,
+      ([, a, b]) => ({
+        'margin-top': `${a}`,
+        'margin-bottom': `${b}`
       })
     ]
   ],
@@ -55,7 +55,9 @@ export default defineConfig({
     {
       full: 'w-full h-full',
       'abs-full': 'absolute inset-0',
-      'flex-center': 'flex items-center justify-center'
+      'flex-center': 'flex items-center justify-center',
+      'items-center': 'flex items-center',
+      'justify-center': 'flex justify-center'
     }
   ]
 })
