@@ -1,9 +1,11 @@
 import page from '../ui/page/src/initValue';
-import qsText from '../ui/text/initValue';
+import text from '../ui/text/initValue';
+import img from '../ui/img/src/initValue';
 
 const values: Record<string, any> = {
   'page': page,
-  'qs-text': qsText,
+  'text': text,
+  'img': img,
 };
 
 export default values;

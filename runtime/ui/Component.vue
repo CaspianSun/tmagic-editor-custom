@@ -1,20 +1,22 @@
 <template>
-  <component
-    v-if="display()"
-    ref="component"
-    :is="tagName"
-    :id="config.id"
-    :class="`magic-ui-component${config.className ? ` ${config.className}` : ''}`"
-    :style="style"
-    :config="config"
-  ></component>
+  <Animation>
+    <component
+      v-if="display()"
+      ref="component"
+      :is="tagName"
+      :id="config.id"
+      :class="`magic-ui-component${config.className ? ` ${config.className}` : ''}`"
+      :style="style"
+      :config="config"
+    ></component>
+  </Animation>
 </template>
 
 <script lang="ts" setup>
 import { computed, inject } from 'vue'
-
 import Core from '@tmagic/core'
 import { toLine } from '@tmagic/utils'
+import Animation from '@ui/components/Animate.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -29,7 +31,7 @@ const props = withDefaults(
 
 const app: Core | undefined = inject('app')
 
-const tagName = computed(() => `${toLine(props.config.type)}`)
+const tagName = computed(() => `qs-${toLine(props.config.type)}`)
 const style = computed(() => app?.transformStyle(props.config.style))
 
 const display = () => {

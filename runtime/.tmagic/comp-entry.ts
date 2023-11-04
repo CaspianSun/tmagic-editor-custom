@@ -1,9 +1,11 @@
 import page from '../ui/page/src/index.vue';
-import qsText from '../ui/text/index.vue';
+import text from '../ui/text/index.vue';
+import img from '../ui/img/src/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
-  'qs-text': qsText,
+  'text': text,
+  'img': img,
 };
 
 export default components;

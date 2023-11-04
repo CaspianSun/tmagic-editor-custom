@@ -1,10 +1,11 @@
 import Page from './page'
 import Text from './text'
+import Img from './img'
 
 const ui: Record<string, any> = {
   page: Page,
-  'qs-text': Text
+  text: Text,
+  img: Img
 }
 
-console.log('ui', Object.keys(ui))
 export default ui

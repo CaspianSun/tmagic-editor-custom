@@ -12,7 +12,7 @@ Promise.all([
   const magicApp = createApp(EditPage)
 
   Object.entries(components.default).forEach(([type, component]: [string, any]) => {
-    magicApp.component(`${type}`, component)
+    magicApp.component(`qs-${type}`, component)
   })
 
   Object.entries(datasources).forEach(([type, ds]: [string, any]) => {

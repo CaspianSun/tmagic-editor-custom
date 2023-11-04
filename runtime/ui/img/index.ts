@@ -16,11 +16,9 @@
  * limitations under the License.
  */
 
-export default {
-  text: '请输入文本内容',
-  multiple: true,
-  style: {
-    width: '100',
-    height: 'auto'
-  }
-}
+import Img from './src/index.vue';
+
+export { default as config } from './src/formConfig';
+export { default as value } from './src/initValue';
+
+export default Img;

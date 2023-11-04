@@ -1,11 +1,9 @@
 <template>
-  <p>{{ config.text }}</p>
+  <img class="magic-ui-img" :src="config.src" @click="clickHandler" />
 </template>
-
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
-import { onMounted, ref } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -17,7 +15,10 @@ const props = withDefaults(
   }
 )
 
-onMounted(() => {})
+const clickHandler = () => {
+  if (props.config.url) window.location.href = props.config.url
+}
+
 useApp({
   config: props.config,
   methods: {}

@@ -16,7 +16,7 @@ import Core from '@tmagic/core'
 import type { MPage } from '@tmagic/schema'
 
 import MComponent from '@ui/Component.vue'
-import useApp from '@ui/useApp'
+import useApp from '@ui/utils/useApp'
 
 const props = withDefaults(
   defineProps<{

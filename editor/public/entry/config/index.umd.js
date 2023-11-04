@@ -39,7 +39,7 @@
     }
   ];
 
-  const qsText = [
+  const text = [
     {
       name: "text",
       text: "文本",
@@ -52,9 +52,23 @@
     }
   ];
 
+  const img = [
+    {
+      text: "图片",
+      name: "src",
+      type: "data-source-input"
+    },
+    {
+      text: "链接",
+      name: "url",
+      type: "data-source-input"
+    }
+  ];
+
   const configs = {
     "page": page,
-    "qs-text": qsText
+    "text": text,
+    "img": img
   };
 
   return configs;

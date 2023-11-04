@@ -6,8 +6,13 @@ export const componentGroupList = [
     items: [
       {
         icon: 'https://vfiles.gtimg.cn/vupload/20220614/9cc3091655207317835.png',
-        text: 'Button',
-        type: 'qs-text'
+        text: '文字',
+        type: 'text'
+      },
+      {
+        icon: 'https://vfiles.gtimg.cn/vupload/20220614/9cc3091655207317835.png',
+        text: '图片',
+        type: 'img'
       }
     ]
   }

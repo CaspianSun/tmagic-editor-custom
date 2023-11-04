@@ -1,9 +1,11 @@
 import page from '../ui/page/src/formConfig';
-import qsText from '../ui/text/formConfig';
+import text from '../ui/text/formConfig';
+import img from '../ui/img/src/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
-  'qs-text': qsText,
+  'text': text,
+  'img': img,
 };
 
 export default configs;

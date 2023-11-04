@@ -8,12 +8,12 @@
     "build": "vite build",
     "build:libs": "tmagic entry && npm run build:config && npm run build:value && npm run build:event && npm run build:ds:libs",
     "build:ds:libs": "npm run build:ds:config && npm run build:ds:value && npm run build:ds:event",
-    "build:config": "vite build --config entry.vite.config.ts --mode config",
-    "build:value": "vite build --config entry.vite.config.ts --mode value",
-    "build:event": "vite build --config entry.vite.config.ts --mode event",
-    "build:ds:config": "vite build --config entry.vite.config.ts --mode ds:config",
-    "build:ds:value": "vite build --config entry.vite.config.ts --mode ds:value",
-    "build:ds:event": "vite build --config entry.vite.config.ts --mode ds:event"
+    "build:config": "vite build --config entry.vite.config.ts --mode config --emptyOutDir",
+    "build:value": "vite build --config entry.vite.config.ts --mode value --emptyOutDir",
+    "build:event": "vite build --config entry.vite.config.ts --mode event --emptyOutDir",
+    "build:ds:config": "vite build --config entry.vite.config.ts --mode ds:config --emptyOutDir",
+    "build:ds:value": "vite build --config entry.vite.config.ts --mode ds:value --emptyOutDir",
+    "build:ds:event": "vite build --config entry.vite.config.ts --mode ds:event --emptyOutDir"
   },
   "dependencies": {
     "animate.css": "^4.1.1",

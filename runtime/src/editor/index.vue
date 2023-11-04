@@ -1,5 +1,5 @@
 <template>
-  <page class="page" v-if="pageConfig" :key="pageConfig.id" :config="pageConfig"></page>
+  <qs-page class="page" v-if="pageConfig" :key="pageConfig.id" :config="pageConfig"></qs-page>
 </template>
 
 <script lang="ts" setup>
