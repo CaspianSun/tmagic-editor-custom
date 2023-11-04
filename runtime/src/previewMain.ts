@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import PreviewPage from './preview/index.vue'
 import { DataSourceManager } from '@tmagic/data-source'
 import './style/index.scss'
+import 'animate.css'
 
 Promise.all([
   import('../.tmagic/comp-entry'),

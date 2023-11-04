@@ -1,6 +1,6 @@
 const components: Record<string, any> = {
-  'page': () => import('../src/ui/page/src/index.vue'),
-  'qs-text': () => import('../src/ui/text/src/index.vue'),
+  'page': () => import('../ui/page/src/index.vue'),
+  'qs-text': () => import('../ui/text/index.vue'),
 };
 
 export default components;

@@ -1,12 +1,20 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["types/**/*.d.ts", ".tmagic/**/*", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "types/**/*.d.ts",
+    ".tmagic/**/*",
+    "src/**/*",
+    "src/**/*.vue",
+    "ui/**/*",
+    "ui/**/*.vue"
+  ],
   "exclude": ["src/**/__tests__/*", "node_modules", "dist", "**/*.js"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@ui/*": ["./ui/*"]
     }
   }
 }

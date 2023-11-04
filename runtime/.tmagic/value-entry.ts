@@ -1,5 +1,5 @@
-import page from '../src/ui/page/src/initValue';
-import qsText from '../src/ui/text/src/initValue';
+import page from '../ui/page/src/initValue';
+import qsText from '../ui/text/initValue';
 
 const values: Record<string, any> = {
   'page': page,

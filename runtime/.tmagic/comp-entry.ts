@@ -1,5 +1,5 @@
-import page from '../src/ui/page/src/index.vue';
-import qsText from '../src/ui/text/src/index.vue';
+import page from '../ui/page/src/index.vue';
+import qsText from '../ui/text/index.vue';
 
 const components: Record<string, any> = {
   'page': page,

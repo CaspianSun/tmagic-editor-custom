@@ -15,8 +15,8 @@ import { computed, inject } from 'vue'
 import Core from '@tmagic/core'
 import type { MPage } from '@tmagic/schema'
 
-import MComponent from '../../Component.vue'
-import useApp from '../../useApp'
+import MComponent from '@ui/Component.vue'
+import useApp from '@ui/useApp'
 
 const props = withDefaults(
   defineProps<{

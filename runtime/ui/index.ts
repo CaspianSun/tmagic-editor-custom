@@ -6,4 +6,5 @@ const ui: Record<string, any> = {
   'qs-text': Text
 }
 
+console.log('ui', Object.keys(ui))
 export default ui

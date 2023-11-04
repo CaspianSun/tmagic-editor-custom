@@ -1,39 +1,37 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { ElButton, ElCol, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
+import { ref, watch } from 'vue'
+import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
 import { CaretRight, Delete } from '@element-plus/icons-vue'
-import { computed } from 'vue'
 import type { FieldProps } from '@tmagic/form'
 import animateCssData from './animateCssData'
-import { isArray } from 'lodash'
+import { isArray, cloneDeep } from 'lodash'
+import { editorService } from '@tmagic/editor'
 
 defineOptions({
   name: 'MAnimation'
 })
 const emit = defineEmits(['change'])
 const props = defineProps<FieldProps<any>>()
-const animationList = computed<
-  {
-    label: string
-    value: string
-    duration: number
-    delay: number
-    loopCount: number
-    loop: boolean
-  }[]
->({
-  get: () => props.model[props.name],
-  set: (e) => {
-    onChangeHandler(e)
-  }
-})
-const onChangeHandler = (e: any) => {
-  emit('change', e)
-}
 
-const runAnimate = (index: number) => {
-  console.log(index)
+type AnimationConfig = {
+  label: string
+  value: string
+  duration: number
+  delay: number
+  loopCount: number
+  loop: boolean
 }
+const animationList = ref<AnimationConfig[]>(cloneDeep(props.model[props.name]))
+watch(
+  () => animationList,
+  (val) => {
+    emit('change', val.value)
+  },
+  {
+    deep: true
+  }
+)
+
 const handleDeleteAnimate = (index: number) => {
   animationList.value.splice(index, 1)
 }
@@ -50,11 +48,16 @@ const handleAdd = (status = true) => {
 
 const handleChooseAnimate = (item: { label: string; value: string }) => {
   showAnimatePanel.value = false
-  const obj = { ...item, duration: 1, delay: 0, loopCount: 1, loop: false }
-  if (isArray(animationList.value)) {
-    animationList.value.push(obj)
+  if (reSelectAnimateIndex.value == void 0) {
+    const obj = { ...item, duration: 1, delay: 0, loopCount: 1, loop: false }
+    if (isArray(animationList.value)) {
+      animationList.value.push(obj)
+    } else {
+      animationList.value = [obj]
+    }
   } else {
-    animationList.value = [obj]
+    animationList.value[reSelectAnimateIndex.value].label = item.label
+    animationList.value[reSelectAnimateIndex.value].value = item.value
   }
 }
 
@@ -62,13 +65,19 @@ const handleShowChooseAnimatePanel = (index: number) => {
   reSelectAnimateIndex.value = index
   showAnimatePanel.value = true
 }
+
+const handlePreviewAnimate = (animation: AnimationConfig[]) => {
+  const id = editorService.get('node')?.id
+  const iframe = editorService.get('stage')?.renderer.iframe
+  iframe?.contentWindow?.postMessage({ type: 'animation', data: { animation: JSON.stringify(animation), id } }, '*')
+}
 </script>
 
 <template>
   <div class="flex flex-col flex-1">
     <div class="mb-15px">
       <ElButton size="small" type="primary" @click="handleAdd()">添加动画</ElButton>
-      <ElButton size="small" type="default">预览动画</ElButton>
+      <ElButton size="small" type="default" @click="handlePreviewAnimate(animationList)">预览动画</ElButton>
     </div>
     <div class="el-animate-list-wrapper" v-show="animationList.length">
       <ElCollapse accordion>
@@ -86,7 +95,7 @@ const handleShowChooseAnimatePanel = (index: number) => {
                 </div>
               </div>
               <div class="mr-20px items-center">
-                <span class="el-animate-title-btn flex-center" @click.stop.prevent="runAnimate(index)">
+                <span class="el-animate-title-btn flex-center" @click.stop.prevent="handlePreviewAnimate([item])">
                   <ElIcon><CaretRight></CaretRight></ElIcon>
                 </span>
                 <span class="el-animate-title-btn flex-center" @click.stop.prevent="handleDeleteAnimate(index)">

@@ -1,4 +1,4 @@
-import page from '../src/ui/page/src/event';
+import page from '../ui/page/src/event';
 
 const events: Record<string, any> = {
   'page': page,

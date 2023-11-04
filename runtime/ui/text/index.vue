@@ -1,13 +1,16 @@
 <template>
-  <p>{{ config.text }}</p>
+  <Animation>
+    <p ref="textRef">{{ config.text }}</p>
+  </Animation>
 </template>
 
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
+import useApp from '@ui/useApp'
+import { onMounted, ref } from 'vue'
+import Animation from '@ui/components/Animate.vue'
 
-import useApp from '../../useApp'
-import { onMounted } from 'vue'
-
+const textRef = ref<HTMLElement>()
 const props = withDefaults(
   defineProps<{
     config: MComponent
@@ -17,6 +20,7 @@ const props = withDefaults(
     model: () => ({})
   }
 )
+
 onMounted(() => {})
 useApp({
   config: props.config,

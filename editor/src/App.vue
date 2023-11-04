@@ -5,13 +5,18 @@
       v-model="value"
       :menu="menu"
       :runtime-url="runtimeUrl"
-      :component-group-list="componentGroupList"
       :props-values="propsValues"
       :props-configs="propsConfigs"
       :event-method-list="eventMethodList"
-      :data-source-configs="dataSourceConfigs"
-      :stage-rect="stageRect"
+      :datasource-event-method-list="datasourceEventMethodList"
+      :datasource-configs="dataSourceConfigs"
+      :datasource-values="datasourceValues"
+      :component-group-list="componentGroupList"
+      :datasource-list="datasourceList"
       :default-selected="defaultSelected"
+      :moveable-options="moveableOptions"
+      :auto-scroll-into-view="true"
+      :stage-rect="stageRect"
     >
       <template #workspace-content>
         <DeviceGroup ref="deviceGroup" v-model="stageRect"></DeviceGroup>
@@ -31,21 +36,25 @@
 </template>
 
 <script lang="ts" setup>
+import type { Ref } from 'vue'
 import { computed, nextTick, ref, toRaw } from 'vue'
+import { NodeType } from '@tmagic/schema'
 import { asyncLoadJs } from '@tmagic/utils'
-import { propsService } from '@tmagic/editor'
+import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
 import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
-import type { MenuBarData, TMagicEditor } from '@tmagic/editor'
+import { propsService } from '@tmagic/editor'
+import type { DatasourceTypeOption, MenuBarData, MoveableOptions, TMagicEditor } from '@tmagic/editor'
 import { Document, Coin, Connection } from '@element-plus/icons-vue'
 import DeviceGroup from './components/DeviceGroup.vue'
 import serialize from 'serialize-javascript'
-import dsl from '@/configs/dsl'
 import { uaMap } from './const'
-import type { Ref } from 'vue'
+import dsl from '@/configs/dsl'
+import { componentGroupList } from '@/configs/componentGroupList'
 
 const { VITE_ENTRY_PATH } = import.meta.env
 
 const value = ref(dsl)
+const datasourceList: DatasourceTypeOption[] = []
 const defaultSelected = ref(value.value.items[0].id)
 const previewVisible = ref(false)
 const editor = ref<InstanceType<typeof TMagicEditor>>()
@@ -55,18 +64,13 @@ const propsValues = ref<Record<string, any>>({})
 const propsConfigs = ref<Record<string, any>>({})
 const eventMethodList = ref<Record<string, any>>({})
 const dataSourceConfigs = ref<Record<string, any>>({})
-const componentGroupList = ref([
-  {
-    title: '组件列表',
-    items: [
-      {
-        icon: 'https://vfiles.gtimg.cn/vupload/20220614/9cc3091655207317835.png',
-        text: 'Button',
-        type: 'qs-text'
-      }
-    ]
+const datasourceValues = ref<Record<string, any>>({})
+const datasourceEventMethodList = ref<Record<string, any>>({
+  base: {
+    events: [],
+    methods: []
   }
-])
+})
 const stageRect = ref({
   width: 375,
   height: 817
@@ -88,7 +92,7 @@ asyncLoadJs(`./${VITE_ENTRY_PATH}/ds-config/index.umd.js`).then(() => {
   dataSourceConfigs.value = (globalThis as any).magicPresetDsConfigs
 })
 asyncLoadJs(`./${VITE_ENTRY_PATH}/ds-value/index.umd.js`).then(() => {
-  dataSourceConfigs.value = (globalThis as any).magicPresetDsValues
+  datasourceValues.value = (globalThis as any).magicPresetDsValues
 })
 
 const menu: MenuBarData = {
@@ -146,7 +150,33 @@ const menu: MenuBarData = {
   ]
 }
 
+const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): MoveableOptions => {
+  const options: MoveableOptions = {}
+
+  if (!editor.value) return options
+
+  const page = editor.value.editorService.get('page')
+
+  const ids = config?.targetElIds || []
+  let isPage = page && ids.includes(`${page.id}`)
+
+  if (!isPage) {
+    const id = config?.targetElId
+    if (id) {
+      const node = editor.value.editorService.getNodeById(id)
+      isPage = node?.type === NodeType.PAGE
+    }
+  }
+
+  options.draggable = !isPage
+  options.resizable = !isPage
+  options.rotatable = !isPage
+
+  return options
+}
+
 const save = () => {
+  console.log(value.value)
   localStorage.setItem(
     'magicDSL',
     serialize(toRaw(value.value), {

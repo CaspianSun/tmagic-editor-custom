@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-import Text from './src/index.vue';
+import Text from './index.vue'
 
-export { default as config } from './src/formConfig';
-export { default as value } from './src/initValue';
+export { default as config } from './formConfig'
+export { default as value } from './initValue'
 
-export default Text;
+export default Text

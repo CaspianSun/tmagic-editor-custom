@@ -1,5 +1,5 @@
-import page from '../src/ui/page/src/formConfig';
-import qsText from '../src/ui/text/src/formConfig';
+import page from '../ui/page/src/formConfig';
+import qsText from '../ui/text/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
