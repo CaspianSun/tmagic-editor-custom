@@ -44,4 +44,4 @@ onMounted(() => {
   window.appInstance = app
 })
 </script>
-ui/utils
+ui/utils @/ui/utils

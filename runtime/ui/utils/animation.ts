@@ -10,6 +10,7 @@ export async function runAnimation(
   animationList: AnimationConfig[] = [],
   isDebug: boolean
 ) {
+  if (!animationList) return
   const animationStr = animationList
     .map((item) => {
       return `${item.value} ${item.duration}s linear ${item.delay}s ${

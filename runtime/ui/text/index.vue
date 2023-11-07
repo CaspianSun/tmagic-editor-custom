@@ -23,3 +23,4 @@ useApp({
   methods: {}
 })
 </script>
+@/ui/utils/useApp

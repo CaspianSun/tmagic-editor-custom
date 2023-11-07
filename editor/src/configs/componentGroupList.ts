@@ -2,15 +2,30 @@ import { FolderOpened, Grid, PictureFilled, SwitchButton, Tickets } from '@eleme
 
 export const componentGroupList = [
   {
+    title: '布局组件',
+    items: [
+      {
+        icon: FolderOpened,
+        text: '组',
+        type: 'container'
+      },
+      {
+        icon: FolderOpened,
+        text: '遮罩',
+        type: 'overlay'
+      }
+    ]
+  },
+  {
     title: '组件列表',
     items: [
       {
-        icon: 'https://vfiles.gtimg.cn/vupload/20220614/9cc3091655207317835.png',
+        icon: Tickets,
         text: '文字',
         type: 'text'
       },
       {
-        icon: 'https://vfiles.gtimg.cn/vupload/20220614/9cc3091655207317835.png',
+        icon: PictureFilled,
         text: '图片',
         type: 'img'
       }

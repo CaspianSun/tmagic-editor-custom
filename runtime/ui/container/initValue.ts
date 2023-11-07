@@ -16,15 +16,10 @@
  * limitations under the License.
  */
 
-export default [
-  {
-    text: '图片',
-    name: 'src',
-    type: 'data-source-input',
+export default {
+  items: [],
+  style: {
+    width: '375',
+    height: '100',
   },
-  {
-    text: '链接',
-    name: 'url',
-    type: 'data-source-input',
-  },
-];
+};

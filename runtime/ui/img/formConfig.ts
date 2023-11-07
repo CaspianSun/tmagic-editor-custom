@@ -16,13 +16,28 @@
  * limitations under the License.
  */
 
-export default {
-  src: 'https://seopic.699pic.com/photo/50051/4111.jpg_wh1200.jpg',
-  url: '',
-  style: {
-    position: 'absolute',
-    left: '57',
-    width: '176',
-    height: 'auto'
+export default [
+  {
+    text: '图片',
+    name: 'src',
+    type: 'data-source-input'
+  },
+  {
+    text: '链接',
+    name: 'url',
+    type: 'data-source-input'
+  },
+  {
+    text: 'Fit',
+    name: 'fit',
+    type: 'select',
+    options: [
+      { value: 'contain', text: 'Contain' },
+      { value: 'cover', text: 'Cover' },
+      { value: 'fill', text: 'Fill' },
+      { value: 'none', text: 'None' },
+      { value: 'unset', text: 'Unset' },
+      { value: 'inherit', text: 'Inherit' }
+    ]
   }
-}
+]

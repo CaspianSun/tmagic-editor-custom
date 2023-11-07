@@ -1,9 +1,19 @@
 <template>
-  <img class="magic-ui-img" :src="config.src" @click="clickHandler" />
+  <div>
+    <Image
+      :fit="config.fit"
+      class="image"
+      width="100%"
+      height="100%"
+      :src="config.src"
+      @click="clickHandler"
+    ></Image>
+  </div>
 </template>
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
+import { Image } from 'vant'
 
 const props = withDefaults(
   defineProps<{
@@ -24,3 +34,13 @@ useApp({
   methods: {}
 })
 </script>
+
+<style lang="scss">
+.image {
+  font-size: 0;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>

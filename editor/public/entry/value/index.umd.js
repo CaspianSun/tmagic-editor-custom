@@ -24,6 +24,7 @@
   const img = {
     src: "https://seopic.699pic.com/photo/50051/4111.jpg_wh1200.jpg",
     url: "",
+    fit: "contain",
     style: {
       position: "absolute",
       left: "57",
@@ -32,10 +33,29 @@
     }
   };
 
+  const container = {
+    items: [],
+    style: {
+      width: "375",
+      height: "100"
+    }
+  };
+
+  const overlay = {
+    style: {
+      position: "fixed",
+      top: 0,
+      left: 0
+    },
+    items: []
+  };
+
   const values = {
     "page": page,
     "text": text,
-    "img": img
+    "img": img,
+    "container": container,
+    "overlay": overlay
   };
 
   return values;

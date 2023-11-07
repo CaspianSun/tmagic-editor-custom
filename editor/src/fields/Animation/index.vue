@@ -1,18 +1,16 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref, toRef, watch } from 'vue'
 import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
 import { CaretRight, Delete } from '@element-plus/icons-vue'
 import type { FieldProps } from '@tmagic/form'
 import animateCssData from './animateCssData'
-import { isArray, cloneDeep } from 'lodash'
+import { isArray } from 'lodash'
 import { editorService } from '@tmagic/editor'
 
 defineOptions({
   name: 'MAnimation'
 })
 const emit = defineEmits(['change'])
-const props = defineProps<FieldProps<any>>()
-
 type AnimationConfig = {
   label: string
   value: string
@@ -21,11 +19,15 @@ type AnimationConfig = {
   loopCount: number
   loop: boolean
 }
-const animationList = ref<AnimationConfig[]>(cloneDeep(props.model[props.name]))
+
+const props = defineProps<FieldProps<AnimationConfig>>()
+const model = toRef(props, 'model')
+const animationList = ref(model.value[props.name] ?? [])
 watch(
   () => animationList,
   (val) => {
-    emit('change', val.value)
+    model.value[props.name] = val.value
+    emit('change', model.value)
   },
   {
     deep: true
