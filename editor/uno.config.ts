@@ -1,5 +1,6 @@
 import { defineConfig } from 'unocss'
 import { presetUno } from 'unocss'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
   presets: [presetUno()],
@@ -59,5 +60,6 @@ export default defineConfig({
       'items-center': 'flex items-center',
       'justify-center': 'flex justify-center'
     }
-  ]
+  ],
+  transformers: [transformerVariantGroup()]
 })

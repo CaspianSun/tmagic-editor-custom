@@ -1,9 +1,12 @@
 @import './sidebar.scss';
 @import './nav.scss';
+@import './props-panel.scss';
 
 .m-editor {
   @mixin nav {
   }
   @mixin sidebar {
+  }
+  @mixin props-panel {
   }
 }
