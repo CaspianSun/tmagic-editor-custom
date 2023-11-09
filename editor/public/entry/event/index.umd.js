@@ -36,21 +36,27 @@
     ],
     events: [
       {
-        label: "打开遮罩",
+        label: "打开遮罩后",
         value: "overlay:open"
       },
       {
-        label: "关闭遮罩",
+        label: "关闭遮罩后",
         value: "overlay:close"
       }
     ]
+  };
+
+  const button = {
+    methods: [],
+    events: []
   };
 
   const events = {
     "page": page,
     "img": img,
     "container": container,
-    "overlay": overlay
+    "overlay": overlay,
+    "button": button
   };
 
   return events;

@@ -1,20 +1,25 @@
 <template>
-  <Overlay :show="show">
-    <div class="wrapper" @click.stop>
-      <qs-container :config="{ items: config.items }">
+  <Overlay :lazy-render="true" :show="show">
+    <div class="wrapper">
+      <QsContainer
+        :config="{
+          id: config.id,
+          items: config.items
+        }"
+      >
         <slot></slot>
-      </qs-container>
+      </QsContainer>
     </div>
   </Overlay>
 </template>
 <script lang="ts" setup>
-import { inject, ref } from 'vue'
-
-import Core from '@tmagic/core'
+import { ref } from 'vue'
 import type { MComponent, MNode } from '@tmagic/schema'
-
 import useApp from '@ui/utils/useApp'
 import { Overlay } from 'vant'
+import QsContainer from '@ui/container/index.vue'
+
+const show = ref(false)
 
 const props = withDefaults(
   defineProps<{
@@ -25,10 +30,6 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-
-const show = ref(false)
-const app: Core | undefined = inject('app')
-const node = app?.page?.getNode(props.config.id)
 
 const openOverlay = () => {
   show.value = true
@@ -44,19 +45,21 @@ const closeOverlay = () => {
   }
 }
 
+const app = useApp({
+  config: props.config,
+  methods: {
+    openOverlay,
+    closeOverlay
+  }
+})
+
+const node = app?.page?.getNode(props.config.id)
+
 app?.page?.on('editor:select', (info, path) => {
   if (path.find((node: MNode) => node.id === props.config.id)) {
     openOverlay()
   } else {
     closeOverlay()
-  }
-})
-
-useApp({
-  config: props.config,
-  methods: {
-    openOverlay,
-    closeOverlay
   }
 })
 </script>

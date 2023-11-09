@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div class="image">
     <Image
       :fit="config.fit"
-      class="image"
       width="100%"
       height="100%"
       :src="config.src"

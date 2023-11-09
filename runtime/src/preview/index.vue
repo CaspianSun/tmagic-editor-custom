@@ -35,7 +35,6 @@ provide('app', app)
 const pageConfig = reactive<any>(app?.page?.data || {})
 
 onMounted(() => {
-  console.log(app)
   app?.dataSourceManager?.on('update-data', (nodes: MNode[]) => {
     nodes.forEach((node) => {
       replaceChildNode(reactive(node), [pageConfig as MNode])

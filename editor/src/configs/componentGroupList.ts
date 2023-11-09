@@ -28,6 +28,11 @@ export const componentGroupList = [
         icon: PictureFilled,
         text: '图片',
         type: 'img'
+      },
+      {
+        icon: SwitchButton,
+        text: '按钮',
+        type: 'button'
       }
     ]
   }

@@ -50,12 +50,25 @@
     items: []
   };
 
+  const button = {
+    style: {},
+    vantProps: {
+      text: "按钮",
+      type: "primary",
+      size: "small",
+      plain: false,
+      hairline: false,
+      round: false
+    }
+  };
+
   const values = {
     "page": page,
     "text": text,
     "img": img,
     "container": container,
-    "overlay": overlay
+    "overlay": overlay,
+    "button": button
   };
 
   return values;

@@ -4,6 +4,7 @@ const components: Record<string, any> = {
   'img': () => import('../ui/img/index.vue'),
   'container': () => import('../ui/container/index.vue'),
   'overlay': () => import('../ui/overlay/index.vue'),
+  'button': () => import('../ui/button/index.vue'),
 };
 
 export default components;

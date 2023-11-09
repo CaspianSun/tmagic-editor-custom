@@ -10,13 +10,11 @@ defineOptions({
   name: 'MStyle'
 })
 const props = defineProps<FieldProps<any>>()
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change', 'addDiffCount'])
 const style = computed({
   get: () => props.model[props.name] ?? {},
-  set: (val) => {
-    const model = cloneDeep(props.model)
-    model[props.name] = val
-    emit('change', val)
+  set: async (val) => {
+    emit('change', cloneDeep(val), 'style')
   }
 })
 
@@ -30,7 +28,15 @@ const MONACO_EDITOR_OPTIONS = {
   lineDecorationsWidth: 6,
   lineNumbersMinChars: 0
 }
-
+watch(
+  () => style,
+  () => {
+    console.log('style', style.value, props.model)
+  },
+  {
+    deep: true
+  }
+)
 const newCode = ref('')
 const code = computed({
   get: () => JSON.stringify(style.value, null, 2),
