@@ -6,7 +6,7 @@
 
   const page = {
     items: [],
-    style: { width: "100%", height: "100%" }
+    style: { width: "100%", height: "100%", backgroundColor: "#eff2f5" }
   };
 
   const text = {
@@ -67,6 +67,22 @@
     }
   };
 
+  const form = {
+    style: {
+      width: 300,
+      height: 100
+    },
+    layout: "form",
+    items: [],
+    vantProps: {
+      labelWidth: "50px",
+      labelAlign: "left",
+      inputAlign: "left",
+      colon: false,
+      required: false
+    }
+  };
+
   const values = {
     "page": page,
     "text": text,
@@ -74,7 +90,8 @@
     "container": container,
     "overlay": overlay,
     "button": button,
-    "field": field
+    "field": field,
+    "form": form
   };
 
   return values;

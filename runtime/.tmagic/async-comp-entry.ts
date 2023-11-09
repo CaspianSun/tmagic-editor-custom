@@ -6,6 +6,7 @@ const components: Record<string, any> = {
   'overlay': () => import('../ui/overlay/index.vue'),
   'button': () => import('../ui/button/index.vue'),
   'field': () => import('../ui/field/index.vue'),
+  'form': () => import('../ui/form/index.vue'),
 };
 
 export default components;

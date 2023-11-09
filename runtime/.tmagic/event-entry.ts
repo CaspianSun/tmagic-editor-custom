@@ -4,6 +4,7 @@ import container from '../ui/container/event';
 import overlay from '../ui/overlay/event';
 import button from '../ui/button/event';
 import field from '../ui/field/event';
+import form from '../ui/form/event';
 
 const events: Record<string, any> = {
   'page': page,
@@ -12,6 +13,7 @@ const events: Record<string, any> = {
   'overlay': overlay,
   'button': button,
   'field': field,
+  'form': form,
 };
 
 export default events;

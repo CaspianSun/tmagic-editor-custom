@@ -33,6 +33,16 @@ export const componentGroupList = [
         icon: SwitchButton,
         text: '按钮',
         type: 'button'
+      }
+    ]
+  },
+  {
+    title: '表单列表',
+    items: [
+      {
+        icon: Tickets,
+        text: '表单容器',
+        type: 'form'
       },
       {
         icon: Tickets,

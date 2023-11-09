@@ -5,6 +5,7 @@ import container from '../ui/container/index.vue';
 import overlay from '../ui/overlay/index.vue';
 import button from '../ui/button/index.vue';
 import field from '../ui/field/index.vue';
+import form from '../ui/form/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -14,6 +15,7 @@ const components: Record<string, any> = {
   'overlay': overlay,
   'button': button,
   'field': field,
+  'form': form,
 };
 
 export default components;

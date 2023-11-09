@@ -5,6 +5,7 @@ import container from '../ui/container/formConfig';
 import overlay from '../ui/overlay/formConfig';
 import button from '../ui/button/formConfig';
 import field from '../ui/field/formConfig';
+import form from '../ui/form/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
@@ -14,6 +15,7 @@ const configs: Record<string, any> = {
   'overlay': overlay,
   'button': button,
   'field': field,
+  'form': form,
 };
 
 export default configs;

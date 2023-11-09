@@ -5,6 +5,7 @@ import container from '../ui/container/initValue';
 import overlay from '../ui/overlay/initValue';
 import button from '../ui/button/initValue';
 import field from '../ui/field/initValue';
+import form from '../ui/form/initValue';
 
 const values: Record<string, any> = {
   'page': page,
@@ -14,6 +15,7 @@ const values: Record<string, any> = {
   'overlay': overlay,
   'button': button,
   'field': field,
+  'form': form,
 };
 
 export default values;
