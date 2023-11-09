@@ -11,7 +11,8 @@ export default {
       style: {
         position: 'relative',
         width: '100%',
-        height: '100vh'
+        height: '100vh',
+        backgroundColor: '#eff2f5'
       },
       items: [
         {
@@ -21,7 +22,7 @@ export default {
             width: '100',
             height: 'auto',
             position: 'absolute',
-            top: 146,
+            top: 131,
             left: 137.5,
             right: ''
           },
@@ -51,7 +52,7 @@ export default {
             left: 99.5,
             width: '176',
             height: 'auto',
-            top: 283,
+            top: 295,
             right: ''
           },
           name: '图片',
@@ -252,6 +253,49 @@ export default {
           mounted: '',
           displayConds: [],
           animation: ''
+        },
+        {
+          id: 'field_eea3f47a',
+          type: 'field',
+          style: {
+            width: 300,
+            position: 'absolute',
+            top: 201,
+            left: 38,
+            right: '',
+            'border-radius': 10,
+            overflow: 'hidden'
+          },
+          name: '输入框',
+          model: '',
+          vantProps: {
+            label: '输入框',
+            labelWidth: '50px',
+            name: 'input',
+            type: 'text',
+            size: '',
+            placeholder: '请输入文字',
+            maxlength: '',
+            border: true,
+            colon: false,
+            required: false,
+            center: false,
+            clearable: false
+          },
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            }
+          ]
         }
       ]
     }

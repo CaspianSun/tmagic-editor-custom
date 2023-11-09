@@ -1,11 +1,26 @@
-import { propsService } from '@tmagic/editor'
+import { propsService, editorService } from '@tmagic/editor'
+import type { MContainer, MNode } from '@tmagic/schema'
+export const useCustomService = () => {
+  editorService.usePlugin({
+    beforeDoAdd: (config: MNode, parent?: MContainer | null) => {
+      if (config.type === 'overlay') {
+        config.style = {
+          ...config.style,
+          left: 0,
+          top: 0
+        }
 
-export const useCustomProps = () => {
+        return [config, editorService.get('page')]
+      }
+
+      return [config, parent]
+    }
+  })
   propsService.usePlugin({
-    afterFillConfig(result: string, config: any) {
+    afterFillConfig(result: string) {
       return result
     },
-    afterGetPropsConfig(result: any, config: any) {
+    afterGetPropsConfig(result: any) {
       const props = result[0].items
       const animation = {
         title: '动画',
@@ -37,4 +52,4 @@ export const useCustomProps = () => {
   })
 }
 
-export default useCustomProps
+export default useCustomService

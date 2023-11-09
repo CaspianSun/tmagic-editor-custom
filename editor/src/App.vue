@@ -17,6 +17,7 @@
       :moveable-options="moveableOptions"
       :auto-scroll-into-view="true"
       :stage-rect="stageRect"
+      :can-select="canSelect"
     >
       <template #workspace-content>
         <DeviceGroup ref="deviceGroup" v-model="stageRect"></DeviceGroup>
@@ -44,14 +45,14 @@ import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
 import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
 import type { DatasourceTypeOption, MenuBarData, MoveableOptions, TMagicEditor } from '@tmagic/editor'
 import { Document, Coin, Connection } from '@element-plus/icons-vue'
-import DeviceGroup from './components/DeviceGroup.vue'
 import serialize from 'serialize-javascript'
+import DeviceGroup from './components/DeviceGroup.vue'
 import { uaMap } from './const'
 import { componentGroupList } from '@/configs/componentGroupList'
 import dsl from '@/configs/dsl'
-import { useCustomProps } from '@/common/customProps'
+import { useCustomService } from '@/common/customServices'
 
-useCustomProps()
+useCustomService()
 const { VITE_ENTRY_PATH } = import.meta.env
 const value = ref(dsl)
 const datasourceList: DatasourceTypeOption[] = []
@@ -73,7 +74,7 @@ const datasourceEventMethodList = ref<Record<string, any>>({
 })
 const stageRect = ref({
   width: 375,
-  height: 817
+  height: 812
 })
 
 const runtimeUrl = '/code/runtime/'
@@ -149,6 +150,7 @@ const menu: MenuBarData = {
     }
   ]
 }
+const canSelect = (el: HTMLElement): Boolean => el.classList.contains('magic-ui-component') || el.classList.contains('magic-ui-container')
 
 const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): MoveableOptions => {
   const options: MoveableOptions = {}
@@ -171,12 +173,10 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
   options.draggable = !isPage
   options.resizable = !isPage
   options.rotatable = !isPage
-
   return options
 }
 
 const save = () => {
-  console.log(value.value)
   localStorage.setItem(
     'magicDSL',
     serialize(toRaw(value.value), {

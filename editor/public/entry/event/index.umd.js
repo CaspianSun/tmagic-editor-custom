@@ -51,12 +51,18 @@
     events: []
   };
 
+  const field = {
+    methods: [],
+    events: []
+  };
+
   const events = {
     "page": page,
     "img": img,
     "container": container,
     "overlay": overlay,
-    "button": button
+    "button": button,
+    "field": field
   };
 
   return events;

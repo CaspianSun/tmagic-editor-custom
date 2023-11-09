@@ -4,6 +4,7 @@ import img from '../ui/img/index.vue';
 import container from '../ui/container/index.vue';
 import overlay from '../ui/overlay/index.vue';
 import button from '../ui/button/index.vue';
+import field from '../ui/field/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -12,6 +13,7 @@ const components: Record<string, any> = {
   'container': container,
   'overlay': overlay,
   'button': button,
+  'field': field,
 };
 
 export default components;

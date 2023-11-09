@@ -1,22 +1,19 @@
 <template>
-  <Animation>
-    <component
-      v-if="display()"
-      ref="component"
-      :is="tagName"
-      :id="config.id"
-      :class="`magic-ui-component${config.className ? ` ${config.className}` : ''}`"
-      :style="style"
-      :config="config"
-    ></component>
-  </Animation>
+  <component
+    v-if="display()"
+    :is="tagName"
+    :id="config.id"
+    :class="`magic-ui-component${config.className ? ` ${config.className}` : ''}`"
+    :style="style"
+    :config="config"
+  ></component>
 </template>
 
 <script lang="ts" setup>
-import { computed, inject } from 'vue'
+import { computed, inject, onMounted, ref, watch } from 'vue'
 import Core from '@tmagic/core'
 import { toLine } from '@tmagic/utils'
-import Animation from '@ui/components/Animate.vue'
+import { runAnimation } from '@ui/utils/animation'
 
 const props = withDefaults(
   defineProps<{
@@ -45,4 +42,34 @@ const display = () => {
   }
   return displayCfg !== false
 }
+
+// const animationRef = ref<HTMLDivElement>()
+const oldAnimation = ref()
+
+onMounted(() => {
+  watch(
+    () => props.config.animation,
+    (val) => {
+      if (JSON.stringify(val) == JSON.stringify(oldAnimation.value)) return
+      oldAnimation.value = val
+      const el = document.getElementById(`${props.config.id}`)
+      if (!el) return
+      runAnimation(el, val, true)
+    },
+    {
+      immediate: true
+    }
+  )
+})
+
+window.addEventListener('message', (event) => {
+  if (event.data?.type === 'animation') {
+    if (event.data.data?.id == props.config.id) {
+      const el = document.getElementById(`${props.config.id}`)
+      if (!el) return
+      runAnimation(el, JSON.parse(event.data.data.animation), true)
+      el.style.animationPlayState = 'running'
+    }
+  }
+})
 </script>

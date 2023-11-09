@@ -3,9 +3,6 @@ export default {
   url: '',
   fit: 'contain',
   style: {
-    position: 'absolute',
-    left: '57',
-    width: '176',
-    height: 'auto'
+    width: 176
   }
 }

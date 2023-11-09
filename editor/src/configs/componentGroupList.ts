@@ -33,6 +33,11 @@ export const componentGroupList = [
         icon: SwitchButton,
         text: '按钮',
         type: 'button'
+      },
+      {
+        icon: Tickets,
+        text: '输入框',
+        type: 'field'
       }
     ]
   }

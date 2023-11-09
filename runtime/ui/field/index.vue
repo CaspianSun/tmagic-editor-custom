@@ -1,12 +1,13 @@
 <template>
-  <div class="image">
-    <Image :fit="config.fit" :src="config.src"></Image>
+  <div>
+    <Field v-model="props.config.model" v-bind="vantProps"></Field>
   </div>
 </template>
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
-import { Image } from 'vant'
+import { Field } from 'vant'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -17,23 +18,13 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-
+const vantProps = computed(() => {
+  return props.config.vantProps ?? {}
+})
 useApp({
   config: props.config,
   methods: {}
 })
 </script>
 
-<style lang="scss">
-.image {
-  font-size: 0;
-  .van-image {
-    width: 100%;
-    height: 100%;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-</style>
+<style lang="scss"></style>

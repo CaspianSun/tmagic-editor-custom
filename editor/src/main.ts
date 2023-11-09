@@ -1,7 +1,6 @@
 import 'element-plus/dist/index.css'
 import '@tmagic/editor/dist/style.css'
 import '@tmagic/form/dist/style.css'
-import 'element-plus/dist/index.css'
 import '@/style/index.scss'
 import 'animate.css'
 import 'virtual:uno.css'
@@ -37,7 +36,7 @@ loader.config({ monaco })
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
-
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import TMagicDesign from '@tmagic/design'
 import TMagicEditor from '@tmagic/editor'
 import TMagicElementPlusAdapter from '@tmagic/element-plus-adapter'
@@ -49,7 +48,9 @@ import App from './App.vue'
 
 createApp(App)
   .use(createPinia())
-  .use(ElementPlus)
+  .use(ElementPlus, {
+    locale: zhCn
+  })
   .use(TMagicDesign, TMagicElementPlusAdapter)
   .use(TMagicEditor)
   .use(TMagicForm)

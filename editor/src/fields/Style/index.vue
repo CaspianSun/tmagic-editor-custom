@@ -1,20 +1,19 @@
 <script lang="ts" setup>
 import type { FieldProps } from '@tmagic/form'
-import { ref, shallowRef, computed, watch, onMounted, toRef } from 'vue'
+import { ref, shallowRef, computed } from 'vue'
 import { VueMonacoEditor } from '@guolao/vue-monaco-editor'
 import { ElCollapse, ElCollapseItem } from 'element-plus'
-import { cloneDeep } from 'lodash'
 import Layout from './components/Layout.vue'
 
 defineOptions({
   name: 'MStyle'
 })
 const props = defineProps<FieldProps<any>>()
-const emit = defineEmits(['change', 'addDiffCount'])
+const emit = defineEmits(['change'])
 const style = computed({
-  get: () => props.model[props.name] ?? {},
+  get: () => props.model[props.name] ?? '{}',
   set: async (val) => {
-    emit('change', cloneDeep(val), 'style')
+    emit('change', val, 'style')
   }
 })
 
@@ -28,15 +27,7 @@ const MONACO_EDITOR_OPTIONS = {
   lineDecorationsWidth: 6,
   lineNumbersMinChars: 0
 }
-watch(
-  () => style,
-  () => {
-    console.log('style', style.value, props.model)
-  },
-  {
-    deep: true
-  }
-)
+
 const newCode = ref('')
 const code = computed({
   get: () => JSON.stringify(style.value, null, 2),

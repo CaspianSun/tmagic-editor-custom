@@ -41,4 +41,3 @@ useApp({
   methods: { refresh }
 })
 </script>
-@/ui/utils/useApp

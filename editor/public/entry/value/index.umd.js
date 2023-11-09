@@ -6,19 +6,13 @@
 
   const page = {
     items: [],
-    style: {
-      width: "100%",
-      height: "100%"
-    }
+    style: { width: "100%", height: "100%" }
   };
 
   const text = {
     text: "请输入文本内容",
     multiple: true,
-    style: {
-      width: "100",
-      height: "auto"
-    }
+    style: {}
   };
 
   const img = {
@@ -26,27 +20,17 @@
     url: "",
     fit: "contain",
     style: {
-      position: "absolute",
-      left: "57",
-      width: "176",
-      height: "auto"
+      width: 176
     }
   };
 
   const container = {
     items: [],
-    style: {
-      width: "375",
-      height: "100"
-    }
+    style: { position: "relative", width: "100%", height: "100px" }
   };
 
   const overlay = {
-    style: {
-      position: "fixed",
-      top: 0,
-      left: 0
-    },
+    style: { position: "fixed", top: 0, left: 0 },
     items: []
   };
 
@@ -62,13 +46,35 @@
     }
   };
 
+  const field = {
+    style: {
+      width: 300
+    },
+    model: "",
+    vantProps: {
+      label: "输入框",
+      labelWidth: "50px",
+      name: "input",
+      type: "text",
+      size: "",
+      placeholder: "请输入文字",
+      maxlength: "",
+      border: true,
+      colon: false,
+      required: false,
+      center: false,
+      clearable: false
+    }
+  };
+
   const values = {
     "page": page,
     "text": text,
     "img": img,
     "container": container,
     "overlay": overlay,
-    "button": button
+    "button": button,
+    "field": field
   };
 
   return values;

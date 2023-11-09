@@ -4,6 +4,7 @@ import Img from './img'
 import Container from './container'
 import Overlay from './overlay'
 import Button from './button'
+import Field from './field'
 
 const ui: Record<string, any> = {
   page: Page,
@@ -11,7 +12,8 @@ const ui: Record<string, any> = {
   img: Img,
   container: Container,
   overlay: Overlay,
-  button: Button
+  button: Button,
+  field: Field
 }
 
 export default ui
