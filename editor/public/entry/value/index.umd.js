@@ -25,6 +25,7 @@
   };
 
   const container = {
+    layout: "absolute",
     items: [],
     style: { position: "relative", width: "100%", height: "100px" }
   };
@@ -50,7 +51,6 @@
     style: {
       width: 300
     },
-    model: "",
     vantProps: {
       label: "输入框",
       labelWidth: "50px",
@@ -59,6 +59,7 @@
       size: "",
       placeholder: "请输入文字",
       maxlength: "",
+      rule: "[]",
       border: true,
       colon: false,
       required: false,
@@ -68,11 +69,11 @@
   };
 
   const form = {
+    layout: "absolute",
     style: {
       width: 300,
       height: 100
     },
-    layout: "form",
     items: [],
     vantProps: {
       labelWidth: "50px",
@@ -80,6 +81,55 @@
       inputAlign: "left",
       colon: false,
       required: false
+    }
+  };
+
+  const check_box = {
+    style: {
+      width: 300
+    },
+    options: [
+      {
+        label: "选项1",
+        name: "1",
+        disabled: false,
+        shape: "square"
+      }
+    ],
+    vantProps: {
+      label: "复选框",
+      labelWidth: "50px",
+      name: "checkbox",
+      size: "",
+      rule: "[]",
+      border: true,
+      colon: false,
+      required: false,
+      center: false
+    }
+  };
+
+  const radio = {
+    style: {
+      width: 300
+    },
+    options: [
+      {
+        label: "选项1",
+        name: "1",
+        disabled: false
+      }
+    ],
+    vantProps: {
+      label: "单选框",
+      labelWidth: "50px",
+      name: "radio",
+      size: "",
+      rule: "[]",
+      border: true,
+      colon: false,
+      required: false,
+      center: false
     }
   };
 
@@ -91,7 +141,9 @@
     "overlay": overlay,
     "button": button,
     "field": field,
-    "form": form
+    "form": form,
+    "check_box": check_box,
+    "radio": radio
   };
 
   return values;

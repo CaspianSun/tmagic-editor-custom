@@ -5,6 +5,8 @@ import overlay from '../ui/overlay/event';
 import button from '../ui/button/event';
 import field from '../ui/field/event';
 import form from '../ui/form/event';
+import check_box from '../ui/checkbox/event';
+import radio from '../ui/radio/event';
 
 const events: Record<string, any> = {
   'page': page,
@@ -14,6 +16,8 @@ const events: Record<string, any> = {
   'button': button,
   'field': field,
   'form': form,
+  'check_box': check_box,
+  'radio': radio,
 };
 
 export default events;

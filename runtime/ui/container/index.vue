@@ -14,15 +14,18 @@
 import { computed, inject } from 'vue'
 
 import Core from '@tmagic/core'
-import type { MContainer } from '@tmagic/schema'
+import type { Id, MContainer } from '@tmagic/schema'
 
 import MComponent from '@ui/Component.vue'
 import useApp from '@ui/utils/useApp'
 import useCommonMethod from '@ui/utils/useCommonMethod'
 
+interface MContainerConfig extends Omit<MContainer, 'id'> {
+  id?: Id
+}
 const props = withDefaults(
   defineProps<{
-    config: MContainer
+    config: MContainerConfig
     model?: any
   }>(),
   {
@@ -50,4 +53,3 @@ useApp({
   }
 })
 </script>
-@/ui/utils/useApp@/ui/utils/useCommonMethod

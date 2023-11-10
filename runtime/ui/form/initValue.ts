@@ -1,9 +1,9 @@
 export default {
+  layout: 'absolute',
   style: {
     width: 300,
     height: 100
   },
-  layout: 'form',
   items: [],
   vantProps: {
     labelWidth: '50px',

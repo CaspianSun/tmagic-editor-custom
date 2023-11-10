@@ -187,11 +187,6 @@
 
   const field = [
     {
-      name: "model",
-      type: "data-source-input",
-      text: "绑定值"
-    },
-    {
       name: "vantProps",
       labelWidth: "80px",
       items: [
@@ -241,6 +236,11 @@
           text: "表单标识"
         },
         {
+          name: "rule",
+          type: "data-source-input",
+          text: "校验规则"
+        },
+        {
           name: "colon",
           type: "switch",
           text: "冒号"
@@ -270,6 +270,28 @@
   ];
 
   const form = [
+    {
+      name: "layout",
+      text: "容器布局",
+      type: "select",
+      defaultValue: "absolute",
+      options: [
+        { value: "absolute", text: "绝对定位" },
+        { value: "relative", text: "流式布局" }
+      ],
+      onChange: (formState, v, { model }) => {
+        if (!model.style)
+          return v;
+        if (v === "relative") {
+          model.style.height = "auto";
+        } else {
+          const el = formState.stage?.renderer?.contentWindow.document.getElementById(model.id);
+          if (el) {
+            model.style.height = el.getBoundingClientRect().height;
+          }
+        }
+      }
+    },
     {
       name: "vantProps",
       labelWidth: "80px",
@@ -335,6 +357,206 @@
     }
   ];
 
+  const check_box = [
+    {
+      name: "vantProps",
+      labelWidth: "80px",
+      items: [
+        {
+          name: "size",
+          type: "select",
+          text: "尺寸",
+          options: [
+            {
+              text: "默认",
+              value: ""
+            },
+            {
+              text: "大号",
+              value: "large"
+            }
+          ]
+        },
+        {
+          name: "label",
+          type: "data-source-input",
+          text: "左侧文本"
+        },
+        {
+          name: "labelWidth",
+          type: "data-source-input",
+          text: "左侧宽度"
+        },
+        {
+          name: "name",
+          type: "data-source-input",
+          text: "表单标识"
+        },
+        {
+          name: "rule",
+          type: "data-source-input",
+          text: "校验规则"
+        },
+        {
+          name: "colon",
+          type: "switch",
+          text: "冒号"
+        },
+        {
+          name: "border",
+          type: "switch",
+          text: "内边框"
+        },
+        {
+          name: "required",
+          type: "switch",
+          text: "必填星号"
+        },
+        {
+          name: "center",
+          type: "switch",
+          text: "垂直居中"
+        }
+      ]
+    },
+    {
+      type: "table",
+      name: "options",
+      items: [
+        {
+          name: "label",
+          label: "选项文本"
+        },
+        {
+          name: "name",
+          label: "标识符"
+        },
+        {
+          name: "disabled",
+          label: "禁用",
+          defaultValue: false,
+          type: "switch"
+        },
+        {
+          name: "shape",
+          label: "形状",
+          type: "select",
+          defaultValue: "round",
+          options: [
+            {
+              text: "方形",
+              value: "square"
+            },
+            {
+              text: "圆形",
+              value: "round"
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  const radio = [
+    {
+      name: "vantProps",
+      labelWidth: "80px",
+      items: [
+        {
+          name: "size",
+          type: "select",
+          text: "尺寸",
+          options: [
+            {
+              text: "默认",
+              value: ""
+            },
+            {
+              text: "大号",
+              value: "large"
+            }
+          ]
+        },
+        {
+          name: "label",
+          type: "data-source-input",
+          text: "左侧文本"
+        },
+        {
+          name: "labelWidth",
+          type: "data-source-input",
+          text: "左侧宽度"
+        },
+        {
+          name: "name",
+          type: "data-source-input",
+          text: "表单标识"
+        },
+        {
+          name: "rule",
+          type: "data-source-input",
+          text: "校验规则"
+        },
+        {
+          name: "colon",
+          type: "switch",
+          text: "冒号"
+        },
+        {
+          name: "border",
+          type: "switch",
+          text: "内边框"
+        },
+        {
+          name: "required",
+          type: "switch",
+          text: "必填星号"
+        },
+        {
+          name: "center",
+          type: "switch",
+          text: "垂直居中"
+        }
+      ]
+    },
+    {
+      type: "table",
+      name: "options",
+      items: [
+        {
+          name: "label",
+          label: "选项文本"
+        },
+        {
+          name: "name",
+          label: "标识符"
+        },
+        {
+          name: "disabled",
+          label: "禁用",
+          defaultValue: false,
+          type: "switch"
+        },
+        {
+          name: "shape",
+          label: "形状",
+          type: "select",
+          defaultValue: "round",
+          options: [
+            {
+              text: "方形",
+              value: "square"
+            },
+            {
+              text: "圆形",
+              value: "round"
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
   const configs = {
     "page": page,
     "text": text,
@@ -343,7 +565,9 @@
     "overlay": overlay,
     "button": button,
     "field": field,
-    "form": form
+    "form": form,
+    "check_box": check_box,
+    "radio": radio
   };
 
   return configs;

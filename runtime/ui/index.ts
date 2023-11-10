@@ -6,6 +6,8 @@ import Overlay from './overlay'
 import Button from './button'
 import Field from './field'
 import Form from './form'
+import CheckBox from './checkbox'
+import Radio from './radio'
 
 const ui: Record<string, any> = {
   page: Page,
@@ -15,7 +17,9 @@ const ui: Record<string, any> = {
   overlay: Overlay,
   button: Button,
   field: Field,
-  form: Form
+  form: Form,
+  check_box: CheckBox,
+  radio: Radio
 }
 
 export default ui

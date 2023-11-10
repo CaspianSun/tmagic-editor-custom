@@ -19,16 +19,20 @@
 import { inject, onMounted, onUnmounted } from 'vue'
 
 import Core from '@tmagic/core'
-import type { MComponent } from '@tmagic/schema'
+import type { Id, MComponent } from '@tmagic/schema'
 
+interface MComponentConfig extends Omit<MComponent, 'id'> {
+  id?: Id
+}
 interface UseAppOptions {
-  config: MComponent
+  config: MComponentConfig
   methods?: {
     [key: string]: Function
   }
 }
 
 export default ({ config, methods }: UseAppOptions) => {
+  if (!config.id) return
   const app: Core | undefined = inject('app')
   const node = app?.page?.getNode(config.id)
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Form
-      @submit="submitAfter"
+      @submit="submit"
       @failed="failed"
       ref="form"
       v-model="props.config.model"
@@ -9,7 +9,6 @@
     >
       <QsContainer
         :config="{
-          id: config.id,
           items: config.items
         }"
       >
@@ -37,20 +36,22 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-const submit = () => {
+const formSubmit = () => {
   form.value?.submit()
 }
-const submitAfter = (values: object) => {
+const submit = (values: object) => {
+  console.log('submit', values)
   if (app) {
-    app.emit('form:submit:succeed', values)
+    app.emit('form:submit', values)
   }
 }
 const failed = (errorInfo: { values: object; errors: object[] }) => {
+  console.log('failed')
   if (app) {
     app.emit('form:submit:failed', errorInfo)
   }
 }
-const validate = () => {
+const formValidate = () => {
   form.value?.validate()
 }
 
@@ -60,13 +61,9 @@ const vantProps = computed(() => {
 const app = useApp({
   config: props.config,
   methods: {
-    submit,
-    validate
+    formSubmit,
+    formValidate
   }
-})
-
-defineExpose({
-  submit
 })
 </script>
 

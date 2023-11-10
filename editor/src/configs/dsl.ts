@@ -5,7 +5,7 @@ export default {
     {
       type: 'page',
       id: '2',
-      name: 'index',
+      name: '首页',
       title: '',
       layout: 'absolute',
       style: {
@@ -24,15 +24,15 @@ export default {
             position: 'absolute',
             top: 131,
             left: 137.5,
-            right: ''
+            right: '',
+            textAlign: 'center'
           },
           name: '文本',
-          text: '请输入文本内容',
+          text: '演示',
           multiple: true,
           events: '',
           created: '',
           mounted: '',
-          displayConds: [],
           animation: [
             {
               label: '渐显',
@@ -42,7 +42,8 @@ export default {
               loopCount: 1,
               loop: false
             }
-          ]
+          ],
+          displayConds: []
         },
         {
           id: 'button_62cecca4',
@@ -80,52 +81,16 @@ export default {
           ],
           created: '',
           mounted: '',
-          displayConds: [],
           animation: [
             {
-              label: '向右进入',
-              value: 'fadeInRight',
-              duration: 1,
-              delay: 0,
-              loopCount: 1,
-              loop: false
-            }
-          ]
-        },
-        {
-          id: 'img_3fe8061f',
-          type: 'img',
-          style: {
-            position: 'absolute',
-            left: 99.5,
-            width: '176',
-            height: 'auto',
-            top: 457,
-            right: ''
-          },
-          name: '图片',
-          src: 'https://seopic.699pic.com/photo/50051/4111.jpg_wh1200.jpg',
-          url: '',
-          fit: 'contain',
-          animation: [
-            {
-              label: '向左进入',
-              value: 'fadeInLeft',
+              label: '向上进入',
+              value: 'fadeInUp',
               duration: 1,
               delay: 0,
               loopCount: 1,
               loop: false
             }
           ],
-          events: '',
-          created: {
-            hookType: 'code',
-            hookData: []
-          },
-          mounted: {
-            hookType: 'code',
-            hookData: []
-          },
           displayConds: []
         },
         {
@@ -150,8 +115,9 @@ export default {
                 left: 55,
                 backgroundColor: '#fff',
                 borderRadius: '10px',
-                display: 'inline-block',
-                right: ''
+                display: 'block',
+                right: '',
+                overflow: 'hidden'
               },
               name: '组',
               items: [
@@ -162,13 +128,14 @@ export default {
                     width: '100',
                     height: 'auto',
                     position: 'absolute',
-                    top: 70,
+                    top: 170,
                     left: 83,
                     color: '#000000',
-                    right: ''
+                    right: '',
+                    textAlign: 'center'
                   },
                   name: '文字',
-                  text: '请输入文本内容',
+                  text: '这里是弹窗',
                   multiple: true,
                   events: '',
                   created: {
@@ -179,16 +146,16 @@ export default {
                     hookType: 'code',
                     hookData: []
                   },
-                  displayConds: [],
                   animation: '',
-                  visible: true
+                  visible: true,
+                  displayConds: []
                 },
                 {
                   id: 'button_e77ec6a2',
                   type: 'button',
                   style: {
                     position: 'absolute',
-                    top: 150,
+                    top: 224,
                     left: 101,
                     right: ''
                   },
@@ -203,7 +170,7 @@ export default {
                   },
                   events: [
                     {
-                      name: 'magic:common:events:click:capture',
+                      name: 'magic:common:events:click',
                       actions: [
                         {
                           actionType: 'comp',
@@ -223,15 +190,41 @@ export default {
                     hookType: 'code',
                     hookData: []
                   },
-                  displayConds: [],
                   animation: ''
+                },
+                {
+                  id: 'img_3fe8061f',
+                  type: 'img',
+                  style: {
+                    position: 'absolute',
+                    left: 0,
+                    width: 266,
+                    height: 136,
+                    top: 0,
+                    right: 0
+                  },
+                  name: '图片',
+                  src: 'https://seopic.699pic.com/photo/50051/4111.jpg_wh1200.jpg',
+                  url: '',
+                  fit: 'cover',
+                  animation: [],
+                  events: '',
+                  created: {
+                    hookType: 'code',
+                    hookData: []
+                  },
+                  mounted: {
+                    hookType: 'code',
+                    hookData: []
+                  },
+                  displayConds: []
                 }
               ],
               events: '',
               created: '',
               mounted: '',
-              displayConds: [],
-              animation: ''
+              animation: '',
+              displayConds: []
             }
           ],
           visible: true,
@@ -252,73 +245,181 @@ export default {
           ],
           created: '',
           mounted: '',
-          displayConds: [],
           animation: ''
         },
         {
           id: 'form_24b69e11',
           type: 'form',
+          layout: 'absolute',
           style: {
             width: 300,
-            height: 203,
+            height: 382,
             position: 'absolute',
-            top: 254,
-            left: 39,
-            right: ''
+            top: 213,
+            left: 37.5,
+            right: '',
+            borderRadius: 0,
+            overflow: 'auto'
           },
           name: '表单容器',
           items: [
             {
-              id: 'field_eea3f47a',
-              type: 'field',
+              id: 'container_7ddba02b',
+              type: 'container',
+              layout: 'relative',
               style: {
-                width: 300,
                 position: 'absolute',
+                width: 300,
+                height: 'auto',
                 top: 0,
                 left: 0,
+                borderRadio: 10,
+                overflow: 'hidden',
+                overflo: 'hidden',
                 right: '',
-                'border-radius': 10,
-                overflow: 'hidden'
+                borderRadios: 10,
+                borderRadius: 10
               },
-              name: '输入框',
-              model: '',
-              vantProps: {
-                label: '输入框',
-                labelWidth: '50px',
-                name: 'input',
-                type: 'text',
-                size: '',
-                placeholder: '请输入文字',
-                maxlength: '',
-                border: true,
-                colon: false,
-                required: false,
-                center: false,
-                clearable: false
-              },
+              name: '组',
+              items: [
+                {
+                  id: 'field_eea3f47a',
+                  type: 'field',
+                  style: {
+                    width: 300,
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    right: 'auto',
+                    overflow: 'hidden',
+                    bottom: 'auto'
+                  },
+                  name: '输入框',
+                  model: '',
+                  vantProps: {
+                    label: '输入框',
+                    labelWidth: '50px',
+                    name: 'input',
+                    type: 'text',
+                    size: '',
+                    placeholder: '请输入文字',
+                    maxlength: '',
+                    border: true,
+                    colon: false,
+                    required: false,
+                    center: false,
+                    clearable: false,
+                    rule: '[{ "required": true, "message": "请输入文字" }]'
+                  },
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  animation: [],
+                  displayConds: []
+                },
+                {
+                  id: 'check_box_ac51b0ea',
+                  type: 'check_box',
+                  style: {
+                    width: 300,
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    right: 'auto',
+                    bottom: 'auto'
+                  },
+                  name: '复选框',
+                  options: [
+                    {
+                      label: '选项1',
+                      name: '1',
+                      disabled: false,
+                      shape: 'square'
+                    },
+                    {
+                      label: '选项2',
+                      name: '2',
+                      disabled: true,
+                      shape: 'square'
+                    }
+                  ],
+                  vantProps: {
+                    label: '复选框',
+                    labelWidth: '50px',
+                    name: 'checkbox',
+                    size: '',
+                    rule: '[]',
+                    border: true,
+                    colon: false,
+                    required: false,
+                    center: false
+                  },
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
+                },
+                {
+                  id: 'radio_846b11c5',
+                  type: 'radio',
+                  style: {
+                    width: 300,
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    height: 'auto',
+                    right: 'auto',
+                    bottom: 'auto'
+                  },
+                  name: '单选框',
+                  options: [
+                    {
+                      label: '选项1',
+                      name: '1',
+                      disabled: false,
+                      shape: 'round'
+                    },
+                    {
+                      label: '选项2',
+                      name: '2',
+                      disabled: false,
+                      shape: 'round'
+                    }
+                  ],
+                  vantProps: {
+                    label: '单选框',
+                    labelWidth: '50px',
+                    name: 'radio',
+                    size: '',
+                    rule: '[]',
+                    border: true,
+                    colon: false,
+                    required: false,
+                    center: false
+                  },
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
+                }
+              ],
               events: '',
               created: '',
               mounted: '',
               displayConds: [],
-              animation: [
-                {
-                  label: '渐显',
-                  value: 'fadeIn',
-                  duration: 1,
-                  delay: 0,
-                  loopCount: 1,
-                  loop: false
-                }
-              ]
+              animation: ''
             },
             {
               id: 'button_bbdb0b8b',
               type: 'button',
               style: {
                 position: 'absolute',
-                top: 93,
-                left: 130,
-                right: ''
+                top: 300,
+                left: 76,
+                right: '',
+                width: '150'
               },
               name: '按钮',
               vantProps: {
@@ -351,8 +452,8 @@ export default {
                 hookType: 'code',
                 hookData: []
               },
-              displayConds: [],
-              animation: ''
+              animation: '',
+              displayConds: []
             }
           ],
           vantProps: {
@@ -361,7 +462,48 @@ export default {
             inputAlign: 'left',
             colon: false,
             required: false
-          }
+          },
+          events: [
+            {
+              name: 'form:submit',
+              actions: [
+                {
+                  actionType: 'code',
+                  to: '',
+                  method: '',
+                  codeId: 'code_4408',
+                  dataSourceMethod: '',
+                  params: {}
+                }
+              ]
+            },
+            {
+              name: 'form:submit:failed',
+              actions: [
+                {
+                  actionType: 'code',
+                  to: '',
+                  method: '',
+                  codeId: 'code_4408',
+                  dataSourceMethod: '',
+                  params: {}
+                }
+              ]
+            }
+          ],
+          created: '',
+          mounted: '',
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            }
+          ],
+          displayConds: []
         }
       ]
     }

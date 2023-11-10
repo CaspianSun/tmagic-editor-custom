@@ -14,6 +14,25 @@ export const useCustomService = () => {
       }
 
       return [config, parent]
+    },
+    beforeDragTo(config: MNode, targetParent: MContainer, targetIndex: number) {
+      console.log('beforeMoveToContainer', config, targetParent, targetIndex)
+      if (targetParent.layout == 'relative') {
+        config.style = {
+          ...config.style,
+          position: 'relative',
+          left: 0,
+          top: 0
+        }
+      } else {
+        config.style = {
+          ...config.style,
+          position: 'absolute',
+          left: 0,
+          top: 0
+        }
+      }
+      return [config, targetParent, targetIndex]
     }
   })
   propsService.usePlugin({

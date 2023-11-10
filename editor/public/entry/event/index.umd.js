@@ -69,14 +69,24 @@
     ],
     events: [
       {
-        label: "提交成功后",
-        value: "form:submit:succeed"
+        label: "提交表单方法",
+        value: "form:submit"
       },
       {
-        label: "提交失败后",
+        label: "提交失败",
         value: "form:submit:failed"
       }
     ]
+  };
+
+  const check_box = {
+    methods: [],
+    events: []
+  };
+
+  const radio = {
+    methods: [],
+    events: []
   };
 
   const events = {
@@ -86,7 +96,9 @@
     "overlay": overlay,
     "button": button,
     "field": field,
-    "form": form
+    "form": form,
+    "check_box": check_box,
+    "radio": radio
   };
 
   return events;

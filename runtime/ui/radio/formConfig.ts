@@ -19,11 +19,6 @@ export default [
         ]
       },
       {
-        name: 'type',
-        type: 'data-source-input',
-        text: '类型'
-      },
-      {
         name: 'label',
         type: 'data-source-input',
         text: '左侧文本'
@@ -32,16 +27,6 @@ export default [
         name: 'labelWidth',
         type: 'data-source-input',
         text: '左侧宽度'
-      },
-      {
-        name: 'placeholder',
-        type: 'data-source-input',
-        text: '占位文字'
-      },
-      {
-        name: 'maxlength',
-        type: 'data-source-input',
-        text: '最大长度'
       },
       {
         name: 'name',
@@ -72,11 +57,42 @@ export default [
         name: 'center',
         type: 'switch',
         text: '垂直居中'
+      }
+    ]
+  },
+  {
+    type: 'table',
+    name: 'options',
+    items: [
+      {
+        name: 'label',
+        label: '选项文本'
       },
       {
-        name: 'clearable',
-        type: 'switch',
-        text: '清除控件'
+        name: 'name',
+        label: '标识符'
+      },
+      {
+        name: 'disabled',
+        label: '禁用',
+        defaultValue: false,
+        type: 'switch'
+      },
+      {
+        name: 'shape',
+        label: '形状',
+        type: 'select',
+        defaultValue: 'round',
+        options: [
+          {
+            text: '方形',
+            value: 'square'
+          },
+          {
+            text: '圆形',
+            value: 'round'
+          }
+        ]
       }
     ]
   }

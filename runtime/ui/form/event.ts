@@ -11,11 +11,11 @@ export default {
   ],
   events: [
     {
-      label: '提交成功后',
-      value: 'form:submit:succeed'
+      label: '提交表单方法',
+      value: 'form:submit'
     },
     {
-      label: '提交失败后',
+      label: '提交失败',
       value: 'form:submit:failed'
     }
   ]

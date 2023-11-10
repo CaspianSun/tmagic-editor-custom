@@ -2,19 +2,22 @@ export default {
   style: {
     width: 300
   },
+  options: [
+    {
+      label: '选项1',
+      name: '1',
+      disabled: false
+    }
+  ],
   vantProps: {
-    label: '输入框',
+    label: '单选框',
     labelWidth: '50px',
-    name: 'input',
-    type: 'text',
+    name: 'radio',
     size: '',
-    placeholder: '请输入文字',
-    maxlength: '',
     rule: '[]',
     border: true,
     colon: false,
     required: false,
-    center: false,
-    clearable: false
+    center: false
   }
 }

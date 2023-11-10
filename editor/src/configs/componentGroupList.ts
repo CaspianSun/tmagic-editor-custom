@@ -48,6 +48,16 @@ export const componentGroupList = [
         icon: Tickets,
         text: '输入框',
         type: 'field'
+      },
+      {
+        icon: Tickets,
+        text: '复选框',
+        type: 'check_box'
+      },
+      {
+        icon: Tickets,
+        text: '单选框',
+        type: 'radio'
       }
     ]
   }
