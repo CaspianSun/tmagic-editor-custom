@@ -63,11 +63,6 @@ export default [
             type: 'switch'
           },
           {
-            text: '细边框',
-            name: 'hairline',
-            type: 'switch'
-          },
-          {
             text: '圆角',
             name: 'round',
             type: 'switch'

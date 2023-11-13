@@ -1,16 +1,27 @@
-import { FolderOpened, Grid, PictureFilled, SwitchButton, Tickets } from '@element-plus/icons-vue'
+import {
+  TwoDimensionalCodeOne,
+  Checkbox,
+  RadioTwo,
+  Text,
+  FormOne,
+  AddText,
+  Pic,
+  SwitchButton,
+  MaskTwo,
+  PageTemplate
+} from '@icon-park/vue-next'
 
 export const componentGroupList = [
   {
     title: '布局组件',
     items: [
       {
-        icon: FolderOpened,
+        icon: PageTemplate,
         text: '组',
         type: 'container'
       },
       {
-        icon: FolderOpened,
+        icon: MaskTwo,
         text: '遮罩',
         type: 'overlay'
       }
@@ -20,12 +31,12 @@ export const componentGroupList = [
     title: '组件列表',
     items: [
       {
-        icon: Tickets,
+        icon: AddText,
         text: '文字',
         type: 'text'
       },
       {
-        icon: PictureFilled,
+        icon: Pic,
         text: '图片',
         type: 'img'
       },
@@ -33,6 +44,11 @@ export const componentGroupList = [
         icon: SwitchButton,
         text: '按钮',
         type: 'button'
+      },
+      {
+        icon: TwoDimensionalCodeOne,
+        text: '二维码',
+        type: 'qr_code'
       }
     ]
   },
@@ -40,29 +56,24 @@ export const componentGroupList = [
     title: '表单列表',
     items: [
       {
-        icon: Tickets,
+        icon: FormOne,
         text: '表单容器',
         type: 'form'
       },
       {
-        icon: Tickets,
+        icon: Text,
         text: '输入框',
         type: 'field'
       },
       {
-        icon: Tickets,
+        icon: Checkbox,
         text: '复选框',
         type: 'check_box'
       },
       {
-        icon: Tickets,
+        icon: RadioTwo,
         text: '单选框',
         type: 'radio'
-      },
-      {
-        icon: Tickets,
-        text: '二维码',
-        type: 'qr_code'
       }
     ]
   }

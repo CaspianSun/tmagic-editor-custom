@@ -1,5 +1,5 @@
 <template>
-  <Button :plain="props.config.plain" v-bind="vantProps"></Button>
+  <Button :plain="props.config.plain" :hairline="true" v-bind="vantProps"></Button>
 </template>
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'

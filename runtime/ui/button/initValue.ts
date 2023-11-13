@@ -5,7 +5,6 @@ export default {
     type: 'primary',
     size: 'small',
     plain: false,
-    hairline: false,
     round: false
   }
 }

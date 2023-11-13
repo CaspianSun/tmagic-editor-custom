@@ -34,6 +34,9 @@ devDependencies:
   '@guolao/vue-monaco-editor':
     specifier: ^1.4.0
     version: 1.4.0(monaco-editor@0.44.0)(vue@3.3.7)
+  '@icon-park/vue-next':
+    specifier: ^1.4.2
+    version: 1.4.2(vue@3.3.7)
   '@rushstack/eslint-patch':
     specifier: ^1.5.1
     version: 1.5.1
@@ -780,6 +783,15 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@icon-park/vue-next@1.4.2(vue@3.3.7):
+    resolution: {integrity: sha512-+QklF255wkfBOabY+xw6FAI0Bwln/RhdwCunNy/9sKdKuChtaU67QZqU67KGAvZUTeeBgsL+yaHHxqfQeGZXEQ==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.3.7(typescript@5.2.2)
     dev: true
 
   /@iconify/types@2.0.0:

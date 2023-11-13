@@ -16,6 +16,14 @@
     .tmagic-design-collapse .el-collapse-item__wrap .component-item {
       width: 50px;
       align-items: center;
+
+      .i-icon {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
