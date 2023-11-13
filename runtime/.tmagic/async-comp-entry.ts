@@ -7,8 +7,9 @@ const components: Record<string, any> = {
   'button': () => import('../ui/button/index.vue'),
   'field': () => import('../ui/field/index.vue'),
   'form': () => import('../ui/form/index.vue'),
-  'check_box': () => import('../ui/checkbox/index.vue'),
+  'check_box': () => import('../ui/checkBox/index.vue'),
   'radio': () => import('../ui/radio/index.vue'),
+  'qr_code': () => import('../ui/qrCode/index.vue'),
 };
 
 export default components;

@@ -6,8 +6,9 @@ import overlay from '../ui/overlay/initValue';
 import button from '../ui/button/initValue';
 import field from '../ui/field/initValue';
 import form from '../ui/form/initValue';
-import check_box from '../ui/checkbox/initValue';
+import check_box from '../ui/checkBox/initValue';
 import radio from '../ui/radio/initValue';
+import qr_code from '../ui/qrCode/initValue';
 
 const values: Record<string, any> = {
   'page': page,
@@ -20,6 +21,7 @@ const values: Record<string, any> = {
   'form': form,
   'check_box': check_box,
   'radio': radio,
+  'qr_code': qr_code,
 };
 
 export default values;

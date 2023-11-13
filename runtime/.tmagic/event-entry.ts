@@ -5,7 +5,7 @@ import overlay from '../ui/overlay/event';
 import button from '../ui/button/event';
 import field from '../ui/field/event';
 import form from '../ui/form/event';
-import check_box from '../ui/checkbox/event';
+import check_box from '../ui/checkBox/event';
 import radio from '../ui/radio/event';
 
 const events: Record<string, any> = {

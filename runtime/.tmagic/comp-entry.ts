@@ -6,8 +6,9 @@ import overlay from '../ui/overlay/index.vue';
 import button from '../ui/button/index.vue';
 import field from '../ui/field/index.vue';
 import form from '../ui/form/index.vue';
-import check_box from '../ui/checkbox/index.vue';
+import check_box from '../ui/checkBox/index.vue';
 import radio from '../ui/radio/index.vue';
+import qr_code from '../ui/qrCode/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -20,6 +21,7 @@ const components: Record<string, any> = {
   'form': form,
   'check_box': check_box,
   'radio': radio,
+  'qr_code': qr_code,
 };
 
 export default components;
