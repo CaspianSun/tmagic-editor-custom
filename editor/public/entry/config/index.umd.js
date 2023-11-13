@@ -557,6 +557,14 @@
     }
   ];
 
+  const qr_code = [
+    {
+      text: "内容",
+      name: "text",
+      type: "data-source-input"
+    }
+  ];
+
   const configs = {
     "page": page,
     "text": text,
@@ -567,7 +575,8 @@
     "field": field,
     "form": form,
     "check_box": check_box,
-    "radio": radio
+    "radio": radio,
+    "qr_code": qr_code
   };
 
   return configs;

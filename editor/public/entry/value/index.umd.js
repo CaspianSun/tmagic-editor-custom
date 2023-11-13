@@ -133,6 +133,16 @@
     }
   };
 
+  const qr_code = {
+    text: "text",
+    style: {
+      position: "absolute",
+      left: "57",
+      width: "176",
+      height: "176"
+    }
+  };
+
   const values = {
     "page": page,
     "text": text,
@@ -143,7 +153,8 @@
     "field": field,
     "form": form,
     "check_box": check_box,
-    "radio": radio
+    "radio": radio,
+    "qr_code": qr_code
   };
 
   return values;

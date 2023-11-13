@@ -58,6 +58,11 @@ export const componentGroupList = [
         icon: Tickets,
         text: '单选框',
         type: 'radio'
+      },
+      {
+        icon: Tickets,
+        text: '二维码',
+        type: 'qr_code'
       }
     ]
   }
