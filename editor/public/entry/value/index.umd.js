@@ -42,7 +42,6 @@
       type: "primary",
       size: "small",
       plain: false,
-      hairline: false,
       round: false
     }
   };
@@ -53,13 +52,13 @@
     },
     vantProps: {
       label: "输入框",
-      labelWidth: "50px",
+      labelWidth: "60px",
       name: "input",
       type: "text",
       size: "",
       placeholder: "请输入文字",
       maxlength: "",
-      rule: "[]",
+      rules: [],
       border: true,
       colon: false,
       required: false,
@@ -76,7 +75,7 @@
     },
     items: [],
     vantProps: {
-      labelWidth: "50px",
+      labelWidth: "60px",
       labelAlign: "left",
       inputAlign: "left",
       colon: false,
@@ -98,10 +97,10 @@
     ],
     vantProps: {
       label: "复选框",
-      labelWidth: "50px",
+      labelWidth: "60px",
       name: "checkbox",
       size: "",
-      rule: "[]",
+      rule: [],
       border: true,
       colon: false,
       required: false,
@@ -122,10 +121,10 @@
     ],
     vantProps: {
       label: "单选框",
-      labelWidth: "50px",
+      labelWidth: "60px",
       name: "radio",
       size: "",
-      rule: "[]",
+      rules: [],
       border: true,
       colon: false,
       required: false,
@@ -143,6 +142,30 @@
     }
   };
 
+  const sms = {
+    style: {
+      width: 300
+    },
+    vantProps: {
+      label: "手机号",
+      labelWidth: "60px",
+      name: "phone",
+      type: "text",
+      size: "",
+      placeholder: "请输入手机号",
+      maxlength: "11",
+      rules: [
+        { required: true, message: "请填写您的手机号码！" },
+        { pattern: /^1[3456789]d{9}$/, message: "手机号码格式错误！" }
+      ],
+      border: true,
+      colon: false,
+      required: false,
+      center: true,
+      clearable: false
+    }
+  };
+
   const values = {
     "page": page,
     "text": text,
@@ -154,7 +177,8 @@
     "form": form,
     "check_box": check_box,
     "radio": radio,
-    "qr_code": qr_code
+    "qr_code": qr_code,
+    "sms": sms
   };
 
   return values;

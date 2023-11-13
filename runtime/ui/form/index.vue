@@ -22,8 +22,9 @@ import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
 import { Form } from 'vant'
 import type { FormInstance } from 'vant'
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import QsContainer from '@ui/container/index.vue'
+import Core from '@tmagic/core'
 
 const form = ref<FormInstance>()
 
@@ -36,20 +37,24 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-const formSubmit = () => {
-  form.value?.submit()
-}
-const submit = (values: object) => {
+
+const app = inject<Core>('app')
+const node = app?.page?.getNode(props.config.id)
+
+const submit = (values: Record<string, any>) => {
   console.log('submit', values)
   if (app) {
-    app.emit('form:submit', values)
+    app.emit('form:submit', node, values)
   }
 }
-const failed = (errorInfo: { values: object; errors: object[] }) => {
-  console.log('failed')
+const failed = (errorInfo: { values: Record<string, any>; errors: Record<string, any>[] }) => {
   if (app) {
-    app.emit('form:submit:failed', errorInfo)
+    app.emit('form:submit:failed', node, errorInfo)
   }
+}
+
+const formSubmit = () => {
+  form.value?.submit()
 }
 const formValidate = () => {
   form.value?.validate()
@@ -58,7 +63,8 @@ const formValidate = () => {
 const vantProps = computed(() => {
   return props.config.vantProps ?? {}
 })
-const app = useApp({
+
+useApp({
   config: props.config,
   methods: {
     formSubmit,

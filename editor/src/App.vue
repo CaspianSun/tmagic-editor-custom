@@ -1,6 +1,6 @@
 <template>
   <div class="editor-app">
-    <m-editor
+    <TMagicEditor
       ref="editor"
       v-model="value"
       :menu="menu"
@@ -18,11 +18,12 @@
       :auto-scroll-into-view="true"
       :stage-rect="stageRect"
       :can-select="canSelect"
+      :code-options="codeOptions"
     >
       <template #workspace-content>
         <DeviceGroup ref="deviceGroup" v-model="stageRect"></DeviceGroup>
       </template>
-    </m-editor>
+    </TMagicEditor>
     <TMagicDialog v-model="previewVisible" destroy-on-close class="pre-viewer" title="预览" :width="stageRect && stageRect.width">
       <iframe
         v-if="previewVisible"
@@ -43,7 +44,8 @@ import { NodeType } from '@tmagic/schema'
 import { asyncLoadJs } from '@tmagic/utils'
 import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
 import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
-import type { DatasourceTypeOption, MenuBarData, MoveableOptions, TMagicEditor } from '@tmagic/editor'
+import { TMagicEditor } from '@tmagic/editor'
+import type { DatasourceTypeOption, MenuBarData, MoveableOptions } from '@tmagic/editor'
 import { Document, Coin, Connection } from '@element-plus/icons-vue'
 import serialize from 'serialize-javascript'
 import DeviceGroup from './components/DeviceGroup.vue'
@@ -75,6 +77,16 @@ const datasourceEventMethodList = ref<Record<string, any>>({
 const stageRect = ref({
   width: 375,
   height: 812
+})
+const codeOptions = ref({
+  theme: 'vs-light',
+  fixedOverflowWidgets: true,
+  automaticLayout: true,
+  glyphMargin: false,
+  folding: false,
+  tabSize: 2,
+  lineDecorationsWidth: 6,
+  lineNumbersMinChars: 0
 })
 
 const runtimeUrl = '/code/runtime/'

@@ -11,10 +11,10 @@ export default {
   ],
   vantProps: {
     label: '单选框',
-    labelWidth: '50px',
+    labelWidth: '60px',
     name: 'radio',
     size: '',
-    rule: '[]',
+    rules: [],
     border: true,
     colon: false,
     required: false,

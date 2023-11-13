@@ -8,7 +8,8 @@ import {
   Pic,
   SwitchButton,
   MaskTwo,
-  PageTemplate
+  PageTemplate,
+  Iphone
 } from '@icon-park/vue-next'
 
 export const componentGroupList = [
@@ -74,6 +75,11 @@ export const componentGroupList = [
         icon: RadioTwo,
         text: '单选框',
         type: 'radio'
+      },
+      {
+        icon: Iphone,
+        text: '验证码',
+        type: 'sms'
       }
     ]
   }

@@ -33,7 +33,7 @@ interface UseAppOptions {
 
 export default ({ config, methods }: UseAppOptions) => {
   if (!config.id) return
-  const app: Core | undefined = inject('app')
+  const app = inject<Core>('app')
   const node = app?.page?.getNode(config.id)
 
   const emitData = {

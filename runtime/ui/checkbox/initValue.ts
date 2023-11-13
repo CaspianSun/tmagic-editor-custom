@@ -12,10 +12,10 @@ export default {
   ],
   vantProps: {
     label: '复选框',
-    labelWidth: '50px',
+    labelWidth: '60px',
     name: 'checkbox',
     size: '',
-    rule: '[]',
+    rule: [],
     border: true,
     colon: false,
     required: false,

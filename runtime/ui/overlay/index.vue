@@ -13,11 +13,12 @@
   </Overlay>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import type { MComponent, MNode } from '@tmagic/schema'
+import Core from '@tmagic/core'
 import useApp from '@ui/utils/useApp'
-import { Overlay } from 'vant'
 import QsContainer from '@ui/container/index.vue'
+import { Overlay } from 'vant'
 
 const show = ref(false)
 
@@ -30,6 +31,9 @@ const props = withDefaults(
     model: () => ({})
   }
 )
+
+const app = inject<Core>('app')
+const node = app?.page?.getNode(props.config.id)
 
 const openOverlay = () => {
   show.value = true
@@ -45,15 +49,13 @@ const closeOverlay = () => {
   }
 }
 
-const app = useApp({
+useApp({
   config: props.config,
   methods: {
     openOverlay,
     closeOverlay
   }
 })
-
-const node = app?.page?.getNode(props.config.id)
 
 app?.page?.on('editor:select', (info, path) => {
   if (path.find((node: MNode) => node.id === props.config.id)) {

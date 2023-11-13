@@ -6,7 +6,7 @@ export default {
   },
   items: [],
   vantProps: {
-    labelWidth: '50px',
+    labelWidth: '60px',
     labelAlign: 'left',
     inputAlign: 'left',
     colon: false,

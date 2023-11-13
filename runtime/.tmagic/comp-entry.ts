@@ -9,6 +9,7 @@ import form from '../ui/form/index.vue';
 import check_box from '../ui/checkBox/index.vue';
 import radio from '../ui/radio/index.vue';
 import qr_code from '../ui/qrCode/index.vue';
+import sms from '../ui/sms/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -22,6 +23,7 @@ const components: Record<string, any> = {
   'check_box': check_box,
   'radio': radio,
   'qr_code': qr_code,
+  'sms': sms,
 };
 
 export default components;

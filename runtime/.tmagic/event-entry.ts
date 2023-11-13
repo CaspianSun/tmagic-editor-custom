@@ -7,6 +7,7 @@ import field from '../ui/field/event';
 import form from '../ui/form/event';
 import check_box from '../ui/checkBox/event';
 import radio from '../ui/radio/event';
+import sms from '../ui/sms/event';
 
 const events: Record<string, any> = {
   'page': page,
@@ -18,6 +19,7 @@ const events: Record<string, any> = {
   'form': form,
   'check_box': check_box,
   'radio': radio,
+  'sms': sms,
 };
 
 export default events;

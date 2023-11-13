@@ -62,7 +62,7 @@ export default {
             type: 'primary',
             size: 'small',
             plain: true,
-            hairline: false,
+            hairline: true,
             round: false
           },
           events: [
@@ -165,7 +165,7 @@ export default {
                     type: 'warning',
                     size: 'small',
                     plain: true,
-                    hairline: false,
+                    hairline: true,
                     round: false
                   },
                   events: [
@@ -297,25 +297,56 @@ export default {
                   name: '输入框',
                   model: '',
                   vantProps: {
-                    label: '输入框',
-                    labelWidth: '50px',
-                    name: 'input',
+                    label: '用户名',
+                    labelWidth: '60px',
+                    name: 'username',
                     type: 'text',
                     size: '',
-                    placeholder: '请输入文字',
+                    placeholder: '请输入用户名',
                     maxlength: '',
                     border: true,
                     colon: false,
-                    required: false,
+                    required: true,
                     center: false,
                     clearable: false,
-                    rule: '[{ "required": true, "message": "请输入文字" }]'
+                    rules: [{ required: true, message: '请输入用户名' }]
                   },
                   events: '',
                   created: '',
                   mounted: '',
                   animation: [],
                   displayConds: []
+                },
+                {
+                  id: 'field_1dbde502',
+                  type: 'field',
+                  style: {
+                    width: 300,
+                    position: 'relative',
+                    top: 0,
+                    left: 0
+                  },
+                  name: '输入框',
+                  vantProps: {
+                    label: '密码',
+                    labelWidth: '60px',
+                    name: 'password',
+                    type: 'password',
+                    size: '',
+                    placeholder: '请输入密码',
+                    maxlength: '',
+                    rules: [{ required: true, message: '请输入密码' }],
+                    border: true,
+                    colon: false,
+                    required: true,
+                    center: false,
+                    clearable: false
+                  },
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
                 },
                 {
                   id: 'check_box_ac51b0ea',
@@ -345,10 +376,10 @@ export default {
                   ],
                   vantProps: {
                     label: '复选框',
-                    labelWidth: '50px',
+                    labelWidth: '60px',
                     name: 'checkbox',
                     size: '',
-                    rule: '[]',
+                    rules: [],
                     border: true,
                     colon: false,
                     required: false,
@@ -389,10 +420,10 @@ export default {
                   ],
                   vantProps: {
                     label: '单选框',
-                    labelWidth: '50px',
+                    labelWidth: '60px',
                     name: 'radio',
                     size: '',
-                    rule: '[]',
+                    rules: [],
                     border: true,
                     colon: false,
                     required: false,
@@ -427,7 +458,7 @@ export default {
                 type: 'primary',
                 size: 'small',
                 plain: false,
-                hairline: false,
+                hairline: true,
                 round: false
               },
               events: [
@@ -471,7 +502,7 @@ export default {
                   actionType: 'code',
                   to: '',
                   method: '',
-                  codeId: 'code_4408',
+                  codeId: 'code_6793',
                   dataSourceMethod: '',
                   params: {}
                 }
@@ -484,7 +515,7 @@ export default {
                   actionType: 'code',
                   to: '',
                   method: '',
-                  codeId: 'code_4408',
+                  codeId: 'code_6793',
                   dataSourceMethod: '',
                   params: {}
                 }
@@ -516,6 +547,15 @@ export default {
       params: [],
       content: () => {
         console.log(1)
+      }
+    },
+    code_6793: {
+      name: '提交表单',
+      desc: '',
+      timing: '',
+      params: [],
+      content: ({ app, params }) => {
+        console.log(app, params)
       }
     }
   },

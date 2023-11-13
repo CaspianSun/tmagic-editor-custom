@@ -9,6 +9,7 @@ import form from '../ui/form/initValue';
 import check_box from '../ui/checkBox/initValue';
 import radio from '../ui/radio/initValue';
 import qr_code from '../ui/qrCode/initValue';
+import sms from '../ui/sms/initValue';
 
 const values: Record<string, any> = {
   'page': page,
@@ -22,6 +23,7 @@ const values: Record<string, any> = {
   'check_box': check_box,
   'radio': radio,
   'qr_code': qr_code,
+  'sms': sms,
 };
 
 export default values;

@@ -9,6 +9,7 @@ import Form from './form'
 import CheckBox from './checkBox'
 import Radio from './radio'
 import QrCode from './qrCode'
+import sms from './sms'
 
 const ui: Record<string, any> = {
   page: Page,
@@ -21,7 +22,8 @@ const ui: Record<string, any> = {
   form: Form,
   check_box: CheckBox,
   radio: Radio,
-  qr_code: QrCode
+  qr_code: QrCode,
+  sms: sms
 }
 
 export default ui

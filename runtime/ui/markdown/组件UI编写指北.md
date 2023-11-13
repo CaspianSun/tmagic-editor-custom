@@ -85,18 +85,22 @@ const props = withDefaults(
   }
 )
 
+// const app = inject<Core>('app')
+// const node = app?.page?.getNode(props.config.id)
+
+// const submit = (values: Record<string, any>) => {
+//   if (app) {
+//     app.emit('form:submit', node, values)
+//   }
+// }
+// const failed = (errorInfo: { values: Record<string, any>; errors: Record<string, any>[] }) => {
+//   if (app) {
+//     app.emit('form:submit:failed', node, errorInfo)
+//   }
+// }
+
 // const formSubmit = () => {
 //   form.value?.submit()
-// }
-// const submit = (values: object) => {
-//   if (app) {
-//     app.emit('form:submit', values)
-//   }
-// }
-// const failed = (errorInfo: { values: object; errors: object[] }) => {
-//   if (app) {
-//     app.emit('form:submit:failed', errorInfo)
-//   }
 // }
 // const formValidate = () => {
 //   form.value?.validate()
@@ -232,7 +236,7 @@ export default {
   },
   items: [], //定义容器时初始化 items
   vantProps: {
-    labelWidth: '50px',
+    labelWidth: '60px',
     labelAlign: 'left',
     inputAlign: 'left',
     colon: false,
@@ -269,23 +273,28 @@ export default {
   ]
 }
 
+const app = inject<Core>('app')
+const node = app?.page?.getNode(props.config.id)
+
+const submit = (values: Record<string, any>) => {
+  if (app) {
+    app.emit('form:submit', node, values) //事件名, node, params
+  }
+}
+const failed = (errorInfo: { values: Record<string, any>; errors: Record<string, any>[] }) => {
+  if (app) {
+    app.emit('form:submit:failed', node, errorInfo)
+  }
+}
+
 const formSubmit = () => {
   form.value?.submit()
-}
-const submit = (values: object) => {
-  if (app) {
-    app.emit('form:submit', values)
-  }
-}
-const failed = (errorInfo: { values: object; errors: object[] }) => {
-  if (app) {
-    app.emit('form:submit:failed', errorInfo)
-  }
 }
 const formValidate = () => {
   form.value?.validate()
 }
-const app = useApp({
+
+useApp({
   config: props.config,
   methods: {
     formSubmit,

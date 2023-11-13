@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Field :rules="rules" v-bind="vantProps">
+    <Field v-bind="vantProps">
       <template #input>
         <RadioGroup v-model="data" direction="horizontal">
           <Radio
@@ -37,13 +37,7 @@ const data = ref('')
 const vantProps = computed(() => {
   return props.config.vantProps ?? {}
 })
-const rules = computed(() => {
-  try {
-    return JSON.parse(`${vantProps.value?.rule}`)
-  } catch (error) {
-    return []
-  }
-})
+
 useApp({
   config: props.config,
   methods: {}

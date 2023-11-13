@@ -10,6 +10,7 @@ const components: Record<string, any> = {
   'check_box': () => import('../ui/checkBox/index.vue'),
   'radio': () => import('../ui/radio/index.vue'),
   'qr_code': () => import('../ui/qrCode/index.vue'),
+  'sms': () => import('../ui/sms/index.vue'),
 };
 
 export default components;

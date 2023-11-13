@@ -16,7 +16,6 @@ export const useCustomService = () => {
       return [config, parent]
     },
     beforeDragTo(config: MNode, targetParent: MContainer, targetIndex: number) {
-      console.log('beforeMoveToContainer', config, targetParent, targetIndex)
       if (targetParent.layout == 'relative') {
         config.style = {
           ...config.style,

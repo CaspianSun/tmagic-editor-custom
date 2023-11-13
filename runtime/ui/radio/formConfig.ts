@@ -34,9 +34,22 @@ export default [
         text: '表单标识'
       },
       {
-        name: 'rule',
-        type: 'data-source-input',
-        text: '校验规则'
+        name: 'rules',
+        type: 'vs-code',
+        text: '校验规则',
+        height: '200px',
+        language: 'javascript',
+        parse: true,
+        options: {
+          theme: 'vs-light',
+          fixedOverflowWidgets: true,
+          automaticLayout: true,
+          glyphMargin: false,
+          folding: false,
+          tabSize: 2,
+          lineDecorationsWidth: 6,
+          lineNumbersMinChars: 0
+        }
       },
       {
         name: 'colon',
