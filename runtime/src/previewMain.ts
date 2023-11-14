@@ -5,6 +5,10 @@ import './style/index.scss'
 import 'animate.css'
 import 'virtual:uno.css'
 import 'vant/lib/index.css'
+import axios from 'axios'
+
+//@ts-ignore
+globalThis.axios = axios
 
 Promise.all([
   import('../.tmagic/comp-entry'),
