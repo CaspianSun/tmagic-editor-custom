@@ -31,7 +31,6 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-
 const time = ref(0)
 const buttonText = computed(() => {
   return time.value > 0 ? `${time.value}s` : '发送验证码'

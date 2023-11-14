@@ -53,6 +53,7 @@ import { uaMap } from './const'
 import { componentGroupList } from '@/configs/componentGroupList'
 import dsl from '@/configs/dsl'
 import { useCustomService } from '@/common/customServices'
+import { getLocalConfig } from '@/utils/index'
 
 useCustomService()
 const { VITE_ENTRY_PATH } = import.meta.env
@@ -122,7 +123,7 @@ const menu: MenuBarData = {
       text: '预览',
       icon: Connection,
       handler: async (services) => {
-        if (services?.editorService.get('modifiedNodeIds').size > 0) {
+        if (services?.editorService.get('modifiedNodeIds').size > 0 || getLocalConfig().length == 0) {
           try {
             await tMagicMessageBox.confirm('有修改未保存，是否先保存再预览', '提示', {
               confirmButtonText: '保存并预览',
@@ -132,7 +133,7 @@ const menu: MenuBarData = {
             save()
             tMagicMessage.success('保存成功')
           } catch (e) {
-            console.error(e)
+            console.log(e)
           }
         }
         previewVisible.value = true

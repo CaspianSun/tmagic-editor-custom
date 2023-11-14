@@ -12,7 +12,7 @@ export default {
         position: 'relative',
         width: '100%',
         height: '100vh',
-        backgroundColor: '#eff2f5'
+        'background-color': '#eff2f5'
       },
       items: [
         {
@@ -113,10 +113,8 @@ export default {
                 position: 'absolute',
                 top: 213,
                 left: 55,
-                backgroundColor: '#fff',
-                borderRadius: '10px',
-                display: 'block',
-                right: '',
+                'background-color': '#fff',
+                'border-radius': '10px',
                 overflow: 'hidden'
               },
               name: '组',
@@ -258,7 +256,7 @@ export default {
             top: 213,
             left: 37.5,
             right: '',
-            borderRadius: 0,
+            'border-radius': 0,
             overflow: 'auto'
           },
           name: '表单容器',
@@ -273,12 +271,9 @@ export default {
                 height: 'auto',
                 top: 0,
                 left: 0,
-                borderRadio: 10,
                 overflow: 'hidden',
-                overflo: 'hidden',
                 right: '',
-                borderRadios: 10,
-                borderRadius: 10
+                'border-radius': 10
               },
               name: '组',
               items: [
@@ -309,7 +304,12 @@ export default {
                     required: true,
                     center: false,
                     clearable: false,
-                    rules: [{ required: true, message: '请输入用户名' }]
+                    rules: [
+                      {
+                        required: true,
+                        message: '请输入用户名'
+                      }
+                    ]
                   },
                   events: '',
                   created: '',
@@ -335,11 +335,56 @@ export default {
                     size: '',
                     placeholder: '请输入密码',
                     maxlength: '',
-                    rules: [{ required: true, message: '请输入密码' }],
+                    rules: [
+                      {
+                        required: true,
+                        message: '请输入密码'
+                      }
+                    ],
                     border: true,
                     colon: false,
                     required: true,
                     center: false,
+                    clearable: false
+                  },
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
+                },
+                {
+                  id: 'sms_45c56035',
+                  type: 'sms',
+                  style: {
+                    width: 300,
+                    position: 'relative',
+                    top: 0,
+                    left: 0
+                  },
+                  name: '验证码',
+                  vantProps: {
+                    label: '手机号',
+                    labelWidth: '60px',
+                    name: 'phone',
+                    type: 'text',
+                    size: '',
+                    placeholder: '请输入手机号',
+                    maxlength: '11',
+                    rules: [
+                      {
+                        required: true,
+                        message: '请填写您的手机号码！'
+                      },
+                      {
+                        pattern: new RegExp('^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d{8}$', ''),
+                        message: '手机号码格式错误！'
+                      }
+                    ],
+                    border: true,
+                    colon: false,
+                    required: false,
+                    center: true,
                     clearable: false
                   },
                   events: '',
@@ -554,8 +599,8 @@ export default {
       desc: '',
       timing: '',
       params: [],
-      content: ({ app, params }) => {
-        console.log(app, params)
+      content: (e: any) => {
+        console.log(e)
       }
     }
   },

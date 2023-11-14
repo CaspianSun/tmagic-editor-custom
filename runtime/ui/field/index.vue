@@ -27,7 +27,6 @@ const props = withDefaults(
     model: () => ({})
   }
 )
-console.log(props.config)
 const vantProps = computed(() => {
   return props.config.vantProps ?? {}
 })
