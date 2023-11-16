@@ -1,5 +1,5 @@
 <template>
-  <Overlay :lazy-render="true" :show="show">
+  <Overlay :z-index="9999999" :lazy-render="true" :show="show">
     <div class="wrapper">
       <UiContainer
         :config="{

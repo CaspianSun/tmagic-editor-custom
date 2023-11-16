@@ -1,7 +1,9 @@
 export default {
-  layout: 'relative',
+  layout: 'absolute',
   style: {
-    position: 'relative'
+    position: 'relative',
+    height: '100vh',
+    width: '100%'
   },
   items: []
 }

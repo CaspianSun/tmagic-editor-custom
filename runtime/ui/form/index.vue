@@ -42,7 +42,6 @@ const app = inject<Core>('app')
 const node = app?.page?.getNode(props.config.id)
 
 const submit = (values: Record<string, any>) => {
-  console.log('submit', values)
   if (app) {
     app.emit('form:submit', node, values)
   }

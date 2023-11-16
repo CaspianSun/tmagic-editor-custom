@@ -6,7 +6,7 @@
 
   const page = {
     items: [],
-    style: { width: "100%", height: "100%", "background-color": "#eff2f5" }
+    style: { height: "auto", "min-height": "100%", "background-color": "#eff2f5" }
   };
 
   const text = {
@@ -168,19 +168,23 @@
   };
 
   const swiper = {
-    layout: "absolute",
+    layout: "relative",
     style: {
       position: "relative",
       width: "100%",
-      height: "100%"
+      height: "auto",
+      "min-height": "100vh"
     },
+    current: 0,
     items: []
   };
 
   const swiper_slide = {
-    layout: "relative",
+    layout: "absolute",
     style: {
-      position: "relative"
+      position: "relative",
+      height: "100vh",
+      width: "100%"
     },
     items: []
   };

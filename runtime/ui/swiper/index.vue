@@ -2,7 +2,7 @@
   <Swiper
     class="swiper"
     direction="vertical"
-    :initialSlide="curIndex"
+    :initialSlide="Number(props.config.current)"
     no-swiping-class="no-swiping"
     slides-per-view="auto"
     @init="init"
@@ -33,6 +33,7 @@ import Core from '@tmagic/core'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'swiper/css/free-mode'
+import { watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -44,14 +45,19 @@ const props = withDefaults(
   }
 )
 
-const preIndex = ref(0)
-const curIndex = ref(0)
-
 const swiperRef = ref<SwiperClass>()
 const setVSwiperRef = (swiper: SwiperClass) => {
-  console.log('setVSwiperRef', swiper)
+  // @ts-ignore
+  window.swiper = swiper
   swiperRef.value = swiper
 }
+
+watch(
+  () => props.config.current,
+  (val) => {
+    swiperRef.value?.slideTo(Number(val))
+  }
+)
 
 const init = (e: SwiperClass) => {
   swiperAnimateCache()

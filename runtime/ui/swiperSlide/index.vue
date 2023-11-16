@@ -42,13 +42,13 @@ useApp({
   methods: {}
 })
 
-app?.page?.on('editor:select', (info, path) => {
-  const index = info.parent.items.findIndex((item: MNode) => item.id === info.node.id)
-  if (index > -1) {
-    console.log('editor:select', index)
-    swiper.value.slideTo(index)
-  }
-})
+// app?.page?.on('editor:select', (info, path) => {
+//   const index = info.parent.items.findIndex((item: MNode) => item.id === info.node.id)
+//   if (index > -1) {
+//     console.log('editor:select', index)
+//     swiper.value.slideTo(index)
+//   }
+// })
 </script>
 
 <style lang="scss"></style>

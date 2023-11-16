@@ -9,5 +9,11 @@
   <body style="font-size: 14px">
     <div id="app"></div>
     <script type="module" src="./src/previewMain.ts"></script>
+    <script>
+      try {
+        const magicDSL = JSON.parse(`{{ dsl | safe }}`)
+        window.magicDSL = magicDSL
+      } catch (e) {}
+    </script>
   </body>
 </html>

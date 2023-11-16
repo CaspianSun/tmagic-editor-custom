@@ -18,95 +18,62 @@ export default {
       name: 'swiper页',
       items: [
         {
-          id: 'swiper_590e023a',
+          id: 'swiper_219b3e75',
           type: 'swiper',
           style: {
-            position: 'relative',
-            width: '100%',
-            height: 'auto'
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0
           },
           name: '滑动容器',
-          layout: 'absolute',
+          layout: 'relative',
           items: [
             {
-              id: 'swiper_slide_20bcca00',
+              id: 'swiper_slide_bf9951a9',
               type: 'swiper_slide',
               style: {
                 position: 'relative',
-                top: 0,
-                left: 0,
+                height: '100vh',
                 width: '100%',
-                height: '100vh'
+                top: 0,
+                left: 0
               },
-              name: '第一页',
-              layout: 'relative',
+              name: '滑动盒子',
+              layout: 'absolute',
               items: [
                 {
-                  id: 'text_eca2b484',
-                  type: 'text',
+                  id: 'img_670ec3f9',
+                  type: 'img',
                   style: {
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    right: 'auto',
-                    bottom: 'auto'
+                    width: '100%',
+                    height: 'auto',
+                    position: 'absolute',
+                    left: '0',
+                    top: '0',
+                    inset: '0',
+                    'z-index': '-10'
                   },
-                  name: '第一页文字',
-                  text: '第一页',
-                  multiple: true,
+                  name: '图片',
+                  src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/1-bg.png',
+                  url: '',
+                  fit: 'cover',
                   events: '',
                   created: '',
                   mounted: '',
                   displayConds: [],
                   animation: ''
                 }
-              ],
-              events: '',
-              created: '',
-              mounted: '',
-              displayConds: [],
-              animation: ''
-            },
-            {
-              id: 'swiper_slide_e99d679c',
-              type: 'swiper_slide',
-              style: {
-                position: 'relative',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100vh'
-              },
-              name: '第二页',
-              layout: 'relative',
-              items: [
-                {
-                  id: 'text_bbbab7bb',
-                  type: 'text',
-                  style: {
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    right: 'auto',
-                    bottom: 'auto'
-                  },
-                  name: '第二页文字',
-                  text: '第二页',
-                  multiple: true,
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                }
-              ],
-              events: '',
-              created: '',
-              mounted: '',
-              displayConds: [],
-              animation: ''
+              ]
             }
-          ]
+          ],
+          current: '0',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
         }
       ],
       title: '',
@@ -718,7 +685,7 @@ export default {
       params: [],
       content: ({ app, params }) => {
         const url = window.location.href
-        const newUrl = url.replace(/(page=)[^&]+/, '$1' + '2')
+        const newUrl = url.replace(/(page=)[^&]+/, '$12')
         window.location.href = newUrl
       }
     }

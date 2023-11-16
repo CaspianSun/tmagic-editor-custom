@@ -15,16 +15,23 @@ export const useCustomService = () => {
           }
           break
         case 'swiper':
+          if (parent?.type === 'swiper') return false
           config.style = {
             ...config.style,
-            position: 'relative',
-            height: 'auto'
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
           }
           break
         case 'swiper_slide':
+          if (parent?.type !== 'swiper') return false
           config.style = {
             ...config.style,
             position: 'relative',
+            top: 0,
+            left: 0,
             width: '100%',
             height: '100vh'
           }
@@ -34,6 +41,14 @@ export const useCustomService = () => {
       return [config, parent]
     },
     beforeDragTo(config: MNode, targetParent: MContainer, targetIndex: number) {
+      if (targetParent.items.findIndex((item) => item.id === config.id) > -1) {
+        return [config, targetParent, targetIndex]
+      }
+      switch (config.type) {
+        case 'overlay':
+        case 'swiper':
+          return [config, targetParent, targetIndex]
+      }
       if (targetParent.layout == 'relative') {
         config.style = {
           ...config.style,
