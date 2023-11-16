@@ -33,7 +33,7 @@ const props = withDefaults(
   }
 )
 
-const app: Core | undefined = inject('app')
+const app = inject<Core>('app')
 
 const style = computed(() => app?.transformStyle(props.config.style || {}))
 

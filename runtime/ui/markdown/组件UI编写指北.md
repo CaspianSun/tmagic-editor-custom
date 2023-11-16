@@ -48,18 +48,18 @@ export default Index
     v-model="props.config.model"
     v-bind="vantProps"
   >
-    <QsContainer
+    <UiContainer
       :config="{
           items: config.items
         }"
     >
       <slot></slot>
-    </QsContainer>
+    </UiContainer>
   </form>
 </div>
 ```
 
-这个也没啥好说的,就是一个普通的vue组件,主要的是 **QsContainer** 这个组件,这个组件是用来渲染子组件的,是编写容器组件需要的.
+这个也没啥好说的,就是一个普通的vue组件,主要的是 **UiContainer** 这个组件,这个组件是用来渲染子组件的,是编写容器组件需要的.
 
 容器组件的意思大概就是可以将其他组件放进去的组件,这样就可以实现组件的嵌套.
 
@@ -71,7 +71,7 @@ import useApp from '@ui/utils/useApp'
 import { Form } from 'vant'
 import type { FormInstance } from 'vant'
 import { computed, ref } from 'vue'
-import QsContainer from '@ui/container/index.vue'
+import UiContainer from '@ui/container/index.vue'
 
 const form = ref<FormInstance>()
 

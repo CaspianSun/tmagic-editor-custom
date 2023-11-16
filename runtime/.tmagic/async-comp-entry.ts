@@ -11,6 +11,8 @@ const components: Record<string, any> = {
   'radio': () => import('../ui/radio/index.vue'),
   'qr_code': () => import('../ui/qrCode/index.vue'),
   'sms': () => import('../ui/sms/index.vue'),
+  'swiper': () => import('../ui/swiper/index.vue'),
+  'swiper_slide': () => import('../ui/swiperSlide/index.vue'),
 };
 
 export default components;

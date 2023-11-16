@@ -20,9 +20,6 @@
       :can-select="canSelect"
       :code-options="codeOptions"
     >
-      <template #workspace-content>
-        <DeviceGroup ref="deviceGroup" v-model="stageRect"></DeviceGroup>
-      </template>
     </TMagicEditor>
     <TMagicDialog v-model="previewVisible" destroy-on-close class="pre-viewer" title="预览" :width="stageRect && stageRect.width">
       <iframe
@@ -45,7 +42,7 @@ import { asyncLoadJs } from '@tmagic/utils'
 import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
 import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
 import { TMagicEditor } from '@tmagic/editor'
-import type { DatasourceTypeOption, MenuBarData, MoveableOptions } from '@tmagic/editor'
+import type { DatasourceTypeOption, MoveableOptions } from '@tmagic/editor'
 import { Document, Coin, Connection } from '@element-plus/icons-vue'
 import serialize from 'serialize-javascript'
 import DeviceGroup from './components/DeviceGroup.vue'
@@ -56,7 +53,6 @@ import { useCustomService } from '@/common/customServices'
 import { getLocalConfig } from '@/utils/index'
 
 useCustomService()
-const { VITE_ENTRY_PATH } = import.meta.env
 const value = ref(dsl)
 const datasourceList: DatasourceTypeOption[] = []
 const defaultSelected = ref(value.value.items[0].id)
@@ -90,26 +86,30 @@ const codeOptions = ref({
   lineNumbersMinChars: 0
 })
 
-const runtimeUrl = '/code/runtime/'
-const previewUrl = computed(() => `/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get('page')?.id}`)
+const url = window.location.origin.replace(/\/$/, '')
+const runtimeUrl = `${url}/code/runtime/index.html`
+const previewUrl = computed(() => `${url}/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get('page')?.id}`)
 
-asyncLoadJs(`./${VITE_ENTRY_PATH}/config/index.umd.js`).then(() => {
+const getUrl = (url: string) => {
+  return new URL(url, window.location.href).href
+}
+asyncLoadJs(getUrl('./entry/config/index.umd.js')).then(() => {
   propsConfigs.value = (globalThis as any).magicPresetConfigs
 })
-asyncLoadJs(`./${VITE_ENTRY_PATH}/value/index.umd.js`).then(() => {
+asyncLoadJs(getUrl(`./entry/value/index.umd.js`)).then(() => {
   propsValues.value = (globalThis as any).magicPresetValues
 })
-asyncLoadJs(`./${VITE_ENTRY_PATH}/event/index.umd.js`).then(() => {
+asyncLoadJs(getUrl(`./entry/event/index.umd.js`)).then(() => {
   eventMethodList.value = (globalThis as any).magicPresetEvents
 })
-asyncLoadJs(`./${VITE_ENTRY_PATH}/ds-config/index.umd.js`).then(() => {
+asyncLoadJs(getUrl(`./entry/ds-config/index.umd.js`)).then(() => {
   dataSourceConfigs.value = (globalThis as any).magicPresetDsConfigs
 })
-asyncLoadJs(`./${VITE_ENTRY_PATH}/ds-value/index.umd.js`).then(() => {
+asyncLoadJs(getUrl(`./entry/ds-value/index.umd.js`)).then(() => {
   datasourceValues.value = (globalThis as any).magicPresetDsValues
 })
 
-const menu: MenuBarData = {
+const menu = {
   left: [
     {
       type: 'text',
@@ -122,7 +122,7 @@ const menu: MenuBarData = {
       type: 'button',
       text: '预览',
       icon: Connection,
-      handler: async (services) => {
+      handler: async (services: any) => {
         if (services?.editorService.get('modifiedNodeIds').size > 0 || getLocalConfig().length == 0) {
           try {
             await tMagicMessageBox.confirm('有修改未保存，是否先保存再预览', '提示', {
@@ -159,7 +159,7 @@ const menu: MenuBarData = {
       type: 'button',
       icon: Document,
       tooltip: '源码',
-      handler: (service) => service?.uiService.set('showSrc', !service?.uiService.get('showSrc'))
+      handler: (service: any) => service?.uiService.set('showSrc', !service?.uiService.get('showSrc'))
     }
   ]
 }

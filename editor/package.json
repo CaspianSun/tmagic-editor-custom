@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "rm -rf dist && run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -15,10 +15,12 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "animate.css": "^4.1.1",
+    "axios": "^1.6.1",
     "element-plus": "^2.4.2",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.44.0",
     "pinia": "^2.1.7",
+    "psd": "^3.4.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },

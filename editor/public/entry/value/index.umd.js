@@ -20,7 +20,8 @@
     url: "",
     fit: "contain",
     style: {
-      width: 176
+      width: 176,
+      height: "auto"
     }
   };
 
@@ -166,6 +167,24 @@
     }
   };
 
+  const swiper = {
+    layout: "absolute",
+    style: {
+      position: "relative",
+      width: "100%",
+      height: "100%"
+    },
+    items: []
+  };
+
+  const swiper_slide = {
+    layout: "relative",
+    style: {
+      position: "relative"
+    },
+    items: []
+  };
+
   const values = {
     "page": page,
     "text": text,
@@ -178,7 +197,9 @@
     "check_box": check_box,
     "radio": radio,
     "qr_code": qr_code,
-    "sms": sms
+    "sms": sms,
+    "swiper": swiper,
+    "swiper_slide": swiper_slide
   };
 
   return values;

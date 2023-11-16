@@ -15,7 +15,7 @@ export default defineConfig({
     }
   },
   root: './',
-  base: '/code/runtime/',
+  base: '/code/runtime',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

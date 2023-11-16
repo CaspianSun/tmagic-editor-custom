@@ -10,6 +10,8 @@ import check_box from '../ui/checkBox/index.vue';
 import radio from '../ui/radio/index.vue';
 import qr_code from '../ui/qrCode/index.vue';
 import sms from '../ui/sms/index.vue';
+import swiper from '../ui/swiper/index.vue';
+import swiper_slide from '../ui/swiperSlide/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -24,6 +26,8 @@ const components: Record<string, any> = {
   'radio': radio,
   'qr_code': qr_code,
   'sms': sms,
+  'swiper': swiper,
+  'swiper_slide': swiper_slide,
 };
 
 export default components;

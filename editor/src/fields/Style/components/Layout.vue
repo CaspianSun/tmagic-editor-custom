@@ -68,7 +68,7 @@ const handleEditText = (e: MouseEvent, item: string) => {
       let text
       // @ts-ignore
       let clp = (e.originalEvent || e).clipboardData
-      if (clp === undefined || clp === null) {
+      if (clp === void 0 || clp === null) {
         // @ts-ignore
         text = window.clipboardData.getData('text') || ''
         if (text !== '') {

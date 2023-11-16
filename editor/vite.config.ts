@@ -26,7 +26,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/code/',
+  base: '/code/editor/',
   server: {
     host: '0.0.0.0',
     port: 8098,

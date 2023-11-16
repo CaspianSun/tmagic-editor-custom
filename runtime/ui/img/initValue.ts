@@ -3,6 +3,7 @@ export default {
   url: '',
   fit: 'contain',
   style: {
-    width: 176
+    width: 176,
+    height: 'auto'
   }
 }

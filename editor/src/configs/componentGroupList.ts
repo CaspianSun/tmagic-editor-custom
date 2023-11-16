@@ -29,6 +29,21 @@ export const componentGroupList = [
     ]
   },
   {
+    title: '滑动布局',
+    items: [
+      {
+        icon: PageTemplate,
+        text: '滑动容器',
+        type: 'swiper'
+      },
+      {
+        icon: MaskTwo,
+        text: '滑动盒子',
+        type: 'swiper_slide'
+      }
+    ]
+  },
+  {
     title: '组件列表',
     items: [
       {

@@ -1,7 +1,121 @@
+//@ts-nocheck
 export default {
   type: 'app',
   id: '1',
   items: [
+    {
+      id: 'page_0a1736ad',
+      type: 'page',
+      layout: 'absolute',
+      style: {
+        height: 'auto',
+        'min-height': '100%',
+        'background-color': '#eff2f5',
+        position: 'relative',
+        top: 0,
+        left: 0
+      },
+      name: 'swiper页',
+      items: [
+        {
+          id: 'swiper_590e023a',
+          type: 'swiper',
+          style: {
+            position: 'relative',
+            width: '100%',
+            height: 'auto'
+          },
+          name: '滑动容器',
+          layout: 'absolute',
+          items: [
+            {
+              id: 'swiper_slide_20bcca00',
+              type: 'swiper_slide',
+              style: {
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100vh'
+              },
+              name: '第一页',
+              layout: 'relative',
+              items: [
+                {
+                  id: 'text_eca2b484',
+                  type: 'text',
+                  style: {
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    right: 'auto',
+                    bottom: 'auto'
+                  },
+                  name: '第一页文字',
+                  text: '第一页',
+                  multiple: true,
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
+                }
+              ],
+              events: '',
+              created: '',
+              mounted: '',
+              displayConds: [],
+              animation: ''
+            },
+            {
+              id: 'swiper_slide_e99d679c',
+              type: 'swiper_slide',
+              style: {
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100vh'
+              },
+              name: '第二页',
+              layout: 'relative',
+              items: [
+                {
+                  id: 'text_bbbab7bb',
+                  type: 'text',
+                  style: {
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    right: 'auto',
+                    bottom: 'auto'
+                  },
+                  name: '第二页文字',
+                  text: '第二页',
+                  multiple: true,
+                  events: '',
+                  created: '',
+                  mounted: '',
+                  displayConds: [],
+                  animation: ''
+                }
+              ],
+              events: '',
+              created: '',
+              mounted: '',
+              displayConds: [],
+              animation: ''
+            }
+          ]
+        }
+      ],
+      title: '',
+      events: '',
+      created: '',
+      mounted: '',
+      displayConds: [],
+      animation: ''
+    },
     {
       type: 'page',
       id: '2',
@@ -226,24 +340,11 @@ export default {
             }
           ],
           visible: true,
-          events: [
-            {
-              name: 'overlay:open',
-              actions: [
-                {
-                  actionType: 'code',
-                  to: '',
-                  method: '',
-                  codeId: 'code_4408',
-                  dataSourceMethod: '',
-                  params: {}
-                }
-              ]
-            }
-          ],
+          events: [],
           created: '',
           mounted: '',
-          animation: ''
+          animation: '',
+          displayConds: []
         },
         {
           id: 'form_24b69e11',
@@ -586,12 +687,19 @@ export default {
   ],
   codeBlocks: {
     code_4408: {
-      name: '控制台输出1',
-      desc: '控制台输出1',
+      name: 'axios测试',
+      desc: 'axios测试',
       timing: '',
       params: [],
       content: () => {
-        console.log(1)
+        axios({
+          method: 'get',
+          url: 'https://dog.ceo/api/breeds/image/random'
+        })
+          .then((response) => {
+            console.log(response, 'success')
+          })
+          .catch((error) => console.log(error, 'error'))
       }
     },
     code_6793: {
@@ -599,8 +707,19 @@ export default {
       desc: '',
       timing: '',
       params: [],
-      content: (e: any) => {
+      content: (e) => {
         console.log(e)
+      }
+    },
+    code_4833: {
+      name: '跳转首页',
+      desc: '',
+      timing: '',
+      params: [],
+      content: ({ app, params }) => {
+        const url = window.location.href
+        const newUrl = url.replace(/(page=)[^&]+/, '$1' + '2')
+        window.location.href = newUrl
       }
     }
   },

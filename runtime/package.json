@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "entry": "tmagic entry",
-    "build": "vite build",
+    "build": "rm -rf dist && run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build:libs": "tmagic entry && npm run build:config && npm run build:value && npm run build:event && npm run build:ds:libs",
     "build:ds:libs": "npm run build:ds:config && npm run build:ds:value && npm run build:ds:event",
     "build:config": "vite build --config entry.vite.config.ts --mode config --emptyOutDir",
@@ -20,6 +21,7 @@
     "axios": "^1.6.1",
     "lodash": "^4.17.21",
     "qrcode": "^1.5.3",
+    "swiper": "^11.0.4",
     "vant": "^4.7.3",
     "vue": "^3.3.8",
     "wow.js": "^1.2.2"

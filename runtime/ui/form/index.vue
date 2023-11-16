@@ -7,13 +7,13 @@
       v-model="props.config.model"
       v-bind="vantProps"
     >
-      <QsContainer
+      <UiContainer
         :config="{
           items: config.items
         }"
       >
         <slot></slot>
-      </QsContainer>
+      </UiContainer>
     </Form>
   </div>
 </template>
@@ -23,7 +23,7 @@ import useApp from '@ui/utils/useApp'
 import { Form } from 'vant'
 import type { FormInstance } from 'vant'
 import { computed, inject, ref } from 'vue'
-import QsContainer from '@ui/container/index.vue'
+import UiContainer from '@ui/container/index.vue'
 import Core from '@tmagic/core'
 
 const form = ref<FormInstance>()

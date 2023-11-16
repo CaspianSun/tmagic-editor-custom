@@ -45,7 +45,7 @@ const reSelectAnimateIndex = ref<number>()
 
 const handleAdd = (status = true) => {
   showAnimatePanel.value = status
-  reSelectAnimateIndex.value = undefined
+  reSelectAnimateIndex.value = void 0
 }
 
 const handleChooseAnimate = (item: { label: string; value: string }) => {

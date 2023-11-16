@@ -99,6 +99,16 @@
     ]
   };
 
+  const swiper = {
+    methods: [],
+    events: []
+  };
+
+  const swiper_slide = {
+    methods: [],
+    events: []
+  };
+
   const events = {
     "page": page,
     "img": img,
@@ -109,7 +119,9 @@
     "form": form,
     "check_box": check_box,
     "radio": radio,
-    "sms": sms
+    "sms": sms,
+    "swiper": swiper,
+    "swiper_slide": swiper_slide
   };
 
   return events;

@@ -10,6 +10,8 @@ import check_box from '../ui/checkBox/formConfig';
 import radio from '../ui/radio/formConfig';
 import qr_code from '../ui/qrCode/formConfig';
 import sms from '../ui/sms/formConfig';
+import swiper from '../ui/swiper/formConfig';
+import swiper_slide from '../ui/swiperSlide/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
@@ -24,6 +26,8 @@ const configs: Record<string, any> = {
   'radio': radio,
   'qr_code': qr_code,
   'sms': sms,
+  'swiper': swiper,
+  'swiper_slide': swiper_slide,
 };
 
 export default configs;

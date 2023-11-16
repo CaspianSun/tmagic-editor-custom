@@ -7,23 +7,14 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Animation: (typeof import('../src/fields/Animation/index.vue'))['default']
-    AnimationItem: (typeof import('./../src/components/animationItem.vue'))['default']
     DeviceGroup: typeof import('./../src/components/DeviceGroup.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-    ElCol: typeof import('element-plus/es')['ElCol']
-    ElInputNumber: (typeof import('element-plus/es'))['ElInputNumber']
-    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
-    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
-    ElRow: typeof import('element-plus/es')['ElRow']
-    ElScrollbar: (typeof import('element-plus/es'))['ElScrollbar']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
-    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     NavMenu: typeof import('./../src/components/NavMenu.vue')['default']
+    Psd: typeof import('./../src/components/Psd.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Style: (typeof import('./../src/components/Style/index.vue'))['default']
   }
 }

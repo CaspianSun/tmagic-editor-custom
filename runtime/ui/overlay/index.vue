@@ -1,14 +1,14 @@
 <template>
   <Overlay :lazy-render="true" :show="show">
     <div class="wrapper">
-      <QsContainer
+      <UiContainer
         :config="{
           id: config.id,
           items: config.items
         }"
       >
         <slot></slot>
-      </QsContainer>
+      </UiContainer>
     </div>
   </Overlay>
 </template>
@@ -17,7 +17,7 @@ import { inject, ref } from 'vue'
 import type { MComponent, MNode } from '@tmagic/schema'
 import Core from '@tmagic/core'
 import useApp from '@ui/utils/useApp'
-import QsContainer from '@ui/container/index.vue'
+import UiContainer from '@ui/container/index.vue'
 import { Overlay } from 'vant'
 
 const show = ref(false)
