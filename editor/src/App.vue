@@ -51,6 +51,39 @@ import { componentGroupList } from '@/configs/componentGroupList'
 import dsl from '@/configs/dsl'
 import { useCustomService } from '@/common/customServices'
 import { getLocalConfig } from '@/utils/index'
+import { getDslVersionListApi, saveDslApi } from '@/api/index'
+
+window.addEventListener(
+  'message',
+  (e) => {
+    if (e.data.type == 'init') {
+      window.actId = e.data.params.actId
+      window.version = e.data.params.version
+      getList(e.data.params.actId)
+    }
+    if (e.data.type == 'check') {
+      window.opener.postMessage(
+        {
+          type: 'check',
+          status: window?.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
+        },
+        '*'
+      )
+    }
+  },
+  false
+)
+window.opener.postMessage(
+  {
+    type: 'onload'
+  },
+  '*'
+)
+
+const getList = async (actId: number) => {
+  const { result } = await getDslVersionListApi(actId)
+  console.log(result)
+}
 
 useCustomService()
 const value = ref(dsl)
@@ -151,7 +184,16 @@ const menu = {
       icon: Coin,
       handler: () => {
         save()
-        tMagicMessage.success('保存成功')
+      }
+    },
+    {
+      type: 'button',
+      text: '保存并关闭',
+      icon: Coin,
+      handler: () => {
+        save()
+        window.opener.focus()
+        window.close()
       }
     },
     '/',
@@ -189,15 +231,17 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
   return options
 }
 
-const save = () => {
-  localStorage.setItem(
-    'magicDSL',
-    serialize(toRaw(value.value), {
-      space: 2,
+const save = async () => {
+  if (!window.actId || !window.version) return
+  await saveDslApi({
+    actId: window.actId,
+    version: window.version,
+    dsl: serialize(toRaw([value.value]), {
       unsafe: true
-    }).replace(/"(\w+)":\s/g, '$1: ')
-  )
+    })
+  })
   editor.value?.editorService.resetModifiedNodeId()
+  tMagicMessage.success('保存成功')
 }
 </script>
 

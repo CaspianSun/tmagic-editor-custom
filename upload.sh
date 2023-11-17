@@ -38,24 +38,14 @@ zip -q -r code.zip editor runtime
 cd $DIR
 
 # 获取参数 --mode
-while [ -n "$1" ]; do
-  case "$1" in
-  --mode)
-    mode=$2
-    shift
-    ;;
-  *)
-    echo "$1 is not an option"
-    ;;
-  esac
-  shift
-done
+mode=$(echo $* | grep -o "\-\-mode [a-zA-Z]*" | cut -d ' ' -f2)
 
 # 如果没有传入 --mode 参数，则默认为 development
 if [ -z "$mode" ]; then
   mode="development"
 fi
 env=".env.$mode"
+echo "环境文件: $env"
 
 # 读取当前目录下的所有的 .env 文件
 envFiles=$(ls $DIR/$env)

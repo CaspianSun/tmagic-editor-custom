@@ -1,5 +1,6 @@
 import { propsService, editorService } from '@tmagic/editor'
 import type { MContainer, MNode } from '@tmagic/schema'
+
 export const useCustomService = () => {
   editorService.usePlugin({
     beforeDoAdd: (config: MNode, parent?: MContainer | null) => {

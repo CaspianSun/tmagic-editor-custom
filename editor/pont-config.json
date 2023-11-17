@@ -1,0 +1,20 @@
+{
+  "origins": [
+    {
+      "name": "common",
+      "originUrl": "https://h5-test.qssite.cn/doc/common-json"
+    },
+    {
+      "name": "agent",
+      "originUrl": "https://h5-test.qssite.cn/doc/agent-json"
+    }
+  ],
+  "templatePath": "./pontTemplate",
+  "outDir": "./services",
+  "originType": "SwaggerV3",
+  "usingMultipleOrigins": true,
+  "mocks": {
+    "enable": false
+  },
+  "templateType": "hooks"
+}
