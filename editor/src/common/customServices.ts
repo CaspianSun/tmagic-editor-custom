@@ -37,7 +37,6 @@ export const useCustomService = () => {
           }
           break
       }
-
       return [config, parent]
     },
     beforeDragTo(config: MNode, targetParent: MContainer, targetIndex: number) {

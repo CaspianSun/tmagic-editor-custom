@@ -22,6 +22,11 @@ if [ -d "$DIR/code" ]; then
 fi
 mkdir $DIR/code
 
+#检验是否存在$DIR/code/editor跟$DIR/code/runtime 目录，如果不存在就打包
+if [ ! -d "$DIR/editor/dist" ] || [ ! -d "$DIR/runtime/dist" ]; then
+  build
+fi
+
 # 拷贝 editor/dist 到 code/editor
 cp -r $DIR/editor/dist $DIR/code/editor
 # 拷贝 runtime/dist 到 code/runtime

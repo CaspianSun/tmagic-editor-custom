@@ -9,7 +9,9 @@ import {
   SwitchButton,
   MaskTwo,
   PageTemplate,
-  Iphone
+  Iphone,
+  LayoutFour,
+  Carousel
 } from '@icon-park/vue-next'
 
 export const componentGroupList = [
@@ -32,12 +34,12 @@ export const componentGroupList = [
     title: '滑动布局',
     items: [
       {
-        icon: PageTemplate,
+        icon: LayoutFour,
         text: '滑动容器',
         type: 'swiper'
       },
       {
-        icon: MaskTwo,
+        icon: Carousel,
         text: '滑动盒子',
         type: 'swiper_slide'
       }

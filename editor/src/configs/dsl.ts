@@ -48,11 +48,10 @@ export default {
                   type: 'img',
                   style: {
                     width: '100%',
-                    height: 'auto',
+                    height: '100%',
                     position: 'absolute',
                     left: '0',
                     top: '0',
-                    inset: '0',
                     'z-index': '-10'
                   },
                   name: '图片',
@@ -66,6 +65,20 @@ export default {
                   animation: ''
                 }
               ]
+            },
+            {
+              id: 'swiper_slide_fe02721c',
+              type: 'swiper_slide',
+              style: {
+                position: 'relative',
+                height: '100vh',
+                width: '100%',
+                top: 0,
+                left: 0
+              },
+              name: '滑动盒子',
+              layout: 'absolute',
+              items: []
             }
           ],
           current: '0',

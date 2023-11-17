@@ -4,7 +4,6 @@
 
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, provide, reactive, ref, watch } from 'vue'
-
 import Core from '@tmagic/core'
 import type { Id, MApp, MNode } from '@tmagic/schema'
 import type { RemoveData, UpdateData } from '@tmagic/stage'

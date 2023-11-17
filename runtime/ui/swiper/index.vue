@@ -67,9 +67,7 @@ const slideChangeTransitionEnd = (e: SwiperClass) => {
   swiperAnimate(e)
 }
 
-const onSlideChange = (e: SwiperClass) => {
-  console.log('onSlideChange', e, swiperRef)
-}
+const onSlideChange = (e: SwiperClass) => {}
 
 const app = inject<Core>('app')
 const node = app?.page?.getNode(props.config.id)
