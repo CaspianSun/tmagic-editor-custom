@@ -12,6 +12,7 @@ import QrCode from './qrCode'
 import Sms from './sms'
 import Swiper from './swiper'
 import SwiperSlide from './swiperSlide'
+import Music from './music'
 
 const ui: Record<string, any> = {
   page: Page,
@@ -27,7 +28,8 @@ const ui: Record<string, any> = {
   qr_code: QrCode,
   sms: Sms,
   swiper: Swiper,
-  swiper_slide: SwiperSlide
+  swiper_slide: SwiperSlide,
+  music: Music
 }
 
 export default ui

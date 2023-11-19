@@ -9,7 +9,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 8078,
-    strictPort: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
@@ -28,7 +27,8 @@ export default defineConfig({
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         preview: fileURLToPath(new URL('./preview.html', import.meta.url))
       }
-    }
+    },
+    // minify: false,
   },
   optimizeDeps: { esbuildOptions: { define: { global: 'globalThis' } } }
 })

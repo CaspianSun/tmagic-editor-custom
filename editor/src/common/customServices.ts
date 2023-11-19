@@ -19,7 +19,7 @@ export const useCustomService = () => {
           if (parent?.type === 'swiper') return false
           config.style = {
             ...config.style,
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,

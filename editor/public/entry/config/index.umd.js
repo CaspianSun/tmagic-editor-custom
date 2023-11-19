@@ -706,6 +706,19 @@
 
   const swiper_slide = [];
 
+  const music = [
+    {
+      text: "音乐链接",
+      name: "src",
+      type: "data-source-input"
+    },
+    {
+      text: "自动播放",
+      name: "loadAutoPlay",
+      type: "switch"
+    }
+  ];
+
   const configs = {
     "page": page,
     "text": text,
@@ -720,7 +733,8 @@
     "qr_code": qr_code,
     "sms": sms,
     "swiper": swiper,
-    "swiper_slide": swiper_slide
+    "swiper_slide": swiper_slide,
+    "music": music
   };
 
   return configs;

@@ -30,6 +30,7 @@ const app = inject<Core>('app')
 
 const tagName = computed(() => `qs-${toLine(props.config.type)}`)
 const style = computed(() => app?.transformStyle(props.config.style))
+console.log('style', style)
 
 const display = () => {
   if (props.config.visible === false) return false

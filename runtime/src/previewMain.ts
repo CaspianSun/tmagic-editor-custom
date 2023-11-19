@@ -6,6 +6,7 @@ import 'animate.css'
 import 'virtual:uno.css'
 import 'vant/lib/index.css'
 import axios from 'axios'
+import { getUrlParam } from '@tmagic/utils'
 
 //@ts-ignore
 globalThis.axios = axios
@@ -28,6 +29,16 @@ Promise.all([
   Object.values(plugins.default).forEach((plugin: any) => {
     magicApp.use(plugin)
   })
+  if (!getUrlParam('localPreview')) {
+    if (!window.dslPath) return new Error('dslPath is not defined')
+    const script = document.createElement('script')
+    script.src = window.dslPath
+    script.onload = () => {
+      magicApp.mount('#app')
+    }
+    document.head.appendChild(script)
+  } else {
+    magicApp.mount('#app')
+  }
 
-  magicApp.mount('#app')
 })

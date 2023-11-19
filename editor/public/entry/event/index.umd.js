@@ -109,6 +109,11 @@
     events: []
   };
 
+  const music = {
+    methods: [],
+    events: []
+  };
+
   const events = {
     "page": page,
     "img": img,
@@ -121,7 +126,8 @@
     "radio": radio,
     "sms": sms,
     "swiper": swiper,
-    "swiper_slide": swiper_slide
+    "swiper_slide": swiper_slide,
+    "music": music
   };
 
   return events;

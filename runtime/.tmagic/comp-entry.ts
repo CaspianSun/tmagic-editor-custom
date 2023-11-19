@@ -12,6 +12,7 @@ import qr_code from '../ui/qrCode/index.vue';
 import sms from '../ui/sms/index.vue';
 import swiper from '../ui/swiper/index.vue';
 import swiper_slide from '../ui/swiperSlide/index.vue';
+import music from '../ui/music/index.vue';
 
 const components: Record<string, any> = {
   'page': page,
@@ -28,6 +29,7 @@ const components: Record<string, any> = {
   'sms': sms,
   'swiper': swiper,
   'swiper_slide': swiper_slide,
+  'music': music,
 };
 
 export default components;

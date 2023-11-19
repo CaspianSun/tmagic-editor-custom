@@ -13,6 +13,7 @@ const components: Record<string, any> = {
   'sms': () => import('../ui/sms/index.vue'),
   'swiper': () => import('../ui/swiper/index.vue'),
   'swiper_slide': () => import('../ui/swiperSlide/index.vue'),
+  'music': () => import('../ui/music/index.vue'),
 };
 
 export default components;

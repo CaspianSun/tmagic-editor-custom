@@ -12,6 +12,7 @@ import qr_code from '../ui/qrCode/initValue';
 import sms from '../ui/sms/initValue';
 import swiper from '../ui/swiper/initValue';
 import swiper_slide from '../ui/swiperSlide/initValue';
+import music from '../ui/music/initValue';
 
 const values: Record<string, any> = {
   'page': page,
@@ -28,6 +29,7 @@ const values: Record<string, any> = {
   'sms': sms,
   'swiper': swiper,
   'swiper_slide': swiper_slide,
+  'music': music,
 };
 
 export default values;

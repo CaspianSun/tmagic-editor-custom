@@ -31,6 +31,15 @@
         :src="previewUrl"
       ></iframe>
     </TMagicDialog>
+    <LoadVersionDialog.Dialog>
+      <ElForm ref="LoadVersionFormInstance" el-width="80px" :model="LoadVersionForm">
+        <ElFormItem label="版本" prop="versionId" :rules="[{ required: true, message: '请选择版本', trigger: 'blur' }]">
+          <ElSelect v-model="LoadVersionForm.versionId" placeholder="请选择版本">
+            <ElOption v-for="item in versionList" :key="item.id" :label="item.version" :value="item.id"></ElOption>
+          </ElSelect>
+        </ElFormItem>
+      </ElForm>
+    </LoadVersionDialog.Dialog>
   </div>
 </template>
 
@@ -40,7 +49,7 @@ import { computed, nextTick, ref, toRaw } from 'vue'
 import { NodeType } from '@tmagic/schema'
 import { asyncLoadJs } from '@tmagic/utils'
 import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
-import { tMagicMessage, TMagicDialog, tMagicMessageBox } from '@tmagic/design'
+import { tMagicMessage, TMagicDialog } from '@tmagic/design'
 import { TMagicEditor } from '@tmagic/editor'
 import type { DatasourceTypeOption, MoveableOptions } from '@tmagic/editor'
 import { Document, Coin, Connection } from '@element-plus/icons-vue'
@@ -50,16 +59,36 @@ import { uaMap } from './const'
 import { componentGroupList } from '@/configs/componentGroupList'
 import dsl from '@/configs/dsl'
 import { useCustomService } from '@/common/customServices'
-import { getLocalConfig } from '@/utils/index'
-import { getDslVersionListApi, saveDslApi } from '@/api/index'
+import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from '@/api/index'
+import { CreateEditDialog } from '@/components/EditDialog'
+import type { FormInstance } from 'element-plus'
+
+const LoadVersionForm = ref({
+  versionId: undefined
+})
+const LoadVersionFormInstance = ref<FormInstance>()
+const LoadVersionDialog = new CreateEditDialog({
+  addTitle: '加载版本',
+  addConfirmButtonText: '加载',
+  confirm: async () => {
+    await LoadVersionFormInstance.value?.validate().then(async () => {
+      await initLoadDsl(LoadVersionForm.value.versionId)
+      tMagicMessage.success('加载成功')
+    })
+  },
+  closeCallback: () => {
+    LoadVersionFormInstance.value?.resetFields()
+  }
+})
 
 window.addEventListener(
   'message',
-  (e) => {
+  async (e) => {
     if (e.data.type == 'init') {
       window.actId = e.data.params.actId
       window.version = e.data.params.version
-      getList(e.data.params.actId)
+      await getList(e.data.params.actId)
+      await initLoadDsl()
     }
     if (e.data.type == 'check') {
       window.opener.postMessage(
@@ -80,15 +109,52 @@ window.opener.postMessage(
   '*'
 )
 
+const isDev = import.meta.env.MODE == 'development'
+
+const versionList = ref<Pick<defs.agent.CodeManagement, 'id' | 'version'>[]>([])
+
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
-  console.log(result)
+  versionList.value = result.sort((a, b) => {
+    const aArr = a.version.split('.')
+    const bArr = b.version.split('.')
+    if (aArr[0] > bArr[0]) {
+      return -1
+    } else if (aArr[0] < bArr[0]) {
+      return 1
+    } else {
+      if (aArr[1] > bArr[1]) {
+        return -1
+      } else if (aArr[1] < bArr[1]) {
+        return 1
+      } else {
+        if (aArr[2] > bArr[2]) {
+          return -1
+        } else if (aArr[2] < bArr[2]) {
+          return 1
+        } else {
+          return 0
+        }
+      }
+    }
+  })
+}
+
+const initLoadDsl = async (id?: number) => {
+  if (versionList.value.length == 0) return
+  const { result } = await getVersionInfoApi(id ?? versionList.value[0].id)
+  if (result.dsl) {
+    const data = eval(`(${result.dsl})`)[0]
+    editor.value.editorService.set('root', data)
+    editor.value?.editorService.select(data.items?.[0]?.id ?? null)
+  }
 }
 
 useCustomService()
-const value = ref(dsl)
+const value = ref(isDev ? dsl : {})
 const datasourceList: DatasourceTypeOption[] = []
-const defaultSelected = ref(value.value.items[0].id)
+//@ts-ignore
+const defaultSelected = ref(value.value?.items?.[0]?.id ?? null)
 const previewVisible = ref(false)
 const editor = ref<InstanceType<typeof TMagicEditor>>()
 const deviceGroup = ref<InstanceType<typeof DeviceGroup>>()
@@ -153,21 +219,28 @@ const menu = {
   right: [
     {
       type: 'button',
+      text: '加载版本数据',
+      icon: Coin,
+      handler: () => {
+        LoadVersionDialog.open({})
+      }
+    },
+    {
+      type: 'button',
       text: '预览',
       icon: Connection,
-      handler: async (services: any) => {
-        if (services?.editorService.get('modifiedNodeIds').size > 0 || getLocalConfig().length == 0) {
-          try {
-            await tMagicMessageBox.confirm('有修改未保存，是否先保存再预览', '提示', {
-              confirmButtonText: '保存并预览',
-              cancelButtonText: '预览',
-              type: 'warning'
-            })
-            save()
-            tMagicMessage.success('保存成功')
-          } catch (e) {
-            console.log(e)
-          }
+      handler: async () => {
+        try {
+          localStorage.setItem(
+            'magicDSL',
+            serialize(toRaw(value.value), {
+              space: 2,
+              unsafe: true
+            }).replace(/"(\w+)":\s/g, '$1: ')
+          )
+          editor.value?.editorService.resetModifiedNodeId()
+        } catch (e) {
+          console.log(e)
         }
         previewVisible.value = true
         await nextTick(() => {})
@@ -190,8 +263,8 @@ const menu = {
       type: 'button',
       text: '保存并关闭',
       icon: Coin,
-      handler: () => {
-        save()
+      handler: async () => {
+        await save()
         window.opener.focus()
         window.close()
       }
@@ -231,16 +304,25 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
   return options
 }
 
+const saveId = ref<number>()
 const save = async () => {
   if (!window.actId || !window.version) return
-  await saveDslApi({
+  const { result } = await saveDslApi({
+    id: saveId.value,
     actId: window.actId,
     version: window.version,
     dsl: serialize(toRaw([value.value]), {
       unsafe: true
     })
   })
+  saveId.value = result.id
   editor.value?.editorService.resetModifiedNodeId()
+  window.opener.postMessage(
+    {
+      type: 'save'
+    },
+    '*'
+  )
   tMagicMessage.success('保存成功')
 }
 </script>
@@ -257,6 +339,7 @@ const save = async () => {
 
   .el-overlay-dialog {
     display: flex;
+    flex-direction: column;
   }
 
   .pre-viewer {

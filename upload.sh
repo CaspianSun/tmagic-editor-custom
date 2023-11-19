@@ -4,9 +4,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # 定义打包函数
 build() {
-  cd $DIR/editor
-  npm run build
   cd $DIR/runtime
+  npm run build
+  npm run build:libs
+  cd $DIR/editor
   npm run build
   cd $DIR
 }

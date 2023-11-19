@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, toRef, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
 import { CaretRight, Delete } from '@element-plus/icons-vue'
 import type { FieldProps } from '@tmagic/form'
@@ -21,18 +21,14 @@ type AnimationConfig = {
 }
 
 const props = defineProps<FieldProps<AnimationConfig>>()
-const model = toRef(props, 'model')
-const animationList = ref(model.value[props.name] ?? [])
-watch(
-  () => animationList,
-  (val) => {
-    model.value[props.name] = val.value
-    emit('change', model.value)
+const animationList = computed({
+  get() {
+    return props.model[props.name] ?? []
   },
-  {
-    deep: true
+  set(val) {
+    emit('change', val, props.name)
   }
-)
+})
 
 const handleDeleteAnimate = (index: number) => {
   animationList.value.splice(index, 1)

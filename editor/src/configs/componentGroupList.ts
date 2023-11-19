@@ -11,7 +11,8 @@ import {
   PageTemplate,
   Iphone,
   LayoutFour,
-  Carousel
+  Carousel,
+  Performance
 } from '@icon-park/vue-next'
 
 export const componentGroupList = [
@@ -67,7 +68,12 @@ export const componentGroupList = [
         icon: TwoDimensionalCodeOne,
         text: '二维码',
         type: 'qr_code'
-      }
+      },
+      {
+        icon: Performance,
+        text: '音乐',
+        type: 'music'
+      },
     ]
   },
   {

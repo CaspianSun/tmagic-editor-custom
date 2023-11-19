@@ -12,6 +12,7 @@ import qr_code from '../ui/qrCode/formConfig';
 import sms from '../ui/sms/formConfig';
 import swiper from '../ui/swiper/formConfig';
 import swiper_slide from '../ui/swiperSlide/formConfig';
+import music from '../ui/music/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
@@ -28,6 +29,7 @@ const configs: Record<string, any> = {
   'sms': sms,
   'swiper': swiper,
   'swiper_slide': swiper_slide,
+  'music': music,
 };
 
 export default configs;

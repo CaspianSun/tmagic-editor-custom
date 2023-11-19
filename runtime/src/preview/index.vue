@@ -21,6 +21,7 @@ const wow = new WOW({
   resetAnimation: true
 })
 wow.init()
+
 const app = new Core({
   ua: window.navigator.userAgent,
   config: ((getUrlParam('localPreview') ? getLocalConfig() : window.magicDSL) || [])[0] || {},
@@ -43,4 +44,3 @@ onMounted(() => {
   window.appInstance = app
 })
 </script>
-ui/utils @/ui/utils

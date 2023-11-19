@@ -170,10 +170,11 @@
   const swiper = {
     layout: "relative",
     style: {
-      position: "relative",
-      width: "100%",
-      height: "auto",
-      "min-height": "100vh"
+      position: "absolute",
+      top: "0",
+      left: "0",
+      bottom: "0",
+      right: "0"
     },
     current: 0,
     items: []
@@ -187,6 +188,10 @@
       width: "100%"
     },
     items: []
+  };
+
+  const music = {
+    src: "https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/5c89d6779fab955439.mp3"
   };
 
   const values = {
@@ -203,7 +208,8 @@
     "qr_code": qr_code,
     "sms": sms,
     "swiper": swiper,
-    "swiper_slide": swiper_slide
+    "swiper_slide": swiper_slide,
+    "music": music
   };
 
   return values;
