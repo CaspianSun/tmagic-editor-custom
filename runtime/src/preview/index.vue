@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, provide, reactive } from 'vue'
+import { onBeforeMount, onMounted, provide, reactive } from 'vue'
 import Core from '@tmagic/core'
 import type { MNode } from '@tmagic/schema'
 import { replaceChildNode, getUrlParam } from '@tmagic/utils'
@@ -42,5 +42,15 @@ onMounted(() => {
     })
   })
   window.appInstance = app
+})
+const setHtmlFontSize = () => {
+  const html = document.documentElement
+  const width = html.clientWidth
+  console.log(html.style.fontSize)
+  html.style.fontSize = width / 3.75 + 'px'
+}
+onBeforeMount(() => {
+  setHtmlFontSize()
+  window.addEventListener('resize', setHtmlFontSize)
 })
 </script>
