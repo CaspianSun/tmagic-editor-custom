@@ -102,7 +102,7 @@ window.addEventListener(
   },
   false
 )
-window.opener.postMessage(
+window.opener?.postMessage(
   {
     type: 'onload'
   },

@@ -17,6 +17,9 @@ import type { MPage } from '@tmagic/schema'
 
 import MComponent from '@ui/Component.vue'
 import useApp from '@ui/utils/useApp'
+import { provide } from 'vue'
+
+provide('isSwiper', false)
 
 const props = withDefaults(
   defineProps<{

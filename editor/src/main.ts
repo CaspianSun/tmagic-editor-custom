@@ -6,8 +6,7 @@ import '@/style/index.scss'
 import 'animate.css'
 import 'virtual:uno.css'
 
-import { loader } from '@guolao/vue-monaco-editor'
-import * as monaco from 'monaco-editor'
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
@@ -31,7 +30,6 @@ globalThis.MonacoEnvironment = {
   }
 }
 monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true)
-loader.config({ monaco })
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

@@ -1,6 +1,6 @@
 import { ref, type ComputedRef, type FunctionalComponent, nextTick, computed } from 'vue'
 import { ElButton, ElDialog } from 'element-plus'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import s from './index.module.scss'
 
 export enum EditDialogType {

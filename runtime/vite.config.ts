@@ -3,9 +3,10 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import UnoCSS from 'unocss/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
-  plugins: [vue(), vueJsx(), UnoCSS()],
+  plugins: [vue(), vueJsx(), UnoCSS(), visualizer()],
   server: {
     host: '0.0.0.0',
     port: 8078,
@@ -27,7 +28,7 @@ export default defineConfig({
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         preview: fileURLToPath(new URL('./preview.html', import.meta.url))
       }
-    },
+    }
     // minify: false,
   },
   optimizeDeps: { esbuildOptions: { define: { global: 'globalThis' } } }

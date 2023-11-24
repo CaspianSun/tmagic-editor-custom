@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { nextTick, ref, watch } from 'vue'
 import { ElRow, ElCol, ElTooltip, ElRadioGroup, ElRadioButton } from 'element-plus'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 
 const props = defineProps<{
   modelValue: Record<string, any>

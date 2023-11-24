@@ -3,7 +3,7 @@
     v-if="display()"
     :is="tagName"
     :id="config.id"
-    :class="`magic-ui-component${config.className ? ` ${config.className}` : ''}`"
+    :class="`magic-ui-component ${config.className ? `${config.className}` : ''}`"
     :style="style"
     :config="config"
   ></component>
@@ -13,7 +13,9 @@
 import { computed, inject, onMounted, ref, watch } from 'vue'
 import Core from '@tmagic/core'
 import { toLine } from '@tmagic/utils'
-import { runAnimation } from '@ui/utils/animation'
+import { runAnimation, initSwiperAnimation, initAnimation } from '@ui/utils/animation'
+
+const isSwiper = inject<boolean>('isSwiper')
 
 const props = withDefaults(
   defineProps<{
@@ -34,41 +36,33 @@ const style = computed(() => app?.transformStyle(props.config.style))
 const display = () => {
   if (props.config.visible === false) return false
   if (props.config.condResult === false) return false
-
   const displayCfg = props.config?.display
-
   if (typeof displayCfg === 'function') {
     return displayCfg(app)
   }
   return displayCfg !== false
 }
 
-// const animationRef = ref<HTMLDivElement>()
-const oldAnimation = ref()
-
 onMounted(() => {
-  watch(
-    () => props.config.animation,
-    (val) => {
-      if (JSON.stringify(val) == JSON.stringify(oldAnimation.value)) return
-      oldAnimation.value = val
-      const el = document.getElementById(`${props.config.id}`)
-      if (!el) return
-      runAnimation(el, val, true)
-    },
-    {
-      immediate: true
-    }
-  )
+  const el = document.getElementById(`${props.config.id}`)
+  if (isSwiper) {
+    el && initSwiperAnimation(el, props.config.animation)
+  } else {
+    el?.classList.add('wow')
+    el && initAnimation()
+  }
 })
 
 window.addEventListener('message', (event) => {
   if (event.data?.type === 'animation') {
     if (event.data.data?.id == props.config.id) {
       const el = document.getElementById(`${props.config.id}`)
-      if (!el) return
-      runAnimation(el, JSON.parse(event.data.data.animation), true)
-      el.style.animationPlayState = 'running'
+      try {
+        const val = JSON.parse(event.data.data.animation)
+        el && runAnimation(el, val)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 })

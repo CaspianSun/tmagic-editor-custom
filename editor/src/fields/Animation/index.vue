@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
 import { CaretRight, Delete } from '@element-plus/icons-vue'
 import type { FieldProps } from '@tmagic/form'
 import animateCssData from './animateCssData'
-import { isArray } from 'lodash'
+import { cloneDeep, isArray } from 'lodash-es'
 import { editorService } from '@tmagic/editor'
+import { watch } from 'vue'
 
 defineOptions({
   name: 'MAnimation'
@@ -21,17 +22,27 @@ type AnimationConfig = {
 }
 
 const props = defineProps<FieldProps<AnimationConfig>>()
-const animationList = computed({
-  get() {
-    return props.model[props.name] ?? []
-  },
-  set(val) {
-    emit('change', val, props.name)
+
+const animationList = ref<AnimationConfig[]>(cloneDeep(props.model[props.name] ?? []))
+watch(
+  () => props.model[props.name],
+  (val) => {
+    animationList.value = cloneDeep(val)
   }
-})
+)
+watch(
+  () => animationList,
+  (val) => {
+    if (JSON.stringify(val.value) === JSON.stringify(props.model[props.name])) return
+    emit('change', val.value)
+  },
+  {
+    deep: true
+  }
+)
 
 const handleDeleteAnimate = (index: number) => {
-  animationList.value.splice(index, 1)
+  animationList.value = animationList.value.filter((_, i) => i !== index)
 }
 
 const activeName = ref('进入')

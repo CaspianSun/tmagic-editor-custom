@@ -24,9 +24,9 @@
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
-import { inject, ref } from 'vue'
+import { inject, ref, provide } from 'vue'
 import { toLine } from '@tmagic/utils'
-import { swiperAnimate, swiperAnimateCache } from '@ui/utils/swiper'
+import { swiperAnimate, swiperAnimateCache } from '@ui/utils/animation'
 import SwiperClass from 'swiper'
 import { Swiper } from 'swiper/vue'
 import Core from '@tmagic/core'
@@ -34,6 +34,8 @@ import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'swiper/css/free-mode'
 import { watch } from 'vue'
+
+provide('isSwiper', true)
 
 const props = withDefaults(
   defineProps<{
@@ -72,9 +74,24 @@ const onSlideChange = (e: SwiperClass) => {}
 const app = inject<Core>('app')
 const node = app?.page?.getNode(props.config.id)
 
+const slideTo = (index: number) => {
+  swiperRef.value?.slideTo(index)
+}
+
+const slideNext = () => {
+  swiperRef.value?.slideNext()
+}
+const slidePrev = () => {
+  swiperRef.value?.slidePrev()
+}
+
 useApp({
   config: props.config,
-  methods: {}
+  methods: {
+    slideTo,
+    slideNext,
+    slidePrev
+  }
 })
 </script>
 

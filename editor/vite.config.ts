@@ -6,6 +6,7 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   plugins: [
@@ -19,7 +20,8 @@ export default defineConfig({
     }),
     vue(),
     vueJsx(),
-    UnoCSS()
+    UnoCSS(),
+    visualizer()
   ],
   resolve: {
     alias: {
@@ -39,6 +41,17 @@ export default defineConfig({
       }
     }
   },
-
-  optimizeDeps: { esbuildOptions: { define: { global: 'globalThis' } } }
+  optimizeDeps: {
+    esbuildOptions: { define: { global: 'globalThis' } }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (e) => {
+          if (e.includes('/node_modules/monaco-editor/')) return 'monaco'
+          else return 'vendor'
+        }
+      }
+    }
+  }
 })

@@ -2,11 +2,17 @@
   <div
     v-if="display()"
     :id="`${config.id || ''}`"
-    :class="`magic-layout-${config.layout}${config.className ? ` ${config.className}` : ''}`"
+    :class="`${config.className ? ` ${config.className}` : ''}`"
     :style="style"
   >
     <slot></slot>
-    <MComponent v-for="item in config.items" :key="item.id" :config="item"></MComponent>
+    <MComponent
+      v-for="item in config.items"
+      :key="item.id"
+      :config="{
+        ...item
+      }"
+    ></MComponent>
   </div>
 </template>
 
@@ -27,6 +33,7 @@ const props = withDefaults(
   defineProps<{
     config: MContainerConfig
     model?: any
+    type?: string
   }>(),
   {
     model: () => ({})
