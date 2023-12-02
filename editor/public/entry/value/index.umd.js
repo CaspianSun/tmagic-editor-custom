@@ -168,7 +168,7 @@
   };
 
   const swiper = {
-    layout: "relative",
+    layout: "absolute",
     style: {
       position: "absolute",
       top: "0",
@@ -176,7 +176,7 @@
       bottom: "0",
       right: "0"
     },
-    current: 0,
+    current: "0",
     items: []
   };
 
@@ -191,7 +191,12 @@
   };
 
   const music = {
-    src: "https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/5c89d6779fab955439.mp3"
+    src: "https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/5c89d6779fab955439.mp3",
+    style: {
+      position: "fixed",
+      right: "20px",
+      top: "20px"
+    }
   };
 
   const values = {

@@ -40,6 +40,7 @@ export const useCustomService = () => {
       }
       return [config, parent]
     },
+
     beforeDragTo(config: MNode, targetParent: MContainer, targetIndex: number) {
       if (targetParent.items.findIndex((item) => item.id === config.id) > -1) {
         return [config, targetParent, targetIndex]

@@ -31,7 +31,7 @@ export async function initSwiperAnimation($el: HTMLElement, animationList: Anima
 
 export const swiperAnimateCache = () => {
   const allBoxes: any = window.document.documentElement.querySelectorAll('.swiper-animation')
-  console.log('allBoxes', allBoxes)
+  if (!allBoxes?.length) return
   for (let i = 0; i < allBoxes.length; i++) {
     allBoxes[i].style.visibility = 'hidden'
     allBoxes[i].style.animation = ''
@@ -41,6 +41,7 @@ export const swiperAnimateCache = () => {
 export const swiperAnimate = (a: any) => {
   swiperAnimateCache()
   const allBoxes = a.slides[a.activeIndex]?.querySelectorAll('.swiper-animation')
+  if (!allBoxes?.length) return
   for (let i = 0; i < allBoxes.length; i++) {
     const ani = allBoxes[i].getAttribute('swiper-animation')
     allBoxes[i].style.animation = ani

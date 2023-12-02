@@ -151,7 +151,11 @@ const initLoadDsl = async (id?: number) => {
 }
 
 useCustomService()
-const value = ref(isDev ? dsl : {})
+const value = ref({
+  type: 'app',
+  id: '1',
+  items: []
+})
 const datasourceList: DatasourceTypeOption[] = []
 //@ts-ignore
 const defaultSelected = ref(value.value?.items?.[0]?.id ?? null)

@@ -1,5 +1,5 @@
 export default {
-  layout: 'relative',
+  layout: 'absolute',
   style: {
     position: 'absolute',
     top: '0',
@@ -7,6 +7,6 @@ export default {
     bottom: '0',
     right: '0'
   },
-  current: 0,
+  current: '0',
   items: []
 }
