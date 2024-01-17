@@ -11,8 +11,9 @@ import radio from '../ui/radio/initValue';
 import qr_code from '../ui/qrCode/initValue';
 import sms from '../ui/sms/initValue';
 import swiper from '../ui/swiper/initValue';
-import swiper_slide from '../ui/swiperSlide/initValue';
 import music from '../ui/music/initValue';
+import pageFragment from '../ui/pageFragment/initValue';
+import pageFragmentContainer from '../ui/pageFragmentContainer/initValue';
 
 const values: Record<string, any> = {
   'page': page,
@@ -28,8 +29,9 @@ const values: Record<string, any> = {
   'qr_code': qr_code,
   'sms': sms,
   'swiper': swiper,
-  'swiper_slide': swiper_slide,
   'music': music,
+  'page-fragment': pageFragment,
+  'page-fragment-container': pageFragmentContainer,
 };
 
 export default values;

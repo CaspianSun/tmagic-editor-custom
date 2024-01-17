@@ -9,7 +9,6 @@ import check_box from '../ui/checkBox/event';
 import radio from '../ui/radio/event';
 import sms from '../ui/sms/event';
 import swiper from '../ui/swiper/event';
-import swiper_slide from '../ui/swiperSlide/event';
 import music from '../ui/music/event';
 
 const events: Record<string, any> = {
@@ -24,7 +23,6 @@ const events: Record<string, any> = {
   'radio': radio,
   'sms': sms,
   'swiper': swiper,
-  'swiper_slide': swiper_slide,
   'music': music,
 };
 

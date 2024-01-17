@@ -45,73 +45,21 @@
 
 <script lang="ts" setup>
 import type { Ref } from 'vue'
-import { computed, nextTick, ref, toRaw } from 'vue'
+import { computed, ref, toRaw } from 'vue'
 import { NodeType } from '@tmagic/schema'
 import { asyncLoadJs } from '@tmagic/utils'
 import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
 import { tMagicMessage, TMagicDialog } from '@tmagic/design'
 import { TMagicEditor } from '@tmagic/editor'
 import type { DatasourceTypeOption, MoveableOptions } from '@tmagic/editor'
-import { Document, Coin, Connection } from '@element-plus/icons-vue'
 import serialize from 'serialize-javascript'
-import DeviceGroup from './components/DeviceGroup.vue'
-import { uaMap } from './const'
 import { componentGroupList } from '@/configs/componentGroupList'
 import dsl from '@/configs/dsl'
 import { useCustomService } from '@/common/customServices'
 import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from '@/api/index'
 import { CreateEditDialog } from '@/components/EditDialog'
 import type { FormInstance } from 'element-plus'
-
-const LoadVersionForm = ref({
-  versionId: undefined
-})
-const LoadVersionFormInstance = ref<FormInstance>()
-const LoadVersionDialog = new CreateEditDialog({
-  addTitle: '加载版本',
-  addConfirmButtonText: '加载',
-  confirm: async () => {
-    await LoadVersionFormInstance.value?.validate().then(async () => {
-      await initLoadDsl(LoadVersionForm.value.versionId)
-      tMagicMessage.success('加载成功')
-    })
-  },
-  closeCallback: () => {
-    LoadVersionFormInstance.value?.resetFields()
-  }
-})
-
-window.addEventListener(
-  'message',
-  async (e) => {
-    if (e.data.type == 'init') {
-      window.actId = e.data.params.actId
-      window.version = e.data.params.version
-      await getList(e.data.params.actId)
-      await initLoadDsl()
-    }
-    if (e.data.type == 'check') {
-      window.opener.postMessage(
-        {
-          type: 'check',
-          status: window?.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
-        },
-        '*'
-      )
-    }
-  },
-  false
-)
-window.opener?.postMessage(
-  {
-    type: 'onload'
-  },
-  '*'
-)
-
-const isDev = import.meta.env.MODE == 'development'
-
-const versionList = ref<Pick<defs.agent.CodeManagement, 'id' | 'version'>[]>([])
+import { createMenu } from './configs/menu'
 
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
@@ -140,6 +88,23 @@ const getList = async (actId: number) => {
   })
 }
 
+const LoadVersionForm = ref({ versionId: undefined })
+const versionList = ref<Pick<defs.agent.CodeManagement, 'id' | 'version'>[]>([])
+const LoadVersionFormInstance = ref<FormInstance>()
+const LoadVersionDialog = new CreateEditDialog({
+  addTitle: '加载版本',
+  addConfirmButtonText: '加载',
+  confirm: async () => {
+    await LoadVersionFormInstance.value?.validate().then(async () => {
+      await initLoadDsl(LoadVersionForm.value.versionId)
+      tMagicMessage.success('加载成功')
+    })
+  },
+  closeCallback: () => {
+    LoadVersionFormInstance.value?.resetFields()
+  }
+})
+
 const initLoadDsl = async (id?: number) => {
   if (versionList.value.length == 0) return
   const { result } = await getVersionInfoApi(id ?? versionList.value[0].id)
@@ -151,17 +116,20 @@ const initLoadDsl = async (id?: number) => {
 }
 
 useCustomService()
-const value = ref({
-  type: 'app',
-  id: '1',
-  items: []
-})
+const isDev = import.meta.env.MODE == 'development'
+const value = ref(
+  isDev
+    ? dsl
+    : {
+        type: 'app',
+        id: '1',
+        items: []
+      }
+)
 const datasourceList: DatasourceTypeOption[] = []
-//@ts-ignore
 const defaultSelected = ref(value.value?.items?.[0]?.id ?? null)
 const previewVisible = ref(false)
 const editor = ref<InstanceType<typeof TMagicEditor>>()
-const deviceGroup = ref<InstanceType<typeof DeviceGroup>>()
 const iframe = ref<HTMLIFrameElement>() as Ref<HTMLIFrameElement>
 const propsValues = ref<Record<string, any>>({})
 const propsConfigs = ref<Record<string, any>>({})
@@ -212,88 +180,15 @@ asyncLoadJs(getUrl(`./entry/ds-value/index.umd.js`)).then(() => {
   datasourceValues.value = (globalThis as any).magicPresetDsValues
 })
 
-const menu = {
-  left: [
-    {
-      type: 'text',
-      text: '趣深'
-    }
-  ],
-  center: ['delete', 'undo', 'redo', 'guides', 'rule', 'zoom'],
-  right: [
-    {
-      type: 'button',
-      text: '加载版本数据',
-      icon: Coin,
-      handler: () => {
-        LoadVersionDialog.open({})
-      }
-    },
-    {
-      type: 'button',
-      text: '预览',
-      icon: Connection,
-      handler: async () => {
-        try {
-          localStorage.setItem(
-            'magicDSL',
-            serialize(toRaw(value.value), {
-              space: 2,
-              unsafe: true
-            }).replace(/"(\w+)":\s/g, '$1: ')
-          )
-          editor.value?.editorService.resetModifiedNodeId()
-        } catch (e) {
-          console.log(e)
-        }
-        previewVisible.value = true
-        await nextTick(() => {})
-        if (!iframe.value?.contentWindow || !deviceGroup.value?.viewerDevice) return
-        Object.defineProperty(iframe.value.contentWindow.navigator, 'userAgent', {
-          value: uaMap[deviceGroup.value.viewerDevice],
-          writable: true
-        })
-      }
-    },
-    {
-      type: 'button',
-      text: '保存',
-      icon: Coin,
-      handler: () => {
-        save()
-      }
-    },
-    {
-      type: 'button',
-      text: '保存并关闭',
-      icon: Coin,
-      handler: async () => {
-        await save()
-        window.opener.focus()
-        window.close()
-      }
-    },
-    '/',
-    {
-      type: 'button',
-      icon: Document,
-      tooltip: '源码',
-      handler: (service: any) => service?.uiService.set('showSrc', !service?.uiService.get('showSrc'))
-    }
-  ]
-}
-const canSelect = (el: HTMLElement): Boolean => el.classList.contains('magic-ui-component') || el.classList.contains('magic-ui-container')
+const canSelect = (el: HTMLElement): Boolean =>
+  (el.classList.contains('magic-ui-component') || el.classList.contains('magic-ui-container')) && Boolean(el.id)
 
 const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): MoveableOptions => {
   const options: MoveableOptions = {}
-
   if (!editor.value) return options
-
   const page = editor.value.editorService.get('page')
-
   const ids = config?.targetElIds || []
   let isPage = page && ids.includes(`${page.id}`)
-
   if (!isPage) {
     const id = config?.targetElId
     if (id) {
@@ -301,7 +196,6 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
       isPage = node?.type === NodeType.PAGE
     }
   }
-
   options.draggable = !isPage
   options.resizable = !isPage
   options.rotatable = !isPage
@@ -329,6 +223,35 @@ const save = async () => {
   )
   tMagicMessage.success('保存成功')
 }
+const menu = createMenu(value, editor, iframe, previewVisible, save, LoadVersionDialog)
+
+window.addEventListener(
+  'message',
+  async (e) => {
+    if (e.data.type == 'init') {
+      window.actId = e.data.params.actId
+      window.version = e.data.params.version
+      await getList(e.data.params.actId)
+      await initLoadDsl()
+    }
+    if (e.data.type == 'check') {
+      window.opener.postMessage(
+        {
+          type: 'check',
+          status: window?.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
+        },
+        '*'
+      )
+    }
+  },
+  false
+)
+window.opener?.postMessage(
+  {
+    type: 'onload'
+  },
+  '*'
+)
 </script>
 
 <style>

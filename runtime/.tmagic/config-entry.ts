@@ -11,8 +11,9 @@ import radio from '../ui/radio/formConfig';
 import qr_code from '../ui/qrCode/formConfig';
 import sms from '../ui/sms/formConfig';
 import swiper from '../ui/swiper/formConfig';
-import swiper_slide from '../ui/swiperSlide/formConfig';
 import music from '../ui/music/formConfig';
+import pageFragment from '../ui/pageFragment/formConfig';
+import pageFragmentContainer from '../ui/pageFragmentContainer/formConfig';
 
 const configs: Record<string, any> = {
   'page': page,
@@ -28,8 +29,9 @@ const configs: Record<string, any> = {
   'qr_code': qr_code,
   'sms': sms,
   'swiper': swiper,
-  'swiper_slide': swiper_slide,
   'music': music,
+  'page-fragment': pageFragment,
+  'page-fragment-container': pageFragmentContainer,
 };
 
 export default configs;

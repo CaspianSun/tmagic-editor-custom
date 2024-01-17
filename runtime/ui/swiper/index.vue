@@ -10,30 +10,31 @@
     @slideChange="onSlideChange"
     @swiper="setVSwiperRef"
   >
-    <template v-for="item in config.items">
-      <component
-        :is="`qs-${toLine(item.type)}`"
-        :id="item.id"
-        :style="app?.transformStyle(item.style)"
-        :config="item"
-      ></component>
+    <template v-for="(item, index) in config.pageFragments" :key="`${item.id}${index}`">
+      <SwiperSlide>
+        <UiPageFragmentContainer
+          :config="{
+            id: `${item.id}${index}`,
+            pageFragmentId: item.id
+          }"
+        ></UiPageFragmentContainer>
+      </SwiperSlide>
     </template>
   </Swiper>
 </template>
 
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
-import useApp from '@ui/utils/useApp'
-import { inject, ref, provide } from 'vue'
-import { toLine } from '@tmagic/utils'
+import { inject, watch, ref, provide } from 'vue'
 import { swiperAnimate, swiperAnimateCache } from '@ui/utils/animation'
+import useApp from '@ui/utils/useApp'
+import UiPageFragmentContainer from '@ui/pageFragmentContainer'
 import SwiperClass from 'swiper'
-import { Swiper } from 'swiper/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import Core from '@tmagic/core'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'swiper/css/free-mode'
-import { watch } from 'vue'
 
 provide('isSwiper', true)
 
@@ -49,8 +50,6 @@ const props = withDefaults(
 
 const swiperRef = ref<SwiperClass>()
 const setVSwiperRef = (swiper: SwiperClass) => {
-  // @ts-ignore
-  window.swiper = swiper
   swiperRef.value = swiper
 }
 

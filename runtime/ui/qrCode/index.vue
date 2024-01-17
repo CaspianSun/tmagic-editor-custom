@@ -11,7 +11,7 @@ import { Image } from 'vant'
 
 import type { MComponent } from '@tmagic/schema'
 
-import useApp from '@ui/utils//useApp'
+import useApp from '@ui/utils/useApp'
 
 const props = withDefaults(
   defineProps<{

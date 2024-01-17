@@ -1,10 +1,5 @@
 <template>
-  <TMagicRadioGroup
-    size="small"
-    v-model="viewerDevice"
-    :class="viewerDevice"
-    @change="deviceSelect"
-  >
+  <TMagicRadioGroup size="small" v-model="viewerDevice" :class="viewerDevice" @change="deviceSelect">
     <TMagicRadioButton label="phone">Phone</TMagicRadioButton>
     <TMagicRadioButton label="pad">Pad</TMagicRadioButton>
     <TMagicRadioButton label="pc">PC</TMagicRadioButton>
@@ -18,7 +13,7 @@ import Core from '@tmagic/core'
 import { TMagicRadioButton, TMagicRadioGroup } from '@tmagic/design'
 import { editorService } from '@tmagic/editor'
 
-import { DeviceType, uaMap } from '../const'
+import { DeviceType, uaMap } from '@/constant'
 
 const devH: Record<DeviceType, number> = {
   phone: 817,

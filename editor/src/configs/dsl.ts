@@ -29,59 +29,38 @@ export default {
           },
           name: '滑动容器',
           layout: 'relative',
-          items: [
+          current: '0',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: '',
+          pageFragments: [
             {
-              id: 'swiper_slide_bf9951a9',
-              type: 'swiper_slide',
-              style: {
-                position: 'relative',
-                height: '100vh',
-                width: '100%',
-                top: 0,
-                left: 0
-              },
-              name: '滑动盒子',
-              layout: 'absolute',
-              items: [
-                {
-                  id: 'img_670ec3f9',
-                  type: 'img',
-                  style: {
-                    width: '100%',
-                    height: '100%',
-                    position: 'absolute',
-                    left: '0',
-                    top: '0',
-                    'z-index': '-10'
-                  },
-                  name: '图片',
-                  src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/1-bg.png',
-                  url: '',
-                  fit: 'cover',
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                }
-              ]
+              id: 'page-fragment_8d81ff88'
             },
             {
-              id: 'swiper_slide_fe02721c',
-              type: 'swiper_slide',
-              style: {
-                position: 'relative',
-                height: '100vh',
-                width: '100%',
-                top: 0,
-                left: 0
-              },
-              name: '滑动盒子',
-              layout: 'absolute',
-              items: []
+              id: 'page-fragment_fe02721c'
+            },
+            {
+              id: 'page-fragment_dfa20b38'
+            },
+            {
+              id: 'page-fragment_892963cb'
             }
-          ],
-          current: '0',
+          ]
+        },
+        {
+          id: 'music_8382ccd5',
+          type: 'music',
+          style: {
+            position: 'absolute',
+            left: 'auto',
+            top: '58',
+            right: '28'
+          },
+          name: '音乐',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/5c89d6779fab955439.mp3',
           events: '',
           created: '',
           mounted: '',
@@ -97,572 +76,640 @@ export default {
       animation: ''
     },
     {
-      type: 'page',
-      id: '2',
-      name: '首页',
-      title: '',
+      id: 'page-fragment_8d81ff88',
+      type: 'page-fragment',
+      name: 'Swiper第一页',
       layout: 'absolute',
       style: {
         position: 'relative',
-        width: '100%',
         height: '100vh',
-        'background-color': '#eff2f5'
+        width: '100%',
+        top: 0,
+        left: 0
       },
       items: [
         {
-          id: 'text_fdbbc093',
-          type: 'text',
+          id: 'img_670ec3f9',
+          type: 'img',
           style: {
-            width: '100',
-            height: 'auto',
+            width: '100%',
+            height: '100%',
             position: 'absolute',
-            top: 131,
-            left: 137.5,
-            right: '',
-            textAlign: 'center'
+            left: 0,
+            top: 0,
+            'z-index': '-10'
           },
-          name: '文本',
-          text: '演示',
-          multiple: true,
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/1-bg.png',
+          url: '',
+          fit: 'cover',
           events: '',
           created: '',
           mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_33be6e1a',
+          type: 'img',
+          style: {
+            width: '50',
+            height: '42',
+            position: 'absolute',
+            left: '28',
+            top: '58'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/logo@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
           animation: [
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 5,
+              duration: 1.5,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_1fea662c',
+          type: 'img',
+          style: {
+            width: '333',
+            height: '253',
+            position: 'absolute',
+            left: '21',
+            top: '174',
+            right: 'auto'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/1-2.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 3,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'page-fragment_fe02721c',
+      type: 'page-fragment',
+      name: 'Swiper第二页',
+      layout: 'absolute',
+      style: {
+        position: 'relative',
+        height: '100vh',
+        width: '100%',
+        top: 0,
+        left: 0
+      },
+      items: [
+        {
+          id: 'img_f70e54b7',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            'z-index': -10
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/2-bg@2x.png',
+          url: '',
+          fit: 'cover',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: '',
+          visible: true
+        },
+        {
+          id: 'img_7901c0fe',
+          type: 'img',
+          style: {
+            width: '333',
+            height: 'auto',
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            right: 'auto',
+            transform: 'translateY(-50%) translateX(-50%)',
+            'z-index': '10'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/2-1@2x.png',
+          url: '',
+          fit: 'cover',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1.5,
               delay: 0,
               loopCount: 1,
               loop: false
             }
           ],
-          displayConds: []
+          visible: true
         },
         {
-          id: 'button_62cecca4',
-          type: 'button',
+          id: 'img_6129ca5e',
+          type: 'img',
           style: {
+            width: '48',
+            height: '48px',
             position: 'absolute',
-            top: 656,
-            left: 135,
-            width: 107,
-            height: 30,
-            right: ''
+            left: 'auto',
+            top: '196',
+            right: '29',
+            'z-index': '-10'
           },
-          name: '按钮',
-          vantProps: {
-            text: '打开遮罩',
-            type: 'primary',
-            size: 'small',
-            plain: true,
-            hairline: true,
-            round: false
-          },
-          events: [
-            {
-              name: 'magic:common:events:click',
-              actions: [
-                {
-                  actionType: 'comp',
-                  to: 'overlay_c4147a13',
-                  method: 'openOverlay',
-                  codeId: '',
-                  dataSourceMethod: ''
-                }
-              ]
-            }
-          ],
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/2-2@2x.png',
+          url: '',
+          fit: 'cover',
+          events: '',
           created: '',
           mounted: '',
+          displayConds: [],
+          animation: '',
+          visible: true
+        },
+        {
+          id: 'img_d0bc682d',
+          type: 'img',
+          style: {
+            width: '98',
+            height: '127',
+            position: 'absolute',
+            left: '0',
+            top: '255',
+            'z-index': '-10'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/2-3@2x.png',
+          url: '',
+          fit: 'cover',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: '',
+          visible: true
+        }
+      ],
+      visible: true
+    },
+    {
+      id: 'page-fragment_dfa20b38',
+      type: 'page-fragment',
+      name: 'Swiper第三页',
+      layout: 'absolute',
+      style: {
+        position: 'relative',
+        height: '100vh',
+        width: '100%',
+        top: '0',
+        left: '0',
+        background: 'linear-gradient(to top, #230169, #4100d7)'
+      },
+      items: [
+        {
+          id: 'img_8a603e68',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: '243px',
+            position: 'absolute',
+            left: '0',
+            top: '20'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-1@2x.png',
+          url: '',
+          fit: 'cover',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1.5,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_e0c19b3d',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: '54',
+            position: 'absolute',
+            left: '0',
+            top: '188'
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-title@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: {
+            hookType: 'code',
+            hookData: []
+          },
+          mounted: {
+            hookType: 'code',
+            hookData: []
+          },
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1.5,
+              delay: 0.2,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_15453319',
+          type: 'img',
+          style: {
+            width: '224',
+            height: 'auto',
+            position: 'absolute',
+            left: 75.5,
+            top: 285,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-2@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: {
+            hookType: 'code',
+            hookData: []
+          },
+          mounted: {
+            hookType: 'code',
+            hookData: []
+          },
+          displayConds: [],
+          animation: [
+            {
+              label: '弹入',
+              value: 'bounceIn',
+              duration: 1.5,
+              delay: 0.3,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_2456daf9',
+          type: 'img',
+          style: {
+            width: '224',
+            height: 'auto',
+            position: 'absolute',
+            left: 76,
+            top: 348,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-3@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: {
+            hookType: 'code',
+            hookData: []
+          },
+          mounted: {
+            hookType: 'code',
+            hookData: []
+          },
+          displayConds: [],
+          animation: [
+            {
+              label: '弹入',
+              value: 'bounceIn',
+              duration: 1.5,
+              delay: 0.4,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_fd7464ab',
+          type: 'img',
+          style: {
+            width: '316',
+            height: 'auto',
+            position: 'absolute',
+            left: 29.5,
+            top: 431,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-4@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: {
+            hookType: 'code',
+            hookData: []
+          },
+          mounted: {
+            hookType: 'code',
+            hookData: []
+          },
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1.5,
+              delay: 0.6,
+              loopCount: 1,
+              loop: false
+            }
+          ]
+        },
+        {
+          id: 'img_187cdf7d',
+          type: 'img',
+          style: {
+            width: '244',
+            height: 'auto',
+            position: 'absolute',
+            left: 65.5,
+            top: 585,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/3-5@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
           animation: [
             {
               label: '向上进入',
               value: 'fadeInUp',
-              duration: 1,
-              delay: 0,
+              duration: 1.5,
+              delay: 0.4,
               loopCount: 1,
               loop: false
             }
-          ],
-          displayConds: []
-        },
+          ]
+        }
+      ],
+      events: '',
+      created: '',
+      mounted: '',
+      displayConds: [],
+      animation: ''
+    },
+    {
+      id: 'page-fragment_892963cb',
+      type: 'page-fragment',
+      name: 'Swiper第四页',
+      layout: 'absolute',
+      style: {
+        position: 'relative',
+        height: '100vh',
+        width: '100%',
+        top: '0',
+        left: '0',
+        background: 'linear-gradient(to top, #230169, #4100d7)'
+      },
+      items: [
         {
-          id: 'overlay_c4147a13',
-          type: 'overlay',
+          id: 'img_596db8a3',
+          type: 'img',
           style: {
+            width: '315',
+            height: 'auto',
             position: 'absolute',
-            top: 0,
-            left: 0
+            left: '30',
+            top: '80',
+            right: ''
           },
-          name: '遮罩',
-          items: [
-            {
-              id: 'container_c1cce01e',
-              type: 'container',
-              layout: 'absolute',
-              style: {
-                width: 266,
-                height: 282,
-                position: 'absolute',
-                top: 213,
-                left: 55,
-                'background-color': '#fff',
-                'border-radius': '10px',
-                overflow: 'hidden'
-              },
-              name: '组',
-              items: [
-                {
-                  id: 'text_87986849',
-                  type: 'text',
-                  style: {
-                    width: '100',
-                    height: 'auto',
-                    position: 'absolute',
-                    top: 170,
-                    left: 83,
-                    color: '#000000',
-                    right: '',
-                    textAlign: 'center'
-                  },
-                  name: '文字',
-                  text: '这里是弹窗',
-                  multiple: true,
-                  events: '',
-                  created: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  mounted: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  animation: '',
-                  visible: true,
-                  displayConds: []
-                },
-                {
-                  id: 'button_e77ec6a2',
-                  type: 'button',
-                  style: {
-                    position: 'absolute',
-                    top: 224,
-                    left: 101,
-                    right: ''
-                  },
-                  name: '按钮',
-                  vantProps: {
-                    text: '关闭弹窗',
-                    type: 'warning',
-                    size: 'small',
-                    plain: true,
-                    hairline: true,
-                    round: false
-                  },
-                  events: [
-                    {
-                      name: 'magic:common:events:click',
-                      actions: [
-                        {
-                          actionType: 'comp',
-                          to: 'overlay_c4147a13',
-                          method: 'closeOverlay',
-                          codeId: '',
-                          dataSourceMethod: ''
-                        }
-                      ]
-                    }
-                  ],
-                  created: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  mounted: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  animation: ''
-                },
-                {
-                  id: 'img_3fe8061f',
-                  type: 'img',
-                  style: {
-                    position: 'absolute',
-                    left: 0,
-                    width: 266,
-                    height: 136,
-                    top: 0,
-                    right: 0
-                  },
-                  name: '图片',
-                  src: 'https://seopic.699pic.com/photo/50051/4111.jpg_wh1200.jpg',
-                  url: '',
-                  fit: 'cover',
-                  animation: [],
-                  events: '',
-                  created: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  mounted: {
-                    hookType: 'code',
-                    hookData: []
-                  },
-                  displayConds: []
-                }
-              ],
-              events: '',
-              created: '',
-              mounted: '',
-              animation: '',
-              displayConds: []
-            }
-          ],
-          visible: true,
-          events: [],
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-1@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
           created: '',
           mounted: '',
-          animation: '',
-          displayConds: []
-        },
-        {
-          id: 'form_24b69e11',
-          type: 'form',
-          layout: 'absolute',
-          style: {
-            width: 300,
-            height: 382,
-            position: 'absolute',
-            top: 213,
-            left: 37.5,
-            right: '',
-            'border-radius': 0,
-            overflow: 'auto'
-          },
-          name: '表单容器',
-          items: [
-            {
-              id: 'container_7ddba02b',
-              type: 'container',
-              layout: 'relative',
-              style: {
-                position: 'absolute',
-                width: 300,
-                height: 'auto',
-                top: 0,
-                left: 0,
-                overflow: 'hidden',
-                right: '',
-                'border-radius': 10
-              },
-              name: '组',
-              items: [
-                {
-                  id: 'field_eea3f47a',
-                  type: 'field',
-                  style: {
-                    width: 300,
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    right: 'auto',
-                    overflow: 'hidden',
-                    bottom: 'auto'
-                  },
-                  name: '输入框',
-                  model: '',
-                  vantProps: {
-                    label: '用户名',
-                    labelWidth: '60px',
-                    name: 'username',
-                    type: 'text',
-                    size: '',
-                    placeholder: '请输入用户名',
-                    maxlength: '',
-                    border: true,
-                    colon: false,
-                    required: true,
-                    center: false,
-                    clearable: false,
-                    rules: [
-                      {
-                        required: true,
-                        message: '请输入用户名'
-                      }
-                    ]
-                  },
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  animation: [],
-                  displayConds: []
-                },
-                {
-                  id: 'field_1dbde502',
-                  type: 'field',
-                  style: {
-                    width: 300,
-                    position: 'relative',
-                    top: 0,
-                    left: 0
-                  },
-                  name: '输入框',
-                  vantProps: {
-                    label: '密码',
-                    labelWidth: '60px',
-                    name: 'password',
-                    type: 'password',
-                    size: '',
-                    placeholder: '请输入密码',
-                    maxlength: '',
-                    rules: [
-                      {
-                        required: true,
-                        message: '请输入密码'
-                      }
-                    ],
-                    border: true,
-                    colon: false,
-                    required: true,
-                    center: false,
-                    clearable: false
-                  },
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                },
-                {
-                  id: 'sms_45c56035',
-                  type: 'sms',
-                  style: {
-                    width: 300,
-                    position: 'relative',
-                    top: 0,
-                    left: 0
-                  },
-                  name: '验证码',
-                  vantProps: {
-                    label: '手机号',
-                    labelWidth: '60px',
-                    name: 'phone',
-                    type: 'text',
-                    size: '',
-                    placeholder: '请输入手机号',
-                    maxlength: '11',
-                    rules: [
-                      {
-                        required: true,
-                        message: '请填写您的手机号码！'
-                      },
-                      {
-                        pattern: new RegExp('^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d{8}$', ''),
-                        message: '手机号码格式错误！'
-                      }
-                    ],
-                    border: true,
-                    colon: false,
-                    required: false,
-                    center: true,
-                    clearable: false
-                  },
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                },
-                {
-                  id: 'check_box_ac51b0ea',
-                  type: 'check_box',
-                  style: {
-                    width: 300,
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    right: 'auto',
-                    bottom: 'auto'
-                  },
-                  name: '复选框',
-                  options: [
-                    {
-                      label: '选项1',
-                      name: '1',
-                      disabled: false,
-                      shape: 'square'
-                    },
-                    {
-                      label: '选项2',
-                      name: '2',
-                      disabled: true,
-                      shape: 'square'
-                    }
-                  ],
-                  vantProps: {
-                    label: '复选框',
-                    labelWidth: '60px',
-                    name: 'checkbox',
-                    size: '',
-                    rules: [],
-                    border: true,
-                    colon: false,
-                    required: false,
-                    center: false
-                  },
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                },
-                {
-                  id: 'radio_846b11c5',
-                  type: 'radio',
-                  style: {
-                    width: 300,
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    height: 'auto',
-                    right: 'auto',
-                    bottom: 'auto'
-                  },
-                  name: '单选框',
-                  options: [
-                    {
-                      label: '选项1',
-                      name: '1',
-                      disabled: false,
-                      shape: 'round'
-                    },
-                    {
-                      label: '选项2',
-                      name: '2',
-                      disabled: false,
-                      shape: 'round'
-                    }
-                  ],
-                  vantProps: {
-                    label: '单选框',
-                    labelWidth: '60px',
-                    name: 'radio',
-                    size: '',
-                    rules: [],
-                    border: true,
-                    colon: false,
-                    required: false,
-                    center: false
-                  },
-                  events: '',
-                  created: '',
-                  mounted: '',
-                  displayConds: [],
-                  animation: ''
-                }
-              ],
-              events: '',
-              created: '',
-              mounted: '',
-              displayConds: [],
-              animation: ''
-            },
-            {
-              id: 'button_bbdb0b8b',
-              type: 'button',
-              style: {
-                position: 'absolute',
-                top: 300,
-                left: 76,
-                right: '',
-                width: '150'
-              },
-              name: '按钮',
-              vantProps: {
-                text: '提交',
-                type: 'primary',
-                size: 'small',
-                plain: false,
-                hairline: true,
-                round: false
-              },
-              events: [
-                {
-                  name: 'magic:common:events:click',
-                  actions: [
-                    {
-                      actionType: 'comp',
-                      to: 'form_24b69e11',
-                      method: 'formSubmit',
-                      codeId: '',
-                      dataSourceMethod: ''
-                    }
-                  ]
-                }
-              ],
-              created: {
-                hookType: 'code',
-                hookData: []
-              },
-              mounted: {
-                hookType: 'code',
-                hookData: []
-              },
-              animation: '',
-              displayConds: []
-            }
-          ],
-          vantProps: {
-            labelWidth: '50px',
-            labelAlign: 'left',
-            inputAlign: 'left',
-            colon: false,
-            required: false
-          },
-          events: [
-            {
-              name: 'form:submit',
-              actions: [
-                {
-                  actionType: 'code',
-                  to: '',
-                  method: '',
-                  codeId: 'code_6793',
-                  dataSourceMethod: '',
-                  params: {}
-                }
-              ]
-            },
-            {
-              name: 'form:submit:failed',
-              actions: [
-                {
-                  actionType: 'code',
-                  to: '',
-                  method: '',
-                  codeId: 'code_6793',
-                  dataSourceMethod: '',
-                  params: {}
-                }
-              ]
-            }
-          ],
-          created: '',
-          mounted: '',
+          displayConds: [],
           animation: [
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1,
+              duration: 1.5,
               delay: 0,
               loopCount: 1,
               loop: false
             }
-          ],
-          displayConds: []
+          ]
+        },
+        {
+          id: 'img_160c0e2c',
+          type: 'img',
+          style: {
+            width: '325',
+            height: 'auto',
+            position: 'absolute',
+            left: 25,
+            top: 219,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-2@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_9f43bf49',
+          type: 'img',
+          style: {
+            width: '325',
+            height: 'auto',
+            position: 'absolute',
+            left: 25,
+            top: 341
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-3@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_a16953e0',
+          type: 'img',
+          style: {
+            width: '325',
+            height: 'auto',
+            position: 'absolute',
+            left: 25,
+            top: 463
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-4@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_72de1478',
+          type: 'img',
+          style: {
+            width: '267',
+            height: 'auto',
+            position: 'absolute',
+            left: 54,
+            top: 585,
+            right: ''
+          },
+          name: '图片',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-5@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_4e0f52fb',
+          type: 'img',
+          style: {
+            width: '34',
+            height: '34',
+            position: 'absolute',
+            left: 'auto',
+            top: '199',
+            right: '24'
+          },
+          name: '背景球1',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-6@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_7820aa61',
+          type: 'img',
+          style: {
+            width: '34',
+            height: '34',
+            position: 'absolute',
+            left: '11',
+            top: '327',
+            right: 'auto'
+          },
+          name: '背景球2',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-6@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        },
+        {
+          id: 'img_404146e2',
+          type: 'img',
+          style: {
+            width: '34',
+            height: '34',
+            position: 'absolute',
+            left: 'auto',
+            top: '452',
+            right: '18'
+          },
+          name: '背景球3',
+          src: 'https://qushen-file.oss-cn-beijing.aliyuncs.com/CBC15/4-6@2x.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: {
+            hookType: 'code',
+            hookData: []
+          },
+          mounted: {
+            hookType: 'code',
+            hookData: []
+          },
+          displayConds: [],
+          animation: ''
         }
-      ]
+      ],
+      events: '',
+      created: '',
+      mounted: '',
+      displayConds: [],
+      animation: ''
     }
   ],
   codeBlocks: {

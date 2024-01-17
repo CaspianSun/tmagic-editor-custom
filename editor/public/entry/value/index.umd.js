@@ -177,17 +177,8 @@
       right: "0"
     },
     current: "0",
-    items: []
-  };
-
-  const swiper_slide = {
-    layout: "absolute",
-    style: {
-      position: "relative",
-      height: "100vh",
-      width: "100%"
-    },
-    items: []
+    items: [],
+    pageFragments: []
   };
 
   const music = {
@@ -196,6 +187,21 @@
       position: "fixed",
       right: "20px",
       top: "20px"
+    }
+  };
+
+  const pageFragment = {
+    items: [],
+    style: {
+      width: "375",
+      height: "817"
+    }
+  };
+
+  const pageFragmentContainer = {
+    style: {
+      width: "",
+      height: ""
     }
   };
 
@@ -213,8 +219,9 @@
     "qr_code": qr_code,
     "sms": sms,
     "swiper": swiper,
-    "swiper_slide": swiper_slide,
-    "music": music
+    "music": music,
+    "page-fragment": pageFragment,
+    "page-fragment-container": pageFragmentContainer
   };
 
   return values;

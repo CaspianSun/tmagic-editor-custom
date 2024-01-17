@@ -23,7 +23,7 @@ const wow = new WOW({
 wow.init()
 
 const app = new Core({
-  ua: window.navigator.userAgent,
+  ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
   config: ((getUrlParam('localPreview') ? getLocalConfig() : window.magicDSL) || [])[0] || {},
   curPage: getUrlParam('page'),
   useMock: Boolean(getUrlParam('useMock'))

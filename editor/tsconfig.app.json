@@ -9,6 +9,7 @@
       "@/*": ["./src/*"]
     },
     "types": ["element-plus/global"],
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
   }
 }
