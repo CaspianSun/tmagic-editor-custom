@@ -86,14 +86,14 @@ onMounted(() => {
         <div></div>
         <ElButton type="primary" @click="handleSaveCode" :disabled="!isCanSave" size="small"> 保存 </ElButton>
       </div>
-      <div class="h-150px w-full">
+      <div class="h-400px w-full">
         <div ref="codeEditor" class="full m-0"></div>
       </div>
     </div>
-    <ElCollapse v-model="activeNames">
+    <!-- <ElCollapse v-model="activeNames">
       <ElCollapseItem title="布局" name="layout">
         <Layout v-model="style"></Layout>
       </ElCollapseItem>
-    </ElCollapse>
+    </ElCollapse> -->
   </div>
 </template>

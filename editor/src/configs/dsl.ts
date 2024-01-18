@@ -131,7 +131,7 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
+              duration: 1000,
               delay: 0,
               loopCount: 1,
               loop: false
@@ -159,9 +159,25 @@ export default {
           displayConds: [],
           animation: [
             {
+              label: '向左进入',
+              value: 'fadeInLeft',
+              duration: 1000,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            },
+            {
               label: '渐显',
               value: 'fadeIn',
-              duration: 3,
+              duration: 1000,
+              delay: 0,
+              loopCount: 1,
+              loop: false
+            },
+            {
+              label: '弹入',
+              value: 'bounceIn',
+              duration: 1000,
               delay: 0,
               loopCount: 1,
               loop: false

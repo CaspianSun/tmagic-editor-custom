@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon, ElRow } from 'element-plus'
+import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon } from 'element-plus'
 import { CaretRight, Delete } from '@element-plus/icons-vue'
 import type { FieldProps } from '@tmagic/form'
 import animateCssData from './animateCssData'
@@ -12,24 +12,18 @@ defineOptions({
   name: 'MAnimation'
 })
 const emit = defineEmits(['change'])
-type AnimationConfig = {
-  label: string
-  value: string
-  duration: number
-  delay: number
-  loopCount: number
-  loop: boolean
-}
 
-const props = defineProps<FieldProps<AnimationConfig>>()
+const props = defineProps<FieldProps<anime.AnimeAnimParams>>()
 
-const animationList = ref<AnimationConfig[]>(cloneDeep(props.model[props.name] ?? []))
+const animationList = ref<anime.AnimeAnimParams[]>(cloneDeep(props.model[props.name] || []))
+
 watch(
   () => props.model[props.name],
   (val) => {
     animationList.value = cloneDeep(val)
   }
 )
+
 watch(
   () => animationList,
   (val) => {
@@ -58,7 +52,7 @@ const handleAdd = (status = true) => {
 const handleChooseAnimate = (item: { label: string; value: string }) => {
   showAnimatePanel.value = false
   if (reSelectAnimateIndex.value == void 0) {
-    const obj = { ...item, duration: 1, delay: 0, loopCount: 1, loop: false }
+    const obj = { ...item, duration: 1000, delay: 0, loopCount: 1, loop: false }
     if (isArray(animationList.value)) {
       animationList.value.push(obj)
     } else {
@@ -75,7 +69,7 @@ const handleShowChooseAnimatePanel = (index: number) => {
   showAnimatePanel.value = true
 }
 
-const handlePreviewAnimate = (animation: AnimationConfig[]) => {
+const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
   const id = editorService.get('node')?.id
   const iframe = editorService.get('stage')?.renderer.iframe
   iframe?.contentWindow?.postMessage({ type: 'animation', data: { animation: JSON.stringify(animation), id } }, '*')
@@ -118,13 +112,27 @@ const handlePreviewAnimate = (animation: AnimationConfig[]) => {
             <div class="attr-item-edit-wrapper">
               <span class="attr-item-title">动画时长：</span>
               <div>
-                <ElInputNumber size="small" v-model="item.duration" controls-position="right" :min="0" :step="0.1" />
+                <ElInputNumber
+                  size="small"
+                  :model-value="item.duration as number"
+                  @update:model-value="item.duration = $event"
+                  controls-position="right"
+                  :min="0"
+                  :step="100"
+                />
               </div>
             </div>
             <div class="attr-item-edit-wrapper">
               <span class="attr-item-title">动画延迟：</span>
               <div>
-                <ElInputNumber size="small" v-model="item.delay" controls-position="right" :min="0" :step="0.1" />
+                <ElInputNumber
+                  size="small"
+                  :model-value="item.delay as number"
+                  @update:model-value="item.delay = $event"
+                  controls-position="right"
+                  :min="0"
+                  :step="100"
+                />
               </div>
             </div>
             <div class="attr-item-edit-wrapper">

@@ -26,7 +26,6 @@
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import { inject, watch, ref, provide } from 'vue'
-import { swiperAnimate, swiperAnimateCache } from '@ui/utils/animation'
 import useApp from '@ui/utils/useApp'
 import UiPageFragmentContainer from '@ui/pageFragmentContainer'
 import SwiperClass from 'swiper'
@@ -60,13 +59,8 @@ watch(
   }
 )
 
-const init = (e: SwiperClass) => {
-  swiperAnimateCache()
-  swiperAnimate(e)
-}
-const slideChangeTransitionEnd = (e: SwiperClass) => {
-  swiperAnimate(e)
-}
+const init = (e: SwiperClass) => {}
+const slideChangeTransitionEnd = (e: SwiperClass) => {}
 
 const onSlideChange = (e: SwiperClass) => {}
 
@@ -94,4 +88,8 @@ useApp({
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.swiper {
+  z-index: 0 !important;
+}
+</style>

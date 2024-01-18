@@ -38,11 +38,6 @@ export const componentGroupList = [
         icon: LayoutFour,
         text: '滑动容器',
         type: 'swiper'
-      },
-      {
-        icon: Carousel,
-        text: '滑动盒子',
-        type: 'swiper_slide'
       }
     ]
   },
@@ -73,7 +68,7 @@ export const componentGroupList = [
         icon: Performance,
         text: '音乐',
         type: 'music'
-      },
+      }
     ]
   },
   {

@@ -118,3 +118,9 @@ window.magic?.onRuntimeReady({
   }
 })
 </script>
+
+<style>
+.page {
+  overflow-x: hidden;
+}
+</style>

@@ -13,7 +13,7 @@
 import { computed, inject, onMounted, ref, watch } from 'vue'
 import Core from '@tmagic/core'
 import { toLine } from '@tmagic/utils'
-import { runAnimation, initSwiperAnimation, initAnimation } from '@ui/utils/animation'
+import { handleAnimation } from './utils/animation'
 
 const isSwiper = inject<boolean>('isSwiper')
 
@@ -45,11 +45,8 @@ const display = () => {
 
 onMounted(() => {
   const el = document.getElementById(`${props.config.id}`)
-  if (isSwiper) {
-    el && initSwiperAnimation(el, props.config.animation)
-  } else {
-    el?.classList.add('wow')
-    el && initAnimation()
+  if (el && props.config.animation?.length) {
+    handleAnimation(el, props.config.animation)
   }
 })
 
@@ -59,7 +56,7 @@ window.addEventListener('message', (event) => {
       const el = document.getElementById(`${props.config.id}`)
       try {
         const val = JSON.parse(event.data.data.animation)
-        el && runAnimation(el, val)
+        handleAnimation(el, val)
       } catch (e) {
         console.log(e)
       }

@@ -54,3 +54,9 @@ onBeforeMount(() => {
   window.addEventListener('resize', setHtmlFontSize)
 })
 </script>
+
+<style>
+.page {
+  overflow-x: hidden;
+}
+</style>
