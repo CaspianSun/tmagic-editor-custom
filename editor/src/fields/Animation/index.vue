@@ -7,15 +7,21 @@ import animateCssData from './animateCssData'
 import { cloneDeep, isArray } from 'lodash-es'
 import { editorService } from '@tmagic/editor'
 import { watch } from 'vue'
+import type anime from 'animejs'
 
 defineOptions({
   name: 'MAnimation'
 })
 const emit = defineEmits(['change'])
 
-const props = defineProps<FieldProps<anime.AnimeAnimParams>>()
+interface AnimeParams extends anime.AnimeParams {
+  duration?: number
+  delay?: number
+}
 
-const animationList = ref<anime.AnimeAnimParams[]>(cloneDeep(props.model[props.name] || []))
+const props = defineProps<FieldProps<AnimeParams>>()
+
+const animationList = ref<AnimeParams[]>(cloneDeep(props.model[props.name] || []))
 
 watch(
   () => props.model[props.name],
@@ -52,12 +58,9 @@ const handleAdd = (status = true) => {
 const handleChooseAnimate = (item: { label: string; value: string }) => {
   showAnimatePanel.value = false
   if (reSelectAnimateIndex.value == void 0) {
-    const obj = { ...item, duration: 1000, delay: 0, loopCount: 1, loop: false }
-    if (isArray(animationList.value)) {
-      animationList.value.push(obj)
-    } else {
-      animationList.value = [obj]
-    }
+    const obj = { ...item, duration: 1000, delay: 0, loop: 1 }
+    if (isArray(animationList.value)) animationList.value.push(obj)
+    else animationList.value = [obj]
   } else {
     animationList.value[reSelectAnimateIndex.value].label = item.label
     animationList.value[reSelectAnimateIndex.value].value = item.value
@@ -114,7 +117,7 @@ const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
               <div>
                 <ElInputNumber
                   size="small"
-                  :model-value="item.duration as number"
+                  :model-value="item.duration"
                   @update:model-value="item.duration = $event"
                   controls-position="right"
                   :min="0"
@@ -127,7 +130,7 @@ const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
               <div>
                 <ElInputNumber
                   size="small"
-                  :model-value="item.delay as number"
+                  :model-value="item.delay"
                   @update:model-value="item.delay = $event"
                   controls-position="right"
                   :min="0"
@@ -138,7 +141,7 @@ const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
             <div class="attr-item-edit-wrapper">
               <span class="attr-item-title">循环次数：</span>
               <div>
-                <ElInputNumber size="small" controls-position="right" v-model="item.loopCount" />
+                <ElInputNumber size="small" controls-position="right" :model-value="Number(item.loop)" />
               </div>
               <div class="ml-10px">
                 <ElCheckbox v-model="item.loop" label="infinite" border size="small"> 循环播放 </ElCheckbox>

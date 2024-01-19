@@ -1,4 +1,4 @@
-import { outDefault } from '../utils'
+import { outDefault } from '../outDefault'
 
 export const lightSpeedInLeft = (
   element: HTMLElement | null,

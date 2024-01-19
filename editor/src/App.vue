@@ -61,30 +61,25 @@ import { CreateEditDialog } from '@/components/EditDialog'
 import type { FormInstance } from 'element-plus'
 import { createMenu } from './configs/menu'
 
+function compareVersions(v1: string, v2: string): number {
+  const parts1 = v1.split('.').map(Number)
+  const parts2 = v2.split('.').map(Number)
+
+  // 比较每个部分
+  for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+    const num1 = i < parts1.length ? parts1[i] : 0
+    const num2 = i < parts2.length ? parts2[i] : 0
+
+    if (num1 > num2) return -1
+    if (num1 < num2) return 1
+  }
+
+  return 0
+}
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
   versionList.value = result.sort((a, b) => {
-    const aArr = a.version.split('.')
-    const bArr = b.version.split('.')
-    if (aArr[0] > bArr[0]) {
-      return -1
-    } else if (aArr[0] < bArr[0]) {
-      return 1
-    } else {
-      if (aArr[1] > bArr[1]) {
-        return -1
-      } else if (aArr[1] < bArr[1]) {
-        return 1
-      } else {
-        if (aArr[2] > bArr[2]) {
-          return -1
-        } else if (aArr[2] < bArr[2]) {
-          return 1
-        } else {
-          return 0
-        }
-      }
-    }
+    return compareVersions(a.version, b.version)
   })
 }
 

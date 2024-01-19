@@ -1,4 +1,4 @@
-import { outDefault } from '../utils'
+import { outDefault } from '../outDefault'
 
 export const fadeIn = (
   element: HTMLElement | null,

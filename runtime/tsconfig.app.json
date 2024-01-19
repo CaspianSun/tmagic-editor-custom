@@ -3,9 +3,11 @@
   "include": [
     "types/**/*.d.ts",
     ".tmagic/**/*",
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "src/**/*.vue",
-    "ui/**/*",
+    "ui/**/*.ts",
+    "ui/**/*.tsx",
     "ui/**/*.vue"
   ],
   "exclude": ["src/**/__tests__/*", "node_modules", "dist", "**/*.js"],

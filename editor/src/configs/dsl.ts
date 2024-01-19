@@ -131,10 +131,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1000,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             }
           ]
         },
@@ -161,26 +160,23 @@ export default {
             {
               label: '向左进入',
               value: 'fadeInLeft',
-              duration: 1000,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             },
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1000,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             },
             {
               label: '弹入',
               value: 'bounceIn',
-              duration: 1000,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             }
           ]
         }
@@ -246,10 +242,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             }
           ],
           visible: true
@@ -274,7 +269,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: '',
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 2000,
+              delay: 0,
+              loop: true
+            }
+          ],
           visible: true
         },
         {
@@ -296,7 +299,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: '',
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 1500,
+              delay: 0,
+              loop: true
+            }
+          ],
           visible: true
         }
       ],
@@ -338,10 +349,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             }
           ]
         },
@@ -373,10 +383,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
-              delay: 0.2,
-              loopCount: 1,
-              loop: false
+              duration: 1500,
+              delay: 200,
+              loop: 1
             }
           ]
         },
@@ -409,10 +418,9 @@ export default {
             {
               label: '弹入',
               value: 'bounceIn',
-              duration: 1.5,
-              delay: 0.3,
-              loopCount: 1,
-              loop: false
+              duration: 1500,
+              delay: 300,
+              loop: 1
             }
           ]
         },
@@ -445,10 +453,9 @@ export default {
             {
               label: '弹入',
               value: 'bounceIn',
-              duration: 1.5,
-              delay: 0.4,
-              loopCount: 1,
-              loop: false
+              duration: 1500,
+              delay: 400,
+              loop: 1
             }
           ]
         },
@@ -481,10 +488,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
-              delay: 0.6,
-              loopCount: 1,
-              loop: false
+              duration: 1500,
+              delay: 600,
+              loop: 1
             }
           ]
         },
@@ -511,10 +517,9 @@ export default {
             {
               label: '向上进入',
               value: 'fadeInUp',
-              duration: 1.5,
-              delay: 0.4,
-              loopCount: 1,
-              loop: false
+              duration: 1500,
+              delay: 400,
+              loop: 1
             }
           ]
         }
@@ -562,10 +567,9 @@ export default {
             {
               label: '渐显',
               value: 'fadeIn',
-              duration: 1.5,
+              duration: 1500,
               delay: 0,
-              loopCount: 1,
-              loop: false
+              loop: 1
             }
           ]
         },
@@ -588,7 +592,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '向左进入',
+              value: 'fadeInLeft',
+              duration: 1500,
+              delay: 100,
+              loop: 1
+            }
+          ]
         },
         {
           id: 'img_9f43bf49',
@@ -608,7 +620,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '向右进入',
+              value: 'fadeInRight',
+              duration: 1500,
+              delay: 200,
+              loop: 1
+            }
+          ]
         },
         {
           id: 'img_a16953e0',
@@ -628,7 +648,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '向左进入',
+              value: 'fadeInLeft',
+              duration: 1500,
+              delay: 300,
+              loop: 1
+            }
+          ]
         },
         {
           id: 'img_72de1478',
@@ -649,7 +677,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '向上进入',
+              value: 'fadeInUp',
+              duration: 1500,
+              delay: 400,
+              loop: 1
+            }
+          ]
         },
         {
           id: 'img_4e0f52fb',
@@ -670,7 +706,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 1600,
+              delay: 0,
+              loop: true
+            }
+          ]
         },
         {
           id: 'img_7820aa61',
@@ -691,7 +735,15 @@ export default {
           created: '',
           mounted: '',
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 2200,
+              delay: 0,
+              loop: true
+            }
+          ]
         },
         {
           id: 'img_404146e2',
@@ -718,7 +770,15 @@ export default {
             hookData: []
           },
           displayConds: [],
-          animation: ''
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 1800,
+              delay: 0,
+              loop: true
+            }
+          ]
         }
       ],
       events: '',

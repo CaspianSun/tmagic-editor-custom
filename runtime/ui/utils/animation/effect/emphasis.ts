@@ -34,14 +34,9 @@ export const shakeX = (
 ): anime.AnimeAnimParams => {
   return {
     targets: element,
-    keyframes: [
-      { translateX: -10, easing: 'easeOutSine' },
-      { translateX: 10, easing: 'easeOutSine' },
-      { translateX: -10, easing: 'easeOutSine' },
-      { translateX: 10, easing: 'easeOutSine' },
-      { translateX: -10, easing: 'easeOutSine' },
-      { translateX: 0, easing: 'easeOutSine' }
-    ],
+    translateX: [0, 20],
+    direction: 'alternate',
+    easing: 'easeInOutQuad',
     ...config
   }
 }
@@ -52,14 +47,9 @@ export const shakeY = (
 ): anime.AnimeAnimParams => {
   return {
     targets: element,
-    keyframes: [
-      { translateY: -10, easing: 'easeOutSine' },
-      { translateY: 10, easing: 'easeOutSine' },
-      { translateY: -10, easing: 'easeOutSine' },
-      { translateY: 10, easing: 'easeOutSine' },
-      { translateY: -10, easing: 'easeOutSine' },
-      { translateY: 0, easing: 'easeOutSine' }
-    ],
+    translateY: [0, 20],
+    direction: 'alternate',
+    easing: 'easeInOutQuad',
     ...config
   }
 }

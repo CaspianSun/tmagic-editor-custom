@@ -8,7 +8,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["element-plus/global", "@types/animejs/index"],
+    "types": ["element-plus/global"],
     "jsx": "preserve",
     "jsxImportSource": "vue"
   }

@@ -8,15 +8,22 @@ import Core from '@tmagic/core'
 import type { Id, MApp, MNode } from '@tmagic/schema'
 import type { RemoveData, UpdateData } from '@tmagic/stage'
 import { getNodePath, replaceChildNode } from '@tmagic/utils'
+import { transformStyle } from '@/utils/transformStyle'
+
+/** 去除Injection警告 */
+provide('swiperSlide', ref())
 
 const app = new Core({
   ua: window.navigator.userAgent,
-  platform: 'editor'
+  platform: 'editor',
+  transformStyle: transformStyle
 })
+provide('app', app)
+
 if (app.env.isWeb) {
   app.setDesignWidth(window.document.documentElement.getBoundingClientRect().width)
 }
-provide('app', app)
+
 onMounted(() => {
   window.appInstance = app
 })
@@ -53,14 +60,9 @@ window.magic?.onRuntimeReady({
 
   select(id: Id) {
     selectedId.value = id
-
-    if (app?.getPage(id)) {
-      this.updatePageId?.(id)
-    }
-
+    if (app?.getPage(id)) this.updatePageId?.(id)
     const el = document.getElementById(`${id}`)
     if (el) return el
-    // 未在当前文档下找到目标元素，可能是还未渲染，等待渲染完成后再尝试获取
     return nextTick().then(() => document.getElementById(`${id}`) as HTMLElement)
   },
 
