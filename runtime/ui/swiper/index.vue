@@ -9,12 +9,12 @@
     @slideChange="onSlideChange"
     @swiper="setVSwiperRef"
   >
-    <template v-for="(item, index) in config.pageFragments" :key="`${item.id}${index}`">
+    <template v-for="(item, index) in config.fragments" :key="index">
       <SwiperSlide>
         <UiPageFragmentContainer
           :config="{
-            id: `${item.id}${index}`,
-            pageFragmentId: item.id
+            id: item.pageFragmentId,
+            pageFragmentId: item.pageFragmentId
           }"
         ></UiPageFragmentContainer>
       </SwiperSlide>
@@ -51,6 +51,16 @@ watch(
   () => props.config.current,
   (val) => {
     swiperRef.value?.slideTo(Number(val))
+  }
+)
+
+watch(
+  props,
+  (newVal) => {
+    console.log(newVal)
+  },
+  {
+    deep: true
   }
 )
 

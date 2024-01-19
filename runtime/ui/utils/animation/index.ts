@@ -11,7 +11,6 @@ export const handleAnimation = (
   if (config.length == 1) {
     const item = config[0]
     const animeParams = effect[item.value as keyof typeof effect]?.(element, item)
-    console.log(animeParams)
     if (animeParams) anime(animeParams)
   } else {
     var tl = anime.timeline()

@@ -704,11 +704,11 @@
     },
     {
       type: "table",
-      name: "pageFragments",
+      name: "fragments",
       items: [
         {
           type: "page-fragment-select",
-          name: "id",
+          name: "pageFragmentId",
           label: "Swiper页面片"
         }
       ]

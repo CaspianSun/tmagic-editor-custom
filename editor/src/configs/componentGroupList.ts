@@ -98,6 +98,11 @@ export const componentGroupList = [
         icon: Iphone,
         text: '验证码',
         type: 'sms'
+      },
+      {
+        icon: Iphone,
+        text: '测试',
+        type: 'test'
       }
     ]
   }

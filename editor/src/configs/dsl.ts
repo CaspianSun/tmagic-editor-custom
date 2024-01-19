@@ -35,18 +35,18 @@ export default {
           mounted: '',
           displayConds: [],
           animation: '',
-          pageFragments: [
+          fragments: [
             {
-              id: 'page-fragment_8d81ff88'
+              pageFragmentId: 'page-fragment_8d81ff88'
             },
             {
-              id: 'page-fragment_fe02721c'
+              pageFragmentId: 'page-fragment_fe02721c'
             },
             {
-              id: 'page-fragment_dfa20b38'
+              pageFragmentId: 'page-fragment_dfa20b38'
             },
             {
-              id: 'page-fragment_892963cb'
+              pageFragmentId: 'page-fragment_892963cb'
             }
           ]
         },
@@ -786,6 +786,54 @@ export default {
       mounted: '',
       displayConds: [],
       animation: ''
+    },
+    {
+      id: 'page_c78e24f6',
+      type: 'page',
+      layout: 'absolute',
+      style: {
+        height: 'auto',
+        'min-height': '100%',
+        'background-color': '#eff2f5',
+        position: 'relative',
+        top: 0,
+        left: 0
+      },
+      name: 'page_1',
+      items: [
+        {
+          id: 'test_08659b5a',
+          type: 'test',
+          style: {
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            bottom: '0',
+            right: '0'
+          },
+          name: '测试',
+          layout: 'absolute',
+          fragments: [
+            {
+              pageFragmentId: 'page-fragment_8d81ff88'
+            },
+            {
+              pageFragmentId: 'page-fragment_fe02721c'
+            },
+            {
+              pageFragmentId: 'page-fragment_dfa20b38'
+            },
+            {
+              pageFragmentId: 'page-fragment_892963cb'
+            }
+          ],
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: ''
+        }
+      ]
     }
   ],
   codeBlocks: {

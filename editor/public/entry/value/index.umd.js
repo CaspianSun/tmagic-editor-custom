@@ -177,8 +177,7 @@
       right: "0"
     },
     current: "0",
-    items: [],
-    pageFragments: []
+    fragments: []
   };
 
   const music = {
