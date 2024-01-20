@@ -15,3 +15,30 @@ export default {
   ...flip,
   ...emphasis
 }
+
+export const hiddenEffect = [
+  'fadeIn',
+  'fadeInUp',
+  'fadeInDown',
+  'fadeInLeft',
+  'fadeInRight',
+  'fadeInUpBig',
+  'fadeInDownBig',
+  'fadeInLeftBig',
+  'fadeInRightBig',
+  'bounceIn',
+  'bounceInUp',
+  'bounceInDown',
+  'bounceInLeft',
+  'bounceInRight',
+  'zoomIn',
+  'zoomInUp',
+  'zoomInDown',
+  'zoomInLeft',
+  'zoomInRight',
+  'lightSpeedIn',
+  'lightSpeedInRight',
+  'lightSpeedInLeft',
+  'flipInX',
+  'flipInY'
+]

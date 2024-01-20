@@ -1,12 +1,11 @@
 <template>
-  <div class="image">
-    <Image :fit="config.fit" :src="config.src"></Image>
+  <div class="text-0 full">
+    <img :src="config.src" class="full" />
   </div>
 </template>
 <script lang="ts" setup>
 import type { MComponent } from '@tmagic/schema'
 import useApp from '@ui/utils/useApp'
-import { Image } from 'vant'
 
 const props = withDefaults(
   defineProps<{
@@ -24,16 +23,4 @@ useApp({
 })
 </script>
 
-<style lang="scss">
-.image {
-  font-size: 0;
-  .van-image {
-    width: 100%;
-    height: 100%;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -62,19 +62,6 @@
       text: "链接",
       name: "url",
       type: "data-source-input"
-    },
-    {
-      text: "Fit",
-      name: "fit",
-      type: "select",
-      options: [
-        { value: "contain", text: "Contain" },
-        { value: "cover", text: "Cover" },
-        { value: "fill", text: "Fill" },
-        { value: "none", text: "None" },
-        { value: "unset", text: "Unset" },
-        { value: "inherit", text: "Inherit" }
-      ]
     }
   ];
 

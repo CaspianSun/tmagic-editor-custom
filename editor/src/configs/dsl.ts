@@ -788,52 +788,291 @@ export default {
       animation: ''
     },
     {
-      id: 'page_c78e24f6',
+      id: 'page_6a3277d2',
       type: 'page',
-      layout: 'absolute',
+      layout: 'relative',
       style: {
         height: 'auto',
         'min-height': '100%',
         'background-color': '#eff2f5',
         position: 'relative',
-        top: 0,
-        left: 0
+        top: '0',
+        left: '0',
+        'background-image': 'url("https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/theme2/bac.png")',
+        'background-repeat': 'no-repeat',
+        'background-size': '100% auto'
       },
-      name: 'page_1',
+      name: '本田儿去哪',
       items: [
         {
-          id: 'test_08659b5a',
-          type: 'test',
+          id: 'img_d24b80f5',
+          type: 'img',
           style: {
-            position: 'absolute',
+            width: '100%',
+            height: 'auto',
+            position: 'relative',
             top: '0',
-            left: '0',
-            bottom: '0',
-            right: '0'
+            left: '0'
           },
-          name: '测试',
-          layout: 'absolute',
-          fragments: [
-            {
-              pageFragmentId: 'page-fragment_8d81ff88'
-            },
-            {
-              pageFragmentId: 'page-fragment_fe02721c'
-            },
-            {
-              pageFragmentId: 'page-fragment_dfa20b38'
-            },
-            {
-              pageFragmentId: 'page-fragment_892963cb'
-            }
-          ],
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/header.png',
+          url: '',
+          fit: 'contain',
           events: '',
           created: '',
           mounted: '',
           displayConds: [],
           animation: ''
+        },
+        {
+          id: 'img_ba8bde14',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '314'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/theme.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_4f47e059',
+          type: 'img',
+          style: {
+            width: '17',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '50',
+            'margin-left': 'auto',
+            'margin-right': 'auto'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/down.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '上下晃动',
+              value: 'shakeY',
+              duration: 3000,
+              delay: 0,
+              loop: true
+            }
+          ]
+        },
+        {
+          id: 'img_93a79b61',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '47'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/theme2/text1.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '向上进入',
+              value: 'fadeInUp',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_366c6032',
+          type: 'img',
+          style: {
+            width: '77',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '300',
+            'margin-left': 'auto',
+            'margin-right': 'auto'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/tishi.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_25a1706a',
+          type: 'img',
+          style: {
+            width: '148',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '20',
+            'margin-left': 'auto',
+            'margin-right': 'auto'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/btn.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '渐显',
+              value: 'fadeIn',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_999dd486',
+          type: 'img',
+          style: {
+            width: '100%',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '23px'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/text2.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '向上进入',
+              value: 'fadeInUp',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_8bbbb172',
+          type: 'img',
+          style: {
+            width: '100',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '23',
+            'margin-right': 'auto',
+            'margin-left': 'auto'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/gzbtn.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '向上进入',
+              value: 'fadeInUp',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
+        },
+        {
+          id: 'img_a4f6b368',
+          type: 'img',
+          style: {
+            width: '375',
+            height: 'auto',
+            position: 'relative',
+            top: '0',
+            left: '0',
+            'margin-top': '0',
+            'padding-bottom': '40',
+            'padding-top': '19'
+          },
+          name: '图片',
+          src: 'https://qushen-h5-platform.oss-cn-beijing.aliyuncs.com/where-to-go-honda-h5/text3.png',
+          url: '',
+          fit: 'contain',
+          events: '',
+          created: '',
+          mounted: '',
+          displayConds: [],
+          animation: [
+            {
+              label: '向上进入',
+              value: 'fadeInUp',
+              duration: 1000,
+              delay: 0,
+              loop: 1
+            }
+          ]
         }
-      ]
+      ],
+      title: '',
+      events: '',
+      created: '',
+      mounted: '',
+      displayConds: [],
+      animation: ''
     }
   ],
   codeBlocks: {
