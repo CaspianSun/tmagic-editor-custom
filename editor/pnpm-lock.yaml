@@ -44,29 +44,29 @@ devDependencies:
     specifier: ^1.7.0
     version: 1.7.0
   '@tmagic/core':
-    specifier: ^1.3.12
-    version: 1.3.12(dayjs@1.11.10)
+    specifier: ^1.3.13
+    version: 1.3.13(dayjs@1.11.10)
   '@tmagic/design':
-    specifier: ^1.3.12
-    version: 1.3.12(vue@3.4.14)
+    specifier: ^1.3.13
+    version: 1.3.13(vue@3.4.14)
   '@tmagic/editor':
-    specifier: ^1.3.12
-    version: 1.3.12(@tmagic/design@1.3.12)(@tmagic/form@1.3.12)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.14)
+    specifier: ^1.3.13
+    version: 1.3.13(@tmagic/design@1.3.13)(@tmagic/form@1.3.13)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.14)
   '@tmagic/element-plus-adapter':
-    specifier: ^1.3.12
-    version: 1.3.12(@tmagic/design@1.3.12)(element-plus@2.4.3)(vue@3.4.14)
+    specifier: ^1.3.13
+    version: 1.3.13(@tmagic/design@1.3.13)(element-plus@2.4.3)(vue@3.4.14)
   '@tmagic/form':
-    specifier: ^1.3.12
-    version: 1.3.12(dayjs@1.11.10)(vue@3.4.14)
+    specifier: ^1.3.13
+    version: 1.3.13(dayjs@1.11.10)(vue@3.4.14)
   '@tmagic/schema':
-    specifier: ^1.3.12
-    version: 1.3.12
+    specifier: ^1.3.13
+    version: 1.3.13
   '@tmagic/stage':
-    specifier: ^1.3.12
-    version: 1.3.12(dayjs@1.11.10)(scenejs@1.10.3)
+    specifier: ^1.3.13
+    version: 1.3.13(dayjs@1.11.10)(scenejs@1.10.3)
   '@tmagic/utils':
-    specifier: ^1.3.12
-    version: 1.3.12(dayjs@1.11.10)
+    specifier: ^1.3.13
+    version: 1.3.13(dayjs@1.11.10)
   '@tsconfig/node18':
     specifier: ^18.2.2
     version: 18.2.2
@@ -2252,43 +2252,43 @@ packages:
   /@sxzz/popperjs-es@2.11.7:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
 
-  /@tmagic/core@1.3.12(dayjs@1.11.10):
-    resolution: {integrity: sha512-pMlqwsyXFYKuhYR8/WzVPDGoX5ZH2sWSNCZ6aX+uPGRMmmcvxFiFyKCWy3QnjUJbMjwOGy8QTMMXD4bd2uZGFA==}
+  /@tmagic/core@1.3.13(dayjs@1.11.10):
+    resolution: {integrity: sha512-pLdpe3zvpVVVXde1jjCIQft9207QzmqZOkLIsDu7i4g83GuoczEby/fSd7wU/H5lBrXK6IG/3t77kCK8kQPs/w==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/data-source': 1.3.12(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.12
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/data-source': 1.3.13(dayjs@1.11.10)
+      '@tmagic/schema': 1.3.13
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/data-source@1.3.12(dayjs@1.11.10):
-    resolution: {integrity: sha512-UyY5Eb9j173zhzfWIHkHJNcTqJCDbpxjJXzj0SaJ9h7/rZ85pP2cn2mClG18gvhgwH36eamgHCqz6/EpH5x59w==}
+  /@tmagic/data-source@1.3.13(dayjs@1.11.10):
+    resolution: {integrity: sha512-67XLgp8i9mBlf0CTNwTAxuyKNKG8y03hAi1v+tV284TVDAxtlJIEBUSUraF73+iarVt1A4Oz/MqDvSwyGWrB3A==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/schema': 1.3.12
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/schema': 1.3.13
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/dep@1.3.12(dayjs@1.11.10):
-    resolution: {integrity: sha512-ebZ6BhphkH5dZHkf9EovXZo08vcMYEPDQMvp036Jc5UoMEcribH5E82sCnn7ejRyYsI+Teg1DUPQFcePkEY3FA==}
+  /@tmagic/dep@1.3.13(dayjs@1.11.10):
+    resolution: {integrity: sha512-2Rt8YnLTBKdjjy1l6wM33vByI7/zrRhoZJQBWWjfqH3JsW5YCN5pGseEGBArkusiRFfJzQc/Nit0h7pV8UgxwQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/schema': 1.3.12
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/schema': 1.3.13
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/design@1.3.12(vue@3.4.14):
-    resolution: {integrity: sha512-F0sCFmU57z/XXxqSb4gUMyRDSSepVai42UJoOcMyuWPTeMb0+Ln+PkpzqOBt5vF3Xe7XgErJr7aowMM0bAstpQ==}
+  /@tmagic/design@1.3.13(vue@3.4.14):
+    resolution: {integrity: sha512-8snH6LPEfG/++iQ8bYJHkzVNKZR5VrKwLvO6XNysOVnD2Pp6fb6CcVPWCHZCuwGaRZmlHdHiv6ZG3Qjse1aZpA==}
     engines: {node: '>=18'}
     peerDependencies:
       vue: ^3.3.8
@@ -2296,25 +2296,25 @@ packages:
       vue: 3.4.14(typescript@5.3.3)
     dev: true
 
-  /@tmagic/editor@1.3.12(@tmagic/design@1.3.12)(@tmagic/form@1.3.12)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.14):
-    resolution: {integrity: sha512-XoxUMK+j5zKTyTuS8MSu5jXsK8jHaqog0xaQ6pu3+AH2qC8X96ESgGaeUqcZjr1Y0zJUdO3uUdPDLzo8BoX9CQ==}
+  /@tmagic/editor@1.3.13(@tmagic/design@1.3.13)(@tmagic/form@1.3.13)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.14):
+    resolution: {integrity: sha512-uq/JdgyNxCd4PYGo4ydWrX8JPSmMatUPu+4k5blF+8Xnsm0n5fFKgQGySR64GTiQOyzh99vCVvrfieOmLf+o5Q==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/design': 1.3.12
-      '@tmagic/form': 1.3.12
+      '@tmagic/design': 1.3.13
+      '@tmagic/form': 1.3.13
       monaco-editor: ^0.41.0
       vue: ^3.3.8
     dependencies:
       '@babel/core': 7.23.7
       '@element-plus/icons-vue': 2.3.1(vue@3.4.14)
-      '@tmagic/core': 1.3.12(dayjs@1.11.10)
-      '@tmagic/dep': 1.3.12(dayjs@1.11.10)
-      '@tmagic/design': 1.3.12(vue@3.4.14)
-      '@tmagic/form': 1.3.12(dayjs@1.11.10)(vue@3.4.14)
-      '@tmagic/schema': 1.3.12
-      '@tmagic/stage': 1.3.12(dayjs@1.11.10)(scenejs@1.10.3)
-      '@tmagic/table': 1.3.12(@tmagic/form@1.3.12)(dayjs@1.11.10)(vue@3.4.14)
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/core': 1.3.13(dayjs@1.11.10)
+      '@tmagic/dep': 1.3.13(dayjs@1.11.10)
+      '@tmagic/design': 1.3.13(vue@3.4.14)
+      '@tmagic/form': 1.3.13(dayjs@1.11.10)(vue@3.4.14)
+      '@tmagic/schema': 1.3.13
+      '@tmagic/stage': 1.3.13(dayjs@1.11.10)(scenejs@1.10.3)
+      '@tmagic/table': 1.3.13(@tmagic/form@1.3.13)(dayjs@1.11.10)(vue@3.4.14)
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       buffer: 6.0.3
       color: 3.2.1
       emmet-monaco-es: 5.3.0(monaco-editor@0.41.0)
@@ -2332,28 +2332,28 @@ packages:
       - supports-color
     dev: true
 
-  /@tmagic/element-plus-adapter@1.3.12(@tmagic/design@1.3.12)(element-plus@2.4.3)(vue@3.4.14):
-    resolution: {integrity: sha512-nViqvqut65yY8hx8S1G6zkjIp1g7/Cr2nejmkauGHx7r4yAN3kuySpEmRPunvmBg6a4T8Pe2ekT3NPhPRcIHmg==}
+  /@tmagic/element-plus-adapter@1.3.13(@tmagic/design@1.3.13)(element-plus@2.4.3)(vue@3.4.14):
+    resolution: {integrity: sha512-vgzgHC9tFt7Tc9affRoswxVU8amfCKGXQ//zvJ02W6ol0GKSWkt5u9USQWkSkuS/Wie+1FGtYGslyddnwnfz8A==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/design': 1.3.12
+      '@tmagic/design': 1.3.13
       element-plus: ^2.4.3
       vue: ^3.3.8
     dependencies:
-      '@tmagic/design': 1.3.12(vue@3.4.14)
+      '@tmagic/design': 1.3.13(vue@3.4.14)
       element-plus: 2.4.3(vue@3.4.14)
       vue: 3.4.14(typescript@5.3.3)
     dev: true
 
-  /@tmagic/form@1.3.12(dayjs@1.11.10)(vue@3.4.14):
-    resolution: {integrity: sha512-VyHMVo1EAOC+nwO5hWKWI/6IJEo7OZV6VXzbVo9gngZcKkME7Zpd2z7/yo8nbfIbfWXS3ot1ZI+fzPZOxAv6Hw==}
+  /@tmagic/form@1.3.13(dayjs@1.11.10)(vue@3.4.14):
+    resolution: {integrity: sha512-GvAb1xd3H5OO9E6VEW1awlEDvaV3vyeAgLzFS8/AbVUeHlTl95uLoGV2SErse58bfVfHgBAUpU648v/gKZpaAw==}
     engines: {node: '>=18'}
     peerDependencies:
       vue: ^3.3.8
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.4.14)
-      '@tmagic/design': 1.3.12(vue@3.4.14)
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/design': 1.3.13(vue@3.4.14)
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       lodash-es: 4.17.21
       sortablejs: 1.15.2
       vue: 3.4.14(typescript@5.3.3)
@@ -2361,19 +2361,19 @@ packages:
       - dayjs
     dev: true
 
-  /@tmagic/schema@1.3.12:
-    resolution: {integrity: sha512-fjusAp0Mc1V3OALKyGGL0FOlc82N3g8sOAYv8Z0R3vkkph8pFOYalvBVLXHzQz2kzscfiQEf83FJbZWmaQpvwQ==}
+  /@tmagic/schema@1.3.13:
+    resolution: {integrity: sha512-eCP/tVWCPdktjQp5ctnRcpEwFCzKV6bne6nNwOigqtaAPexubKmxr4vsQhXp6o9cyN23yFp67iCMtJsGoeIwDw==}
     engines: {node: '>=18'}
     dev: true
 
-  /@tmagic/stage@1.3.12(dayjs@1.11.10)(scenejs@1.10.3):
-    resolution: {integrity: sha512-KoTkTPq1CI1qsRKdLIEBA4shQmUTWXccFTKQKTDbrnQAjI182nD0ui6BHzkrTOVvPGrstbIXvWEG+mhq0dGsig==}
+  /@tmagic/stage@1.3.13(dayjs@1.11.10)(scenejs@1.10.3):
+    resolution: {integrity: sha512-wmSKeGwHX7silIpudYpRYxcXvpk/e49B8rSpVHdqxLZOaQ5Rg+hkLQY0JJXFnnFsfC7t+m8hxgeEfH+7LkjEgQ==}
     engines: {node: '>=18'}
     dependencies:
       '@scena/guides': 0.29.2
-      '@tmagic/core': 1.3.12(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.12
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/core': 1.3.13(dayjs@1.11.10)
+      '@tmagic/schema': 1.3.13
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       events: 3.3.0
       keycon: 1.4.0
       lodash-es: 4.17.21
@@ -2384,29 +2384,29 @@ packages:
       - scenejs
     dev: true
 
-  /@tmagic/table@1.3.12(@tmagic/form@1.3.12)(dayjs@1.11.10)(vue@3.4.14):
-    resolution: {integrity: sha512-8W+0cbvrpD1QDV6TLOPyPt7jWWaJRWzvmSYPe7KhFKKabqNT7nGkKjxvGT0YEmkZeOsvjiABXffdxcQ5r9QQEA==}
+  /@tmagic/table@1.3.13(@tmagic/form@1.3.13)(dayjs@1.11.10)(vue@3.4.14):
+    resolution: {integrity: sha512-CmYaiiQacALWbWw1T6rID0sQ8q/CWfpq9sC7trXmMN7Ivq79dmZG6WgWIKxraL5vACZSCTDbdMHZfjQLihIGNQ==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/form': 1.3.12
+      '@tmagic/form': 1.3.13
       vue: ^3.3.8
     dependencies:
-      '@tmagic/design': 1.3.12(vue@3.4.14)
-      '@tmagic/form': 1.3.12(dayjs@1.11.10)(vue@3.4.14)
-      '@tmagic/utils': 1.3.12(dayjs@1.11.10)
+      '@tmagic/design': 1.3.13(vue@3.4.14)
+      '@tmagic/form': 1.3.13(dayjs@1.11.10)(vue@3.4.14)
+      '@tmagic/utils': 1.3.13(dayjs@1.11.10)
       lodash-es: 4.17.21
       vue: 3.4.14(typescript@5.3.3)
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/utils@1.3.12(dayjs@1.11.10):
-    resolution: {integrity: sha512-kbNkBkJxG6rLHeeR/j9KrtRZ7zbvTDZnxZfnVWiAsrPLJ0CKEa2UXvF7SAZdRxDscMnzsOqWvLfKEaB8wFmbtQ==}
+  /@tmagic/utils@1.3.13(dayjs@1.11.10):
+    resolution: {integrity: sha512-T2mgYiOs1GYm16nFLVnecc4SsPYeyIq0txESKIpLRzvOQW/8mhKJ5l99ha9h600umOW8naaY72vKrvKSNOLhHw==}
     engines: {node: '>=18'}
     peerDependencies:
       dayjs: ^1.11.4
     dependencies:
-      '@tmagic/schema': 1.3.12
+      '@tmagic/schema': 1.3.13
       dayjs: 1.11.10
       lodash-es: 4.17.21
     dev: true
