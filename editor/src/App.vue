@@ -60,22 +60,8 @@ import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from '@/api/index
 import { CreateEditDialog } from '@/components/EditDialog'
 import type { FormInstance } from 'element-plus'
 import { createMenu } from './configs/menu'
+import { compareVersions } from '@/utils/version'
 
-function compareVersions(v1: string, v2: string): number {
-  const parts1 = v1.split('.').map(Number)
-  const parts2 = v2.split('.').map(Number)
-
-  // 比较每个部分
-  for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
-    const num1 = i < parts1.length ? parts1[i] : 0
-    const num2 = i < parts2.length ? parts2[i] : 0
-
-    if (num1 > num2) return -1
-    if (num1 < num2) return 1
-  }
-
-  return 0
-}
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
   versionList.value = result.sort((a, b) => {
@@ -199,11 +185,13 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
 
 const saveId = ref<number>()
 const save = async () => {
-  if (!window.actId || !window.version) return
+  if (!window.actId) return
+  const lastVersion = versionList.value[0].version
+  const lastVersionActId = lastVersion.split('.')
   const { result } = await saveDslApi({
     id: saveId.value,
     actId: window.actId,
-    version: window.version,
+    version: `${lastVersionActId[0]}.${lastVersionActId[1]}.${Number(lastVersionActId[2]) + 1}`,
     dsl: serialize(toRaw([value.value]), {
       unsafe: true
     })
@@ -216,6 +204,7 @@ const save = async () => {
     },
     '*'
   )
+  await getList(window.actId)
   tMagicMessage.success('保存成功')
 }
 const menu = createMenu(value, editor, iframe, previewVisible, save, LoadVersionDialog)
@@ -225,7 +214,6 @@ window.addEventListener(
   async (e) => {
     if (e.data.type == 'init') {
       window.actId = e.data.params.actId
-      window.version = e.data.params.version
       await getList(e.data.params.actId)
       await initLoadDsl()
     }
