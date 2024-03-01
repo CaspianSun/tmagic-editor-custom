@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import EditPage from './editor/index.vue'
 import { DataSourceManager } from '@tmagic/data-source'
 import './style/index.scss'
-import 'animate.css'
 import 'virtual:uno.css'
 import 'vant/lib/index.css'
 

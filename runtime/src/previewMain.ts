@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import PreviewPage from './preview/index.vue'
 import { DataSourceManager } from '@tmagic/data-source'
 import './style/index.scss'
-import 'animate.css'
 import 'virtual:uno.css'
 import 'vant/lib/index.css'
 import axios from 'axios'
@@ -40,5 +39,4 @@ Promise.all([
   } else {
     magicApp.mount('#app')
   }
-
 })

@@ -4,4 +4,4 @@ declare interface Window {
   appInstance?: import('@tmagic/core').default
   dslPath?: string
 }
-declare module 'wow.js'
+declare module ''

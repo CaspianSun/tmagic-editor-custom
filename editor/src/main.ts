@@ -3,7 +3,6 @@ import 'element-plus/dist/index.css'
 import '@tmagic/editor/dist/style.css'
 import '@tmagic/form/dist/style.css'
 import '@/style/index.scss'
-import 'animate.css'
 import 'virtual:uno.css'
 
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
