@@ -18,25 +18,25 @@ class MyAxios {
   get<T = unknown>(config: AxiosRequestConfig) {
     return this.axios<T>({
       ...config,
-      method: 'GET',
+      method: "GET"
     })
   }
   post<T = unknown>(config: AxiosRequestConfig) {
     return this.axios<T>({
       ...config,
-      method: 'POST',
+      method: "POST"
     })
   }
   put<T = unknown>(config: AxiosRequestConfig) {
     return this.axios<T>({
       ...config,
-      method: 'PUT',
+      method: "PUT"
     })
   }
   delete<T = unknown>(config: AxiosRequestConfig) {
     return this.axios<T>({
       ...config,
-      method: 'DELETE',
+      method: "DELETE"
     })
   }
   request<T = unknown>(config: AxiosRequestConfig) {
@@ -48,8 +48,8 @@ export const service = new MyAxios(axios, {
   baseURL: import.meta.env.VITE_APP_BASE_URL,
   timeout: 300000,
   headers: {
-    "Content-Type": contentType,
-  },
+    "Content-Type": contentType
+  }
 })
 
 service.axios.interceptors.request.use(
@@ -62,7 +62,7 @@ service.axios.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error)
-  },
+  }
 )
 service.axios.interceptors.response.use(
   (response) => {
@@ -78,7 +78,7 @@ service.axios.interceptors.response.use(
   },
   (error) => {
     return Promise.reject(error)
-  },
+  }
 )
 
 export default service

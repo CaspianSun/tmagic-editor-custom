@@ -23,59 +23,36 @@
 </template>
 
 <script lang="ts" setup>
-import type { MComponent } from '@tmagic/schema'
-import { inject, watch, ref } from 'vue'
-import useApp from '@ui/utils/useApp'
-import UiPageFragmentContainer from '@ui/pageFragmentContainer'
-import SwiperClass from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import Core from '@tmagic/core'
-import 'swiper/css'
-import 'swiper/css/scrollbar'
-import 'swiper/css/free-mode'
+import type { MComponent } from "@tmagic/schema"
+import { watch, ref } from "vue"
+import useApp from "@ui/utils/useApp"
+import UiPageFragmentContainer from "@ui/pageFragmentContainer"
+import SwiperClass from "swiper"
+import { Swiper, SwiperSlide } from "swiper/vue"
+import "swiper/css"
+import "swiper/css/scrollbar"
+import "swiper/css/free-mode"
 
-const props = withDefaults(
-  defineProps<{
-    config: MComponent
-    model?: Record<string, any>
-  }>(),
-  {
-    model: () => ({})
-  }
-)
+const props = defineProps<{
+  config: MComponent
+}>()
 
 const swiperRef = ref<SwiperClass>()
 const setVSwiperRef = (swiper: SwiperClass) => (swiperRef.value = swiper)
 
 watch(
   () => props.config.current,
-  (val) => {
-    swiperRef.value?.slideTo(Number(val))
-  }
-)
-
-watch(
-  props,
-  (newVal) => {
-    console.log(newVal)
-  },
-  {
-    deep: true
-  }
+  (val) => swiperRef.value?.slideTo(Number(val))
 )
 
 const init = (e: SwiperClass) => {}
 const onSlideChange = (e: SwiperClass) => {}
 
-const app = inject<Core>('app')
-const node = app?.page?.getNode(props.config.id)
-
 const slideTo = (index: number) => swiperRef.value?.slideTo(index)
 const slideNext = () => swiperRef.value?.slideNext()
 const slidePrev = () => swiperRef.value?.slidePrev()
 
-useApp({
-  config: props.config,
+useApp(props.config, {
   methods: {
     slideTo,
     slideNext,

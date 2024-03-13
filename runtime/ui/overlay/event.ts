@@ -1,22 +1,22 @@
 export default {
   methods: [
     {
-      label: '打开遮罩',
-      value: 'openOverlay'
+      label: "打开遮罩",
+      value: "openOverlay"
     },
     {
-      label: '关闭遮罩',
-      value: 'closeOverlay'
+      label: "关闭遮罩",
+      value: "closeOverlay"
     }
   ],
   events: [
     {
-      label: '打开遮罩后',
-      value: 'overlay:open'
+      label: "打开遮罩后",
+      value: "overlay:open"
     },
     {
-      label: '关闭遮罩后',
-      value: 'overlay:close'
+      label: "关闭遮罩后",
+      value: "overlay:close"
     }
   ]
 }

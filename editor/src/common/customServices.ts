@@ -1,40 +1,40 @@
-import { propsService, editorService } from '@tmagic/editor'
-import type { MContainer, MNode } from '@tmagic/schema'
+import { propsService, editorService } from "@tmagic/editor"
+import type { MContainer, MNode } from "@tmagic/schema"
 
 export const useCustomService = () => {
   editorService.usePlugin({
     beforeDoAdd: (config: MNode, parent?: MContainer | null) => {
       switch (config.type) {
-        case 'overlay':
+        case "overlay":
           config.style = {
             ...config.style,
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0
           }
           break
-        case 'swiper':
-          if (parent?.type === 'swiper') return false
+        case "swiper":
+          if (parent?.type === "swiper") return false
           config.style = {
             ...config.style,
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0
           }
           break
-        case 'swiper_slide':
-          if (parent?.type !== 'swiper') return false
+        case "swiper_slide":
+          if (parent?.type !== "swiper") return false
           config.style = {
             ...config.style,
-            position: 'relative',
+            position: "relative",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100vh'
+            width: "100%",
+            height: "100vh"
           }
           break
       }
@@ -46,21 +46,21 @@ export const useCustomService = () => {
         return [config, targetParent, targetIndex]
       }
       switch (config.type) {
-        case 'overlay':
-        case 'swiper':
+        case "overlay":
+        case "swiper":
           return [config, targetParent, targetIndex]
       }
-      if (targetParent.layout == 'relative') {
+      if (targetParent.layout == "relative") {
         config.style = {
           ...config.style,
-          position: 'relative',
+          position: "relative",
           left: 0,
           top: 0
         }
       } else {
         config.style = {
           ...config.style,
-          position: 'absolute',
+          position: "absolute",
           left: 0,
           top: 0
         }
@@ -75,25 +75,25 @@ export const useCustomService = () => {
     afterGetPropsConfig(result: any) {
       const props = result[0].items
       const animation = {
-        title: '动画',
+        title: "动画",
         items: [
           {
-            src: 'component',
-            name: 'animation',
-            type: 'animation'
+            src: "component",
+            name: "animation",
+            type: "animation"
           }
         ]
       }
       props.push(animation)
-      const styleIndex = props.findIndex((item: any) => item.title === '样式')
+      const styleIndex = props.findIndex((item: any) => item.title === "样式")
       if (styleIndex > 0) {
         props[styleIndex] = {
-          title: '样式',
+          title: "样式",
           items: [
             {
-              src: 'component',
-              name: 'style',
-              type: 'style'
+              src: "component",
+              name: "style",
+              type: "style"
             }
           ]
         }

@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
-import QRCode from 'qrcode'
-import { Image } from 'vant'
+import { ref, watch } from "vue"
+import QRCode from "qrcode"
+import { Image } from "vant"
 
-import type { MComponent } from '@tmagic/schema'
+import type { MComponent } from "@tmagic/schema"
 
-import useApp from '@ui/utils/useApp'
+import useApp from "@ui/utils/useApp"
 
 const props = withDefaults(
   defineProps<{
@@ -27,7 +27,7 @@ const imgUrl = ref()
 
 watch(
   () => props.config.text,
-  (text = '') => {
+  (text = "") => {
     QRCode.toDataURL(text, (e: any, text: string) => {
       if (e) console.error(e)
       imgUrl.value = text
@@ -38,10 +38,7 @@ watch(
   }
 )
 
-useApp({
-  config: props.config,
-  methods: {}
-})
+useApp(props.config)
 </script>
 
 <style lang="scss">

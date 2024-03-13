@@ -1,0 +1,25 @@
+{
+  "origins": [
+    {
+      "name": "h5",
+      "originUrl": "http://h5-test.qssite.cn/doc/h5-json"
+    }
+  ],
+  "templatePath": "./pontTemplate",
+  "fetchMethodPath": "./fetchMethodPath",
+  "outDir": "./services",
+  "originType": "SwaggerV3",
+  "usingMultipleOrigins": true,
+  "mocks": {
+    "enable": false
+  },
+  "templateType": "hooks",
+  "prettierConfig": {
+    "printWidth": 140,
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": false,
+    "jsxSingleQuote": true,
+    "trailingComma": "none"
+  }
+}

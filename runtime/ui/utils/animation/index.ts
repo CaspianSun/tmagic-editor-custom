@@ -1,6 +1,6 @@
-import anime from 'animejs/lib/anime.es.js'
-import effect from './effect'
-export { hiddenEffect } from './effect'
+import anime from "animejs/lib/anime.es.js"
+import effect from "./effect"
+export { hiddenEffect } from "./effect"
 export const handleAnimation = (
   element: HTMLElement | null,
   config: (anime.AnimeParams & {

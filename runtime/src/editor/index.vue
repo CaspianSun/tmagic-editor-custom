@@ -3,43 +3,36 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, provide, reactive, ref, watch } from 'vue'
-import Core from '@tmagic/core'
-import type { Id, MApp, MNode } from '@tmagic/schema'
-import type { RemoveData, UpdateData } from '@tmagic/stage'
-import { getNodePath, replaceChildNode } from '@tmagic/utils'
-import { transformStyle } from '@/utils/transformStyle'
+import { computed, nextTick, onMounted, provide, reactive, ref, watch } from "vue"
+import Core from "@tmagic/core"
+import type { Id, MApp, MNode } from "@tmagic/schema"
+import type { RemoveData, UpdateData } from "@tmagic/stage"
+import { getNodePath, replaceChildNode } from "@tmagic/utils"
+import { transformStyle } from "@/utils/transformStyle"
 
 /** 去除Injection警告 */
-provide('swiperSlide', ref())
+provide("swiperSlide", ref())
 
 const app = new Core({
   ua: window.navigator.userAgent,
-  platform: 'editor',
+  platform: "editor",
   transformStyle: transformStyle
 })
-provide('app', app)
+provide("app", app)
 
 if (app.env.isWeb) {
   app.setDesignWidth(window.document.documentElement.getBoundingClientRect().width)
 }
 
-onMounted(() => {
-  window.appInstance = app
-})
-
 const root = ref<MApp>()
 const curPageId = ref<Id>()
 const selectedId = ref<Id>()
 
-const pageConfig = computed(
-  () =>
-    root.value?.items?.find((item: MNode) => item.id === curPageId.value) || root.value?.items?.[0]
-)
+const pageConfig = computed(() => root.value?.items?.find((item: MNode) => item.id === curPageId.value) || root.value?.items?.[0])
 
 watch(pageConfig, async () => {
   await nextTick()
-  const page = document.querySelector<HTMLElement>('.page')
+  const page = document.querySelector<HTMLElement>(".page")
   page && window.magic?.onPageElUpdate(page)
 })
 
@@ -67,14 +60,14 @@ window.magic?.onRuntimeReady({
   },
 
   add({ config, parentId }: UpdateData) {
-    if (!root.value) throw new Error('error')
-    if (!selectedId.value) throw new Error('error')
-    if (!parentId) throw new Error('error')
+    if (!root.value) throw new Error("error")
+    if (!selectedId.value) throw new Error("error")
+    if (!parentId) throw new Error("error")
 
     const parent = getNodePath(parentId, [root.value]).pop()
-    if (!parent) throw new Error('未找到父节点')
+    if (!parent) throw new Error("未找到父节点")
 
-    if (config.type !== 'page') {
+    if (config.type !== "page") {
       const parentNode = app?.page?.getNode(parent.id)
       parentNode && app?.page?.initNode(config, parentNode)
     }
@@ -89,7 +82,7 @@ window.magic?.onRuntimeReady({
   },
 
   update({ config, parentId }: UpdateData) {
-    if (!root.value || !app) throw new Error('error')
+    if (!root.value || !app) throw new Error("error")
 
     const newNode = app.dataSourceManager?.compiledNode(config) || config
     replaceChildNode(reactive(newNode), [root.value], parentId)
@@ -101,15 +94,15 @@ window.magic?.onRuntimeReady({
   },
 
   remove({ id, parentId }: RemoveData) {
-    if (!root.value) throw new Error('error')
+    if (!root.value) throw new Error("error")
 
     const node = getNodePath(id, [root.value]).pop()
-    if (!node) throw new Error('未找到目标元素')
+    if (!node) throw new Error("未找到目标元素")
 
     const parent = getNodePath(parentId, [root.value]).pop()
-    if (!parent) throw new Error('未找到父元素')
+    if (!parent) throw new Error("未找到父元素")
 
-    if (node.type === 'page') {
+    if (node.type === "page") {
       app?.deletePage()
     } else {
       app?.page?.deleteNode(node.id)

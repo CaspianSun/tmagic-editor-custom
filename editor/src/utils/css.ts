@@ -1,4 +1,4 @@
-import { toCSS, toJSON } from 'ts-cssjson'
+import { toCSS, toJSON } from "ts-cssjson"
 
 interface StyleData {
   [key: string]: string | number | boolean
@@ -9,7 +9,7 @@ interface StyleData {
  * @param styleKey
  */
 export function toLine(styleKey: string) {
-  return styleKey.replace(/([A-Z])/g, '-$1').toLowerCase()
+  return styleKey.replace(/([A-Z])/g, "-$1").toLowerCase()
 }
 
 export function toHump(name: String) {
@@ -26,7 +26,7 @@ export function parseToCssCode(styleData: StyleData) {
 
   const cssJson = {
     children: {
-      '#main': {
+      "#main": {
         children: {},
         attributes: parseStyleData
       }
@@ -41,7 +41,7 @@ export function parseToStyleData(cssCode: string) {
   const styleData = {} as StyleData
   try {
     const cssJson = toJSON(cssCode)
-    const cssJsonData = cssJson?.children?.['#main']?.attributes
+    const cssJsonData = cssJson?.children?.["#main"]?.attributes
     for (const key in cssJsonData) {
       styleData[toHump(key)] = cssJsonData[key]
     }

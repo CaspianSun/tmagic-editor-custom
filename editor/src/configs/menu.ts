@@ -1,9 +1,9 @@
-import type { CreateEditDialog } from '@/components/EditDialog'
-import { DeviceType, uaMap } from '@/constant'
-import { Document, Coin, Connection } from '@element-plus/icons-vue'
-import type { TMagicEditor } from '@tmagic/editor'
-import serialize from 'serialize-javascript'
-import { toRaw, type Ref, nextTick } from 'vue'
+import type { CreateEditDialog } from "@/components/EditDialog"
+import { DeviceType, uaMap } from "@/constant"
+import { Document, Coin, Connection } from "@element-plus/icons-vue"
+import type { TMagicEditor } from "@tmagic/editor"
+import serialize from "serialize-javascript"
+import { toRaw, type Ref, nextTick } from "vue"
 
 export const createMenu = (
   value: Ref<any>,
@@ -16,32 +16,32 @@ export const createMenu = (
   return {
     left: [
       {
-        type: 'text',
-        text: '趣深'
+        type: "text",
+        text: "趣深"
       }
     ],
-    center: ['delete', 'undo', 'redo', 'guides', 'rule', 'zoom'],
+    center: ["delete", "undo", "redo", "guides", "rule", "zoom"],
     right: [
       {
-        type: 'button',
-        text: '加载版本数据',
+        type: "button",
+        text: "加载版本数据",
         icon: Coin,
         handler: () => {
           LoadVersionDialog.open({})
         }
       },
       {
-        type: 'button',
-        text: '预览',
+        type: "button",
+        text: "预览",
         icon: Connection,
         handler: async () => {
           try {
             localStorage.setItem(
-              'magicDSL',
+              "magicDSL",
               serialize(toRaw(value.value), {
                 space: 2,
                 unsafe: true
-              }).replace(/"(\w+)":\s/g, '$1: ')
+              }).replace(/"(\w+)":\s/g, "$1: ")
             )
             editor.value?.editorService.resetModifiedNodeId()
           } catch (e) {
@@ -50,23 +50,23 @@ export const createMenu = (
           previewVisible.value = true
           await nextTick(() => {})
           if (!iframe.value?.contentWindow) return
-          Object.defineProperty(iframe.value.contentWindow.navigator, 'userAgent', {
+          Object.defineProperty(iframe.value.contentWindow.navigator, "userAgent", {
             value: uaMap[DeviceType.Phone],
             writable: true
           })
         }
       },
       {
-        type: 'button',
-        text: '保存',
+        type: "button",
+        text: "保存",
         icon: Coin,
         handler: () => {
           save()
         }
       },
       {
-        type: 'button',
-        text: '保存并关闭',
+        type: "button",
+        text: "保存并关闭",
         icon: Coin,
         handler: async () => {
           await save()
@@ -74,12 +74,12 @@ export const createMenu = (
           window.close()
         }
       },
-      '/',
+      "/",
       {
-        type: 'button',
+        type: "button",
         icon: Document,
-        tooltip: '源码',
-        handler: (service: any) => service?.uiService.set('showSrc', !service?.uiService.get('showSrc'))
+        tooltip: "源码",
+        handler: (service: any) => service?.uiService.set("showSrc", !service?.uiService.get("showSrc"))
       }
     ]
   }

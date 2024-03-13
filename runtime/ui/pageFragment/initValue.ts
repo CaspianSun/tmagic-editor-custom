@@ -19,7 +19,7 @@
 export default {
   items: [],
   style: {
-    width: '375',
-    height: '817',
-  },
-};
+    width: "375",
+    height: "812"
+  }
+}

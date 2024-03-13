@@ -1,4 +1,4 @@
 export default {
   items: [],
-  style: { height: 'auto', 'min-height': '100%', 'background-color': '#eff2f5' }
+  style: { height: "auto", "min-height": "100%", "background-color": "#eff2f5" }
 }

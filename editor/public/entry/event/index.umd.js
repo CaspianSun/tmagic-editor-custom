@@ -51,54 +51,6 @@
     events: []
   };
 
-  const field = {
-    methods: [],
-    events: []
-  };
-
-  const form = {
-    methods: [
-      {
-        label: "提交表单",
-        value: "formSubmit"
-      },
-      {
-        label: "表单验证",
-        value: "formValidate"
-      }
-    ],
-    events: [
-      {
-        label: "提交表单方法",
-        value: "form:submit"
-      },
-      {
-        label: "提交失败",
-        value: "form:submit:failed"
-      }
-    ]
-  };
-
-  const check_box = {
-    methods: [],
-    events: []
-  };
-
-  const radio = {
-    methods: [],
-    events: []
-  };
-
-  const sms = {
-    methods: [],
-    events: [
-      {
-        label: "发送短信",
-        value: "sms:send"
-      }
-    ]
-  };
-
   const swiper = {
     methods: [
       {
@@ -142,19 +94,20 @@
     events: []
   };
 
+  const form = {
+    methods: [],
+    events: []
+  };
+
   const events = {
     "page": page,
     "img": img,
     "container": container,
     "overlay": overlay,
     "button": button,
-    "field": field,
-    "form": form,
-    "check_box": check_box,
-    "radio": radio,
-    "sms": sms,
     "swiper": swiper,
-    "music": music
+    "music": music,
+    "form": form
   };
 
   return events;

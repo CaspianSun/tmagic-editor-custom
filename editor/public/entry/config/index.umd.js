@@ -167,519 +167,11 @@
     }
   ];
 
-  const field = [
-    {
-      name: "vantProps",
-      labelWidth: "80px",
-      items: [
-        {
-          name: "size",
-          type: "select",
-          text: "尺寸",
-          options: [
-            {
-              text: "默认",
-              value: ""
-            },
-            {
-              text: "大号",
-              value: "large"
-            }
-          ]
-        },
-        {
-          name: "type",
-          type: "data-source-input",
-          text: "类型"
-        },
-        {
-          name: "label",
-          type: "data-source-input",
-          text: "左侧文本"
-        },
-        {
-          name: "labelWidth",
-          type: "data-source-input",
-          text: "左侧宽度"
-        },
-        {
-          name: "placeholder",
-          type: "data-source-input",
-          text: "占位文字"
-        },
-        {
-          name: "maxlength",
-          type: "data-source-input",
-          text: "最大长度"
-        },
-        {
-          name: "name",
-          type: "data-source-input",
-          text: "表单标识"
-        },
-        {
-          name: "rules",
-          type: "vs-code",
-          text: "校验规则",
-          height: "200px",
-          language: "javascript",
-          parse: true,
-          options: {
-            theme: "vs-light",
-            fixedOverflowWidgets: true,
-            automaticLayout: true,
-            glyphMargin: false,
-            folding: false,
-            tabSize: 2,
-            lineDecorationsWidth: 6,
-            lineNumbersMinChars: 0
-          }
-        },
-        {
-          name: "colon",
-          type: "switch",
-          text: "冒号"
-        },
-        {
-          name: "border",
-          type: "switch",
-          text: "内边框"
-        },
-        {
-          name: "required",
-          type: "switch",
-          text: "必填星号"
-        },
-        {
-          name: "center",
-          type: "switch",
-          text: "垂直居中"
-        },
-        {
-          name: "clearable",
-          type: "switch",
-          text: "清除控件"
-        }
-      ]
-    }
-  ];
-
-  const form = [
-    {
-      name: "layout",
-      text: "容器布局",
-      type: "select",
-      defaultValue: "absolute",
-      options: [
-        { value: "absolute", text: "绝对定位" },
-        { value: "relative", text: "流式布局" }
-      ],
-      onChange: (formState, v, { model }) => {
-        if (!model.style)
-          return v;
-        if (v === "relative") {
-          model.style.height = "auto";
-        } else {
-          const el = formState.stage?.renderer?.contentWindow.document.getElementById(model.id);
-          if (el) {
-            model.style.height = el.getBoundingClientRect().height;
-          }
-        }
-      }
-    },
-    {
-      name: "vantProps",
-      labelWidth: "80px",
-      items: [
-        {
-          name: "labelWidth",
-          type: "data-source-input",
-          text: "左侧宽度"
-        },
-        {
-          name: "labelAlign",
-          type: "select",
-          text: "左侧对齐",
-          options: [
-            {
-              text: "左对齐",
-              value: "left"
-            },
-            {
-              text: "居中",
-              value: "center"
-            },
-            {
-              text: "右对齐",
-              value: "right"
-            },
-            {
-              text: "上对齐",
-              value: "top"
-            }
-          ]
-        },
-        {
-          name: "inputAlign",
-          type: "select",
-          text: "输入对齐",
-          options: [
-            {
-              text: "左对齐",
-              value: "left"
-            },
-            {
-              text: "居中",
-              value: "center"
-            },
-            {
-              text: "右对齐",
-              value: "right"
-            }
-          ]
-        },
-        {
-          name: "colon",
-          type: "switch",
-          text: "冒号"
-        },
-        {
-          name: "required",
-          type: "switch",
-          text: "必填星号"
-        }
-      ]
-    }
-  ];
-
-  const check_box = [
-    {
-      name: "vantProps",
-      labelWidth: "80px",
-      items: [
-        {
-          name: "size",
-          type: "select",
-          text: "尺寸",
-          options: [
-            {
-              text: "默认",
-              value: ""
-            },
-            {
-              text: "大号",
-              value: "large"
-            }
-          ]
-        },
-        {
-          name: "label",
-          type: "data-source-input",
-          text: "左侧文本"
-        },
-        {
-          name: "labelWidth",
-          type: "data-source-input",
-          text: "左侧宽度"
-        },
-        {
-          name: "name",
-          type: "data-source-input",
-          text: "表单标识"
-        },
-        {
-          name: "rules",
-          type: "vs-code",
-          text: "校验规则",
-          height: "200px",
-          language: "javascript",
-          parse: true,
-          options: {
-            theme: "vs-light",
-            fixedOverflowWidgets: true,
-            automaticLayout: true,
-            glyphMargin: false,
-            folding: false,
-            tabSize: 2,
-            lineDecorationsWidth: 6,
-            lineNumbersMinChars: 0
-          }
-        },
-        {
-          name: "colon",
-          type: "switch",
-          text: "冒号"
-        },
-        {
-          name: "border",
-          type: "switch",
-          text: "内边框"
-        },
-        {
-          name: "required",
-          type: "switch",
-          text: "必填星号"
-        },
-        {
-          name: "center",
-          type: "switch",
-          text: "垂直居中"
-        }
-      ]
-    },
-    {
-      type: "table",
-      name: "options",
-      items: [
-        {
-          name: "label",
-          label: "选项文本"
-        },
-        {
-          name: "name",
-          label: "标识符"
-        },
-        {
-          name: "disabled",
-          label: "禁用",
-          defaultValue: false,
-          type: "switch"
-        },
-        {
-          name: "shape",
-          label: "形状",
-          type: "select",
-          defaultValue: "round",
-          options: [
-            {
-              text: "方形",
-              value: "square"
-            },
-            {
-              text: "圆形",
-              value: "round"
-            }
-          ]
-        }
-      ]
-    }
-  ];
-
-  const radio = [
-    {
-      name: "vantProps",
-      labelWidth: "80px",
-      items: [
-        {
-          name: "size",
-          type: "select",
-          text: "尺寸",
-          options: [
-            {
-              text: "默认",
-              value: ""
-            },
-            {
-              text: "大号",
-              value: "large"
-            }
-          ]
-        },
-        {
-          name: "label",
-          type: "data-source-input",
-          text: "左侧文本"
-        },
-        {
-          name: "labelWidth",
-          type: "data-source-input",
-          text: "左侧宽度"
-        },
-        {
-          name: "name",
-          type: "data-source-input",
-          text: "表单标识"
-        },
-        {
-          name: "rules",
-          type: "vs-code",
-          text: "校验规则",
-          height: "200px",
-          language: "javascript",
-          parse: true,
-          options: {
-            theme: "vs-light",
-            fixedOverflowWidgets: true,
-            automaticLayout: true,
-            glyphMargin: false,
-            folding: false,
-            tabSize: 2,
-            lineDecorationsWidth: 6,
-            lineNumbersMinChars: 0
-          }
-        },
-        {
-          name: "colon",
-          type: "switch",
-          text: "冒号"
-        },
-        {
-          name: "border",
-          type: "switch",
-          text: "内边框"
-        },
-        {
-          name: "required",
-          type: "switch",
-          text: "必填星号"
-        },
-        {
-          name: "center",
-          type: "switch",
-          text: "垂直居中"
-        }
-      ]
-    },
-    {
-      type: "table",
-      name: "options",
-      items: [
-        {
-          name: "label",
-          label: "选项文本"
-        },
-        {
-          name: "name",
-          label: "标识符"
-        },
-        {
-          name: "disabled",
-          label: "禁用",
-          defaultValue: false,
-          type: "switch"
-        },
-        {
-          name: "shape",
-          label: "形状",
-          type: "select",
-          defaultValue: "round",
-          options: [
-            {
-              text: "方形",
-              value: "square"
-            },
-            {
-              text: "圆形",
-              value: "round"
-            }
-          ]
-        }
-      ]
-    }
-  ];
-
   const qr_code = [
     {
       text: "内容",
       name: "text",
       type: "data-source-input"
-    }
-  ];
-
-  const sms = [
-    {
-      name: "vantProps",
-      labelWidth: "80px",
-      items: [
-        {
-          name: "size",
-          type: "select",
-          text: "尺寸",
-          options: [
-            {
-              text: "默认",
-              value: ""
-            },
-            {
-              text: "大号",
-              value: "large"
-            }
-          ]
-        },
-        {
-          name: "type",
-          type: "data-source-input",
-          text: "类型"
-        },
-        {
-          name: "label",
-          type: "data-source-input",
-          text: "左侧文本"
-        },
-        {
-          name: "labelWidth",
-          type: "data-source-input",
-          text: "左侧宽度"
-        },
-        {
-          name: "placeholder",
-          type: "data-source-input",
-          text: "占位文字"
-        },
-        {
-          name: "maxlength",
-          type: "data-source-input",
-          text: "最大长度"
-        },
-        {
-          name: "name",
-          type: "data-source-input",
-          text: "表单标识"
-        },
-        {
-          name: "rules",
-          type: "vs-code",
-          text: "校验规则",
-          height: "200px",
-          language: "javascript",
-          parse: true,
-          options: {
-            theme: "vs-light",
-            fixedOverflowWidgets: true,
-            automaticLayout: true,
-            glyphMargin: false,
-            folding: false,
-            tabSize: 2,
-            lineDecorationsWidth: 6,
-            lineNumbersMinChars: 0
-          }
-        },
-        {
-          name: "colon",
-          type: "switch",
-          text: "冒号"
-        },
-        {
-          name: "border",
-          type: "switch",
-          text: "内边框"
-        },
-        {
-          name: "required",
-          type: "switch",
-          text: "必填星号"
-        },
-        {
-          name: "center",
-          type: "switch",
-          text: "垂直居中"
-        },
-        {
-          name: "clearable",
-          type: "switch",
-          text: "清除控件"
-        }
-      ]
     }
   ];
 
@@ -757,6 +249,60 @@
     }
   ];
 
+  const form = [
+    {
+      type: "form-field",
+      name: "fields",
+      field: [
+        {
+          name: "name",
+          label: "字段名",
+          type: "display"
+        },
+        {
+          name: "type",
+          label: "字段类型",
+          type: "hidden"
+        },
+        {
+          name: "fieldCode",
+          label: "字段标识",
+          type: "hidden"
+        },
+        {
+          name: "isSearch",
+          label: "是否参与搜索",
+          type: "hidden"
+        },
+        {
+          name: "isRequired",
+          label: "是否必填",
+          type: "hidden"
+        },
+        {
+          name: "disabled",
+          label: "是否禁用",
+          type: "hidden"
+        },
+        {
+          name: "isShow",
+          label: "是否显示",
+          type: "hidden"
+        },
+        {
+          name: "placeholder",
+          label: "占位提示",
+          type: "hidden"
+        },
+        {
+          name: "remark",
+          label: "备注",
+          type: "hidden"
+        }
+      ]
+    }
+  ];
+
   const configs = {
     "page": page,
     "text": text,
@@ -764,16 +310,12 @@
     "container": container,
     "overlay": overlay,
     "button": button,
-    "field": field,
-    "form": form,
-    "check_box": check_box,
-    "radio": radio,
     "qr_code": qr_code,
-    "sms": sms,
     "swiper": swiper,
     "music": music,
     "page-fragment": pageFragment,
-    "page-fragment-container": pageFragmentContainer
+    "page-fragment-container": pageFragmentContainer,
+    "form": form
   };
 
   return configs;

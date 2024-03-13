@@ -24,7 +24,8 @@
     <TMagicDialog v-model="previewVisible" destroy-on-close class="pre-viewer" title="预览" :width="stageRect && stageRect.width">
       <iframe
         v-if="previewVisible"
-        ref="iframe"
+        ref="previewIframeRef"
+        id="previewIframe"
         width="100%"
         style="border: none"
         :height="stageRect && stageRect.height"
@@ -44,23 +45,23 @@
 </template>
 
 <script lang="ts" setup>
-import type { Ref } from 'vue'
-import { computed, ref, toRaw } from 'vue'
-import { NodeType } from '@tmagic/schema'
-import { asyncLoadJs } from '@tmagic/utils'
-import type { CustomizeMoveableOptionsCallbackConfig } from '@tmagic/stage'
-import { tMagicMessage, TMagicDialog } from '@tmagic/design'
-import { TMagicEditor } from '@tmagic/editor'
-import type { DatasourceTypeOption, MoveableOptions } from '@tmagic/editor'
-import serialize from 'serialize-javascript'
-import { componentGroupList } from '@/configs/componentGroupList'
-import dsl from '@/configs/dsl'
-import { useCustomService } from '@/common/customServices'
-import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from '@/api/index'
-import { CreateEditDialog } from '@/components/EditDialog'
-import type { FormInstance } from 'element-plus'
-import { createMenu } from './configs/menu'
-import { compareVersions } from '@/utils/version'
+import type { Ref } from "vue"
+import { computed, onMounted, ref, toRaw } from "vue"
+import { NodeType } from "@tmagic/schema"
+import { asyncLoadJs } from "@tmagic/utils"
+import type { CustomizeMoveableOptionsCallbackConfig } from "@tmagic/stage"
+import { tMagicMessage, TMagicDialog } from "@tmagic/design"
+import { TMagicEditor } from "@tmagic/editor"
+import type { DatasourceTypeOption, MoveableOptions } from "@tmagic/editor"
+import serialize from "serialize-javascript"
+import { componentGroupList } from "@/configs/componentGroupList"
+import dsl from "@/configs/dsl"
+import { useCustomService } from "@/common/customServices"
+import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from "@/api/index"
+import { CreateEditDialog } from "@/components/EditDialog"
+import type { FormInstance } from "element-plus"
+import { createMenu } from "./configs/menu"
+import { compareVersions } from "@/utils/version"
 
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
@@ -70,15 +71,16 @@ const getList = async (actId: number) => {
 }
 
 const LoadVersionForm = ref({ versionId: undefined })
-const versionList = ref<Pick<defs.agent.CodeManagement, 'id' | 'version'>[]>([])
+const versionList = ref<Pick<defs.agent.CodeManagement, "id" | "version">[]>([])
 const LoadVersionFormInstance = ref<FormInstance>()
 const LoadVersionDialog = new CreateEditDialog({
-  addTitle: '加载版本',
-  addConfirmButtonText: '加载',
+  title: "加载版本",
+  addTitle: "加载版本",
+  addConfirmButtonText: "加载",
   confirm: async () => {
     await LoadVersionFormInstance.value?.validate().then(async () => {
       await initLoadDsl(LoadVersionForm.value.versionId)
-      tMagicMessage.success('加载成功')
+      tMagicMessage.success("加载成功")
     })
   },
   closeCallback: () => {
@@ -91,19 +93,19 @@ const initLoadDsl = async (id?: number) => {
   const { result } = await getVersionInfoApi(id ?? versionList.value[0].id)
   if (result.dsl) {
     const data = eval(`(${result.dsl})`)[0]
-    editor.value.editorService.set('root', data)
+    editor.value.editorService.set("root", data)
     editor.value?.editorService.select(data.items?.[0]?.id ?? null)
   }
 }
 
 useCustomService()
-const isDev = import.meta.env.MODE == 'development'
+const isDev = import.meta.env.MODE == "development"
 const value = ref(
   isDev
     ? dsl
     : {
-        type: 'app',
-        id: '1',
+        type: "app",
+        id: "1",
         items: []
       }
 )
@@ -111,7 +113,7 @@ const datasourceList: DatasourceTypeOption[] = []
 const defaultSelected = ref(value.value?.items?.[0]?.id ?? null)
 const previewVisible = ref(false)
 const editor = ref<InstanceType<typeof TMagicEditor>>()
-const iframe = ref<HTMLIFrameElement>() as Ref<HTMLIFrameElement>
+const previewIframeRef = ref<HTMLIFrameElement>() as Ref<HTMLIFrameElement>
 const propsValues = ref<Record<string, any>>({})
 const propsConfigs = ref<Record<string, any>>({})
 const eventMethodList = ref<Record<string, any>>({})
@@ -128,7 +130,7 @@ const stageRect = ref({
   height: 812
 })
 const codeOptions = ref({
-  theme: 'vs-light',
+  theme: "vs-light",
   fixedOverflowWidgets: true,
   automaticLayout: true,
   glyphMargin: false,
@@ -138,14 +140,14 @@ const codeOptions = ref({
   lineNumbersMinChars: 0
 })
 
-const url = window.location.origin.replace(/\/$/, '')
+const url = window.location.origin.replace(/\/$/, "")
 const runtimeUrl = `${url}/code/runtime/index.html`
-const previewUrl = computed(() => `${url}/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get('page')?.id}`)
+const previewUrl = computed(() => `${url}/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get("page")?.id}`)
 
 const getUrl = (url: string) => {
   return new URL(url, window.location.href).href
 }
-asyncLoadJs(getUrl('./entry/config/index.umd.js')).then(() => {
+asyncLoadJs(getUrl("./entry/config/index.umd.js")).then(() => {
   propsConfigs.value = (globalThis as any).magicPresetConfigs
 })
 asyncLoadJs(getUrl(`./entry/value/index.umd.js`)).then(() => {
@@ -162,12 +164,12 @@ asyncLoadJs(getUrl(`./entry/ds-value/index.umd.js`)).then(() => {
 })
 
 const canSelect = (el: HTMLElement): Boolean =>
-  (el.classList.contains('magic-ui-component') || el.classList.contains('magic-ui-container')) && Boolean(el.id)
+  (el.classList.contains("magic-ui-component") || el.classList.contains("magic-ui-container")) && Boolean(el.id)
 
 const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): MoveableOptions => {
   const options: MoveableOptions = {}
   if (!editor.value) return options
-  const page = editor.value.editorService.get('page')
+  const page = editor.value.editorService.get("page")
   const ids = config?.targetElIds || []
   let isPage = page && ids.includes(`${page.id}`)
   if (!isPage) {
@@ -187,7 +189,7 @@ const saveId = ref<number>()
 const save = async () => {
   if (!window.actId) return
   const lastVersion = versionList.value[0].version
-  const lastVersionActId = lastVersion.split('.')
+  const lastVersionActId = lastVersion.split(".")
   const { result } = await saveDslApi({
     id: saveId.value,
     actId: window.actId,
@@ -200,30 +202,38 @@ const save = async () => {
   editor.value?.editorService.resetModifiedNodeId()
   window.opener.postMessage(
     {
-      type: 'save'
+      type: "save"
     },
-    '*'
+    "*"
   )
   await getList(window.actId)
-  tMagicMessage.success('保存成功')
+  tMagicMessage.success("保存成功")
 }
-const menu = createMenu(value, editor, iframe, previewVisible, save, LoadVersionDialog)
+const menu = createMenu(value, editor, previewIframeRef, previewVisible, save, LoadVersionDialog)
+
+window.actId = 195
+window.actCode = "0hRkA"
+localStorage.setItem("actId", "195")
+localStorage.setItem("actCode", "0hRkA")
 
 window.addEventListener(
-  'message',
+  "message",
   async (e) => {
-    if (e.data.type == 'init') {
+    if (e.data.type == "init") {
       window.actId = e.data.params.actId
+      window.actCode = e.data.params.actCode
+      localStorage.setItem("actId", e.data.params.actId)
+      localStorage.setItem("actCode", e.data.params.actCode)
       await getList(e.data.params.actId)
       await initLoadDsl()
     }
-    if (e.data.type == 'check') {
+    if (e.data.type == "check") {
       window.opener.postMessage(
         {
-          type: 'check',
+          type: "check",
           status: window?.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
         },
-        '*'
+        "*"
       )
     }
   },
@@ -231,9 +241,9 @@ window.addEventListener(
 )
 window.opener?.postMessage(
   {
-    type: 'onload'
+    type: "onload"
   },
-  '*'
+  "*"
 )
 </script>
 

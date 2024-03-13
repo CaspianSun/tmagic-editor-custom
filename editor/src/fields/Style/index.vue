@@ -1,21 +1,18 @@
 <script lang="ts" setup>
-import type { FieldProps } from '@tmagic/form'
-import { ref, computed, watch, onMounted, toRaw } from 'vue'
-import * as monaco from 'monaco-editor'
-import { ElCollapse, ElCollapseItem } from 'element-plus'
-import Layout from './components/Layout.vue'
-import { parseToCssCode, parseToStyleData } from '@/utils/css'
+import type { FieldProps } from "@tmagic/form"
+import { ref, computed, watch, onMounted, toRaw } from "vue"
+import * as monaco from "monaco-editor"
+import { ElCollapse, ElCollapseItem } from "element-plus"
+import Layout from "./components/Layout.vue"
+import { parseToCssCode, parseToStyleData } from "@/utils/css"
 
-defineOptions({
-  name: 'MStyle'
-})
 const props = defineProps<FieldProps<any>>()
-const emit = defineEmits(['change'])
+const emit = defineEmits(["change"])
 const style = computed({
   get: () => props.model[props.name] ?? {},
   set: async (val) => {
     if (JSON.stringify(val) === JSON.stringify(props.model[props.name])) return
-    emit('change', val, 'style')
+    emit("change", val, "style")
   }
 })
 
@@ -28,15 +25,15 @@ watch(
   },
   { deep: true }
 )
-const activeNames = ref<string[]>(['layout'])
-const values = ref('')
-const newValue = ref('')
+const activeNames = ref<string[]>(["layout"])
+const values = ref("")
+const newValue = ref("")
 const isCanSave = computed(() => values.value !== newValue.value)
 const codeEditor = ref<HTMLDivElement>()
 const handleSaveCode = () => {
   const newCode = getEditorValue()
-  values.value = newCode ?? ''
-  style.value = parseToStyleData(newCode ?? '')
+  values.value = newCode ?? ""
+  style.value = parseToStyleData(newCode ?? "")
 }
 
 const setEditorValue = async (v: string | any) => {
@@ -49,8 +46,8 @@ const vsEditor = ref<monaco.editor.IStandaloneCodeEditor>()
 const init = async () => {
   if (!codeEditor.value) return
   const options = {
-    language: 'css',
-    theme: 'vs-light',
+    language: "css",
+    theme: "vs-light",
     fixedOverflowWidgets: true,
     automaticLayout: true,
     glyphMargin: false,
@@ -61,13 +58,13 @@ const init = async () => {
   }
   vsEditor.value = monaco.editor.create(codeEditor.value, options)
   setEditorValue(parseToCssCode(style.value))
-  newValue.value = getEditorValue() ?? ''
+  newValue.value = getEditorValue() ?? ""
   vsEditor.value.onDidChangeModelContent(() => {
     const value = getEditorValue()
-    newValue.value = value ?? ''
+    newValue.value = value ?? ""
   })
-  codeEditor.value.addEventListener('keydown', (e) => {
-    if (e.keyCode === 83 && (navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey)) {
+  codeEditor.value.addEventListener("keydown", (e) => {
+    if (e.keyCode === 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
       e.preventDefault()
       e.stopPropagation()
       handleSaveCode()

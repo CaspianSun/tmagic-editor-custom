@@ -18,13 +18,13 @@
 
 export default [
   {
-    name: 'text',
-    text: '文本',
-    type: 'data-source-input',
+    name: "text",
+    text: "文本",
+    type: "data-source-input"
   },
   {
-    name: 'multiple',
-    text: '多行文本',
-    type: 'switch',
-  },
-];
+    name: "multiple",
+    text: "多行文本",
+    type: "switch"
+  }
+]

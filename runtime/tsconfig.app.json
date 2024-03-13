@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
+    "services/api.d.ts",
     "types/**/*.d.ts",
     ".tmagic/**/*",
     "src/**/*.ts",

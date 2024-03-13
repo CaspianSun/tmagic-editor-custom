@@ -1,13 +1,13 @@
-import { ref, type ComputedRef, type FunctionalComponent, nextTick, computed } from 'vue'
-import { ElButton, ElDialog } from 'element-plus'
-import { cloneDeep } from 'lodash-es'
-import s from './index.module.scss'
+import { type FunctionalComponent, type ComputedRef, ref, nextTick, computed } from "vue"
+import { ElButton, ElDialog } from "element-plus"
+import { cloneDeep, throttle } from "lodash-es"
+import type { JSX } from "vue/jsx-runtime"
 
 export enum EditDialogType {
-  ADD = 'ADD',
-  EDIT = 'EDIT',
-  COPY = 'COPY',
-  SUBLEVEL = 'SUBLEVEL'
+  ADD = "ADD",
+  EDIT = "EDIT",
+  COPY = "COPY",
+  SUBLEVEL = "SUBLEVEL"
 }
 
 type ShowDialogOptions<T> =
@@ -22,16 +22,15 @@ type ShowDialogOptions<T> =
 
 type CreateEditDialogOptions<T> = {
   width?: string
-  title?: string
+  title: string
   addTitle?: string
   editTitle?: string
   copyTitle?: string
-  tip?: string
   addConfirmButtonText?: string
   editConfirmButtonText?: string
   copyConfirmButtonText?: string
   confirm: (type: EditDialogType) => Promise<void>
-  openCallBack?: ({ data, type }: ShowDialogOptions<T>) => void
+  openCallBack?: ({ data, type }: ShowDialogOptions<T>, ...args: any[]) => void
   closeCallback?: (...args: any[]) => void
   refresh?: () => void
 }
@@ -114,24 +113,23 @@ export class CreateEditDialog<T = any> {
           ? editTitle ?? `编辑${title}`
           : copyTitle ?? `复制${title}`
     })
-    this.tip = options.tip
     const { addConfirmButtonText, editConfirmButtonText, copyConfirmButtonText } = options
     this.dialogConfirmButtonText = computed(() => {
       return this.type.value === EditDialogType.ADD || this.type.value === EditDialogType.SUBLEVEL
-        ? addConfirmButtonText ?? '创建'
+        ? addConfirmButtonText ?? "创建"
         : this.type.value === EditDialogType.EDIT
-          ? editConfirmButtonText ?? '保存'
-          : copyConfirmButtonText ?? '复制'
+          ? editConfirmButtonText ?? "保存"
+          : copyConfirmButtonText ?? "复制"
     })
     this.openCallBack = options.openCallBack
     this.refresh = options.refresh
   }
 
-  readonly width = ref('550px')
-  public confirm: CreateEditDialogOptions<T>['confirm']
-  public closeCallback?: CreateEditDialogOptions<T>['closeCallback']
-  public openCallBack?: CreateEditDialogOptions<T>['openCallBack']
-  public refresh?: CreateEditDialogOptions<T>['refresh']
+  readonly width = ref("550px")
+  public confirm: CreateEditDialogOptions<T>["confirm"]
+  public closeCallback?: CreateEditDialogOptions<T>["closeCallback"]
+  public openCallBack?: CreateEditDialogOptions<T>["openCallBack"]
+  public refresh?: CreateEditDialogOptions<T>["refresh"]
 
   readonly title: ComputedRef<string>
   readonly tip: string | undefined
@@ -141,15 +139,18 @@ export class CreateEditDialog<T = any> {
   public updateId = ref<number>()
   public type = ref(EditDialogType.ADD)
 
-  public open = (options: ShowDialogOptions<T>) => {
+  public open = (options: ShowDialogOptions<T>, ...args: any[]) => {
     this.show.value = true
     this.type.value = options.type ? options.type : EditDialogType.ADD
     nextTick(() => {
       this.openCallBack &&
-        this.openCallBack({
-          data: cloneDeep<any>(options.data),
-          type: options.type ?? EditDialogType.ADD
-        })
+        this.openCallBack(
+          {
+            data: cloneDeep<any>(options.data),
+            type: options.type ?? EditDialogType.ADD
+          },
+          ...args
+        )
     })
   }
   readonly _confirm = async () => {
@@ -159,38 +160,36 @@ export class CreateEditDialog<T = any> {
       this.refresh?.()
     })
   }
-  public Dialog: FunctionalComponent = (props, { slots }) => {
+  public Dialog: FunctionalComponent<
+    Record<string, any>,
+    Record<string, any>,
+    {
+      default: () => JSX.Element
+      footer: () => JSX.Element
+    }
+  > = (props, { slots }) => {
     return (
-      <ElDialog
-        closeOnClickModal={false}
-        v-model={this.show.value}
-        width={this.width.value}
-        onClose={this.closeCallback}
-        class={s.dialog}
-        draggable
-      >
+      <ElDialog closeOnClickModal={false} v-model={this.show.value} width={this.width.value} onClose={this.closeCallback}>
         {{
-          header: () => <div class={'el-dialog__title'}>{this.title.value}</div>,
-          default: () => (
-            <>
-              {this.tip && (
-                <div>
-                  <vab-icon icon="error-warning-fill" style="color: #fca439" />
-                  <span style="margin-left: 1px; color: #9a9a9a">{this.tip}</span>
-                </div>
-              )}
-              {slots.default?.()}
-            </>
-          ),
+          header: () => <div>{this.title.value}</div>,
+          default: () => <>{slots.default?.()}</>,
           footer: () => (
-            <>
-              <ElButton onClick={() => this._confirm()} type="primary">
-                {this.dialogConfirmButtonText.value}
-              </ElButton>
-              <ElButton class="mr-10px" onClick={() => (this.show.value = false)}>
-                取消
-              </ElButton>
-            </>
+            <div class={"flex justify-between items-center"}>
+              <div>{slots.footer?.()}</div>
+              <div>
+                <ElButton
+                  type='primary'
+                  onClick={() => {
+                    throttle(this._confirm, 1000)
+                  }}
+                >
+                  {this.dialogConfirmButtonText.value}
+                </ElButton>
+                <ElButton class='mr-10px' onClick={() => (this.show.value = false)}>
+                  取消
+                </ElButton>
+              </div>
+            </div>
           )
         }}
       </ElDialog>

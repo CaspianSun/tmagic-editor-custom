@@ -1,9 +1,9 @@
 export default {
-  text: 'text',
+  text: "text",
   style: {
-    position: 'absolute',
-    left: '57',
-    width: '176',
-    height: '176'
+    position: "absolute",
+    left: "57",
+    width: "176",
+    height: "176"
   }
 }

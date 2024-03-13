@@ -1,6 +1,6 @@
 export default {
   style: {
-    width: '',
-    height: ''
+    width: "",
+    height: ""
   }
 }

@@ -18,13 +18,13 @@
 
 export default [
   {
-    text: '图片',
-    name: 'src',
-    type: 'data-source-input'
+    text: "图片",
+    name: "src",
+    type: "data-source-input"
   },
   {
-    text: '链接',
-    name: 'url',
-    type: 'data-source-input'
+    text: "链接",
+    name: "url",
+    type: "data-source-input"
   }
 ]

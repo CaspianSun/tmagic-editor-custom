@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-import type { MApp } from '@tmagic/schema'
+import type { MApp } from "@tmagic/schema"
 
 export const getLocalConfig = (): MApp[] => {
-  const configStr = localStorage.getItem('magicDSL')
+  const configStr = localStorage.getItem("magicDSL")
   if (!configStr) return []
   try {
     return [eval(`(${configStr})`)]

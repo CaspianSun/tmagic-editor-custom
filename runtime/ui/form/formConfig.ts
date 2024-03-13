@@ -1,85 +1,52 @@
 export default [
   {
-    name: 'layout',
-    text: '容器布局',
-    type: 'select',
-    defaultValue: 'absolute',
-    options: [
-      { value: 'absolute', text: '绝对定位' },
-      { value: 'relative', text: '流式布局' }
-    ],
-    onChange: (formState: any, v: string, { model }: any) => {
-      if (!model.style) return v
-      if (v === 'relative') {
-        model.style.height = 'auto'
-      } else {
-        const el = formState.stage?.renderer?.contentWindow.document.getElementById(model.id)
-        if (el) {
-          model.style.height = el.getBoundingClientRect().height
-        }
-      }
-    }
-  },
-  {
-    name: 'vantProps',
-    labelWidth: '80px',
-    items: [
+    type: "form-field",
+    name: "fields",
+    field: [
       {
-        name: 'labelWidth',
-        type: 'data-source-input',
-        text: '左侧宽度'
+        name: "name",
+        label: "字段名",
+        type: "display"
       },
       {
-        name: 'labelAlign',
-        type: 'select',
-        text: '左侧对齐',
-        options: [
-          {
-            text: '左对齐',
-            value: 'left'
-          },
-          {
-            text: '居中',
-            value: 'center'
-          },
-          {
-            text: '右对齐',
-            value: 'right'
-          },
-          {
-            text: '上对齐',
-            value: 'top'
-          }
-        ]
+        name: "type",
+        label: "字段类型",
+        type: "hidden"
       },
       {
-        name: 'inputAlign',
-        type: 'select',
-        text: '输入对齐',
-        options: [
-          {
-            text: '左对齐',
-            value: 'left'
-          },
-          {
-            text: '居中',
-            value: 'center'
-          },
-          {
-            text: '右对齐',
-            value: 'right'
-          }
-        ]
+        name: "fieldCode",
+        label: "字段标识",
+        type: "hidden"
       },
       {
-        name: 'colon',
-        type: 'switch',
-        text: '冒号'
+        name: "isSearch",
+        label: "是否参与搜索",
+        type: "hidden"
       },
       {
-        name: 'required',
-        type: 'switch',
-        text: '必填星号'
+        name: "isRequired",
+        label: "是否必填",
+        type: "hidden"
+      },
+      {
+        name: "disabled",
+        label: "是否禁用",
+        type: "hidden"
+      },
+      {
+        name: "isShow",
+        label: "是否显示",
+        type: "hidden"
+      },
+      {
+        name: "placeholder",
+        label: "占位提示",
+        type: "hidden"
+      },
+      {
+        name: "remark",
+        label: "备注",
+        type: "hidden"
       }
     ]
   }

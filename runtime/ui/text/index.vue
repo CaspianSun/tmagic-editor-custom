@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { MComponent } from '@tmagic/schema'
-import useApp from '@ui/utils/useApp'
-import { onMounted, ref } from 'vue'
+import type { MComponent } from "@tmagic/schema"
+import useApp from "@ui/utils/useApp"
+import { onMounted, ref } from "vue"
 
 const props = withDefaults(
   defineProps<{
@@ -18,9 +18,6 @@ const props = withDefaults(
 )
 
 onMounted(() => {})
-useApp({
-  config: props.config,
-  methods: {}
-})
+useApp(props.config)
 </script>
 @/ui/utils/

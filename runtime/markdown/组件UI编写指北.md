@@ -109,8 +109,7 @@ const props = withDefaults(
 const vantProps = computed(() => {
   return props.config.vantProps ?? {}
 })
-const app = useApp({
-  config: props.config,
+const app = useApp(props.config, {
   methods: {
     // formSubmit,
     // formValidate
@@ -294,8 +293,7 @@ const formValidate = () => {
   form.value?.validate()
 }
 
-useApp({
-  config: props.config,
+useApp(props.config, {
   methods: {
     formSubmit,
     formValidate

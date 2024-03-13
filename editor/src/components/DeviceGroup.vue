@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref } from 'vue'
+import { nextTick, ref } from "vue"
 
-import Core from '@tmagic/core'
-import { TMagicRadioButton, TMagicRadioGroup } from '@tmagic/design'
-import { editorService } from '@tmagic/editor'
+import Core from "@tmagic/core"
+import { TMagicRadioButton, TMagicRadioGroup } from "@tmagic/design"
+import { editorService } from "@tmagic/editor"
 
-import { DeviceType, uaMap } from '@/constant'
+import { DeviceType, uaMap } from "@/constant"
 
 const devH: Record<DeviceType, number> = {
   phone: 817,
@@ -46,10 +46,10 @@ withDefaults(
   }
 )
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(["update:modelValue"])
 
 const calcFontsize = (width: number) => {
-  const iframe = editorService.get('stage')?.renderer.iframe
+  const iframe = editorService.get("stage")?.renderer.iframe
   if (!iframe?.contentWindow) return
 
   const app: Core = (iframe.contentWindow as any).appInstance
@@ -64,7 +64,7 @@ const viewerDevice = ref(DeviceType.Phone)
 const deviceSelect = async (device: DeviceType) => {
   const width = getDeviceWidth(device)
   const height = getDeviceHeight(device)
-  emit('update:modelValue', {
+  emit("update:modelValue", {
     width,
     height
   })

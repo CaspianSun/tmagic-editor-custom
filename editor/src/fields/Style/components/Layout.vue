@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
-import { ElRow, ElCol, ElTooltip, ElRadioGroup, ElRadioButton } from 'element-plus'
-import { cloneDeep } from 'lodash-es'
+import { nextTick, ref, watch } from "vue"
+import { ElRow, ElCol, ElTooltip, ElRadioGroup, ElRadioButton } from "element-plus"
+import { cloneDeep } from "lodash-es"
 
 const props = defineProps<{
   modelValue: Record<string, any>
 }>()
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(["update:modelValue"])
 const style = ref<Record<string, any>>(cloneDeep(props.modelValue ?? {}))
 watch(
   () => props.modelValue,
@@ -18,38 +18,38 @@ watch(
   () => style,
   (val) => {
     if (JSON.stringify(val.value) === JSON.stringify(props.modelValue)) return
-    emit('update:modelValue', val.value)
+    emit("update:modelValue", val.value)
   },
   {
     deep: true
   }
 )
 
-const marginConfig = [{ value: 'margin-top' }, { value: 'margin-bottom' }, { value: 'margin-left' }, { value: 'margin-right' }]
-const paddingConfig = [{ value: 'padding-top' }, { value: 'padding-bottom' }, { value: 'padding-left' }, { value: 'padding-right' }]
+const marginConfig = [{ value: "margin-top" }, { value: "margin-bottom" }, { value: "margin-left" }, { value: "margin-right" }]
+const paddingConfig = [{ value: "padding-top" }, { value: "padding-bottom" }, { value: "padding-left" }, { value: "padding-right" }]
 
-const hoverElement = ref('')
+const hoverElement = ref("")
 
 const hoverElementResolve = ref()
 const handleHoverEnter = (e: MouseEvent) => {
   if (isEditText.value)
     new Promise((resolve) => (hoverElementResolve.value = resolve)).then(
       //@ts-ignore
-      () => (hoverElement.value = e?.target?.parentElement?.dataset?.element ?? '')
+      () => (hoverElement.value = e?.target?.parentElement?.dataset?.element ?? "")
     )
   //@ts-ignore
-  else hoverElement.value = e?.target?.parentElement?.dataset?.element ?? ''
+  else hoverElement.value = e?.target?.parentElement?.dataset?.element ?? ""
 }
 const handleHoverLeave = () => {
   if (isEditText.value)
     new Promise((resolve) => (hoverElementResolve.value = resolve)).then(
       //@ts-ignore
-      () => (hoverElement.value = '')
+      () => (hoverElement.value = "")
     )
   //@ts-ignore
-  else hoverElement.value = ''
+  else hoverElement.value = ""
 }
-const isEditText = ref('')
+const isEditText = ref("")
 const handleEditText = (e: MouseEvent, item: string) => {
   isEditText.value = item
   nextTick(() => {
@@ -62,7 +62,7 @@ const handleEditText = (e: MouseEvent, item: string) => {
       selection.removeAllRanges()
       selection.addRange(range)
     }
-    ele?.addEventListener('paste', (e) => {
+    ele?.addEventListener("paste", (e) => {
       e.preventDefault()
       e.stopPropagation()
       let text
@@ -70,10 +70,10 @@ const handleEditText = (e: MouseEvent, item: string) => {
       let clp = (e.originalEvent || e).clipboardData
       if (clp === void 0 || clp === null) {
         // @ts-ignore
-        text = window.clipboardData.getData('text') || ''
-        if (text !== '') {
+        text = window.clipboardData.getData("text") || ""
+        if (text !== "") {
           if (window.getSelection) {
-            let newNode = document.createElement('span')
+            let newNode = document.createElement("span")
             newNode.innerHTML = text
             window.getSelection()?.getRangeAt(0).insertNode(newNode)
           } else {
@@ -82,9 +82,9 @@ const handleEditText = (e: MouseEvent, item: string) => {
           }
         }
       } else {
-        text = clp.getData('text/plain') || ''
-        if (text !== '') {
-          document.execCommand('insertText', false, text)
+        text = clp.getData("text/plain") || ""
+        if (text !== "") {
+          document.execCommand("insertText", false, text)
         }
       }
     })
@@ -92,21 +92,21 @@ const handleEditText = (e: MouseEvent, item: string) => {
 }
 const handleUpdateText = () => {
   const modifiedText = document.getElementById(isEditText.value)?.innerText
-  if (style.value[isEditText.value] !== modifiedText && modifiedText !== '-') {
+  if (style.value[isEditText.value] !== modifiedText && modifiedText !== "-") {
     style.value[isEditText.value] = modifiedText
   }
   hoverElementResolve.value()
-  isEditText.value = ''
+  isEditText.value = ""
 }
 
 //监听回车按下
 const handleKeyDown = (e: KeyboardEvent) => {
   if (e.keyCode === 13) {
-    if (isEditText.value === '') return
+    if (isEditText.value === "") return
     else handleUpdateText()
   }
 }
-window.addEventListener('keydown', handleKeyDown)
+window.addEventListener("keydown", handleKeyDown)
 </script>
 
 <template>
@@ -158,7 +158,7 @@ window.addEventListener('keydown', handleKeyDown)
                   :id="item.value"
                   v-html="style[item.value] ?? '-'"
                 />
-                <div v-else @dblclick="handleEditText($event, item.value)">{{ style[item.value] ?? '-' }}</div>
+                <div v-else @dblclick="handleEditText($event, item.value)">{{ style[item.value] ?? "-" }}</div>
               </div>
             </template>
           </div>
@@ -188,7 +188,7 @@ window.addEventListener('keydown', handleKeyDown)
                     :id="item.value"
                     v-html="style[item.value] ?? '-'"
                   />
-                  <div v-else @dblclick="handleEditText($event, item.value)">{{ style[item.value] ?? '-' }}</div>
+                  <div v-else @dblclick="handleEditText($event, item.value)">{{ style[item.value] ?? "-" }}</div>
                 </div>
               </template>
             </div>
@@ -206,7 +206,7 @@ window.addEventListener('keydown', handleKeyDown)
                   :id="'width'"
                   v-html="style['width'] ?? '-'"
                 />
-                <div v-else @dblclick="handleEditText($event, 'width')">{{ style['width'] ?? '-' }}</div>
+                <div v-else @dblclick="handleEditText($event, 'width')">{{ style["width"] ?? "-" }}</div>
                 <div class="mx-10px">x</div>
                 <div
                   v-if="isEditText == 'height'"
@@ -216,7 +216,7 @@ window.addEventListener('keydown', handleKeyDown)
                   :id="'height'"
                   v-html="style['height'] ?? '-'"
                 />
-                <div v-else @dblclick="handleEditText($event, 'height')">{{ style['height'] ?? '-' }}</div>
+                <div v-else @dblclick="handleEditText($event, 'height')">{{ style["height"] ?? "-" }}</div>
               </div>
             </div>
           </div>

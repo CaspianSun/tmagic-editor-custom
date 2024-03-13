@@ -4,10 +4,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { MComponent } from '@tmagic/schema'
-import useApp from '@ui/utils/useApp'
-import PlayMusic from './useAutoPlayMusic'
-import { onMounted, ref } from 'vue'
+import type { MComponent } from "@tmagic/schema"
+import useApp from "@ui/utils/useApp"
+import PlayMusic from "./useAutoPlayMusic"
+import { onMounted, ref } from "vue"
 const props = withDefaults(
   defineProps<{
     config: MComponent
@@ -26,9 +26,9 @@ const handleClick = async () => {
   }
   const state = music.toggle()
   if (state) {
-    musicIcon.value?.style.setProperty('animation-play-state', 'running')
+    musicIcon.value?.style.setProperty("animation-play-state", "running")
   } else {
-    musicIcon.value?.style.setProperty('animation-play-state', 'paused')
+    musicIcon.value?.style.setProperty("animation-play-state", "paused")
   }
 }
 
@@ -39,14 +39,11 @@ const music = new PlayMusic({
 
 onMounted(() => {
   setTimeout(() => {
-    music?.state && musicIcon.value?.style.setProperty('animation-play-state', 'running')
+    music?.state && musicIcon.value?.style.setProperty("animation-play-state", "running")
   }, 1000)
 })
 
-useApp({
-  config: props.config,
-  methods: {}
-})
+useApp(props.config)
 </script>
 
 <style lang="scss">

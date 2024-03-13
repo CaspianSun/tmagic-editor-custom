@@ -18,8 +18,8 @@
 
 export default [
   {
-    text: '内容',
-    name: 'text',
-    type: 'data-source-input'
+    text: "内容",
+    name: "text",
+    type: "data-source-input"
   }
 ]

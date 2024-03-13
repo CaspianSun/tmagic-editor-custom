@@ -4,8 +4,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { MComponent } from '@tmagic/schema'
-import useApp from '@ui/utils/useApp'
+import type { MComponent } from "@tmagic/schema"
+import useApp from "@ui/utils/useApp"
 
 const props = withDefaults(
   defineProps<{
@@ -17,10 +17,7 @@ const props = withDefaults(
   }
 )
 
-useApp({
-  config: props.config,
-  methods: {}
-})
+useApp(props.config)
 </script>
 
 <style lang="scss"></style>

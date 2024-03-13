@@ -1,9 +1,6 @@
-import type { Magic } from '@tmagic/stage'
-
-declare global {
-  interface Window {
-    magic?: Magic
-    actId?: number
-    version?: string
-  }
+interface Window {
+  magic?: import("@tmagic/stage").Magic
+  actId?: number
+  actCode?: string
+  version?: string
 }

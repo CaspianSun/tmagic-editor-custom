@@ -17,7 +17,7 @@
  */
 
 export default {
-  text: '请输入文本内容',
+  text: "请输入文本内容",
   multiple: true,
   style: {}
 }

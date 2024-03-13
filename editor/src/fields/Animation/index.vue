@@ -1,18 +1,15 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon } from 'element-plus'
-import { CaretRight, Delete } from '@element-plus/icons-vue'
-import type { FieldProps } from '@tmagic/form'
-import animateCssData from './animateCssData'
-import { cloneDeep, isArray } from 'lodash-es'
-import { editorService } from '@tmagic/editor'
-import { watch } from 'vue'
-import type anime from 'animejs'
+import { ref } from "vue"
+import { ElButton, ElCollapse, ElCollapseItem, ElDrawer, ElInputNumber, ElScrollbar, ElIcon } from "element-plus"
+import { CaretRight, Delete } from "@element-plus/icons-vue"
+import type { FieldProps } from "@tmagic/form"
+import animateCssData from "./animateCssData"
+import { cloneDeep, isArray } from "lodash-es"
+import { editorService } from "@tmagic/editor"
+import { watch } from "vue"
+import type anime from "animejs"
 
-defineOptions({
-  name: 'MAnimation'
-})
-const emit = defineEmits(['change'])
+const emit = defineEmits(["change"])
 
 interface AnimeParams extends anime.AnimeParams {
   duration?: number
@@ -25,16 +22,14 @@ const animationList = ref<AnimeParams[]>(cloneDeep(props.model[props.name] || []
 
 watch(
   () => props.model[props.name],
-  (val) => {
-    animationList.value = cloneDeep(val)
-  }
+  (val) => (animationList.value = cloneDeep(val))
 )
 
 watch(
   () => animationList,
   (val) => {
     if (JSON.stringify(val.value) === JSON.stringify(props.model[props.name])) return
-    emit('change', val.value)
+    emit("change", val.value)
   },
   {
     deep: true
@@ -45,9 +40,9 @@ const handleDeleteAnimate = (index: number) => {
   animationList.value = animationList.value.filter((_, i) => i !== index)
 }
 
-const activeName = ref('进入')
+const activeName = ref("进入")
 const showAnimatePanel = ref(false)
-const hoverPreviewAnimate = ref('')
+const hoverPreviewAnimate = ref("")
 const reSelectAnimateIndex = ref<number>()
 
 const handleAdd = (status = true) => {
@@ -73,9 +68,9 @@ const handleShowChooseAnimatePanel = (index: number) => {
 }
 
 const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
-  const id = editorService.get('node')?.id
-  const iframe = editorService.get('stage')?.renderer.iframe
-  iframe?.contentWindow?.postMessage({ type: 'animation', data: { animation: JSON.stringify(animation), id } }, '*')
+  const id = editorService.get("node")?.id
+  const iframe = editorService.get("stage")?.renderer.iframe
+  iframe?.contentWindow?.postMessage({ type: "animation", data: { animation: JSON.stringify(animation), id } }, "*")
 }
 </script>
 
@@ -202,13 +197,12 @@ const handlePreviewAnimate = (animation: anime.AnimeAnimParams[]) => {
     background: var(--el-color-primary);
   }
 }
-</style>
-
-<style lang="scss">
-.el-drawer__header {
-  margin-bottom: -20px;
-}
-.el-input__wrapper {
-  border-radius: var(--el-input-border-radius, var(--el-border-radius-base)) !important;
+:deep() {
+  .el-drawer__header {
+    margin-bottom: -20px;
+  }
+  .el-input__wrapper {
+    border-radius: var(--el-input-border-radius, var(--el-border-radius-base)) !important;
+  }
 }
 </style>

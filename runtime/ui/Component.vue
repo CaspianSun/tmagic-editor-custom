@@ -10,16 +10,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, ref, watch, onMounted } from 'vue'
-import Core from '@tmagic/core'
-import { toLine } from '@tmagic/utils'
-import {
-  createAndPauseAnimation,
-  handleAnimation,
-  handleRemoveAnimation,
-  hiddenEffect
-} from './utils/animation'
-import { useSwiperSlide } from 'swiper/vue'
+import { computed, inject, ref, watch, onMounted } from "vue"
+import Core from "@tmagic/core"
+import { toLine } from "@tmagic/utils"
+import { handleAnimation, handleRemoveAnimation, hiddenEffect } from "./utils/animation"
+import { useSwiperSlide } from "swiper/vue"
 
 const props = withDefaults(
   defineProps<{
@@ -32,7 +27,7 @@ const props = withDefaults(
   }
 )
 
-const app = inject<Core>('app')
+const app = inject<Core>("app")
 
 const tagName = computed(() => `qs-${toLine(props.config.type)}`)
 const style = computed(() => app?.transformStyle(props.config.style))
@@ -58,7 +53,7 @@ const setScrollReveal = () => {
 
     if (el) {
       if (hiddenEffect.includes(props.config.animation[0].value)) {
-        el.style.opacity = '0'
+        el.style.opacity = "0"
       }
       let observer = new IntersectionObserver(
         (entries, observer) => {
@@ -84,12 +79,12 @@ const display = () => {
   if (props.config.visible === false) return false
   if (props.config.condResult === false) return false
   const displayCfg = props.config?.display
-  if (typeof displayCfg === 'function') return displayCfg(app)
+  if (typeof displayCfg === "function") return displayCfg(app)
   return displayCfg !== false
 }
 
-window.addEventListener('message', (event) => {
-  if (event.data?.type === 'animation') {
+window.addEventListener("message", (event) => {
+  if (event.data?.type === "animation") {
     if (event.data.data?.id == props.config.id) {
       const el = document.getElementById(`${props.config.id}`)
       try {

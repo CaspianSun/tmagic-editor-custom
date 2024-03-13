@@ -1,7 +1,7 @@
 /**
  * @description 自动播放音乐
  */
-import { showFailToast } from 'vant'
+import { showFailToast } from "vant"
 const wx = window.wx
 
 type PlayMusicParams = {
@@ -29,7 +29,7 @@ type PlayMusicParams = {
  */
 class PlayMusic {
   private loadAutoPlay: boolean
-  constructor({ loadAutoPlay = false, url = '' }: PlayMusicParams) {
+  constructor({ loadAutoPlay = false, url = "" }: PlayMusicParams) {
     this.loadAutoPlay = loadAutoPlay
     if (this.loadAutoPlay && wx) this.wxAutoPlay(url)
   }
@@ -95,7 +95,7 @@ class PlayMusic {
   }
 
   private wxAutoPlay(url: string) {
-    if (url == '') return showFailToast('音频链接错误')
+    if (url == "") return showFailToast("音频链接错误")
     if (this.buffer || this.sourceNode || this.audioContext) this.destroy()
     return new Promise(async (resolve, reject) => {
       try {
@@ -125,7 +125,7 @@ class PlayMusic {
    *  @param {boolean} isAutoPlay - 是否自动播放
    */
   public async loadMusic(url: string, isAutoPlay: boolean = false) {
-    if (url == '') return showFailToast('音频链接错误')
+    if (url == "") return showFailToast("音频链接错误")
     if (this.buffer || this.sourceNode || this.audioContext) this.destroy()
     return new Promise(async (resolve, reject) => {
       try {
