@@ -59,6 +59,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "deptNum",
+            "description": "部门标识",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "endTime",
             "description": "活动结束时间",
             "required": true
@@ -163,6 +177,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchSettings",
+            "description": "商户配置",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -210,11 +238,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
                 1,
                 2,
                 3,
@@ -323,6 +346,20 @@
             },
             "name": "websiteId",
             "description": "数据统计",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wxprofile",
+            "description": "是否获取微信头像昵称信息",
             "required": true
           }
         ]
@@ -514,6 +551,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "permission",
+            "description": "部门权限标识",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "remark",
             "description": "备注",
             "required": true
@@ -668,6 +719,20 @@
             },
             "name": "deptId",
             "description": "部门id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deptLeader",
+            "description": "部门管理者",
             "required": true
           },
           {
@@ -925,6 +990,20 @@
             },
             "name": "parentId",
             "description": "父id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "permission",
+            "description": "部门权限标识",
             "required": true
           },
           {
@@ -1716,6 +1795,124 @@
         ]
       },
       {
+        "name": "MerchantSetting",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actName",
+            "description": "活动名称",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "apiKey",
+            "description": "apikey",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "key",
+            "description": "私钥key",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchId",
+            "description": "商户id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "pem",
+            "description": "证书pem",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "remark",
+            "description": "备注",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "sendName",
+            "description": "发放者名称",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wishing",
+            "description": "祝福语",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "Meta",
         "templateArgs": [],
         "properties": [
@@ -2479,6 +2676,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "permission",
+            "description": "部门权限标识",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "remark",
             "description": "备注",
             "required": false
@@ -2622,6 +2833,20 @@
             },
             "name": "deptId",
             "description": "部门id",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deptLeader",
+            "description": "部门管理者",
             "required": false
           },
           {
@@ -2852,6 +3077,20 @@
             },
             "name": "deptId",
             "description": "部门id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deptLeader",
+            "description": "部门管理者",
             "required": true
           },
           {

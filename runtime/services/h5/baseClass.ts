@@ -238,6 +238,9 @@ class Field {
   /** 是否显示 */
   isShow = false
 
+  /** 是否是关联键 */
+  isTarget = false
+
   /** 字段名称 */
   name = ""
 
@@ -302,7 +305,7 @@ class FormFieldsRes {
   /** 目标key, 用于保存字段表中的唯一枢纽 */
   fieldData = []
 
-  /** 目标key, 用于保存字段表中的唯一枢纽 */
+  /** 表单 */
   form = new Form()
 }
 

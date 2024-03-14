@@ -47,7 +47,7 @@ const confirm = (e: PickerConfirmEventParams) => {
 
 <template>
   <div>
-    <Field :model-value="value" :placeholder readonly is-link @Click="() => (showPicker = true)">
+    <Field :model-value="value" :placeholder="placeholder" readonly is-link @Click="() => (showPicker = true)">
       <template #label>
         <slot name="label"></slot>
       </template>

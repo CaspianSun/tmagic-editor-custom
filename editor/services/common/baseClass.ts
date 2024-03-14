@@ -8,6 +8,9 @@ class Activity {
   /** 创建人Id */
   creatorId = undefined;
 
+  /** 部门标识 */
+  deptNum = '';
+
   /** 活动结束时间 */
   endTime = '';
 
@@ -31,6 +34,9 @@ class Activity {
 
   /** 腾讯地图Key */
   mapKey = '';
+
+  /** 商户配置 */
+  matchSettings = undefined;
 
   /** 活动备注 */
   remark = '';
@@ -64,6 +70,9 @@ class Activity {
 
   /** 数据统计 */
   websiteId = '';
+
+  /** 是否获取微信头像昵称信息 */
+  wxprofile = false;
 }
 
 class AgentAccount {
@@ -105,6 +114,9 @@ class CreateDepartmentRequest {
   /** 父id */
   parentId = undefined;
 
+  /** 部门权限标识 */
+  permission = '';
+
   /** 备注 */
   remark = '';
 
@@ -141,6 +153,9 @@ class CreateUserRequest {
 
   /** 部门id */
   deptId = undefined;
+
+  /** 部门管理者 */
+  deptLeader = false;
 
   /** 简介 */
   desc = '';
@@ -197,6 +212,9 @@ class Department {
 
   /** 父id */
   parentId = undefined;
+
+  /** 部门权限标识 */
+  permission = '';
 
   /** 备注 */
   remark = '';
@@ -375,6 +393,32 @@ class MenuUpdateBody {
   id = '';
 }
 
+class MerchantSetting {
+  /** 活动名称 */
+  actName = '';
+
+  /** apikey */
+  apiKey = '';
+
+  /** 私钥key */
+  key = '';
+
+  /** 商户id */
+  matchId = '';
+
+  /** 证书pem */
+  pem = '';
+
+  /** 备注 */
+  remark = '';
+
+  /** 发放者名称 */
+  sendName = '';
+
+  /** 祝福语 */
+  wishing = '';
+}
+
 class Meta {
   /** icon */
   icon = '';
@@ -539,6 +583,9 @@ class UpdateDepartmentRequest {
   /** 父id */
   parentId = undefined;
 
+  /** 部门权限标识 */
+  permission = '';
+
   /** 备注 */
   remark = '';
 
@@ -574,6 +621,9 @@ class UpdateUserRequest {
 
   /** 部门id */
   deptId = undefined;
+
+  /** 部门管理者 */
+  deptLeader = false;
 
   /** 简介 */
   desc = '';
@@ -624,6 +674,9 @@ class User {
 
   /** 部门id */
   deptId = undefined;
+
+  /** 部门管理者 */
+  deptLeader = false;
 
   /** 简介 */
   desc = '';
@@ -687,6 +740,7 @@ export const common = {
   Menu,
   MenuCreateBody,
   MenuUpdateBody,
+  MerchantSetting,
   Meta,
   RegisterMobileRequest,
   Role,

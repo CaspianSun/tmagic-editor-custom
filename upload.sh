@@ -61,24 +61,24 @@ if [ -z "$envFiles" ]; then
   exit 1
 fi
 
-# 从.env 文件中读取环境变量 UPLOADURL
-UPLOADURL=$(grep UPLOADURL $env | cut -d '=' -f2)
-if [ -z "$UPLOADURL" ]; then
-  echo "没有找到 UPLOADURL 环境变量"
+# 从.env 文件中读取环境变量 UPLOAD_URL 不读取 # 注释行
+UPLOAD_URL=$(grep UPLOAD_URL $env | grep -v '#' | cut -d '=' -f2)
+if [ -z "$UPLOAD_URL" ]; then
+  echo "没有找到 UPLOAD_URL 环境变量"
   exit 1
 fi
 
-PLATFORM=$(grep PLATFORM $env | cut -d '=' -f2)
+PLATFORM=$(grep PLATFORM $env | grep -v '#' | cut -d '=' -f2)
 if [ -z "$PLATFORM" ]; then
   echo "没有找到 PLATFORM 环境变量"
   exit 1
 fi
 
-# 去除 UPLOADURL 环境变量中的双引号单引号
-UPLOADURL=$(echo $UPLOADURL | sed "s/\"//g" | sed "s/'//g")
+# 去除 UPLOAD_URL 环境变量中的双引号单引号
+UPLOAD_URL=$(echo $UPLOAD_URL | sed "s/\"//g" | sed "s/'//g")
 
 # 发送 POST 请求到指定接口
-RESPONSE=$(curl -s -X POST -F "zip=@$DIR/code/code.zip" -F "platform=$PLATFORM" $UPLOADURL)
+RESPONSE=$(curl -s -X POST -F "zip=@$DIR/code/code.zip" -F "platform=$PLATFORM" $UPLOAD_URL)
 
 # 打印返回结果
 echo "接口返回: $RESPONSE"

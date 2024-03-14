@@ -1112,6 +1112,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "isTarget",
+            "description": "是否是关联键",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -1445,7 +1459,7 @@
               "typeProperties": []
             },
             "name": "form",
-            "description": "目标key, 用于保存字段表中的唯一枢纽",
+            "description": "表单",
             "required": true
           }
         ]

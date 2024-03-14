@@ -5,4 +5,6 @@ declare interface Window {
   dslPath?: string
   actId?: number
   actCode?: string
+  formCode?: string
+  openid?: string
 }

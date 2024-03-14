@@ -244,6 +244,9 @@ declare namespace defs {
       /** 是否显示 */
       isShow: boolean
 
+      /** 是否是关联键 */
+      isTarget: boolean
+
       /** 字段名称 */
       name: string
 
@@ -308,7 +311,7 @@ declare namespace defs {
       /** 目标key, 用于保存字段表中的唯一枢纽 */
       fieldData: Array<defs.h5.Field>
 
-      /** 目标key, 用于保存字段表中的唯一枢纽 */
+      /** 表单 */
       form: defs.h5.Form
     }
 

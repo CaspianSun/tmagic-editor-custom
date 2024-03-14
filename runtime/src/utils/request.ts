@@ -2,7 +2,7 @@ import axios, { type AxiosRequestConfig, type AxiosInstance, type AxiosStatic } 
 
 const baseURL = import.meta.env.VITE_API_URL
 const timeout = 20000
-const successStatus = [200, 0, "200", "0"]
+const successStatus = [200, 201, 0, "200", "201", "0"]
 const statusName = "status"
 const messageName = "message"
 const contentType = "application/json"
@@ -57,7 +57,7 @@ export const service = new MAxios(axios, {
 
 service.axios.interceptors.request.use(
   (config) => {
-    config.headers["ActId"] = localStorage.getItem("actId") || window.actId
+    config.headers["ActId"] = window.actId || localStorage.getItem("actId")
     return config
   },
   (error) => {

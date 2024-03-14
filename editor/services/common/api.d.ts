@@ -14,6 +14,9 @@ declare namespace defs {
       /** 创建人Id */
       creatorId: number;
 
+      /** 部门标识 */
+      deptNum: string;
+
       /** 活动结束时间 */
       endTime: string;
 
@@ -38,6 +41,9 @@ declare namespace defs {
       /** 腾讯地图Key */
       mapKey: string;
 
+      /** 商户配置 */
+      matchSettings: any;
+
       /** 活动备注 */
       remark: string;
 
@@ -48,7 +54,7 @@ declare namespace defs {
       startTime: string;
 
       /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-      status: 1 | 2 | 3 | 4 | 5 | 1 | 2 | 3 | 4 | 5;
+      status: 1 | 2 | 3 | 4 | 5;
 
       /** 置顶 */
       sticky: boolean;
@@ -70,6 +76,9 @@ declare namespace defs {
 
       /** 数据统计 */
       websiteId: string;
+
+      /** 是否获取微信头像昵称信息 */
+      wxprofile: boolean;
     }
 
     export class AgentAccount {
@@ -111,6 +120,9 @@ declare namespace defs {
       /** 父id */
       parentId: number;
 
+      /** 部门权限标识 */
+      permission: string;
+
       /** 备注 */
       remark: string;
 
@@ -147,6 +159,9 @@ declare namespace defs {
 
       /** 部门id */
       deptId: number;
+
+      /** 部门管理者 */
+      deptLeader: boolean;
 
       /** 简介 */
       desc?: string;
@@ -203,6 +218,9 @@ declare namespace defs {
 
       /** 父id */
       parentId: number;
+
+      /** 部门权限标识 */
+      permission: string;
 
       /** 备注 */
       remark: string;
@@ -381,6 +399,32 @@ declare namespace defs {
       id: string;
     }
 
+    export class MerchantSetting {
+      /** 活动名称 */
+      actName: string;
+
+      /** apikey */
+      apiKey: string;
+
+      /** 私钥key */
+      key: string;
+
+      /** 商户id */
+      matchId: string;
+
+      /** 证书pem */
+      pem: string;
+
+      /** 备注 */
+      remark: string;
+
+      /** 发放者名称 */
+      sendName: string;
+
+      /** 祝福语 */
+      wishing: string;
+    }
+
     export class Meta {
       /** icon */
       icon: string;
@@ -545,6 +589,9 @@ declare namespace defs {
       /** 父id */
       parentId?: number;
 
+      /** 部门权限标识 */
+      permission?: string;
+
       /** 备注 */
       remark?: string;
 
@@ -580,6 +627,9 @@ declare namespace defs {
 
       /** 部门id */
       deptId?: number;
+
+      /** 部门管理者 */
+      deptLeader?: boolean;
 
       /** 简介 */
       desc?: string;
@@ -630,6 +680,9 @@ declare namespace defs {
 
       /** 部门id */
       deptId: number;
+
+      /** 部门管理者 */
+      deptLeader: boolean;
 
       /** 简介 */
       desc?: string;

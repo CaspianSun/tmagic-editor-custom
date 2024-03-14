@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ossUpload } from "@/api"
+import { ossUploadApi } from "@/api"
 import { type PropType } from "vue"
 import { Field, Uploader, Image, Icon } from "vant"
 
