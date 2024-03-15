@@ -23,10 +23,10 @@ export const saveFormApi = (data: defs.h5.SubmitContent) => {
   })
 }
 
-export const ossUploadApi = (file: File) => {
-  service.post({
-    url: "/api/h5/v1/oss/upload",
-    data: file,
+export const ossUploadApi = (data: FormData) => {
+  return service.post<string>({
+    url: "/api/h5/v1/form/uploadFile",
+    data: data,
     headers: {
       "Content-Type": "multipart/form-data"
     }

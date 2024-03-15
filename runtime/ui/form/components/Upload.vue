@@ -1,31 +1,51 @@
 <script lang="ts" setup>
 import { ossUploadApi } from "@/api"
 import { type PropType } from "vue"
-import { Field, Uploader, Image, Icon } from "vant"
+import { Field, Uploader, Image, Icon, type UploaderFileListItem } from "vant"
+import { ref } from "vue"
+import { onMounted } from "vue"
 
 const imgsList = defineModel({
   type: Array as PropType<string[]>,
   default: () => []
 })
 
-const beforeRead = (file: any) => {
-  return true
-}
+const fileList = ref<UploaderFileListItem[]>([])
 
 const emits = defineEmits(["onConfirm"])
 const afterRead = async (file: any) => {
-  // const { code, message, result }: any = await ossUpload()
-  // if (code == 0) {
-  //   imgsList.value.push(result)
-  //   emits("onConfirm", imgsList.value)
-  // } else {
-  //   console.log(message)
-  // }
+  console.log(file)
+  file.status = "uploading"
+  file.message = "上传中..."
+  const formData = new FormData()
+  formData.append("file", file.file)
+  const { code, message, result } = await ossUploadApi(formData)
+  if (code == 0) {
+    file.status = "done"
+    imgsList.value.push(result)
+  } else {
+    console.log(message)
+  }
+  console.log(fileList.value)
 }
-const deleteImg = (index: number) => {
-  imgsList.value.splice(index, 1)
-  emits("onConfirm", imgsList.value)
+const beforeDelete = (
+  e: any,
+  info: {
+    index: number
+  }
+) => {
+  imgsList.value.splice(info.index, 1)
+  return true
 }
+
+onMounted(() => {
+  fileList.value = imgsList.value.map((url) => {
+    return {
+      url,
+      isImage: true
+    }
+  })
+})
 </script>
 
 <template>
@@ -36,18 +56,12 @@ const deleteImg = (index: number) => {
       </template>
       <template #input>
         <div class="img-list">
-          <div class="img-item" v-for="(item, index) in imgsList" :key="index">
-            <div class="delete" @click="deleteImg(index)">
-              <Icon name="close" />
-            </div>
-            <Image width="60" height="60" :src="item" />
-          </div>
           <Uploader
-            v-if="imgsList.length < 1"
+            v-model="fileList"
             result-type="file"
             max-count="1"
             :after-read="afterRead"
-            :before-read="beforeRead"
+            :before-delete="beforeDelete"
             :preview-size="60"
           />
         </div>
@@ -56,27 +70,4 @@ const deleteImg = (index: number) => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-:deep(.van-cell) {
-  align-items: center;
-}
-.upload {
-  .img-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    .img-item {
-      position: relative;
-      .delete {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 999;
-      }
-    }
-    .img-item:not(:last-child) {
-      margin-right: 10px;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>
