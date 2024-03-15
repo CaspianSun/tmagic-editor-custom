@@ -9,7 +9,7 @@ export default class MyGenerator extends CodeGenerator {
 
 export class FileStructures extends OriginFileStructures {
   getMultipleOriginsFileStructures() {
-    for (let generate of this.generators) {
+    for (const generate of this.generators) {
       generate.dataSource.mods = []
     }
     return super.getMultipleOriginsFileStructures()

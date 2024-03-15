@@ -3,8 +3,5 @@ declare interface Window {
   magic?: import("@tmagic/stage").Magic
   appInstance?: import("@tmagic/core").default
   dslPath?: string
-  actId?: number
-  actCode?: string
-  formCode?: string
   openid?: string
 }

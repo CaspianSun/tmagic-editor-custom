@@ -45,8 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Ref } from "vue"
-import { computed, onMounted, ref, toRaw } from "vue"
+import { computed, ref, toRaw, type Ref } from "vue"
 import { NodeType } from "@tmagic/schema"
 import { asyncLoadJs } from "@tmagic/utils"
 import type { CustomizeMoveableOptionsCallbackConfig } from "@tmagic/stage"
@@ -54,22 +53,26 @@ import { tMagicMessage, TMagicDialog } from "@tmagic/design"
 import { TMagicEditor } from "@tmagic/editor"
 import type { DatasourceTypeOption, MoveableOptions } from "@tmagic/editor"
 import serialize from "serialize-javascript"
-import { componentGroupList } from "@/configs/componentGroupList"
-import dsl from "@/configs/dsl"
-import { useCustomService } from "@/common/customServices"
+import type { FormInstance } from "element-plus"
 import { getDslVersionListApi, saveDslApi, getVersionInfoApi } from "@/api/index"
 import { CreateEditDialog } from "@/components/EditDialog"
-import type { FormInstance } from "element-plus"
-import { createMenu } from "./configs/menu"
+import { useServices } from "@/hooks/useServices"
+import { createMenu } from "@/configs/menu"
+import dsl from "@/configs/dsl"
+import { componentGroupList } from "@/configs/componentGroupList"
 import { compareVersions } from "@/utils/version"
+import { useDataStore } from "./stores/modules/data"
 
+/** 本地数据仓库 */
+const dataStore = useDataStore()
+/** 获取版本列表 */
 const getList = async (actId: number) => {
   const { result } = await getDslVersionListApi(actId)
   versionList.value = result.sort((a, b) => {
     return compareVersions(a.version, b.version)
   })
 }
-
+/** 加载版本表单 */
 const LoadVersionForm = ref({ versionId: undefined })
 const versionList = ref<Pick<defs.agent.CodeManagement, "id" | "version">[]>([])
 const LoadVersionFormInstance = ref<FormInstance>()
@@ -87,7 +90,7 @@ const LoadVersionDialog = new CreateEditDialog({
     LoadVersionFormInstance.value?.resetFields()
   }
 })
-
+/** 初始化加载dsl */
 const initLoadDsl = async (id?: number) => {
   if (versionList.value.length == 0) return
   const { result } = await getVersionInfoApi(id ?? versionList.value[0].id)
@@ -98,37 +101,36 @@ const initLoadDsl = async (id?: number) => {
   }
 }
 
-useCustomService()
+useServices()
+/** 是否开发环境 */
 const isDev = import.meta.env.MODE == "development"
-const value = ref(
-  isDev
-    ? dsl
-    : {
-        type: "app",
-        id: "1",
-        items: []
-      }
-)
+/** 编辑器数据 */
+const value = ref(isDev ? dsl : { type: "app", id: "1", items: [] })
+/** 组件分组列表 */
 const datasourceList: DatasourceTypeOption[] = []
+/** 默认选中 */
 const defaultSelected = ref(value.value?.items?.[0]?.id ?? null)
+/** 预览是否可见 */
 const previewVisible = ref(false)
+/** 编辑器实例 */
 const editor = ref<InstanceType<typeof TMagicEditor>>()
+/** 预览iframe */
 const previewIframeRef = ref<HTMLIFrameElement>() as Ref<HTMLIFrameElement>
+/** 组件属性值 */
 const propsValues = ref<Record<string, any>>({})
+/** 组件属性配置 */
 const propsConfigs = ref<Record<string, any>>({})
+/** 事件方法列表 */
 const eventMethodList = ref<Record<string, any>>({})
+/** 数据源配置 */
 const dataSourceConfigs = ref<Record<string, any>>({})
+/** 数据源值 */
 const datasourceValues = ref<Record<string, any>>({})
-const datasourceEventMethodList = ref<Record<string, any>>({
-  base: {
-    events: [],
-    methods: []
-  }
-})
-const stageRect = ref({
-  width: 375,
-  height: 812
-})
+/** 数据源事件方法列表 */
+const datasourceEventMethodList = ref<Record<string, any>>({ base: { events: [], methods: [] } })
+/** 页面尺寸 */
+const stageRect = ref({ width: 375, height: 812 })
+/** 代码编辑器配置 */
 const codeOptions = ref({
   theme: "vs-light",
   fixedOverflowWidgets: true,
@@ -139,33 +141,42 @@ const codeOptions = ref({
   lineDecorationsWidth: 6,
   lineNumbersMinChars: 0
 })
-
+/** url */
 const url = window.location.origin.replace(/\/$/, "")
+/** 运行时url */
 const runtimeUrl = `${url}/code/runtime/index.html`
+/** 预览url */
 const previewUrl = computed(() => `${url}/code/runtime/preview.html?localPreview=1&page=${editor.value?.editorService.get("page")?.id}`)
 
-const getUrl = (url: string) => {
-  return new URL(url, window.location.href).href
-}
-asyncLoadJs(getUrl("./entry/config/index.umd.js")).then(() => {
-  propsConfigs.value = (globalThis as any).magicPresetConfigs
+/** 加载entry js */
+const entryList = ["/config", "/value", "/event", "/ds-config", "/ds-value"] as const
+entryList.forEach((entry) => {
+  asyncLoadJs(new URL(`./entry${entry}/index.umd.js`, window.location.href).href).then(() => {
+    const that = globalThis as any
+    switch (entry) {
+      case "/config":
+        propsConfigs.value = that.magicPresetConfigs
+        break
+      case "/value":
+        propsValues.value = that.magicPresetValues
+        break
+      case "/event":
+        eventMethodList.value = that.magicPresetEvents
+        break
+      case "/ds-config":
+        dataSourceConfigs.value = that.magicPresetDsConfigs
+        break
+      case "/ds-value":
+        datasourceValues.value = that.magicPresetDsValues
+        break
+    }
+  })
 })
-asyncLoadJs(getUrl(`./entry/value/index.umd.js`)).then(() => {
-  propsValues.value = (globalThis as any).magicPresetValues
-})
-asyncLoadJs(getUrl(`./entry/event/index.umd.js`)).then(() => {
-  eventMethodList.value = (globalThis as any).magicPresetEvents
-})
-asyncLoadJs(getUrl(`./entry/ds-config/index.umd.js`)).then(() => {
-  dataSourceConfigs.value = (globalThis as any).magicPresetDsConfigs
-})
-asyncLoadJs(getUrl(`./entry/ds-value/index.umd.js`)).then(() => {
-  datasourceValues.value = (globalThis as any).magicPresetDsValues
-})
-
+/** 是否可以选中 */
 const canSelect = (el: HTMLElement): Boolean =>
   (el.classList.contains("magic-ui-component") || el.classList.contains("magic-ui-container")) && Boolean(el.id)
 
+/** 移动配置 */
 const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): MoveableOptions => {
   const options: MoveableOptions = {}
   if (!editor.value) return options
@@ -187,12 +198,12 @@ const moveableOptions = (config?: CustomizeMoveableOptionsCallbackConfig): Movea
 
 const saveId = ref<number>()
 const save = async () => {
-  if (!window.actId) return
+  if (!dataStore.actId) return
   const lastVersion = versionList.value[0].version
   const lastVersionActId = lastVersion.split(".")
   const { result } = await saveDslApi({
     id: saveId.value,
-    actId: window.actId,
+    actId: Number(dataStore.actId),
     version: `${lastVersionActId[0]}.${lastVersionActId[1]}.${Number(lastVersionActId[2]) + 1}`,
     dsl: serialize(toRaw([value.value]), {
       unsafe: true
@@ -206,24 +217,18 @@ const save = async () => {
     },
     "*"
   )
-  await getList(window.actId)
+  await getList(Number(dataStore.actId))
   tMagicMessage.success("保存成功")
 }
 const menu = createMenu(value, editor, previewIframeRef, previewVisible, save, LoadVersionDialog)
-
-window.actId = 195
-window.actCode = "0hRkA"
-localStorage.setItem("actId", "195")
-localStorage.setItem("actCode", "0hRkA")
 
 window.addEventListener(
   "message",
   async (e) => {
     if (e.data.type == "init") {
-      window.actId = e.data.params.actId
-      window.actCode = e.data.params.actCode
-      localStorage.setItem("actId", e.data.params.actId)
-      localStorage.setItem("actCode", e.data.params.actCode)
+      e.data.params.actId && (dataStore.actId = e.data.params.actId)
+      e.data.params.actCode && (dataStore.actCode = e.data.params.actCode)
+      e.data.params.baseFormCode && (dataStore.baseFormCode = e.data.params.baseFormCode)
       await getList(e.data.params.actId)
       await initLoadDsl()
     }
@@ -231,7 +236,7 @@ window.addEventListener(
       window.opener.postMessage(
         {
           type: "check",
-          status: window?.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
+          status: dataStore.actId == e.data?.params?.actId && window?.version == e.data?.params?.version
         },
         "*"
       )
@@ -239,12 +244,7 @@ window.addEventListener(
   },
   false
 )
-window.opener?.postMessage(
-  {
-    type: "onload"
-  },
-  "*"
-)
+window.opener?.postMessage({ type: "onload" }, "*")
 </script>
 
 <style>

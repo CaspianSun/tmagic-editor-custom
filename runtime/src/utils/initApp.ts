@@ -3,6 +3,7 @@ import { DataSourceManager } from "@tmagic/data-source"
 import "../style/index.scss"
 import "virtual:uno.css"
 import "vant/lib/index.css"
+import store from "@store/index"
 
 export async function initApp(root: Component<any, any, any, ComputedOptions, MethodOptions, {}, any>) {
   const [components, plugins, datasources] = await Promise.all([
@@ -20,5 +21,6 @@ export async function initApp(root: Component<any, any, any, ComputedOptions, Me
   Object.values(plugins.default).forEach((plugin: any) => {
     app.use(plugin)
   })
+  app.use(store)
   return app
 }

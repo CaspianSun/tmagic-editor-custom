@@ -1,4 +1,5 @@
 import axios, { type AxiosRequestConfig, type AxiosInstance, type AxiosStatic } from "axios"
+import { useDataStore } from "@store/modules/data"
 
 const baseURL = import.meta.env.VITE_API_URL
 const timeout = 20000
@@ -57,7 +58,8 @@ export const service = new MAxios(axios, {
 
 service.axios.interceptors.request.use(
   (config) => {
-    config.headers["ActId"] = window.actId || localStorage.getItem("actId")
+    const dataStore = useDataStore()
+    config.headers["ActId"] = dataStore.actId || localStorage.getItem("actId")
     return config
   },
   (error) => {

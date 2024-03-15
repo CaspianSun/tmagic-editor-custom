@@ -71,7 +71,7 @@ export default {
           animation: "",
           fragments: [
             {
-              pageFragmentId: "page-fragment_d9d3d130"
+              pageFragmentId: "page-fragment_8d81ff88"
             },
             {
               pageFragmentId: "page-fragment_fe02721c"

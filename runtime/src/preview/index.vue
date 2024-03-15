@@ -7,7 +7,7 @@ import { nextTick, onBeforeMount, onMounted, provide, reactive, ref } from "vue"
 import Core from "@tmagic/core"
 import type { MNode } from "@tmagic/schema"
 import { replaceChildNode, getUrlParam, isPage } from "@tmagic/utils"
-import { getLocalConfig } from "@ui/utils"
+import { getLocalConfig } from "@/utils"
 import type { ChangeEvent } from "@tmagic/data-source"
 
 /** 去除Injection警告 */
@@ -26,7 +26,6 @@ const pageConfig = reactive<MNode | Record<string, any>>(app?.page?.data || {})
 const setHtmlFontSize = () => {
   const html = document.documentElement
   const width = html.clientWidth
-  console.log(html.style.fontSize)
   html.style.fontSize = width / 3.75 + "px"
 }
 onBeforeMount(() => {

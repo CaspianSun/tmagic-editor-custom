@@ -14,21 +14,21 @@ import useApp from "@ui/utils/useApp"
 import { onMounted, ref } from "vue"
 import { Form, Button } from "vant"
 import { FieldToDom, FieldType } from "./components/fieldToDom"
+import { useDataStore } from "@store/modules/data"
 
+const dataStore = useDataStore()
 const props = withDefaults(
   defineProps<{
     config: MComponent
   }>(),
   {}
 )
-
-const form = ref<Record<string, any>>({})
-
 const fields = ref<defs.h5.Field[]>([])
+const form = ref<Record<string, any>>({})
 const targetKey = ref("openid")
 const loadFieldList = async () => {
-  if (!window.formCode) return
-  const { result } = await getFormFieldsApi(window.formCode)
+  if (!dataStore.baseFormCode) return
+  const { result } = await getFormFieldsApi(dataStore.baseFormCode)
   fields.value = result.fieldData
   fields.value.forEach((field) => {
     if (field.isTarget) targetKey.value = field.fieldCode
@@ -40,7 +40,7 @@ const loadFieldList = async () => {
   if (targetKey.value == "openid") {
     const { result } = await getFormSubmitApi({
       targetKey: window.openid,
-      formCode: window.formCode
+      formCode: dataStore.baseFormCode
     })
     form.value = result
   } else {
@@ -52,15 +52,13 @@ const loadFieldList = async () => {
 }
 
 const submit = async () => {
-  if (!window.formCode) return
+  if (!dataStore.baseFormCode) return
   const { result } = await saveFormApi({
     content: form.value,
-    formCode: window.formCode,
+    formCode: dataStore.baseFormCode,
     targetKey: targetKey.value == "openid" ? window.openid : form.value[targetKey.value]
   })
-  if (result.id) {
-    localStorage.setItem("form", JSON.stringify(result.content))
-  }
+  if (result.id) localStorage.setItem("form", JSON.stringify(result.content))
 }
 
 onMounted(() => {

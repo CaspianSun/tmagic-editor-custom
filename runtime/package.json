@@ -10,12 +10,12 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build:libs": "tmagic entry && npm run build:config && npm run build:value && npm run build:event && npm run build:ds:libs",
     "build:ds:libs": "npm run build:ds:config && npm run build:ds:value && npm run build:ds:event",
-    "build:config": "vite build --config entry.vite.config.ts --mode config --emptyOutDir",
-    "build:value": "vite build --config entry.vite.config.ts --mode value --emptyOutDir",
-    "build:event": "vite build --config entry.vite.config.ts --mode event --emptyOutDir",
-    "build:ds:config": "vite build --config entry.vite.config.ts --mode ds:config --emptyOutDir",
-    "build:ds:value": "vite build --config entry.vite.config.ts --mode ds:value --emptyOutDir",
-    "build:ds:event": "vite build --config entry.vite.config.ts --mode ds:event --emptyOutDir"
+    "build:config": "vite build --config build/entry.vite.config.ts --mode config --emptyOutDir",
+    "build:value": "vite build --config build/entry.vite.config.ts --mode value --emptyOutDir",
+    "build:event": "vite build --config build/entry.vite.config.ts --mode event --emptyOutDir",
+    "build:ds:config": "vite build --config build/entry.vite.config.ts --mode ds:config --emptyOutDir",
+    "build:ds:value": "vite build --config build/entry.vite.config.ts --mode ds:value --emptyOutDir",
+    "build:ds:event": "vite build --config build/entry.vite.config.ts --mode ds:event --emptyOutDir"
   },
   "dependencies": {
     "@vant/area-data": "^1.5.1",
@@ -54,6 +54,7 @@
     "eslint-plugin-vue": "^9.22.0",
     "jsdom": "^22.1.0",
     "npm-run-all2": "^6.1.2",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "pont-engine": "^1.6.2",
     "prettier": "^3.2.5",
     "rollup-plugin-visualizer": "^5.12.0",

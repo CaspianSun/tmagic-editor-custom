@@ -4,6 +4,7 @@ import { Document, Coin, Connection } from "@element-plus/icons-vue"
 import type { TMagicEditor } from "@tmagic/editor"
 import serialize from "serialize-javascript"
 import { toRaw, type Ref, nextTick } from "vue"
+import { useDataStore } from "@/stores/modules/data"
 
 export const createMenu = (
   value: Ref<any>,
@@ -13,6 +14,7 @@ export const createMenu = (
   save: () => Promise<void>,
   LoadVersionDialog: CreateEditDialog<any>
 ) => {
+  const dataStore = useDataStore()
   return {
     left: [
       {
@@ -36,13 +38,11 @@ export const createMenu = (
         icon: Connection,
         handler: async () => {
           try {
-            localStorage.setItem(
-              "magicDSL",
-              serialize(toRaw(value.value), {
-                space: 2,
-                unsafe: true
-              }).replace(/"(\w+)":\s/g, "$1: ")
-            )
+            const string = serialize(toRaw(value.value), {
+              space: 2,
+              unsafe: true
+            }).replace(/"(\w+)":\s/g, "$1: ")
+            dataStore.setMagicDSL(string)
             editor.value?.editorService.resetModifiedNodeId()
           } catch (e) {
             console.log(e)
