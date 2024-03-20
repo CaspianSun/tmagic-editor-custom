@@ -263,6 +263,11 @@ class Field {
   type = 1
 }
 
+class FileUploadBody {
+  /** file */
+  file = ""
+}
+
 class Form {
   /** 活动ID */
   actId = undefined
@@ -813,6 +818,7 @@ export const h5 = {
   AnswerSaveRes,
   CustomData,
   Field,
+  FileUploadBody,
   Form,
   FormFieldsRes,
   HxBody,

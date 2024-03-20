@@ -207,7 +207,7 @@ const save = async () => {
     version: `${lastVersionActId[0]}.${lastVersionActId[1]}.${Number(lastVersionActId[2]) + 1}`,
     dsl: serialize(toRaw([value.value]), {
       unsafe: true
-    })
+    }) as unknown as Record<string, any>
   })
   saveId.value = result.id
   editor.value?.editorService.resetModifiedNodeId()

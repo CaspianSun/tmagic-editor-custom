@@ -1,1923 +1,2193 @@
 class ActLockBody {
   /** 锁定码 */
-  lockCode = '';
+  lockCode = ""
 }
 
 class ActSyncBody {
   /** 同步地址 */
-  url = '';
+  url = ""
 }
 
 class ActiveStatus {}
 
 class Activity {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 创建人Id */
-  creatorId = undefined;
+  creatorId = undefined
+
+  /** 部门标识 */
+  deptNum = ""
 
   /** 活动结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 活动图片-横版 */
-  horizontalImage = '';
+  horizontalImage = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否启用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 活动链接 */
-  link = '';
+  link = ""
 
   /** 锁定码 */
-  lockCode = '';
+  lockCode = ""
 
   /** 锁定状态 */
-  lockStatus = false;
+  lockStatus = false
 
   /** 腾讯地图Key */
-  mapKey = '';
+  mapKey = ""
+
+  /** 商户配置 */
+  matchSettings = new MerchantSetting()
 
   /** 活动备注 */
-  remark = '';
+  remark = ""
 
   /** 数据统计url；前端不传 */
-  shareHref = '';
+  shareHref = ""
 
   /** 活动开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-  status = 1;
+  status = 1
 
   /** 置顶 */
-  sticky = false;
+  sticky = false
 
   /** 活动名称 */
-  title = '';
+  title = ""
 
   /** 活动类型;后台创建字典 */
-  type = '';
+  type = ""
 
   /** h5地址 */
-  url = '';
+  url = ""
 
   /** 是否使用微信登录 */
-  useWechatLogin = false;
+  useWechatLogin = false
 
   /** 活动图片-竖版 */
-  verticalImage = '';
+  verticalImage = ""
 
   /** 数据统计 */
-  websiteId = '';
+  websiteId = ""
+
+  /** 是否获取微信头像昵称信息 */
+  wxprofile = false
+}
+
+class AnswerConfig {
+  /** 活动ID */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** id */
+  id = undefined
+
+  /** 随机题目总数 */
+  limit = undefined
+
+  /** 每题时间；单位秒 */
+  time = undefined
+}
+
+class AnswerConfigDto {
+  /** 活动ID */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** id */
+  id = undefined
+
+  /** 随机题目总数 */
+  limit = undefined
+
+  /** 每题时间；单位秒 */
+  time = undefined
+}
+
+class AnswerRecord {
+  /** 活动ID */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** 答案 */
+  answer = ""
+
+  /** id */
+  id = undefined
+
+  /** 是否正确 */
+  isRight = false
+
+  /** 用户id */
+  playerId = undefined
+
+  /** 试题id */
+  questionId = undefined
+
+  /** 目标键 */
+  targetKey = ""
+
+  /** 答题时间；单位秒 */
+  time = undefined
 }
 
 class CodeFileBody {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 版本描述 */
-  description = '';
+  description = ""
 
   /** dsl */
-  dsl = undefined;
+  dsl = undefined
 
   /** dsljs脚本 */
-  dslJs = '';
+  dslJs = ""
 
   /** file */
-  file = '';
+  file = ""
 
   /** 版本号 */
-  version = '';
+  version = ""
 }
 
 class CodeManagement {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 版本描述 */
-  description = '';
+  description = ""
 
   /** dsl */
-  dsl = undefined;
+  dsl = undefined
 
   /** dsljs脚本 */
-  dslJs = '';
+  dslJs = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否启用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 版本地址 */
-  path = '';
+  path = ""
 
   /** 状态;1已发布；2未发布 */
-  status = 1;
+  status = 1
 
   /** 版本号 */
-  version = '';
+  version = ""
 }
 
 class CopyRuleByTimeBody {
   /** 结束时间 */
-  endTime = undefined;
+  endTime = undefined
 
   /** 时间id */
-  oldTimeId = undefined;
+  oldTimeId = undefined
 
   /** 开始时间 */
-  startTime = undefined;
+  startTime = undefined
 }
 
 class CreateActivityRequest {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 创建人Id */
-  creatorId = undefined;
+  creatorId = undefined
+
+  /** 部门标识 */
+  deptNum = ""
 
   /** 活动结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 活动图片-横版 */
-  horizontalImage = '';
+  horizontalImage = ""
 
   /** 是否启用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 活动链接 */
-  link = '';
+  link = ""
 
   /** 锁定码 */
-  lockCode = '';
+  lockCode = ""
 
   /** 锁定状态 */
-  lockStatus = false;
+  lockStatus = false
 
   /** 腾讯地图Key */
-  mapKey = '';
+  mapKey = ""
+
+  /** 商户配置 */
+  matchSettings = new MerchantSetting()
 
   /** 活动备注 */
-  remark = '';
+  remark = ""
 
   /** 数据统计url；前端不传 */
-  shareHref = '';
+  shareHref = ""
 
   /** 活动开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-  status = 1;
+  status = 1
 
   /** 置顶 */
-  sticky = false;
+  sticky = false
 
   /** 活动名称 */
-  title = '';
+  title = ""
 
   /** 活动类型;后台创建字典 */
-  type = '';
+  type = ""
 
   /** h5地址 */
-  url = '';
+  url = ""
 
   /** 是否使用微信登录 */
-  useWechatLogin = false;
+  useWechatLogin = false
 
   /** 活动图片-竖版 */
-  verticalImage = '';
+  verticalImage = ""
 
   /** 数据统计 */
-  websiteId = '';
+  websiteId = ""
+
+  /** 是否获取微信头像昵称信息 */
+  wxprofile = false
 }
 
 class CreateCustomDataRequest {
   /** 活动id；静默处理页面不显示 */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 自定义标识；不传 */
-  customCode = '';
+  customCode = ""
 
   /** 描述 */
-  desc = '';
+  desc = ""
 
   /** json数据；单独更改 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class CreateDictionaryRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 字典码 */
-  dictionaryCode = '';
+  dictionaryCode = ""
 
   /** 字典json */
-  optionData = [];
+  optionData = []
 
   /** 字典名称 */
-  title = '';
+  title = ""
 
   /** 字典类型;1系统全局, 2自定义 */
-  type = '';
+  type = ""
 }
 
 class CreateEventKeyRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否启用 */
-  enable = false;
+  enable = false
 
   /** 事件Key */
-  key = '';
+  key = ""
 
   /** 模块字典获取 sys_event_module */
-  module = 'prize';
+  module = "prize"
 }
 
 class CreateFieldRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否禁用 */
-  disabled = false;
+  disabled = false
 
   /** 字段标识 */
-  fieldCode = '';
+  fieldCode = ""
 
   /** 表单ID */
-  formId = undefined;
+  formId = undefined
 
   /** icon */
-  icon = '';
+  icon = ""
 
   /** 是否是默认列表显示 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否必选 */
-  isRequired = false;
+  isRequired = false
 
   /** 字段是否参与搜索 */
-  isSearch = false;
+  isSearch = false
 
   /** 是否显示 */
-  isShow = false;
+  isShow = false
 
   /** 是否是关联键 */
-  isTarget = false;
+  isTarget = false
 
   /** 字段名称 */
-  name = '';
+  name = ""
 
   /** placeholder */
-  placeholder = '';
+  placeholder = ""
 
   /** 列表显示优先级, 高的在前, 低的在后 */
-  priority = undefined;
+  priority = undefined
 
   /** 正则 */
-  regular = '';
+  regular = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 顺序 */
-  sort = undefined;
+  sort = undefined
 
   /** 字段类型 1字符串 2数字 3时间 4下拉框 */
-  type = 1;
+  type = 1
 }
 
 class CreateFormRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否为基础表单 */
-  basics = false;
+  basics = false
 
   /** 报名截止时间 */
-  deadline = '';
+  deadline = ""
 
   /** 表单字段 */
-  fields = [];
+  fields = []
 
   /** 表单标识 */
-  formCode = '';
+  formCode = ""
 
   /** 创建表单是否验证验证码 */
-  formVCode = false;
+  formVCode = false
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 短信签名 */
-  signName = '';
+  signName = ""
 
   /** 短信内容 */
-  smsContent = '';
+  smsContent = ""
 
   /** 表单名称 */
-  title = '';
+  title = ""
 }
 
 class CreateLinkRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 介绍 */
-  introduction = '';
+  introduction = ""
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
-  /** 状态 */
-  status = undefined;
+  /** 状态；3开启4关闭 */
+  status = 1
 
   /** 标题 */
-  title = '';
+  title = ""
+
+  /** uid二维码核销使用 */
+  uid = ""
 }
 
 class CreateMapManagementRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 地点标识 */
-  code = '';
+  code = ""
 
   /** 点位介绍 */
-  introduce = '';
+  introduce = ""
 
   /** 自定义json数据 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 维度 */
-  lat = undefined;
+  lat = undefined
 
   /** 经度 */
-  lng = undefined;
+  lng = undefined
 
   /** 范围单位Km */
-  range = undefined;
+  range = undefined
 
   /** 点位名称 */
-  title = '';
+  title = ""
 }
 
 class CreateMaterialLibraryGroupRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 分组名称 */
-  name = '';
+  name = ""
 
   /** 上级分组ID */
-  parentId = undefined;
+  parentId = undefined
 
   /** 排序 */
-  sort = undefined;
+  sort = undefined
 }
 
 class CreateMaterialLibraryRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 分组id */
-  groupId = undefined;
+  groupId = undefined
 
   /** 图片名称 */
-  name = '';
+  name = ""
 
   /** 图片地址 */
-  path = '';
+  path = ""
 
   /** 1.总端素材2.商户端素材 */
-  store = undefined;
+  store = undefined
 
   /** 1.图片 2.视频 3.音频 4.其他  */
-  type = undefined;
+  type = undefined
 
   /** 小程序id */
-  uniacid = undefined;
+  uniacid = undefined
 }
 
 class CreatePrizeChannelRecordRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 用户信息 */
-  channel = undefined;
+  channel = new PrizeChannel()
 
   /** 渠道id */
-  channelId = undefined;
+  channelId = undefined
 
   /** 渠道名称 */
-  channelName = '';
+  channelName = ""
 
   /** 渠道类型 */
-  channelType = undefined;
+  channelType = undefined
 
   /** 用户信息 */
-  player = undefined;
+  player = new Submit()
 
   /** 用户id */
-  playerId = undefined;
+  playerId = undefined
 
   /** 增加减少积分值 */
-  value = undefined;
+  value = undefined
 }
 
 class CreatePrizeChannelRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 渠道码 */
-  code = '';
+  code = ""
 
   /** 是否限制0表示不限制 */
-  limit = undefined;
+  limit = undefined
 
   /** 名称 */
-  name = '';
+  name = ""
 
   /** 类型；1抽奖扣除积分；2增加积分 */
-  type = undefined;
+  type = undefined
 
   /** 限制次数单位；0表示不限制，1表示按天 */
-  unit = undefined;
+  unit = undefined
 
   /** 积分值 */
-  value = undefined;
+  value = undefined
 }
 
 class CreatePrizeRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 奖品图片 */
-  image = '';
+  image = ""
 
   /** mini图 */
-  mini = '';
+  mini = ""
 
   /** 奖品名称 */
-  name = '';
+  name = ""
 
   /** 排序;越大越在前 */
-  sort = undefined;
+  sort = undefined
 
-  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖 */
-  type = undefined;
+  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包 */
+  type = undefined
 
   /** 奖品值；当奖品为特定数值是填写 */
-  value = undefined;
+  value = undefined
 }
 
 class CreatePrizeRuleRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 表单规则； */
-  formRule = [];
+  formRule = []
 
   /** 是否开启规则 */
-  isEnable = false;
+  isEnable = false
 
   /** 限制用户中奖次数 */
-  limit = undefined;
+  limit = undefined
 
   /** 剩余库存 */
-  num = undefined;
+  num = undefined
 
   /** 奖品ID */
-  prizeId = undefined;
+  prizeId = undefined
 
   /** 百分数 100% 就是传100 90% 就是传90 也可以0.0001 也就是0.0001%的意思 */
-  probability = undefined;
+  probability = undefined
 
   /** 时间ID */
-  timeId = undefined;
+  timeId = undefined
 
   /** 规则名称 */
-  title = '';
+  title = ""
 
   /** 总库存 */
-  total = undefined;
+  total = undefined
 }
 
 class CreatePrizeRuleTimeRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 结束时间时间戳；单位秒 */
-  endTime = undefined;
+  endTime = undefined
 
   /** 关联奖品规则 */
-  prizeRule = [];
+  prizeRule = []
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 开始时间时间戳；单位秒 */
-  startTime = undefined;
+  startTime = undefined
 }
 
 class CreateTimePeriodRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 时间段标识 */
-  code = '';
+  code = ""
 
   /** 描述 */
-  description = '';
+  description = ""
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 是否开启 */
-  isEnable = false;
+  isEnable = false
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class CustomData {
   /** 活动id；静默处理页面不显示 */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 自定义标识；不传 */
-  customCode = '';
+  customCode = ""
 
   /** 描述 */
-  desc = '';
+  desc = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** json数据；单独更改 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class DelBody {
   /** 表单id；删除用户提交表单数据，当数组仅有基础表单id时删除整条用户数据，其他删除对应表单字段数据 */
-  formId = [];
+  formId = []
 }
 
 class Dictionary {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 字典码 */
-  dictionaryCode = '';
+  dictionaryCode = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 字典json */
-  optionData = [];
+  optionData = []
 
   /** 字典名称 */
-  title = '';
+  title = ""
 
   /** 字典类型;1系统全局, 2自定义 */
-  type = '';
+  type = ""
 }
 
 class EventKey {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否启用 */
-  enable = false;
+  enable = false
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 事件Key */
-  key = '';
+  key = ""
 
   /** 模块字典获取 sys_event_module */
-  module = 'prize';
+  module = "prize"
 }
 
 class Field {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 字典数据 */
-  dictionary = [];
+  dictionary = []
 
   /** 是否禁用 */
-  disabled = false;
+  disabled = false
 
   /** 字段标识 */
-  fieldCode = '';
+  fieldCode = ""
 
   /** 表单ID */
-  formId = undefined;
+  formId = undefined
 
   /** icon */
-  icon = '';
+  icon = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否是默认列表显示 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否必选 */
-  isRequired = false;
+  isRequired = false
 
   /** 字段是否参与搜索 */
-  isSearch = false;
+  isSearch = false
 
   /** 是否显示 */
-  isShow = false;
+  isShow = false
 
   /** 是否是关联键 */
-  isTarget = false;
+  isTarget = false
 
   /** 字段名称 */
-  name = '';
+  name = ""
 
   /** placeholder */
-  placeholder = '';
+  placeholder = ""
 
   /** 列表显示优先级, 高的在前, 低的在后 */
-  priority = undefined;
+  priority = undefined
 
   /** 正则 */
-  regular = '';
+  regular = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 顺序 */
-  sort = undefined;
+  sort = undefined
 
   /** 字段类型 1字符串 2数字 3时间 4下拉框 */
-  type = 1;
+  type = 1
 }
 
 class FieldSort {
   /** 字段id排序数组 */
-  ids = [];
+  ids = []
 }
 
 class FileUploadBody {
   /** file */
-  file = '';
+  file = ""
 }
 
 class Form {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否为基础表单 */
-  basics = false;
+  basics = false
 
   /** 报名截止时间 */
-  deadline = '';
+  deadline = ""
 
   /** 表单字段 */
-  fields = [];
+  fields = []
 
   /** 表单标识 */
-  formCode = '';
+  formCode = ""
 
   /** 创建表单是否验证验证码 */
-  formVCode = false;
+  formVCode = false
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 短信签名 */
-  signName = '';
+  signName = ""
 
   /** 短信内容 */
-  smsContent = '';
+  smsContent = ""
 
   /** 表单名称 */
-  title = '';
+  title = ""
 }
 
 class FormFieldChildren {
   /** 字段key */
-  code = '';
+  code = ""
 
   /** 字段名字 */
-  name = '';
+  name = ""
 }
 
 class FormTreeRes {
   /** 字段 */
-  children = [];
+  children = []
 
   /** 表单名字 */
-  name = '';
+  name = ""
+}
+
+class GetListQuery {
+  /** limit */
+  limit = undefined
+
+  /** page */
+  page = undefined
+
+  /** 唯一键 */
+  targetKey = ""
 }
 
 class HxBody {
-  /** 关联键 */
-  foreignKey = '';
+  /** 备注 */
+  comment = ""
 
-  /** 环节id */
-  linkId = undefined;
+  /** 扫码结果 */
+  hxContent = ""
+
+  /** 环节id；可穿uid或id */
+  linkId = undefined
 }
 
 class Link {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 介绍 */
-  introduction = '';
+  introduction = ""
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
-  /** 状态 */
-  status = undefined;
+  /** 状态；3开启4关闭 */
+  status = 1
 
   /** 标题 */
-  title = '';
+  title = ""
+
+  /** uid二维码核销使用 */
+  uid = ""
 }
 
 class LinkOverviewRes {
   /** 已核销人数 */
-  count = undefined;
+  count = undefined
 
   /** 未核销人数 */
-  noHx = undefined;
+  noHx = undefined
 
   /** 总人数 */
-  total = undefined;
+  total = undefined
 }
 
 class LinkSwitchBody {
   /** 开启关闭 3 开启;4 关闭 */
-  status = 1;
+  status = 1
 }
 
 class MapBody {
   /** 维度 */
-  lat = undefined;
+  lat = undefined
 
   /** 经度 */
-  lng = undefined;
+  lng = undefined
 }
 
 class MapManagement {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 地点标识 */
-  code = '';
+  code = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 点位介绍 */
-  introduce = '';
+  introduce = ""
 
   /** 自定义json数据 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 维度 */
-  lat = undefined;
+  lat = undefined
 
   /** 经度 */
-  lng = undefined;
+  lng = undefined
 
   /** 范围单位Km */
-  range = undefined;
+  range = undefined
 
   /** 点位名称 */
-  title = '';
+  title = ""
 }
 
 class MaterialLibrary {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 分组id */
-  groupId = undefined;
+  groupId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 图片名称 */
-  name = '';
+  name = ""
 
   /** 图片地址 */
-  path = '';
+  path = ""
 
   /** 1.总端素材2.商户端素材 */
-  store = undefined;
+  store = undefined
 
   /** 1.图片 2.视频 3.音频 4.其他  */
-  type = undefined;
+  type = undefined
 
   /** 小程序id */
-  uniacid = undefined;
+  uniacid = undefined
 }
 
 class MaterialLibraryGroup {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 分组名称 */
-  name = '';
+  name = ""
 
   /** 上级分组ID */
-  parentId = undefined;
+  parentId = undefined
 
   /** 排序 */
-  sort = undefined;
+  sort = undefined
+}
+
+class MerchantSetting {
+  /** 活动名称 */
+  actName = ""
+
+  /** apikey */
+  apiKey = ""
+
+  /** 私钥key */
+  key = ""
+
+  /** 商户id */
+  matchId = ""
+
+  /** 证书pem */
+  pem = ""
+
+  /** 备注 */
+  remark = ""
+
+  /** 发放者名称 */
+  sendName = ""
+
+  /** 祝福语 */
+  wishing = ""
 }
 
 class MoveMaterialLibraryRequest {
   /** groupId */
-  groupId = undefined;
+  groupId = undefined
 
   /** id */
-  id = '';
+  id = ""
 }
 
 class OptionData {
   /** 选项值 */
-  key = '';
+  key = ""
 
   /** 选项名称 */
-  name = '';
+  name = ""
+}
+
+class OptionsType {
+  /** 选项内容 */
+  label = ""
+
+  /** 选项内容图片 */
+  labelImg = ""
+
+  /** 选项值 */
+  value = ""
+}
+
+class PickTypeClass {
+  /** 版本号 */
+  version = ""
 }
 
 class PriorityField {
   /** 字段标识 */
-  fieldCode = '';
+  fieldCode = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 字段名称 */
-  name = '';
+  name = ""
 }
 
 class Prize {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 奖品图片 */
-  image = '';
+  image = ""
 
   /** mini图 */
-  mini = '';
+  mini = ""
 
   /** 奖品名称 */
-  name = '';
+  name = ""
 
   /** 排序;越大越在前 */
-  sort = undefined;
+  sort = undefined
 
-  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖 */
-  type = undefined;
+  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包 */
+  type = undefined
 
   /** 奖品值；当奖品为特定数值是填写 */
-  value = undefined;
+  value = undefined
 }
 
 class PrizeChannel {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 渠道码 */
-  code = '';
+  code = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否限制0表示不限制 */
-  limit = undefined;
+  limit = undefined
 
   /** 名称 */
-  name = '';
+  name = ""
 
   /** 类型；1抽奖扣除积分；2增加积分 */
-  type = undefined;
+  type = undefined
 
   /** 限制次数单位；0表示不限制，1表示按天 */
-  unit = undefined;
+  unit = undefined
 
   /** 积分值 */
-  value = undefined;
+  value = undefined
 }
 
 class PrizeChannelRecord {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 用户信息 */
-  channel = undefined;
+  channel = new PrizeChannel()
 
   /** 渠道id */
-  channelId = undefined;
+  channelId = undefined
 
   /** 渠道名称 */
-  channelName = '';
+  channelName = ""
 
   /** 渠道类型 */
-  channelType = undefined;
+  channelType = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 用户信息 */
-  player = undefined;
+  player = new Submit()
 
   /** 用户id */
-  playerId = undefined;
+  playerId = undefined
 
   /** 增加减少积分值 */
-  value = undefined;
+  value = undefined
 }
 
 class PrizeFormRule {
   /** 概率 */
-  probability = undefined;
+  probability = undefined
 
   /** 规则；示例 identity=1&sex=1 表示身份为1性别为1时命中 */
-  rule = '';
+  rule = ""
 
   /** 规则汉字；示例 身份为车主性别为男 */
-  ruleName = '';
+  ruleName = ""
 }
 
 class PrizeOverview {
   /** 奖品名称 */
-  name = '';
+  name = ""
 
   /** 中奖数量 */
-  number = undefined;
+  number = undefined
 }
 
 class PrizeRecord {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 邮寄-联系地址 */
-  address = '';
+  address = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 邮寄-联系人 */
-  cName = '';
+  cName = ""
 
   /** 兑换码 */
-  cdkey = '';
+  cdkey = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 奖品图片 */
-  image = '';
+  image = ""
 
   /** 奖品名称 */
-  name = '';
+  name = ""
 
   /** 邮寄-联系电话 */
-  phone = '';
+  phone = ""
 
   /** 用户信息 */
-  player = undefined;
+  player = new Submit()
 
   /** 用户id */
-  playerId = undefined;
+  playerId = undefined
 
   /** 用户信息 */
-  prize = undefined;
+  prize = new Prize()
 
   /** 奖品id */
-  prizeId = undefined;
+  prizeId = undefined
 
   /** 奖品类型 */
-  prizeType = undefined;
+  prizeType = undefined
 
   /** targetKey */
-  targetKey = '';
+  targetKey = ""
 
   /** 奖品值；当奖品为特定数值是填写 */
-  value = undefined;
+  value = undefined
 }
 
 class PrizeRule {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 表单规则； */
-  formRule = [];
+  formRule = []
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否开启规则 */
-  isEnable = false;
+  isEnable = false
 
   /** 限制用户中奖次数 */
-  limit = undefined;
+  limit = undefined
 
   /** 剩余库存 */
-  num = undefined;
+  num = undefined
 
   /** 奖品ID */
-  prizeId = undefined;
+  prizeId = undefined
 
   /** 百分数 100% 就是传100 90% 就是传90 也可以0.0001 也就是0.0001%的意思 */
-  probability = undefined;
+  probability = undefined
 
   /** 时间ID */
-  timeId = undefined;
+  timeId = undefined
 
   /** 规则名称 */
-  title = '';
+  title = ""
 
   /** 总库存 */
-  total = undefined;
+  total = undefined
 }
 
 class PrizeRuleTime {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 结束时间时间戳；单位秒 */
-  endTime = undefined;
+  endTime = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 关联奖品规则 */
-  prizeRule = [];
+  prizeRule = []
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 开始时间时间戳；单位秒 */
-  startTime = undefined;
+  startTime = undefined
 }
 
 class PrizeSetting {
   /** 普通奖品用户可中奖数量 */
-  '1' = undefined;
+  "1" = undefined
 
   /** 实物奖品用户可中奖数量 */
-  '2' = undefined;
+  "2" = undefined
 
   /** 虚拟奖品用户可中奖数量 */
-  '3' = undefined;
+  "3" = undefined
+
+  /** 现金红包奖品用户可中奖数量 */
+  "4" = undefined
 }
 
 class PrizeVirtual {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 兑换码 */
-  cdkey = '';
+  cdkey = ""
 
   /** 是否兑换;0未兑换，1已兑换 */
-  exchange = undefined;
+  exchange = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 用户信息 */
-  player = undefined;
+  player = new Submit()
 
   /** 用户id */
-  playerId = undefined;
+  playerId = undefined
 
   /** 奖品 */
-  prize = undefined;
+  prize = new Prize()
 
   /** 奖品id */
-  prizeId = undefined;
+  prizeId = undefined
+}
+
+class Question {
+  /** 活动ID */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** 答案 */
+  answer = ""
+
+  /** id */
+  id = undefined
+
+  /** 选项 */
+  options = []
+
+  /** 分数 */
+  score = undefined
+
+  /** 题目 */
+  title = ""
+
+  /** 题目图片 */
+  titleImg = ""
+
+  /** 1单选题；2多选题 */
+  type = ""
+}
+
+class QuestionCreateDto {
+  /** 活动ID */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** 答案 */
+  answer = ""
+
+  /** 选项 */
+  options = []
+
+  /** 分数 */
+  score = undefined
+
+  /** 题目 */
+  title = ""
+
+  /** 题目图片 */
+  titleImg = ""
+
+  /** 1单选题；2多选题 */
+  type = ""
 }
 
 class SaveDslBody {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** dsl */
-  dsl = undefined;
+  dsl = undefined
 
   /** 版本id，不传为先建 */
-  id = undefined;
+  id = undefined
 
   /** 版本号 */
-  version = '';
-}
-
-class SetTargetBody {
-  /** 是否是关联字段 */
-  isTarget = false;
+  version = ""
 }
 
 class Submit {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
+
+  /** 答题记录 */
+  answerRecord = []
 
   /** 用户提交的数据json */
-  content = undefined;
+  content = undefined
 
   /** 抽奖扣除积分 */
-  deduct = undefined;
+  deduct = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 积分数, 不需要提交 */
-  integral = undefined;
+  integral = undefined
 
   /** 操作人 */
-  operator = '';
+  operator = ""
 
   /** 可操作人集合 */
-  principals = [];
+  principals = []
+
+  /** 答题分数 */
+  score = undefined
 
   /** 目标key, 用于保存字段表中的唯一枢纽 */
-  targetKey = '';
+  targetKey = ""
 
   /** uid */
-  uid = '';
+  uid = ""
+
+  /** 投票数 */
+  vote = undefined
 }
-
-class SubmitContent {
-  /** 用户提交的数据json，根据表单数据来 */
-  content = undefined;
-
-  /** 表单code */
-  formCode = '';
-
-  /** 目标key, 用于保存字段表中的唯一枢纽 */
-  operator = '';
-
-  /** 手机验证码表单key */
-  phoneKey = '';
-
-  /** 验证码； */
-  smsCode = '';
-
-  /** 目标key, 用于保存字段表中的唯一枢纽 */
-  targetKey = '';
-}
-
-class SubmitContentMust {}
 
 class SubmitList {
   /** 导出字段数组 */
-  fieldArr = [];
+  fieldArr = []
 
   /** 表单id递增排序；关联表单时也需要传 */
-  formIds = [];
+  formIds = []
 
   /** limit */
-  limit = undefined;
+  limit = undefined
 
   /** page */
-  page = undefined;
+  page = undefined
 
   /** 搜索条件集合 */
-  searchArr = [];
+  searchArr = []
 }
 
 class SubmitSearch {
   /** 搜索字段名称 */
-  name = '';
+  name = ""
 
   /** 用户搜索数据 */
-  search = '';
+  search = ""
 }
 
 class TimePeriod {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 时间段标识 */
-  code = '';
+  code = ""
 
   /** 描述 */
-  description = '';
+  description = ""
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否开启 */
-  isEnable = false;
+  isEnable = false
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class TimeSwitchBody {
   /** 开启关闭 3 开启;4 关闭 */
-  status = 1;
+  status = 1
 }
 
 class TraceQuery {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 事件名 */
-  event = '';
+  event = ""
 
   /** 事件数据 */
-  eventData = undefined;
+  eventData = undefined
 
   /** 页面 */
-  page = '';
+  page = ""
 
   /** session;用户区分用户唯一标识；不传用sessionId 客户端需持久化保存 */
-  session = '';
+  session = ""
 
   /** 类型;1普通，2事件 */
-  type = undefined;
+  type = undefined
 }
 
 class UpdateActivityRequest {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 创建人Id */
-  creatorId = undefined;
+  creatorId = undefined
+
+  /** 部门标识 */
+  deptNum = ""
 
   /** 活动结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 活动图片-横版 */
-  horizontalImage = '';
+  horizontalImage = ""
 
   /** 是否启用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 活动链接 */
-  link = '';
+  link = ""
 
   /** 锁定码 */
-  lockCode = '';
+  lockCode = ""
 
   /** 锁定状态 */
-  lockStatus = false;
+  lockStatus = false
 
   /** 腾讯地图Key */
-  mapKey = '';
+  mapKey = ""
+
+  /** 商户配置 */
+  matchSettings = new MerchantSetting()
 
   /** 活动备注 */
-  remark = '';
+  remark = ""
 
   /** 数据统计url；前端不传 */
-  shareHref = '';
+  shareHref = ""
 
   /** 活动开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-  status = 1;
+  status = 1
 
   /** 置顶 */
-  sticky = false;
+  sticky = false
 
   /** 活动名称 */
-  title = '';
+  title = ""
 
   /** 活动类型;后台创建字典 */
-  type = '';
+  type = ""
 
   /** h5地址 */
-  url = '';
+  url = ""
 
   /** 是否使用微信登录 */
-  useWechatLogin = false;
+  useWechatLogin = false
 
   /** 活动图片-竖版 */
-  verticalImage = '';
+  verticalImage = ""
 
   /** 数据统计 */
-  websiteId = '';
+  websiteId = ""
+
+  /** 是否获取微信头像昵称信息 */
+  wxprofile = false
 }
 
 class UpdateCustomDataRequest {
   /** 活动id；静默处理页面不显示 */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 自定义标识；不传 */
-  customCode = '';
+  customCode = ""
 
   /** 描述 */
-  desc = '';
+  desc = ""
 
   /** json数据；单独更改 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class UpdateDictionaryRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 字典码 */
-  dictionaryCode = '';
+  dictionaryCode = ""
 
   /** 字典json */
-  optionData = [];
+  optionData = []
 
   /** 字典名称 */
-  title = '';
+  title = ""
 
   /** 字典类型;1系统全局, 2自定义 */
-  type = '';
+  type = ""
 }
 
 class UpdateEventKeyRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否启用 */
-  enable = false;
+  enable = false
 
   /** 事件Key */
-  key = '';
+  key = ""
 
   /** 模块字典获取 sys_event_module */
-  module = 'prize';
+  module = "prize"
 }
 
 class UpdateFieldRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否禁用 */
-  disabled = false;
+  disabled = false
 
   /** 字段标识 */
-  fieldCode = '';
+  fieldCode = ""
 
   /** 表单ID */
-  formId = undefined;
+  formId = undefined
 
   /** icon */
-  icon = '';
+  icon = ""
 
   /** 是否是默认列表显示 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否必选 */
-  isRequired = false;
+  isRequired = false
 
   /** 字段是否参与搜索 */
-  isSearch = false;
+  isSearch = false
 
   /** 是否显示 */
-  isShow = false;
+  isShow = false
 
   /** 是否是关联键 */
-  isTarget = false;
+  isTarget = false
 
   /** 字段名称 */
-  name = '';
+  name = ""
 
   /** placeholder */
-  placeholder = '';
+  placeholder = ""
 
   /** 列表显示优先级, 高的在前, 低的在后 */
-  priority = undefined;
+  priority = undefined
 
   /** 正则 */
-  regular = '';
+  regular = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 顺序 */
-  sort = undefined;
+  sort = undefined
 
   /** 字段类型 1字符串 2数字 3时间 4下拉框 */
-  type = 1;
+  type = 1
 }
 
 class UpdateFormRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 是否为基础表单 */
-  basics = false;
+  basics = false
 
   /** 报名截止时间 */
-  deadline = '';
+  deadline = ""
 
   /** 表单字段 */
-  fields = [];
+  fields = []
 
   /** 表单标识 */
-  formCode = '';
+  formCode = ""
 
   /** 创建表单是否验证验证码 */
-  formVCode = false;
+  formVCode = false
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 短信签名 */
-  signName = '';
+  signName = ""
 
   /** 短信内容 */
-  smsContent = '';
+  smsContent = ""
 
   /** 表单名称 */
-  title = '';
+  title = ""
 }
 
 class UpdateInventory {
   /** 补充或消减数 */
-  num = undefined;
+  num = undefined
 }
 
 class UpdateLinkRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 介绍 */
-  introduction = '';
+  introduction = ""
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
-  /** 状态 */
-  status = undefined;
+  /** 状态；3开启4关闭 */
+  status = 1
 
   /** 标题 */
-  title = '';
+  title = ""
+
+  /** uid二维码核销使用 */
+  uid = ""
 }
 
 class UpdateMapManagementRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 地点标识 */
-  code = '';
+  code = ""
 
   /** 点位介绍 */
-  introduce = '';
+  introduce = ""
 
   /** 自定义json数据 */
-  jsonData = undefined;
+  jsonData = undefined
 
   /** 维度 */
-  lat = undefined;
+  lat = undefined
 
   /** 经度 */
-  lng = undefined;
+  lng = undefined
 
   /** 范围单位Km */
-  range = undefined;
+  range = undefined
 
   /** 点位名称 */
-  title = '';
+  title = ""
 }
 
 class UpdateMaterialLibraryGroupRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 分组名称 */
-  name = '';
+  name = ""
 
   /** 上级分组ID */
-  parentId = undefined;
+  parentId = undefined
 
   /** 排序 */
-  sort = undefined;
+  sort = undefined
 }
 
 class UpdateMaterialLibraryRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 分组id */
-  groupId = undefined;
+  groupId = undefined
 
   /** 图片名称 */
-  name = '';
+  name = ""
 
   /** 图片地址 */
-  path = '';
+  path = ""
 
   /** 1.总端素材2.商户端素材 */
-  store = undefined;
+  store = undefined
 
   /** 1.图片 2.视频 3.音频 4.其他  */
-  type = undefined;
+  type = undefined
 
   /** 小程序id */
-  uniacid = undefined;
+  uniacid = undefined
 }
 
 class UpdatePrizeRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 奖品图片 */
-  image = '';
+  image = ""
 
   /** mini图 */
-  mini = '';
+  mini = ""
 
   /** 奖品名称 */
-  name = '';
+  name = ""
 
   /** 排序;越大越在前 */
-  sort = undefined;
+  sort = undefined
 
-  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖 */
-  type = undefined;
+  /** 奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包 */
+  type = undefined
 
   /** 奖品值；当奖品为特定数值是填写 */
-  value = undefined;
+  value = undefined
 }
 
 class UpdatePrizeRuleRequest {
   /** 活动ID */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 表单规则； */
-  formRule = [];
+  formRule = []
 
   /** 是否开启规则 */
-  isEnable = false;
+  isEnable = false
 
   /** 限制用户中奖次数 */
-  limit = undefined;
+  limit = undefined
 
   /** 奖品ID */
-  prizeId = undefined;
+  prizeId = undefined
 
   /** 百分数 100% 就是传100 90% 就是传90 也可以0.0001 也就是0.0001%的意思 */
-  probability = undefined;
+  probability = undefined
 
   /** 时间ID */
-  timeId = undefined;
+  timeId = undefined
 
   /** 规则名称 */
-  title = '';
+  title = ""
 }
 
 class UpdateSubmitRequest {
-  /** 活动ID */
-  actId = undefined;
-
-  /** 账号ID;前端不传 */
-  agentId = undefined;
-
   /** 用户提交的数据json */
-  content = undefined;
+  content = undefined
 
-  /** 抽奖扣除积分 */
-  deduct = undefined;
+  /** 表单id */
+  formId = []
 
-  /** 积分数, 不需要提交 */
-  integral = undefined;
+  /** 更新id，不传为新增 */
+  id = undefined
 
   /** 操作人 */
-  operator = '';
-
-  /** 可操作人集合 */
-  principals = [];
+  operator = ""
 
   /** 目标key, 用于保存字段表中的唯一枢纽 */
-  targetKey = '';
-
-  /** uid */
-  uid = '';
+  targetKey = ""
 }
 
 class UpdateTimePeriodRequest {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 时间段标识 */
-  code = '';
+  code = ""
 
   /** 描述 */
-  description = '';
+  description = ""
 
   /** 结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 是否开启 */
-  isEnable = false;
+  isEnable = false
 
   /** 开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class Verification {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
+
+  /** 备注 */
+  comment = ""
+
+  /** 组织权限标识 */
+  deptNum = ""
 
   /** 关联键 */
-  foreignKey = '';
+  foreignKey = ""
 
   /** id */
-  id = undefined;
+  id = undefined
+
+  /** 签到环节 */
+  link = new Link()
 
   /** 环节id */
-  linkId = undefined;
+  linkId = undefined
 
   /** 用户关联数据 */
-  player = undefined;
+  player = new Submit()
+
+  /** 用户id */
+  playerId = undefined
+
+  /** 工作人员id */
+  userId = undefined
+}
+
+class VoteConfigBody {
+  /** 活动id */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** 截止时间；截止时间为空时不限制 */
+  deadline = ""
+
+  /** id */
+  id = undefined
+
+  /** 是否限制0表示不限制 */
+  limit = undefined
+
+  /** 是否限制用户0表示不限制，大于0表示限制次数;比如可设置投票者对单个投票人限制次数单位投票数 */
+  limitUser = undefined
+
+  /** 限制次数单位；0表示不限制，1表示按天 */
+  unit = undefined
+}
+
+class VotingConfig {
+  /** 活动id */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** 截止时间；截止时间为空时不限制 */
+  deadline = ""
+
+  /** id */
+  id = undefined
+
+  /** 是否限制0表示不限制 */
+  limit = undefined
+
+  /** 是否限制用户0表示不限制，大于0表示限制次数;比如可设置投票者对单个投票人限制次数单位投票数 */
+  limitUser = undefined
+
+  /** 限制次数单位；0表示不限制，1表示按天 */
+  unit = undefined
+}
+
+class VotingRecord {
+  /** 活动id */
+  actId = undefined
+
+  /** 账号ID;前端不传 */
+  agentId = undefined
+
+  /** id */
+  id = undefined
+
+  /** 投票ip地址 */
+  ip = ""
+
+  /** 用户信息 */
+  player = new Submit()
+
+  /** 用户id */
+  playerId = undefined
+
+  /** sessionId 投票者sessionId */
+  sessionId = ""
+
+  /** 平台唯一值 */
+  targetKey = ""
 }
 
 class WeChat {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** appId */
-  appId = '';
+  appId = ""
 
   /** appSecret */
-  appSecret = '';
+  appSecret = ""
 
   /** encodingAesKey */
-  encodingAesKey = '';
+  encodingAesKey = ""
 
   /** encryptMessage */
-  encryptMessage = '';
+  encryptMessage = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否为默认 */
-  isDefault = false;
+  isDefault = false
 
   /** token */
-  token = '';
+  token = ""
 
   /** 授权文件 */
-  verifyTxt = '';
+  verifyTxt = ""
 }
 
 class WeChatShare {
   /** 活动id */
-  actId = undefined;
+  actId = undefined
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否为默认 */
-  isDefault = false;
+  isDefault = false
 
   /** 分享图片 */
-  shareImg = '';
+  shareImg = ""
 
   /** 分享副标题 */
-  subTitle = '';
+  subTitle = ""
 
   /** 分享标题 */
-  title = '';
+  title = ""
 }
 
 class WebStatisticsItem {
   /** 变化值 */
-  change = undefined;
+  change = undefined
 
   /** 当前值 */
-  value = undefined;
+  value = undefined
 }
 
 class WebStatisticsRes {
   /** 跳出 */
-  bounces = undefined;
+  bounces = new WebStatisticsItem()
 
   /** 浏览量 */
-  pageviews = undefined;
+  pageviews = new WebStatisticsItem()
 
   /** 总时间 */
-  totalTime = undefined;
+  totalTime = new WebStatisticsItem()
 
   /** 访客 */
-  uniques = undefined;
+  uniques = new WebStatisticsItem()
 }
 
 class WebsiteMetric {
   /** 时间 */
-  t = '';
+  t = ""
 
   /** x坐标或事件名 */
-  x = '';
+  x = ""
 
   /** y或数值 */
-  y = undefined;
+  y = undefined
 }
 
 export const agent = {
@@ -1925,6 +2195,9 @@ export const agent = {
   ActSyncBody,
   ActiveStatus,
   Activity,
+  AnswerConfig,
+  AnswerConfigDto,
+  AnswerRecord,
   CodeFileBody,
   CodeManagement,
   CopyRuleByTimeBody,
@@ -1954,6 +2227,7 @@ export const agent = {
   Form,
   FormFieldChildren,
   FormTreeRes,
+  GetListQuery,
   HxBody,
   Link,
   LinkOverviewRes,
@@ -1962,8 +2236,11 @@ export const agent = {
   MapManagement,
   MaterialLibrary,
   MaterialLibraryGroup,
+  MerchantSetting,
   MoveMaterialLibraryRequest,
   OptionData,
+  OptionsType,
+  PickTypeClass,
   PriorityField,
   Prize,
   PrizeChannel,
@@ -1975,11 +2252,10 @@ export const agent = {
   PrizeRuleTime,
   PrizeSetting,
   PrizeVirtual,
+  Question,
+  QuestionCreateDto,
   SaveDslBody,
-  SetTargetBody,
   Submit,
-  SubmitContent,
-  SubmitContentMust,
   SubmitList,
   SubmitSearch,
   TimePeriod,
@@ -2001,9 +2277,12 @@ export const agent = {
   UpdateSubmitRequest,
   UpdateTimePeriodRequest,
   Verification,
+  VoteConfigBody,
+  VotingConfig,
+  VotingRecord,
   WeChat,
   WeChatShare,
   WebStatisticsItem,
   WebStatisticsRes,
-  WebsiteMetric,
-};
+  WebsiteMetric
+}

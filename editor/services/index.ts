@@ -1,12 +1,12 @@
-import { defs as commonDefs, common } from './common';
+import { defs as commonDefs, common } from "./common"
 
-import { defs as agentDefs, agent } from './agent';
+import { defs as agentDefs, agent } from "./agent"
 
-(window as any).defs = {
+;(window as any).defs = {
   common: commonDefs,
-  agent: agentDefs,
-};
-(window as any).API = {
+  agent: agentDefs
+}
+;(window as any).API = {
   common,
-  agent,
-};
+  agent
+}

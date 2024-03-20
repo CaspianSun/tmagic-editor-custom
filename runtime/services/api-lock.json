@@ -1238,6 +1238,25 @@
         ]
       },
       {
+        "name": "FileUploadBody",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "file",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "Form",
         "templateArgs": [],
         "properties": [

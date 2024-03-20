@@ -14,4 +14,13 @@ export class FileStructures extends OriginFileStructures {
     }
     return super.getMultipleOriginsFileStructures()
   }
+
+  getFileStructures() {
+    const result =
+      this.usingMultipleOrigins || this.generators.length > 1
+        ? this.getMultipleOriginsFileStructures()
+        : this.getOriginFileStructures(this.generators[0])
+
+    return result
+  }
 }

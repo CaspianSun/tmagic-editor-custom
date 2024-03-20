@@ -2,7 +2,6 @@
 import type { FieldProps } from "@tmagic/form"
 import {} from "vue"
 const props = defineProps<FieldProps<any>>()
-console.log("props", props)
 </script>
 
 <template>

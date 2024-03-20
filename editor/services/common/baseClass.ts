@@ -1,566 +1,566 @@
 class Activity {
   /** 活动标识 */
-  actCode = '';
+  actCode = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 创建人Id */
-  creatorId = undefined;
+  creatorId = undefined
 
   /** 部门标识 */
-  deptNum = '';
+  deptNum = ""
 
   /** 活动结束时间 */
-  endTime = '';
+  endTime = ""
 
   /** 活动图片-横版 */
-  horizontalImage = '';
+  horizontalImage = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 是否启用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 活动链接 */
-  link = '';
+  link = ""
 
   /** 锁定码 */
-  lockCode = '';
+  lockCode = ""
 
   /** 锁定状态 */
-  lockStatus = false;
+  lockStatus = false
 
   /** 腾讯地图Key */
-  mapKey = '';
+  mapKey = ""
 
   /** 商户配置 */
-  matchSettings = undefined;
+  matchSettings = new MerchantSetting()
 
   /** 活动备注 */
-  remark = '';
+  remark = ""
 
   /** 数据统计url；前端不传 */
-  shareHref = '';
+  shareHref = ""
 
   /** 活动开始时间 */
-  startTime = '';
+  startTime = ""
 
   /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-  status = 1;
+  status = 1
 
   /** 置顶 */
-  sticky = false;
+  sticky = false
 
   /** 活动名称 */
-  title = '';
+  title = ""
 
   /** 活动类型;后台创建字典 */
-  type = '';
+  type = ""
 
   /** h5地址 */
-  url = '';
+  url = ""
 
   /** 是否使用微信登录 */
-  useWechatLogin = false;
+  useWechatLogin = false
 
   /** 活动图片-竖版 */
-  verticalImage = '';
+  verticalImage = ""
 
   /** 数据统计 */
-  websiteId = '';
+  websiteId = ""
 
   /** 是否获取微信头像昵称信息 */
-  wxprofile = false;
+  wxprofile = false
 }
 
 class AgentAccount {
   /** 账号 */
-  account = '';
+  account = ""
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 业务端配置;结构前端定义 */
-  configuration = undefined;
+  configuration = new LoginConfiguration()
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 使用周期 */
-  usageCycle = '';
+  usageCycle = ""
 
   /** 用户ID */
-  userId = undefined;
+  userId = undefined
 
   /** 用于前端链接标识 */
-  verify = '';
+  verify = ""
 }
 
 class CreateDepartmentRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 部门名称 */
-  name = '';
+  name = ""
 
   /** 部门排序 */
-  orderNo = undefined;
+  orderNo = undefined
 
   /** 父id */
-  parentId = undefined;
+  parentId = undefined
 
   /** 部门权限标识 */
-  permission = '';
+  permission = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 }
 
 class CreateLogRequest {
   /** IP地址 */
-  ip = '';
+  ip = ""
 
   /** 消息描述 */
-  message = '';
+  message = ""
 
   /** 操作内容 */
-  operatorContent = '';
+  operatorContent = ""
 
   /** 日志类型 */
-  type = undefined;
+  type = undefined
 
   /** 操作人 */
-  userId = '';
+  userId = ""
 }
 
 class CreateUserRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 头像 */
-  avatar = '';
+  avatar = ""
 
   /** 业务端配置;结构前端定义 */
-  configuration = undefined;
+  configuration = new LoginConfiguration()
 
   /** 部门id */
-  deptId = undefined;
+  deptId = undefined
 
   /** 部门管理者 */
-  deptLeader = false;
+  deptLeader = false
 
   /** 简介 */
-  desc = '';
+  desc = ""
 
   /** 昵称 */
-  displayName = '';
+  displayName = ""
 
   /** 邮箱 */
-  email = '';
+  email = ""
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 是否可用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 是否为超级管理员 */
-  isSuper = false;
+  isSuper = false
 
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** openid */
-  openid = '';
+  openid = ""
 
   /** 角色id */
-  roleId = undefined;
+  roleId = undefined
 
   /** 性别 */
-  sex = undefined;
+  sex = undefined
 
   /** 使用周期 */
-  usageCycle = '';
+  usageCycle = ""
 
   /** 用户名 */
-  username = '';
+  username = ""
 }
 
 class Department {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 部门名称 */
-  name = '';
+  name = ""
 
   /** 部门排序 */
-  orderNo = undefined;
+  orderNo = undefined
 
   /** 父id */
-  parentId = undefined;
+  parentId = undefined
 
   /** 部门权限标识 */
-  permission = '';
+  permission = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 }
 
 class EditorRequest {
   /** zip */
-  zip = '';
+  zip = ""
 }
 
 class FileUploadBody {
   /** file */
-  file = '';
+  file = ""
 }
 
 class FilesUploadBody {
   /** files */
-  files = [];
+  files = []
 }
 
 class ForgetPasswordRequest {
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** 新密码 */
-  newPassword = '';
+  newPassword = ""
 
   /** 验证码 */
-  smsCode = '';
+  smsCode = ""
 }
 
 class GetPhoneNumber {
   /** 小程序code */
-  code = '';
+  code = ""
 }
 
 class LoginConfiguration {
   /** 背景图片 */
-  bg = '';
+  bg = ""
 
   /** logo */
-  logo = '';
+  logo = ""
 
   /** 网站应用标题 */
-  title = '';
+  title = ""
 }
 
 class LoginMobileRequest {
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** 验证码 */
-  smsCode = '';
+  smsCode = ""
 }
 
 class LoginPasswordRequest {
   /** 账号 */
-  account = '';
+  account = ""
 
   /** 身份 传1或者2,   1是运维  2是业务 */
-  identity = '1';
+  identity = "1"
 
   /** 密码 */
-  password = '';
+  password = ""
 }
 
 class LoginSuccessResponse {
   /** token */
-  token = '';
+  token = ""
 }
 
 class Logs {
   /** id */
-  id = undefined;
+  id = undefined
 
   /** IP地址 */
-  ip = '';
+  ip = ""
 
   /** 消息描述 */
-  message = '';
+  message = ""
 
   /** 操作内容 */
-  operatorContent = '';
+  operatorContent = ""
 
   /** 日志类型 */
-  type = undefined;
+  type = undefined
 
   /** 操作人 */
-  userId = '';
+  userId = ""
 }
 
 class Menu {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 页面组件 */
-  component = '';
+  component = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 菜单名称 */
-  menuName = '';
+  menuName = ""
 
   /** 菜单 meta */
-  meta = undefined;
+  meta = new RouteMeta()
 
   /** 路由名称 */
-  name = '';
+  name = ""
 
   /** 父级ID */
-  parentId = undefined;
+  parentId = undefined
 
   /** 路由地址 */
-  path = '';
+  path = ""
 
   /** 权限标识 */
-  permission = '';
+  permission = ""
 
   /** 重定向path */
-  redirect = '';
+  redirect = ""
 
   /** sort */
-  sort = undefined;
+  sort = undefined
 
   /** status */
-  status = undefined;
+  status = undefined
 
   /** 菜单类型 */
-  type = undefined;
+  type = undefined
 }
 
 class MenuCreateBody {
   /** 组件地址 */
-  component = '';
+  component = ""
 
   /** 菜单名称 */
-  menuName = '';
+  menuName = ""
 
   /** meta 数据 */
-  meta = undefined;
+  meta = new Meta()
 
   /** 路由名称 */
-  name = '';
+  name = ""
 
   /** 上级菜单 */
-  parentId = '';
+  parentId = ""
 
   /** 路由地址 */
-  path = '';
+  path = ""
 
   /** 权限标识 */
-  permission = '';
+  permission = ""
 
   /** 重定向path */
-  redirect = '';
+  redirect = ""
 
   /** 排序 */
-  sort = '';
+  sort = ""
 
   /** 状态 1启用 0禁用 */
-  status = undefined;
+  status = undefined
 
   /** 菜单类型 */
-  type = undefined;
+  type = undefined
 }
 
 class MenuUpdateBody {
   /** id */
-  id = '';
+  id = ""
 }
 
 class MerchantSetting {
   /** 活动名称 */
-  actName = '';
+  actName = ""
 
   /** apikey */
-  apiKey = '';
+  apiKey = ""
 
   /** 私钥key */
-  key = '';
+  key = ""
 
   /** 商户id */
-  matchId = '';
+  matchId = ""
 
   /** 证书pem */
-  pem = '';
+  pem = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 发放者名称 */
-  sendName = '';
+  sendName = ""
 
   /** 祝福语 */
-  wishing = '';
+  wishing = ""
 }
 
 class Meta {
   /** icon */
-  icon = '';
+  icon = ""
 
   /** 是否是外链 1是 0否 */
-  isExt = '';
+  isExt = ""
 
   /** 标题 */
-  title = '';
+  title = ""
 }
 
 class RegisterMobileRequest {
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** 验证码 */
-  smsCode = '';
+  smsCode = ""
 }
 
 class Role {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 简介 */
-  introduction = '';
+  introduction = ""
 
   /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 关联菜单 */
-  menus = undefined;
+  menus = new Menu()
 
   /** 角色名称 */
-  name = '';
+  name = ""
 }
 
 class RoleCreateBody {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 简介 */
-  introduction = '';
+  introduction = ""
 
   /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 菜单id */
-  menu = [];
+  menu = []
 
   /** 角色名称 */
-  name = '';
+  name = ""
 }
 
 class RoleUpdateBody {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 简介 */
-  introduction = '';
+  introduction = ""
 
   /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-  isDefault = false;
+  isDefault = false
 
   /** 是否开启 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 菜单id */
-  menu = [];
+  menu = []
 
   /** 角色名称 */
-  name = '';
+  name = ""
 }
 
 class RouteMeta {
   /** 高亮指定菜单 */
-  activeMenu = '';
+  activeMenu = ""
 
   /** badge小标签(只支持子级) */
-  badge = '';
+  badge = ""
 
   /** 是否隐藏面包屑 */
-  breadcrumbHidden = false;
+  breadcrumbHidden = false
 
   /** 是否显示小圆点 */
-  dot = false;
+  dot = false
 
   /** 动态传参路由是否新开标签页 */
-  dynamicNewTab = false;
+  dynamicNewTab = false
 
   /** 权限 */
-  guard = undefined;
+  guard = undefined
 
   /** 是否显示在菜单中显示隐藏路由 */
-  hidden = false;
+  hidden = false
 
   /** 图标 */
-  icon = '';
+  icon = ""
 
   /** 是否是自定义svg图标 */
-  isCustomSvg = false;
+  isCustomSvg = false
 
   /** 是否显示在菜单中显示隐藏一级路由 */
-  levelHidden = false;
+  levelHidden = false
 
   /** 当前路由是否可关闭多标签页 */
-  noClosable = false;
+  noClosable = false
 
   /** 是否隐藏侧边栏 */
-  noColumn = false;
+  noColumn = false
 
   /** 当前路由是否不缓存 */
-  noKeepAlive = false;
+  noKeepAlive = false
 
   /** 当前路由是否不显示多标签页 */
-  tabHidden = false;
+  tabHidden = false
 
   /** 在新窗口中打开 */
-  target = undefined;
+  target = undefined
 
   /** 菜单、面包屑、多标签页显示的名称 */
-  title = '';
+  title = ""
 }
 
 class SmsRes {}
@@ -569,155 +569,155 @@ class String {}
 
 class UpdateDepartmentRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 部门名称 */
-  name = '';
+  name = ""
 
   /** 部门排序 */
-  orderNo = undefined;
+  orderNo = undefined
 
   /** 父id */
-  parentId = undefined;
+  parentId = undefined
 
   /** 部门权限标识 */
-  permission = '';
+  permission = ""
 
   /** 备注 */
-  remark = '';
+  remark = ""
 
   /** 状态 */
-  status = undefined;
+  status = undefined
 }
 
 class UpdateRequest {
   /** 所属平台 */
-  platform = '';
+  platform = ""
 
   /** zip */
-  zip = '';
+  zip = ""
 }
 
 class UpdateUserPasswordRequest {
   /** newPwd */
-  newPwd = '';
+  newPwd = ""
 
   /** oldPwd */
-  oldPwd = '';
+  oldPwd = ""
 }
 
 class UpdateUserRequest {
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 头像 */
-  avatar = '';
+  avatar = ""
 
   /** 业务端配置;结构前端定义 */
-  configuration = undefined;
+  configuration = new LoginConfiguration()
 
   /** 部门id */
-  deptId = undefined;
+  deptId = undefined
 
   /** 部门管理者 */
-  deptLeader = false;
+  deptLeader = false
 
   /** 简介 */
-  desc = '';
+  desc = ""
 
   /** 昵称 */
-  displayName = '';
+  displayName = ""
 
   /** 邮箱 */
-  email = '';
+  email = ""
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 是否可用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 是否为超级管理员 */
-  isSuper = false;
+  isSuper = false
 
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** openid */
-  openid = '';
+  openid = ""
 
   /** 角色id */
-  roleId = undefined;
+  roleId = undefined
 
   /** 性别 */
-  sex = undefined;
+  sex = undefined
 
   /** 使用周期 */
-  usageCycle = '';
+  usageCycle = ""
 
   /** 用户名 */
-  username = '';
+  username = ""
 }
 
 class User {
   /** 运维端账号信息 */
-  agent = undefined;
+  agent = new AgentAccount()
 
   /** 账号ID;前端不传 */
-  agentId = undefined;
+  agentId = undefined
 
   /** 头像 */
-  avatar = '';
+  avatar = ""
 
   /** 部门id */
-  deptId = undefined;
+  deptId = undefined
 
   /** 部门管理者 */
-  deptLeader = false;
+  deptLeader = false
 
   /** 简介 */
-  desc = '';
+  desc = ""
 
   /** 昵称 */
-  displayName = '';
+  displayName = ""
 
   /** 邮箱 */
-  email = '';
+  email = ""
 
   /** id */
-  id = undefined;
+  id = undefined
 
   /** 身份 */
-  identity = '';
+  identity = ""
 
   /** 是否可用 */
-  isEnabled = false;
+  isEnabled = false
 
   /** 是否为超级管理员 */
-  isSuper = false;
+  isSuper = false
 
   /** 手机号 */
-  mobile = '';
+  mobile = ""
 
   /** openid */
-  openid = '';
+  openid = ""
 
   /** 角色id */
-  roleId = undefined;
+  roleId = undefined
 
   /** 性别 */
-  sex = undefined;
+  sex = undefined
 
   /** 用户名 */
-  username = '';
+  username = ""
 }
 
 class UserActUpdateBody {
   /** 活动id */
-  actIds = [];
+  actIds = []
 }
 
 export const common = {
@@ -754,5 +754,5 @@ export const common = {
   UpdateUserPasswordRequest,
   UpdateUserRequest,
   User,
-  UserActUpdateBody,
-};
+  UserActUpdateBody
+}

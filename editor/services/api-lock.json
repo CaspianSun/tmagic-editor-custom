@@ -177,8 +177,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "MerchantSetting",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -399,8 +399,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "LoginConfiguration",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -696,8 +696,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "LoginConfiguration",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -1491,8 +1491,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "RouteMeta",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -1649,8 +1649,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Meta",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -2084,8 +2084,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Menu",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -2810,8 +2810,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "LoginConfiguration",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -3026,8 +3026,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "AgentAccount",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -3399,6 +3399,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "deptNum",
+            "description": "部门标识",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "endTime",
             "description": "活动结束时间",
             "required": true
@@ -3503,6 +3517,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "MerchantSetting",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchSettings",
+            "description": "商户配置",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -3550,11 +3578,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
                 1,
                 2,
                 3,
@@ -3663,6 +3686,301 @@
             },
             "name": "websiteId",
             "description": "数据统计",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wxprofile",
+            "description": "是否获取微信头像昵称信息",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "AnswerConfig",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动ID",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "limit",
+            "description": "随机题目总数",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "time",
+            "description": "每题时间；单位秒",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "AnswerConfigDto",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动ID",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "limit",
+            "description": "随机题目总数",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "time",
+            "description": "每题时间；单位秒",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "AnswerRecord",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动ID",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "answer",
+            "description": "答案",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "isRight",
+            "description": "是否正确",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "playerId",
+            "description": "用户id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "questionId",
+            "description": "试题id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "targetKey",
+            "description": "目标键",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "time",
+            "description": "答题时间；单位秒",
             "required": true
           }
         ]
@@ -3922,8 +4240,6 @@
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
                 1,
-                2,
-                1,
                 2
               ],
               "typeProperties": []
@@ -4052,6 +4368,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "deptNum",
+            "description": "部门标识",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "endTime",
             "description": "活动结束时间",
             "required": false
@@ -4143,6 +4473,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "MerchantSetting",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchSettings",
+            "description": "商户配置",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -4190,11 +4534,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
                 1,
                 2,
                 3,
@@ -4303,6 +4642,20 @@
             },
             "name": "websiteId",
             "description": "数据统计",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wxprofile",
+            "description": "是否获取微信头像昵称信息",
             "required": false
           }
         ]
@@ -4567,7 +4920,9 @@
               "enum": [
                 "'prize'",
                 "'register'",
-                "'saveUser'"
+                "'saveUser'",
+                "'hxbefore'",
+                "'hxafter'"
               ],
               "typeProperties": []
             },
@@ -4839,19 +5194,6 @@
                 10,
                 11,
                 12,
-                13,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
                 13
               ],
               "typeProperties": []
@@ -5109,15 +5451,20 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "object",
+              "typeName": "",
               "isDefsType": false,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
+              "enum": [
+                1,
+                2,
+                3,
+                4
+              ],
               "typeProperties": []
             },
             "name": "status",
-            "description": "状态",
+            "description": "状态；3开启4关闭",
             "required": true
           },
           {
@@ -5132,6 +5479,20 @@
             },
             "name": "title",
             "description": "标题",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "uid",
+            "description": "uid二维码核销使用",
             "required": true
           }
         ]
@@ -5469,8 +5830,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "PrizeChannel",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -5525,8 +5886,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Submit",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -5783,7 +6144,7 @@
               "typeProperties": []
             },
             "name": "type",
-            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖",
+            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包",
             "required": true
           },
           {
@@ -6543,7 +6904,9 @@
               "enum": [
                 "'prize'",
                 "'register'",
-                "'saveUser'"
+                "'saveUser'",
+                "'hxbefore'",
+                "'hxafter'"
               ],
               "typeProperties": []
             },
@@ -6840,19 +7203,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
                 1,
                 2,
                 3,
@@ -7196,6 +7546,52 @@
         ]
       },
       {
+        "name": "GetListQuery",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "limit",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "page",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "targetKey",
+            "description": "唯一键",
+            "required": false
+          }
+        ]
+      },
+      {
         "name": "HxBody",
         "templateArgs": [],
         "properties": [
@@ -7209,8 +7605,22 @@
               "enum": [],
               "typeProperties": []
             },
-            "name": "foreignKey",
-            "description": "关联键",
+            "name": "comment",
+            "description": "备注",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "hxContent",
+            "description": "扫码结果",
             "required": true
           },
           {
@@ -7224,7 +7634,7 @@
               "typeProperties": []
             },
             "name": "linkId",
-            "description": "环节id",
+            "description": "环节id；可穿uid或id",
             "required": true
           }
         ]
@@ -7319,15 +7729,20 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "object",
+              "typeName": "",
               "isDefsType": false,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
+              "enum": [
+                1,
+                2,
+                3,
+                4
+              ],
               "typeProperties": []
             },
             "name": "status",
-            "description": "状态",
+            "description": "状态；3开启4关闭",
             "required": true
           },
           {
@@ -7342,6 +7757,20 @@
             },
             "name": "title",
             "description": "标题",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "uid",
+            "description": "uid二维码核销使用",
             "required": true
           }
         ]
@@ -7406,10 +7835,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
                 1,
                 2,
                 3,
@@ -7795,6 +8220,124 @@
         ]
       },
       {
+        "name": "MerchantSetting",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actName",
+            "description": "活动名称",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "apiKey",
+            "description": "apikey",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "key",
+            "description": "私钥key",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchId",
+            "description": "商户id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "pem",
+            "description": "证书pem",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "remark",
+            "description": "备注",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "sendName",
+            "description": "发放者名称",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wishing",
+            "description": "祝福语",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "MoveMaterialLibraryRequest",
         "templateArgs": [],
         "properties": [
@@ -7856,6 +8399,74 @@
             },
             "name": "name",
             "description": "选项名称",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "OptionsType",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "label",
+            "description": "选项内容",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "labelImg",
+            "description": "选项内容图片",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "value",
+            "description": "选项值",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "PickTypeClass",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "version",
+            "description": "版本号",
             "required": true
           }
         ]
@@ -8019,7 +8630,7 @@
               "typeProperties": []
             },
             "name": "type",
-            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖",
+            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包",
             "required": true
           },
           {
@@ -8204,8 +8815,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "PrizeChannel",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -8273,8 +8884,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Submit",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -8528,8 +9139,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Submit",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -8556,8 +9167,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Prize",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -8966,6 +9577,20 @@
             "name": "3",
             "description": "虚拟奖品用户可中奖数量",
             "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "4",
+            "description": "现金红包奖品用户可中奖数量",
+            "required": true
           }
         ]
       },
@@ -9045,8 +9670,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Submit",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -9073,8 +9698,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "Prize",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -9096,6 +9721,275 @@
             },
             "name": "prizeId",
             "description": "奖品id",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "Question",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动ID",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "answer",
+            "description": "答案",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [
+                {
+                  "typeArgs": [],
+                  "typeName": "OptionsType",
+                  "isDefsType": true,
+                  "templateIndex": -1,
+                  "compileTemplateKeyword": "#/definitions/",
+                  "enum": [],
+                  "typeProperties": []
+                }
+              ],
+              "typeName": "Array",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "options",
+            "description": "选项",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "score",
+            "description": "分数",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "title",
+            "description": "题目",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "titleImg",
+            "description": "题目图片",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "type",
+            "description": "1单选题；2多选题",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "QuestionCreateDto",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动ID",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "answer",
+            "description": "答案",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [
+                {
+                  "typeArgs": [],
+                  "typeName": "OptionsType",
+                  "isDefsType": true,
+                  "templateIndex": -1,
+                  "compileTemplateKeyword": "#/definitions/",
+                  "enum": [],
+                  "typeProperties": []
+                }
+              ],
+              "typeName": "Array",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "options",
+            "description": "选项",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "score",
+            "description": "分数",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "title",
+            "description": "题目",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "titleImg",
+            "description": "题目图片",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "type",
+            "description": "1单选题；2多选题",
             "required": true
           }
         ]
@@ -9163,26 +10057,6 @@
         ]
       },
       {
-        "name": "SetTargetBody",
-        "templateArgs": [],
-        "properties": [
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "boolean",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "isTarget",
-            "description": "是否是关联字段",
-            "required": true
-          }
-        ]
-      },
-      {
         "name": "Submit",
         "templateArgs": [],
         "properties": [
@@ -9212,6 +10086,30 @@
             },
             "name": "agentId",
             "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [
+                {
+                  "typeArgs": [],
+                  "typeName": "AnswerRecord",
+                  "isDefsType": true,
+                  "templateIndex": -1,
+                  "compileTemplateKeyword": "#/definitions/",
+                  "enum": [],
+                  "typeProperties": []
+                }
+              ],
+              "typeName": "Array",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "answerRecord",
+            "description": "答题记录",
             "required": false
           },
           {
@@ -9310,6 +10208,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "score",
+            "description": "答题分数",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -9334,103 +10246,22 @@
             "name": "uid",
             "description": "uid",
             "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "vote",
+            "description": "投票数",
+            "required": false
           }
         ]
-      },
-      {
-        "name": "SubmitContent",
-        "templateArgs": [],
-        "properties": [
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "content",
-            "description": "用户提交的数据json，根据表单数据来",
-            "required": true
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "formCode",
-            "description": "表单code",
-            "required": true
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "operator",
-            "description": "目标key, 用于保存字段表中的唯一枢纽",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "phoneKey",
-            "description": "手机验证码表单key",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "smsCode",
-            "description": "验证码；",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "targetKey",
-            "description": "目标key, 用于保存字段表中的唯一枢纽",
-            "required": true
-          }
-        ]
-      },
-      {
-        "name": "SubmitContentMust",
-        "templateArgs": [],
-        "properties": []
       },
       {
         "name": "SubmitList",
@@ -9740,10 +10571,6 @@
                 1,
                 2,
                 3,
-                4,
-                1,
-                2,
-                3,
                 4
               ],
               "typeProperties": []
@@ -9914,6 +10741,20 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "deptNum",
+            "description": "部门标识",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "endTime",
             "description": "活动结束时间",
             "required": false
@@ -10005,6 +10846,20 @@
           {
             "dataType": {
               "typeArgs": [],
+              "typeName": "MerchantSetting",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "matchSettings",
+            "description": "商户配置",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
               "templateIndex": -1,
@@ -10052,11 +10907,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
                 1,
                 2,
                 3,
@@ -10165,6 +11015,20 @@
             },
             "name": "websiteId",
             "description": "数据统计",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "boolean",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "wxprofile",
+            "description": "是否获取微信头像昵称信息",
             "required": false
           }
         ]
@@ -10429,7 +11293,9 @@
               "enum": [
                 "'prize'",
                 "'register'",
-                "'saveUser'"
+                "'saveUser'",
+                "'hxbefore'",
+                "'hxafter'"
               ],
               "typeProperties": []
             },
@@ -10689,19 +11555,6 @@
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
                 1,
                 2,
                 3,
@@ -10991,15 +11844,20 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "object",
+              "typeName": "",
               "isDefsType": false,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
+              "enum": [
+                1,
+                2,
+                3,
+                4
+              ],
               "typeProperties": []
             },
             "name": "status",
-            "description": "状态",
+            "description": "状态；3开启4关闭",
             "required": false
           },
           {
@@ -11014,6 +11872,20 @@
             },
             "name": "title",
             "description": "标题",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "uid",
+            "description": "uid二维码核销使用",
             "required": false
           }
         ]
@@ -11415,7 +12287,7 @@
               "typeProperties": []
             },
             "name": "type",
-            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4空奖",
+            "description": "奖品类型;1普通礼品；2实物奖品，需要登记邮寄地址；3虚拟商品，需要兑换码；4现金红包",
             "required": false
           },
           {
@@ -11583,34 +12455,6 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "number",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "actId",
-            "description": "活动ID",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "number",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "agentId",
-            "description": "账号ID;前端不传",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
               "typeName": "object",
               "isDefsType": false,
               "templateIndex": -1,
@@ -11620,7 +12464,41 @@
             },
             "name": "content",
             "description": "用户提交的数据json",
-            "required": false
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [
+                {
+                  "typeArgs": [
+                    {
+                      "typeArgs": [],
+                      "typeName": "",
+                      "isDefsType": false,
+                      "templateIndex": -1,
+                      "compileTemplateKeyword": "#/definitions/",
+                      "enum": [],
+                      "typeProperties": []
+                    }
+                  ],
+                  "typeName": "Array",
+                  "isDefsType": false,
+                  "templateIndex": -1,
+                  "compileTemplateKeyword": "#/definitions/",
+                  "enum": [],
+                  "typeProperties": []
+                }
+              ],
+              "typeName": "Array",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "formId",
+            "description": "表单id",
+            "required": true
           },
           {
             "dataType": {
@@ -11632,23 +12510,9 @@
               "enum": [],
               "typeProperties": []
             },
-            "name": "deduct",
-            "description": "抽奖扣除积分",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "number",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "integral",
-            "description": "积分数, 不需要提交",
-            "required": false
+            "name": "id",
+            "description": "更新id，不传为新增",
+            "required": true
           },
           {
             "dataType": {
@@ -11666,30 +12530,6 @@
           },
           {
             "dataType": {
-              "typeArgs": [
-                {
-                  "typeArgs": [],
-                  "typeName": "Submit",
-                  "isDefsType": true,
-                  "templateIndex": -1,
-                  "compileTemplateKeyword": "#/definitions/",
-                  "enum": [],
-                  "typeProperties": []
-                }
-              ],
-              "typeName": "Array",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "principals",
-            "description": "可操作人集合",
-            "required": false
-          },
-          {
-            "dataType": {
               "typeArgs": [],
               "typeName": "string",
               "isDefsType": false,
@@ -11700,20 +12540,6 @@
             },
             "name": "targetKey",
             "description": "目标key, 用于保存字段表中的唯一枢纽",
-            "required": false
-          },
-          {
-            "dataType": {
-              "typeArgs": [],
-              "typeName": "string",
-              "isDefsType": false,
-              "templateIndex": -1,
-              "compileTemplateKeyword": "#/definitions/",
-              "enum": [],
-              "typeProperties": []
-            },
-            "name": "uid",
-            "description": "uid",
             "required": false
           }
         ]
@@ -11892,8 +12718,270 @@
               "enum": [],
               "typeProperties": []
             },
+            "name": "comment",
+            "description": "备注",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deptNum",
+            "description": "组织权限标识",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "foreignKey",
             "description": "关联键",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "Link",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "link",
+            "description": "签到环节",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "linkId",
+            "description": "环节id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "Submit",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "player",
+            "description": "用户关联数据",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "playerId",
+            "description": "用户id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "userId",
+            "description": "工作人员id",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "VoteConfigBody",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动id",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deadline",
+            "description": "截止时间；截止时间为空时不限制",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "limit",
+            "description": "是否限制0表示不限制",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "limitUser",
+            "description": "是否限制用户0表示不限制，大于0表示限制次数;比如可设置投票者对单个投票人限制次数单位投票数",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "unit",
+            "description": "限制次数单位；0表示不限制，1表示按天",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "VotingConfig",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "deadline",
+            "description": "截止时间；截止时间为空时不限制",
             "required": true
           },
           {
@@ -11919,22 +13007,153 @@
               "enum": [],
               "typeProperties": []
             },
-            "name": "linkId",
-            "description": "环节id",
+            "name": "limit",
+            "description": "是否限制0表示不限制",
             "required": true
           },
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
+              "typeName": "number",
               "isDefsType": false,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
               "typeProperties": []
             },
+            "name": "limitUser",
+            "description": "是否限制用户0表示不限制，大于0表示限制次数;比如可设置投票者对单个投票人限制次数单位投票数",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "unit",
+            "description": "限制次数单位；0表示不限制，1表示按天",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "VotingRecord",
+        "templateArgs": [],
+        "properties": [
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "actId",
+            "description": "活动id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "agentId",
+            "description": "账号ID;前端不传",
+            "required": false
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "ip",
+            "description": "投票ip地址",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "Submit",
+              "isDefsType": true,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
             "name": "player",
-            "description": "用户关联数据",
+            "description": "用户信息",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "number",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "playerId",
+            "description": "用户id",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "sessionId",
+            "description": "sessionId 投票者sessionId",
+            "required": true
+          },
+          {
+            "dataType": {
+              "typeArgs": [],
+              "typeName": "string",
+              "isDefsType": false,
+              "templateIndex": -1,
+              "compileTemplateKeyword": "#/definitions/",
+              "enum": [],
+              "typeProperties": []
+            },
+            "name": "targetKey",
+            "description": "平台唯一值",
             "required": true
           }
         ]
@@ -12228,8 +13447,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "WebStatisticsItem",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -12242,8 +13461,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "WebStatisticsItem",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -12256,8 +13475,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "WebStatisticsItem",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],
@@ -12270,8 +13489,8 @@
           {
             "dataType": {
               "typeArgs": [],
-              "typeName": "",
-              "isDefsType": false,
+              "typeName": "WebStatisticsItem",
+              "isDefsType": true,
               "templateIndex": -1,
               "compileTemplateKeyword": "#/definitions/",
               "enum": [],

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "build:upload": "npm run build && sh ../upload.sh",
     "build": "rm -rf dist && run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -19,6 +20,7 @@
     "element-plus": "^2.4.3",
     "lodash-es": "^4.17.21",
     "monaco-editor": "0.41.0",
+    "naive-ui": "^2.38.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
@@ -51,6 +53,7 @@
     "jsdom": "^23.2.0",
     "npm-run-all2": "^6.1.2",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "pont-engine": "^1.6.2",
     "prettier": "^3.2.5",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.71.1",

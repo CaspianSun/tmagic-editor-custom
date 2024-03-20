@@ -1,572 +1,572 @@
 type ObjectMap<Key extends string | number | symbol = any, Value = any> = {
-  [key in Key]: Value;
-};
+  [key in Key]: Value
+}
 
 declare namespace defs {
   export namespace common {
     export class Activity {
       /** 活动标识 */
-      actCode: string;
+      actCode: string
 
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 创建人Id */
-      creatorId: number;
+      creatorId: number
 
       /** 部门标识 */
-      deptNum: string;
+      deptNum: string
 
       /** 活动结束时间 */
-      endTime: string;
+      endTime: string
 
       /** 活动图片-横版 */
-      horizontalImage: string;
+      horizontalImage: string
 
       /** id */
-      id: number;
+      id: number
 
       /** 是否启用 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 活动链接 */
-      link: string;
+      link: string
 
       /** 锁定码 */
-      lockCode: string;
+      lockCode: string
 
       /** 锁定状态 */
-      lockStatus: boolean;
+      lockStatus: boolean
 
       /** 腾讯地图Key */
-      mapKey: string;
+      mapKey: string
 
       /** 商户配置 */
-      matchSettings: any;
+      matchSettings: defs.common.MerchantSetting
 
       /** 活动备注 */
-      remark: string;
+      remark: string
 
       /** 数据统计url；前端不传 */
-      shareHref: string;
+      shareHref: string
 
       /** 活动开始时间 */
-      startTime: string;
+      startTime: string
 
       /** 状态；1开启, 2关闭，3活动未开始, 4活动进行中,5活动结束 */
-      status: 1 | 2 | 3 | 4 | 5;
+      status: 1 | 2 | 3 | 4 | 5
 
       /** 置顶 */
-      sticky: boolean;
+      sticky: boolean
 
       /** 活动名称 */
-      title: string;
+      title: string
 
       /** 活动类型;后台创建字典 */
-      type: string;
+      type: string
 
       /** h5地址 */
-      url: string;
+      url: string
 
       /** 是否使用微信登录 */
-      useWechatLogin: boolean;
+      useWechatLogin: boolean
 
       /** 活动图片-竖版 */
-      verticalImage: string;
+      verticalImage: string
 
       /** 数据统计 */
-      websiteId: string;
+      websiteId: string
 
       /** 是否获取微信头像昵称信息 */
-      wxprofile: boolean;
+      wxprofile: boolean
     }
 
     export class AgentAccount {
       /** 账号 */
-      account: string;
+      account: string
 
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 业务端配置;结构前端定义 */
-      configuration: any;
+      configuration: defs.common.LoginConfiguration
 
       /** id */
-      id: number;
+      id: number
 
       /** 使用周期 */
-      usageCycle: string;
+      usageCycle: string
 
       /** 用户ID */
-      userId: number;
+      userId: number
 
       /** 用于前端链接标识 */
-      verify: string;
+      verify: string
     }
 
     export class CreateDepartmentRequest {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 部门名称 */
-      name: string;
+      name: string
 
       /** 部门排序 */
-      orderNo: number;
+      orderNo: number
 
       /** 父id */
-      parentId: number;
+      parentId: number
 
       /** 部门权限标识 */
-      permission: string;
+      permission: string
 
       /** 备注 */
-      remark: string;
+      remark: string
 
       /** 状态 */
-      status: number;
+      status: number
     }
 
     export class CreateLogRequest {
       /** IP地址 */
-      ip: string;
+      ip: string
 
       /** 消息描述 */
-      message: string;
+      message: string
 
       /** 操作内容 */
-      operatorContent: string;
+      operatorContent: string
 
       /** 日志类型 */
-      type: number;
+      type: number
 
       /** 操作人 */
-      userId: string;
+      userId: string
     }
 
     export class CreateUserRequest {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 头像 */
-      avatar: string;
+      avatar: string
 
       /** 业务端配置;结构前端定义 */
-      configuration: any;
+      configuration: defs.common.LoginConfiguration
 
       /** 部门id */
-      deptId: number;
+      deptId: number
 
       /** 部门管理者 */
-      deptLeader: boolean;
+      deptLeader: boolean
 
       /** 简介 */
-      desc?: string;
+      desc?: string
 
       /** 昵称 */
-      displayName?: string;
+      displayName?: string
 
       /** 邮箱 */
-      email?: string;
+      email?: string
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 是否可用 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 是否为超级管理员 */
-      isSuper: boolean;
+      isSuper: boolean
 
       /** 手机号 */
-      mobile: string;
+      mobile: string
 
       /** openid */
-      openid?: string;
+      openid?: string
 
       /** 角色id */
-      roleId: number;
+      roleId: number
 
       /** 性别 */
-      sex?: number;
+      sex?: number
 
       /** 使用周期 */
-      usageCycle: string;
+      usageCycle: string
 
       /** 用户名 */
-      username: string;
+      username: string
     }
 
     export class Department {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** id */
-      id: number;
+      id: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 部门名称 */
-      name: string;
+      name: string
 
       /** 部门排序 */
-      orderNo: number;
+      orderNo: number
 
       /** 父id */
-      parentId: number;
+      parentId: number
 
       /** 部门权限标识 */
-      permission: string;
+      permission: string
 
       /** 备注 */
-      remark: string;
+      remark: string
 
       /** 状态 */
-      status: number;
+      status: number
     }
 
     export class EditorRequest {
       /** zip */
-      zip: string;
+      zip: string
     }
 
     export class FileUploadBody {
       /** file */
-      file: string;
+      file: string
     }
 
     export class FilesUploadBody {
       /** files */
-      files: Array<string>;
+      files: Array<string>
     }
 
     export class ForgetPasswordRequest {
       /** 手机号 */
-      mobile: string;
+      mobile: string
 
       /** 新密码 */
-      newPassword: string;
+      newPassword: string
 
       /** 验证码 */
-      smsCode: string;
+      smsCode: string
     }
 
     export class GetPhoneNumber {
       /** 小程序code */
-      code: string;
+      code: string
     }
 
     export class LoginConfiguration {
       /** 背景图片 */
-      bg: string;
+      bg: string
 
       /** logo */
-      logo: string;
+      logo: string
 
       /** 网站应用标题 */
-      title: string;
+      title: string
     }
 
     export class LoginMobileRequest {
       /** 手机号 */
-      mobile: string;
+      mobile: string
 
       /** 验证码 */
-      smsCode: string;
+      smsCode: string
     }
 
     export class LoginPasswordRequest {
       /** 账号 */
-      account: string;
+      account: string
 
       /** 身份 传1或者2,   1是运维  2是业务 */
-      identity: '1' | '2' | 1 | 2;
+      identity: "1" | "2" | 1 | 2
 
       /** 密码 */
-      password: string;
+      password: string
     }
 
     export class LoginSuccessResponse {
       /** token */
-      token: string;
+      token: string
     }
 
     export class Logs {
       /** id */
-      id: number;
+      id: number
 
       /** IP地址 */
-      ip: string;
+      ip: string
 
       /** 消息描述 */
-      message: string;
+      message: string
 
       /** 操作内容 */
-      operatorContent: string;
+      operatorContent: string
 
       /** 日志类型 */
-      type: number;
+      type: number
 
       /** 操作人 */
-      userId: string;
+      userId: string
     }
 
     export class Menu {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 页面组件 */
-      component: string;
+      component: string
 
       /** id */
-      id: number;
+      id: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 菜单名称 */
-      menuName: string;
+      menuName: string
 
       /** 菜单 meta */
-      meta: any;
+      meta: defs.common.RouteMeta
 
       /** 路由名称 */
-      name: string;
+      name: string
 
       /** 父级ID */
-      parentId: number;
+      parentId: number
 
       /** 路由地址 */
-      path: string;
+      path: string
 
       /** 权限标识 */
-      permission: string;
+      permission: string
 
       /** 重定向path */
-      redirect: string;
+      redirect: string
 
       /** sort */
-      sort: number;
+      sort: number
 
       /** status */
-      status: number;
+      status: number
 
       /** 菜单类型 */
-      type: number;
+      type: number
     }
 
     export class MenuCreateBody {
       /** 组件地址 */
-      component: string;
+      component: string
 
       /** 菜单名称 */
-      menuName: string;
+      menuName: string
 
       /** meta 数据 */
-      meta: any;
+      meta: defs.common.Meta
 
       /** 路由名称 */
-      name: string;
+      name: string
 
       /** 上级菜单 */
-      parentId: string;
+      parentId: string
 
       /** 路由地址 */
-      path: string;
+      path: string
 
       /** 权限标识 */
-      permission: string;
+      permission: string
 
       /** 重定向path */
-      redirect: string;
+      redirect: string
 
       /** 排序 */
-      sort: string;
+      sort: string
 
       /** 状态 1启用 0禁用 */
-      status: number;
+      status: number
 
       /** 菜单类型 */
-      type: number;
+      type: number
     }
 
     export class MenuUpdateBody {
       /** id */
-      id: string;
+      id: string
     }
 
     export class MerchantSetting {
       /** 活动名称 */
-      actName: string;
+      actName: string
 
       /** apikey */
-      apiKey: string;
+      apiKey: string
 
       /** 私钥key */
-      key: string;
+      key: string
 
       /** 商户id */
-      matchId: string;
+      matchId: string
 
       /** 证书pem */
-      pem: string;
+      pem: string
 
       /** 备注 */
-      remark: string;
+      remark: string
 
       /** 发放者名称 */
-      sendName: string;
+      sendName: string
 
       /** 祝福语 */
-      wishing: string;
+      wishing: string
     }
 
     export class Meta {
       /** icon */
-      icon: string;
+      icon: string
 
       /** 是否是外链 1是 0否 */
-      isExt: string;
+      isExt: string
 
       /** 标题 */
-      title: string;
+      title: string
     }
 
     export class RegisterMobileRequest {
       /** 手机号 */
-      mobile: string;
+      mobile: string
 
       /** 验证码 */
-      smsCode: string;
+      smsCode: string
     }
 
     export class Role {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** id */
-      id: number;
+      id: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 简介 */
-      introduction?: string;
+      introduction?: string
 
       /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-      isDefault?: boolean;
+      isDefault?: boolean
 
       /** 是否开启 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 关联菜单 */
-      menus: any;
+      menus: defs.common.Menu
 
       /** 角色名称 */
-      name: string;
+      name: string
     }
 
     export class RoleCreateBody {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 简介 */
-      introduction?: string;
+      introduction?: string
 
       /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-      isDefault?: boolean;
+      isDefault?: boolean
 
       /** 是否开启 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 菜单id */
-      menu: Array<string>;
+      menu: Array<string>
 
       /** 角色名称 */
-      name: string;
+      name: string
     }
 
     export class RoleUpdateBody {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** id */
-      id: number;
+      id: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 简介 */
-      introduction?: string;
+      introduction?: string
 
       /** 针对后期提供注册用 是否是默认角色, 只能存在一个 */
-      isDefault?: boolean;
+      isDefault?: boolean
 
       /** 是否开启 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 菜单id */
-      menu: Array<string>;
+      menu: Array<string>
 
       /** 角色名称 */
-      name: string;
+      name: string
     }
 
     export class RouteMeta {
       /** 高亮指定菜单 */
-      activeMenu: string;
+      activeMenu: string
 
       /** badge小标签(只支持子级) */
-      badge: string;
+      badge: string
 
       /** 是否隐藏面包屑 */
-      breadcrumbHidden: boolean;
+      breadcrumbHidden: boolean
 
       /** 是否显示小圆点 */
-      dot: boolean;
+      dot: boolean
 
       /** 动态传参路由是否新开标签页 */
-      dynamicNewTab: boolean;
+      dynamicNewTab: boolean
 
       /** 权限 */
-      guard: object;
+      guard: Record<string, any>
 
       /** 是否显示在菜单中显示隐藏路由 */
-      hidden: boolean;
+      hidden: boolean
 
       /** 图标 */
-      icon: string;
+      icon: string
 
       /** 是否是自定义svg图标 */
-      isCustomSvg: boolean;
+      isCustomSvg: boolean
 
       /** 是否显示在菜单中显示隐藏一级路由 */
-      levelHidden: boolean;
+      levelHidden: boolean
 
       /** 当前路由是否可关闭多标签页 */
-      noClosable: boolean;
+      noClosable: boolean
 
       /** 是否隐藏侧边栏 */
-      noColumn: boolean;
+      noColumn: boolean
 
       /** 当前路由是否不缓存 */
-      noKeepAlive: boolean;
+      noKeepAlive: boolean
 
       /** 当前路由是否不显示多标签页 */
-      tabHidden: boolean;
+      tabHidden: boolean
 
       /** 在新窗口中打开 */
-      target: object;
+      target: Record<string, any>
 
       /** 菜单、面包屑、多标签页显示的名称 */
-      title: string;
+      title: string
     }
 
     export class SmsRes {}
@@ -575,155 +575,155 @@ declare namespace defs {
 
     export class UpdateDepartmentRequest {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 身份 */
-      identity?: string;
+      identity?: string
 
       /** 部门名称 */
-      name?: string;
+      name?: string
 
       /** 部门排序 */
-      orderNo?: number;
+      orderNo?: number
 
       /** 父id */
-      parentId?: number;
+      parentId?: number
 
       /** 部门权限标识 */
-      permission?: string;
+      permission?: string
 
       /** 备注 */
-      remark?: string;
+      remark?: string
 
       /** 状态 */
-      status?: number;
+      status?: number
     }
 
     export class UpdateRequest {
       /** 所属平台 */
-      platform: string;
+      platform: string
 
       /** zip */
-      zip: string;
+      zip: string
     }
 
     export class UpdateUserPasswordRequest {
       /** newPwd */
-      newPwd: string;
+      newPwd: string
 
       /** oldPwd */
-      oldPwd: string;
+      oldPwd: string
     }
 
     export class UpdateUserRequest {
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 头像 */
-      avatar?: string;
+      avatar?: string
 
       /** 业务端配置;结构前端定义 */
-      configuration?: any;
+      configuration?: defs.common.LoginConfiguration
 
       /** 部门id */
-      deptId?: number;
+      deptId?: number
 
       /** 部门管理者 */
-      deptLeader?: boolean;
+      deptLeader?: boolean
 
       /** 简介 */
-      desc?: string;
+      desc?: string
 
       /** 昵称 */
-      displayName?: string;
+      displayName?: string
 
       /** 邮箱 */
-      email?: string;
+      email?: string
 
       /** 身份 */
-      identity?: string;
+      identity?: string
 
       /** 是否可用 */
-      isEnabled?: boolean;
+      isEnabled?: boolean
 
       /** 是否为超级管理员 */
-      isSuper?: boolean;
+      isSuper?: boolean
 
       /** 手机号 */
-      mobile?: string;
+      mobile?: string
 
       /** openid */
-      openid?: string;
+      openid?: string
 
       /** 角色id */
-      roleId?: number;
+      roleId?: number
 
       /** 性别 */
-      sex?: number;
+      sex?: number
 
       /** 使用周期 */
-      usageCycle?: string;
+      usageCycle?: string
 
       /** 用户名 */
-      username?: string;
+      username?: string
     }
 
     export class User {
       /** 运维端账号信息 */
-      agent: any;
+      agent: defs.common.AgentAccount
 
       /** 账号ID;前端不传 */
-      agentId?: number;
+      agentId?: number
 
       /** 头像 */
-      avatar: string;
+      avatar: string
 
       /** 部门id */
-      deptId: number;
+      deptId: number
 
       /** 部门管理者 */
-      deptLeader: boolean;
+      deptLeader: boolean
 
       /** 简介 */
-      desc?: string;
+      desc?: string
 
       /** 昵称 */
-      displayName?: string;
+      displayName?: string
 
       /** 邮箱 */
-      email?: string;
+      email?: string
 
       /** id */
-      id: number;
+      id: number
 
       /** 身份 */
-      identity: string;
+      identity: string
 
       /** 是否可用 */
-      isEnabled: boolean;
+      isEnabled: boolean
 
       /** 是否为超级管理员 */
-      isSuper: boolean;
+      isSuper: boolean
 
       /** 手机号 */
-      mobile: string;
+      mobile: string
 
       /** openid */
-      openid?: string;
+      openid?: string
 
       /** 角色id */
-      roleId: number;
+      roleId: number
 
       /** 性别 */
-      sex?: number;
+      sex?: number
 
       /** 用户名 */
-      username: string;
+      username: string
     }
 
     export class UserActUpdateBody {
       /** 活动id */
-      actIds: Array<number>;
+      actIds: Array<number>
     }
   }
 }

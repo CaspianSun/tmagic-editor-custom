@@ -1,0 +1,54 @@
+.m-editor-page-bar-tabs {
+  .tmagic-design-button.m-editor-page-bar-switch-type-button {
+    padding: 0 15px;
+    height: 30px;
+    border: 0;
+    font-size: 11px;
+    color: #888888;
+    &.active {
+      color: #000;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-image: linear-gradient(to right, #fff, #fff), linear-gradient(344deg, #4bdcc188, #666ac0dd);
+      font-size: 13px;
+    }
+  }
+  .m-editor-page-bar {
+    margin-top: 1px;
+    background-color: transparent;
+    #m-editor-page-bar-add-icon {
+      margin-left: 4px;
+    }
+    .m-editor-page-bar-item-icon {
+      background-color: transparent;
+    }
+    .m-editor-page-bar-items {
+      .m-editor-page-bar-item {
+        position: relative;
+        background-color: transparent;
+        background-clip: padding-box;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 4px;
+          width: 0%;
+          border-radius: inherit; /*important*/
+          background: linear-gradient(344deg, #4bdcc188, #666ac0dd);
+        }
+        &.active {
+          &::before {
+            width: 100%;
+          }
+        }
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: width 0.3s;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,11 @@
 .m-editor-sidebar {
   .m-editor-sidebar-header {
     width: 80px;
+    background: -webkit-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+    background: -moz-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+    background: -ms-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+    background: -o-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+    background: linear-gradient(344deg, #4bdcc188, #666ac0dd);
     .m-editor-sidebar-header-item {
       display: flex;
       flex-direction: column;
@@ -13,6 +18,19 @@
   }
   .m-editor-sidebar-content {
     width: calc(100% - 80px);
+    .tmagic-design-collapse-item {
+      margin-right: 5px;
+      .component-item {
+        i:hover {
+          background: -webkit-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+          background: -moz-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+          background: -ms-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+          background: -o-linear-gradient(344deg, #4bdcc188, #666ac0dd);
+          background: linear-gradient(344deg, #4bdcc188, #666ac0dd);
+          border-color: #d9dbdd;
+        }
+      }
+    }
     .tmagic-design-collapse .el-collapse-item__wrap .component-item {
       width: 50px;
       align-items: center;

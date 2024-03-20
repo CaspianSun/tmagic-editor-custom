@@ -1,26 +1,26 @@
-import { Interface, BaseClass, Property, CodeGenerator } from 'pont-engine'
+import { BaseClass, CodeGenerator, FileStructures as OriginFileStructures } from "pont-engine"
 
 export default class MyGenerator extends CodeGenerator {
-  getInterfaceContentInDeclaration(inter: Interface) {
-    return ``
+  getBaseClassInDeclaration(base: BaseClass) {
+    const data = super.getBaseClassInDeclaration(base)
+    return data.replace(/object/g, "Record<string, any>")
+  }
+}
+
+export class FileStructures extends OriginFileStructures {
+  getMultipleOriginsFileStructures() {
+    for (const generate of this.generators) {
+      generate.dataSource.mods = []
+    }
+    return super.getMultipleOriginsFileStructures()
   }
 
-  getBaseClassInDeclaration(base: BaseClass) {
-    const originProps = base.properties
-
-    base.properties = base.properties.map((prop) => {
-      return new Property({
-        ...prop,
-      })
-    })
-
-    const result = super.getBaseClassInDeclaration(base)
-    base.properties = originProps
+  getFileStructures() {
+    const result =
+      this.usingMultipleOrigins || this.generators.length > 1
+        ? this.getMultipleOriginsFileStructures()
+        : this.getOriginFileStructures(this.generators[0])
 
     return result
-  }
-
-  getCommonDeclaration() {
-    return ``
   }
 }

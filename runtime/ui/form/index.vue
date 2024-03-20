@@ -2,8 +2,15 @@
   <div class="w-full flex flex-col items-center">
     <div>表单</div>
     <Form @submit="submit" class="w-full">
-      <FieldToDom :fields="fields" :form="form"></FieldToDom>
-      <Button type="primary" round block @click="submit">提交</Button>
+      <template v-if="loading">
+        <div class="h-300px flex-center">
+          <Loading />
+        </div>
+      </template>
+      <template v-else>
+        <FieldToDom :fields="fields" :form="form"></FieldToDom>
+        <Button type="primary" round block @click="submit">提交</Button>
+      </template>
     </Form>
   </div>
 </template>
@@ -12,9 +19,11 @@ import { getFormFieldsApi, saveFormApi, getFormSubmitApi } from "@/api"
 import type { MComponent } from "@tmagic/schema"
 import useApp from "@ui/utils/useApp"
 import { onMounted, ref } from "vue"
-import { Form, Button } from "vant"
+import { Form, Button, Loading } from "vant"
 import { FieldToDom, FieldType } from "./components/fieldToDom"
 import { useDataStore } from "@store/modules/data"
+
+const loading = ref(false)
 
 const dataStore = useDataStore()
 const props = withDefaults(
@@ -27,6 +36,7 @@ const fields = ref<defs.h5.Field[]>([])
 const form = ref<Record<string, any>>({})
 const targetKey = ref("openid")
 const loadFieldList = async () => {
+  loading.value = true
   if (!dataStore.baseFormCode) return
   const { result } = await getFormFieldsApi(dataStore.baseFormCode)
   fields.value = result.fieldData
@@ -49,6 +59,9 @@ const loadFieldList = async () => {
       form.value = JSON.parse(local)
     }
   }
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
 }
 
 const submit = async () => {
