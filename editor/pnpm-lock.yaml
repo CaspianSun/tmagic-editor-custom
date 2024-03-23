@@ -15,14 +15,14 @@ dependencies:
     specifier: ^1.6.7
     version: 1.6.7
   element-plus:
-    specifier: ^2.4.3
-    version: 2.4.3(vue@3.4.21)
+    specifier: ^2.6.1
+    version: 2.6.2(vue@3.4.21)
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
   monaco-editor:
-    specifier: 0.41.0
-    version: 0.41.0
+    specifier: 0.47.0
+    version: 0.47.0
   naive-ui:
     specifier: ^2.38.1
     version: 2.38.1(vue@3.4.21)
@@ -44,29 +44,29 @@ devDependencies:
     specifier: ^1.7.2
     version: 1.7.2
   '@tmagic/core':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)
   '@tmagic/design':
-    specifier: ^1.3.15
-    version: 1.3.15(vue@3.4.21)
+    specifier: ^1.4.0
+    version: 1.4.1(vue@3.4.21)
   '@tmagic/editor':
-    specifier: ^1.3.15
-    version: 1.3.15(@tmagic/design@1.3.15)(@tmagic/form@1.3.15)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.21)
+    specifier: ^1.4.0
+    version: 1.4.1(@tmagic/design@1.4.1)(@tmagic/form@1.4.1)(dayjs@1.11.10)(monaco-editor@0.47.0)(scenejs@1.10.3)(vue@3.4.21)
   '@tmagic/element-plus-adapter':
-    specifier: ^1.3.15
-    version: 1.3.15(@tmagic/design@1.3.15)(element-plus@2.4.3)(vue@3.4.21)
+    specifier: ^1.4.0
+    version: 1.4.1(@tmagic/design@1.4.1)(element-plus@2.6.2)(vue@3.4.21)
   '@tmagic/form':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)(vue@3.4.21)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)(vue@3.4.21)
   '@tmagic/schema':
-    specifier: ^1.3.15
-    version: 1.3.15
+    specifier: ^1.4.0
+    version: 1.4.1
   '@tmagic/stage':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)(scenejs@1.10.3)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)(scenejs@1.10.3)
   '@tmagic/utils':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)
   '@tsconfig/node18':
     specifier: ^18.2.2
     version: 18.2.2
@@ -245,29 +245,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/core@7.23.7:
-    resolution: {integrity: sha512-+UpDgowcmqe36d4NwqvKsyPMlOLNGMsfMmQ5WGCu+siCe3t3dfe9njrzGfdN4qq+bcNUt0+Vw6haRxBOycs4dw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@ampproject/remapping': 2.2.1
-      '@babel/code-frame': 7.23.5
-      '@babel/generator': 7.23.6
-      '@babel/helper-compilation-targets': 7.23.6
-      '@babel/helper-module-transforms': 7.23.3(@babel/core@7.23.7)
-      '@babel/helpers': 7.23.8
-      '@babel/parser': 7.23.6
-      '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.7
-      '@babel/types': 7.23.6
-      convert-source-map: 2.0.0
-      debug: 4.3.4
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/core@7.24.0:
     resolution: {integrity: sha512-fQfkg0Gjkza3nf0c7/w6Xf34BW4YvzNfACRLmmb7XRLa6XHdR+K9AlJlxneFfWYf6uhOzuzZVTjF/8KfndZANw==}
     engines: {node: '>=6.9.0'}
@@ -424,20 +401,6 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
     dev: true
 
-  /@babel/helper-module-transforms@7.23.3(@babel/core@7.23.7):
-    resolution: {integrity: sha512-7bBs4ED9OmswdfDzpz4MpWgSrV7FXlc3zIagvLFjS5H+Mk7Snr21vQ6QwrsoCGMfNC4e4LQPdoULEt4ykz0SRQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    dependencies:
-      '@babel/core': 7.23.7
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-module-imports': 7.22.15
-      '@babel/helper-simple-access': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/helper-validator-identifier': 7.22.20
-    dev: true
-
   /@babel/helper-module-transforms@7.23.3(@babel/core@7.24.0):
     resolution: {integrity: sha512-7bBs4ED9OmswdfDzpz4MpWgSrV7FXlc3zIagvLFjS5H+Mk7Snr21vQ6QwrsoCGMfNC4e4LQPdoULEt4ykz0SRQ==}
     engines: {node: '>=6.9.0'}
@@ -538,17 +501,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/helpers@7.23.8:
-    resolution: {integrity: sha512-KDqYz4PiOWvDFrdHLPhKtCThtIcKVy6avWD2oG4GEvyQ+XDZwHD4YQd+H2vNMnq2rkdxsDkU82T+Vk8U/WXHRQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.7
-      '@babel/types': 7.23.6
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/helpers@7.24.0:
     resolution: {integrity: sha512-ulDZdc0Aj5uLc5nETsa7EPx2L7rM0YJM8r7ck7U73AXi7qOV44IHHRAYZHY6iU1rr3C5N4NtTmMRUJP6kwCWeA==}
     engines: {node: '>=6.9.0'}
@@ -575,14 +527,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.4
-    dev: true
-
-  /@babel/parser@7.23.6:
-    resolution: {integrity: sha512-Z2uID7YJ7oNvAI20O9X0bblw7Qqs8Q2hFy0R9tAfnfLkp5MW0UH9eUvnDSnFwKZ0AvgS1ucqR4KzvVHgnke1VQ==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.23.6
     dev: true
 
   /@babel/parser@7.24.0:
@@ -721,24 +665,6 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.4
       '@babel/types': 7.23.4
-      debug: 4.3.4
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@babel/traverse@7.23.7:
-    resolution: {integrity: sha512-tY3mM8rH9jM0YHFGyfC0/xf+SB5eKUu7HPj7/k3fpi9dAlsMc5YbQvDi0Sh2QTPXqMhyaAtzAr807TIyfQrmyg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.23.5
-      '@babel/generator': 7.23.6
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-function-name': 7.23.0
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.6
-      '@babel/types': 7.23.6
       debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
@@ -1441,77 +1367,77 @@ packages:
   /@sxzz/popperjs-es@2.11.7:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
 
-  /@tmagic/core@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-CjnSO9iXa+O5ZjnsYdRY5Op9T64lBSvYfIr3EwfhJWfyD9u6SF/6BWgoLgY+xQw44AE5UvmC3WBkUcWVjE92UQ==}
+  /@tmagic/core@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-2fuU+Vz6Pc4awNTrrnxGT3+M7DpNoz+TDFwTy2rNgHvlG/OQcWD7+Kj34Nv3WzyGMbSMXK/fS0C7FN2akZ5DfQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/data-source': 1.3.15(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/data-source': 1.4.1(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/data-source@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-VZPk5X20sVSaVy/6opJrmjfhNDXV6j5YV4b0g2y5PrhM5eU9+gCaqaHUVjftwcgo1QG6Kdd+x+IfbEY9fcgy9g==}
+  /@tmagic/data-source@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-brSTbV+kmhwOd6jV+AYVe52NPXQWPYL6JI3vU51gxxUe4Y4F/VV85wHZ5/lUrdmjQ91iDECPYAiJ6FUQI4FrWQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/dep@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-hEBiryvLIkkWuSfUeVvBAVJ7QX/sD33M4GW5vO1hfhwXShu/AYihEJ6LwK7X1gwTHJqGUQ8YeeEZGaujcMzH3Q==}
+  /@tmagic/dep@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-H17njzob3Mh1mIuLuofLV0nR2arfmvTmzns7h0y1vqbGguO1JWgSLu3v0NM6XZYWsQ6YYs2b8DtkD9/5ZLDNSw==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/design@1.3.15(vue@3.4.21):
-    resolution: {integrity: sha512-JgsHvQuTC/QZ6Cxlh6IeBd6XLz3ToGm2ow2KIs7ljTi3CLpIsdWnpB6yyotIq3rXTUR1w04qUOgAtzRDkvA8rQ==}
+  /@tmagic/design@1.4.1(vue@3.4.21):
+    resolution: {integrity: sha512-/evIl/fXo7Ipn52hkfFIsb13pUlAWiuFlkTDp4MjsPqsY1IL1t3zbXtp7gupT7oj78dhy/WMYOPxEuy94dr16g==}
     engines: {node: '>=18'}
     peerDependencies:
-      vue: ^3.3.8
+      vue: ^3.4.21
     dependencies:
       vue: 3.4.21(typescript@5.3.3)
     dev: true
 
-  /@tmagic/editor@1.3.15(@tmagic/design@1.3.15)(@tmagic/form@1.3.15)(dayjs@1.11.10)(monaco-editor@0.41.0)(scenejs@1.10.3)(vue@3.4.21):
-    resolution: {integrity: sha512-a9YsHhSfWOK+EmDiOLYl9ZFZTLXdw3KxUX7pf1HmpBM5YqQcWN4i344BUsJM8fPh62zJau92WzTDk/TIfr6zHQ==}
+  /@tmagic/editor@1.4.1(@tmagic/design@1.4.1)(@tmagic/form@1.4.1)(dayjs@1.11.10)(monaco-editor@0.47.0)(scenejs@1.10.3)(vue@3.4.21):
+    resolution: {integrity: sha512-Ld3ysNG3fztNEa1OtqFdDMjst7IbD5P+XG+yq/veIxeYGi7TWvHySEGg4O/VQtQ5P0+LXspnR7ZtGGTvs1XoGQ==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/design': 1.3.15
-      '@tmagic/form': 1.3.15
-      monaco-editor: ^0.41.0
-      vue: ^3.3.8
+      '@tmagic/design': 1.4.1
+      '@tmagic/form': 1.4.1
+      monaco-editor: ^0.47.0
+      vue: ^3.4.21
     dependencies:
-      '@babel/core': 7.23.7
+      '@babel/core': 7.24.0
       '@element-plus/icons-vue': 2.3.1(vue@3.4.21)
-      '@tmagic/core': 1.3.15(dayjs@1.11.10)
-      '@tmagic/dep': 1.3.15(dayjs@1.11.10)
-      '@tmagic/design': 1.3.15(vue@3.4.21)
-      '@tmagic/form': 1.3.15(dayjs@1.11.10)(vue@3.4.21)
-      '@tmagic/schema': 1.3.15
-      '@tmagic/stage': 1.3.15(dayjs@1.11.10)(scenejs@1.10.3)
-      '@tmagic/table': 1.3.15(@tmagic/form@1.3.15)(dayjs@1.11.10)(vue@3.4.21)
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/core': 1.4.1(dayjs@1.11.10)
+      '@tmagic/dep': 1.4.1(dayjs@1.11.10)
+      '@tmagic/design': 1.4.1(vue@3.4.21)
+      '@tmagic/form': 1.4.1(dayjs@1.11.10)(vue@3.4.21)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/stage': 1.4.1(dayjs@1.11.10)(scenejs@1.10.3)
+      '@tmagic/table': 1.4.1(@tmagic/form@1.4.1)(dayjs@1.11.10)(vue@3.4.21)
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       buffer: 6.0.3
       color: 3.2.1
-      emmet-monaco-es: 5.3.0(monaco-editor@0.41.0)
+      emmet-monaco-es: 5.3.0(monaco-editor@0.47.0)
       events: 3.3.0
       gesto: 1.19.4
       keycon: 1.4.0
       lodash-es: 4.17.21
-      monaco-editor: 0.41.0
+      monaco-editor: 0.47.0
       moveable: 0.51.2
       serialize-javascript: 6.0.2
       vue: 3.4.21(typescript@5.3.3)
@@ -1521,28 +1447,28 @@ packages:
       - supports-color
     dev: true
 
-  /@tmagic/element-plus-adapter@1.3.15(@tmagic/design@1.3.15)(element-plus@2.4.3)(vue@3.4.21):
-    resolution: {integrity: sha512-IFi0pEQrsyPzeele8BJJt+/PMYNwsAOzbEAmmbLNTW4H8wyonUiDV4PxxncpzBJr4PXxeBXJULbmu48Y9upKSQ==}
+  /@tmagic/element-plus-adapter@1.4.1(@tmagic/design@1.4.1)(element-plus@2.6.2)(vue@3.4.21):
+    resolution: {integrity: sha512-VSdyGONBBZurCCE5fywGYqS6W6dX5H4Z9gbKcJZR0YsgTq8J50tyRpHmL7PuztNVjG0TPFJQOpKviXvM6b2k/A==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/design': 1.3.15
-      element-plus: ^2.4.3
-      vue: ^3.3.8
+      '@tmagic/design': 1.4.1
+      element-plus: ^2.6.1
+      vue: ^3.4.21
     dependencies:
-      '@tmagic/design': 1.3.15(vue@3.4.21)
-      element-plus: 2.4.3(vue@3.4.21)
+      '@tmagic/design': 1.4.1(vue@3.4.21)
+      element-plus: 2.6.2(vue@3.4.21)
       vue: 3.4.21(typescript@5.3.3)
     dev: true
 
-  /@tmagic/form@1.3.15(dayjs@1.11.10)(vue@3.4.21):
-    resolution: {integrity: sha512-/6NHXC33Nmw3nxGesYMCiE7qFB188INoPLxlzjG1jISwHltQck9iRG1QNEZRNBFogSNQpblSFFSNGZ+73PQoQw==}
+  /@tmagic/form@1.4.1(dayjs@1.11.10)(vue@3.4.21):
+    resolution: {integrity: sha512-toqE5kYMKMsexddZskal7WlmyqZ6mLB52E4PkeA+eGgWkAEELIyVh/ZHFWnjiwInmSlpXBZwWtE8eX7NcgdpVg==}
     engines: {node: '>=18'}
     peerDependencies:
-      vue: ^3.3.8
+      vue: ^3.4.21
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.4.21)
-      '@tmagic/design': 1.3.15(vue@3.4.21)
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/design': 1.4.1(vue@3.4.21)
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       lodash-es: 4.17.21
       sortablejs: 1.15.2
       vue: 3.4.21(typescript@5.3.3)
@@ -1550,19 +1476,19 @@ packages:
       - dayjs
     dev: true
 
-  /@tmagic/schema@1.3.15:
-    resolution: {integrity: sha512-c5OdCcOEE0LJH+6MmdBBAlw7pWTrEquyzPHFuvgxQV9NQtdaQuO6XxPS1OcIh7Jp6qn12QLgNKFp9i1SBuLGiw==}
+  /@tmagic/schema@1.4.1:
+    resolution: {integrity: sha512-UyDfPIp+g8IwH9su+b3A+OX0W4eiPkvlQB57U2MLb1roBJCY4EJWTpoDprmUygAwB9OoyMIS8kRTnkV2E8xf8g==}
     engines: {node: '>=18'}
     dev: true
 
-  /@tmagic/stage@1.3.15(dayjs@1.11.10)(scenejs@1.10.3):
-    resolution: {integrity: sha512-Va0tSaCPFZm/UJ/q1JlDA0BPzrxiV/M9JHGN00DQ6L7byOKsqPn/+W26e+K39NLIsB8n70IlxzqmpXIb0CoQeA==}
+  /@tmagic/stage@1.4.1(dayjs@1.11.10)(scenejs@1.10.3):
+    resolution: {integrity: sha512-SCxoir/ahAGKRK2tUQzOqJLeP3bV8ot6/mBpCqKhlNRK1kFQ6GHXDs0omhAFgOWkfLFrx5MrWFrZDX0rqc0m+A==}
     engines: {node: '>=18'}
     dependencies:
       '@scena/guides': 0.29.2
-      '@tmagic/core': 1.3.15(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/core': 1.4.1(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       keycon: 1.4.0
       lodash-es: 4.17.21
@@ -1573,29 +1499,29 @@ packages:
       - scenejs
     dev: true
 
-  /@tmagic/table@1.3.15(@tmagic/form@1.3.15)(dayjs@1.11.10)(vue@3.4.21):
-    resolution: {integrity: sha512-dWA1nGy9p3F+kz1ld8nZDNYIpQ8h9t60Hg9B9qJeUNostUIPZjlAI3F/UFUDTFLd2iDls4Q3klfe4Zcx4J9uzA==}
+  /@tmagic/table@1.4.1(@tmagic/form@1.4.1)(dayjs@1.11.10)(vue@3.4.21):
+    resolution: {integrity: sha512-sGh8BAxH2KY+uvI9QYSF4IHsf7oLS/6y4e/uQM0Y7MpVc8r5indv+h7mQTHB188e0DB5vTI7a2qmHib4YmZipg==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@tmagic/form': 1.3.15
-      vue: ^3.3.8
+      '@tmagic/form': 1.4.1
+      vue: ^3.4.21
     dependencies:
-      '@tmagic/design': 1.3.15(vue@3.4.21)
-      '@tmagic/form': 1.3.15(dayjs@1.11.10)(vue@3.4.21)
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/design': 1.4.1(vue@3.4.21)
+      '@tmagic/form': 1.4.1(dayjs@1.11.10)(vue@3.4.21)
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       lodash-es: 4.17.21
       vue: 3.4.21(typescript@5.3.3)
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/utils@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-k9TtqpwCc8qotA42h9EsnT0yHE4P3IJEA07SgSQK6P6khHGFFAwlS8vF4rXGlUx5eCFrjEyjgJZ38XhEvcRQrg==}
+  /@tmagic/utils@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-0GcO2IKP2DX+gE68Yy+h++DRyz71gzRIJy0hFwk6klLcFjTAkCVxytkzbdjo6c9voca2sh06kbSqeljE9rAsBA==}
     engines: {node: '>=18'}
     peerDependencies:
       dayjs: ^1.11.4
     dependencies:
-      '@tmagic/schema': 1.3.15
+      '@tmagic/schema': 1.4.1
       dayjs: 1.11.10
       lodash-es: 4.17.21
     dev: true
@@ -3084,8 +3010,8 @@ packages:
     resolution: {integrity: sha512-7BvxzXrHFliyQ1oZc6NRMjyEaKOO1Ma1NY98sFZofogWlm+klLWSgrDw7EhatiMgi4R4NV+iWxDdxuIKXtPbOw==}
     dev: true
 
-  /element-plus@2.4.3(vue@3.4.21):
-    resolution: {integrity: sha512-b3q26j+lM4SBqiyzw8HybybGnP2pk4MWgrnzzzYW5qKQUgV6EG1Zg7nMCfgCVccI8tNvZoTiUHb2mFaiB9qT8w==}
+  /element-plus@2.6.2(vue@3.4.21):
+    resolution: {integrity: sha512-WFMv1v83l437Xu+GeeM+ytxd9VUQpR4418BowvTVIPYItsoj6yK0ITIuSv19iCesF405FbAOaCIHXhJch0ilFA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -3108,13 +3034,13 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  /emmet-monaco-es@5.3.0(monaco-editor@0.41.0):
+  /emmet-monaco-es@5.3.0(monaco-editor@0.47.0):
     resolution: {integrity: sha512-+Somf9sB9Smzfl2FV9E19/DA5osHq488dv8KaGavozkv2fo69Y2rY0EoL4vWQk5FpMBc0YfdtiRsuw48Sdxs5g==}
     peerDependencies:
       monaco-editor: '>=0.22.0'
     dependencies:
       emmet: 2.4.6
-      monaco-editor: 0.41.0
+      monaco-editor: 0.47.0
     dev: true
 
   /emmet@2.4.6:
@@ -4402,8 +4328,8 @@ packages:
       ufo: 1.3.2
     dev: true
 
-  /monaco-editor@0.41.0:
-    resolution: {integrity: sha512-1o4olnZJsiLmv5pwLEAmzHTE/5geLKQ07BrGxlF4Ri/AXAc2yyDGZwHjiTqD8D/ROKUZmwMA28A+yEowLNOEcA==}
+  /monaco-editor@0.47.0:
+    resolution: {integrity: sha512-VabVvHvQ9QmMwXu4du008ZDuyLnHs9j7ThVFsiJoXSOQk18+LF89N4ADzPbFenm0W4V2bGHnFBztIRQTgBfxzw==}
 
   /moveable-helper@0.4.0(scenejs@1.10.3):
     resolution: {integrity: sha512-t1FK9PO187Gn0N6GVZcrQgePjiHmuj8eUhmJjH38LvTMnVVxiHzWYRx6ARFZvSFIIW4yb6BEAv4C99Bsx84nFw==}

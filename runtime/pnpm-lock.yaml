@@ -41,23 +41,23 @@ devDependencies:
     specifier: ^1.7.2
     version: 1.7.2
   '@tmagic/cli':
-    specifier: ^1.3.15
-    version: 1.3.15
+    specifier: ^1.4.0
+    version: 1.4.1
   '@tmagic/core':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)
   '@tmagic/data-source':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)
   '@tmagic/schema':
-    specifier: ^1.3.15
-    version: 1.3.15
+    specifier: ^1.4.0
+    version: 1.4.1
   '@tmagic/stage':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)(scenejs@1.10.3)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)(scenejs@1.10.3)
   '@tmagic/utils':
-    specifier: ^1.3.15
-    version: 1.3.15(dayjs@1.11.10)
+    specifier: ^1.4.0
+    version: 1.4.1(dayjs@1.11.10)
   '@tsconfig/node18':
     specifier: ^18.2.2
     version: 18.2.2
@@ -1325,8 +1325,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@tmagic/cli@1.3.15:
-    resolution: {integrity: sha512-4aQPHkMeiBCdioAucO3Z5YqJizRANN+BT+sYGJPUAAdL/43eXnqqXxqRJVrIbjVdYkYTnPJo3uHtGZWsI46yDQ==}
+  /@tmagic/cli@1.4.1:
+    resolution: {integrity: sha512-3s14fJ99i6eFbKAtNaQ42rAsWMbB2WuGoAoG8mG2Os9P6wpHfoXL9exi3r4ZH7dJLJ+8g/8/HrttjmwCxyhPYw==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
@@ -1339,44 +1339,44 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@tmagic/core@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-CjnSO9iXa+O5ZjnsYdRY5Op9T64lBSvYfIr3EwfhJWfyD9u6SF/6BWgoLgY+xQw44AE5UvmC3WBkUcWVjE92UQ==}
+  /@tmagic/core@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-2fuU+Vz6Pc4awNTrrnxGT3+M7DpNoz+TDFwTy2rNgHvlG/OQcWD7+Kj34Nv3WzyGMbSMXK/fS0C7FN2akZ5DfQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/data-source': 1.3.15(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/data-source': 1.4.1(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/data-source@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-VZPk5X20sVSaVy/6opJrmjfhNDXV6j5YV4b0g2y5PrhM5eU9+gCaqaHUVjftwcgo1QG6Kdd+x+IfbEY9fcgy9g==}
+  /@tmagic/data-source@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-brSTbV+kmhwOd6jV+AYVe52NPXQWPYL6JI3vU51gxxUe4Y4F/VV85wHZ5/lUrdmjQ91iDECPYAiJ6FUQI4FrWQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       lodash-es: 4.17.21
     transitivePeerDependencies:
       - dayjs
     dev: true
 
-  /@tmagic/schema@1.3.15:
-    resolution: {integrity: sha512-c5OdCcOEE0LJH+6MmdBBAlw7pWTrEquyzPHFuvgxQV9NQtdaQuO6XxPS1OcIh7Jp6qn12QLgNKFp9i1SBuLGiw==}
+  /@tmagic/schema@1.4.1:
+    resolution: {integrity: sha512-UyDfPIp+g8IwH9su+b3A+OX0W4eiPkvlQB57U2MLb1roBJCY4EJWTpoDprmUygAwB9OoyMIS8kRTnkV2E8xf8g==}
     engines: {node: '>=18'}
     dev: true
 
-  /@tmagic/stage@1.3.15(dayjs@1.11.10)(scenejs@1.10.3):
-    resolution: {integrity: sha512-Va0tSaCPFZm/UJ/q1JlDA0BPzrxiV/M9JHGN00DQ6L7byOKsqPn/+W26e+K39NLIsB8n70IlxzqmpXIb0CoQeA==}
+  /@tmagic/stage@1.4.1(dayjs@1.11.10)(scenejs@1.10.3):
+    resolution: {integrity: sha512-SCxoir/ahAGKRK2tUQzOqJLeP3bV8ot6/mBpCqKhlNRK1kFQ6GHXDs0omhAFgOWkfLFrx5MrWFrZDX0rqc0m+A==}
     engines: {node: '>=18'}
     dependencies:
       '@scena/guides': 0.29.2
-      '@tmagic/core': 1.3.15(dayjs@1.11.10)
-      '@tmagic/schema': 1.3.15
-      '@tmagic/utils': 1.3.15(dayjs@1.11.10)
+      '@tmagic/core': 1.4.1(dayjs@1.11.10)
+      '@tmagic/schema': 1.4.1
+      '@tmagic/utils': 1.4.1(dayjs@1.11.10)
       events: 3.3.0
       keycon: 1.4.0
       lodash-es: 4.17.21
@@ -1387,13 +1387,13 @@ packages:
       - scenejs
     dev: true
 
-  /@tmagic/utils@1.3.15(dayjs@1.11.10):
-    resolution: {integrity: sha512-k9TtqpwCc8qotA42h9EsnT0yHE4P3IJEA07SgSQK6P6khHGFFAwlS8vF4rXGlUx5eCFrjEyjgJZ38XhEvcRQrg==}
+  /@tmagic/utils@1.4.1(dayjs@1.11.10):
+    resolution: {integrity: sha512-0GcO2IKP2DX+gE68Yy+h++DRyz71gzRIJy0hFwk6klLcFjTAkCVxytkzbdjo6c9voca2sh06kbSqeljE9rAsBA==}
     engines: {node: '>=18'}
     peerDependencies:
       dayjs: ^1.11.4
     dependencies:
-      '@tmagic/schema': 1.3.15
+      '@tmagic/schema': 1.4.1
       dayjs: 1.11.10
       lodash-es: 4.17.21
     dev: true
